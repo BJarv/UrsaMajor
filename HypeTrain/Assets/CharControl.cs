@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharControl : MonoBehaviour {
 
-	public float maxSpeed = 10f;
+	public float maxSpeed = 2f;
 	
 	//Ground stuff
 	bool grounded = false;
@@ -18,7 +18,7 @@ public class CharControl : MonoBehaviour {
 
 	void Update () {
 		if(grounded && Input.GetKeyDown(KeyCode.Space)) {
-			Debug.Log ("space pressed");
+			//Debug.Log ("space pressed");
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 
 		}
