@@ -14,9 +14,9 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: 
   User Layer 9: 
-  User Layer 10: 
+  User Layer 10: Player
   User Layer 11: 
-  User Layer 12: 
+  User Layer 12: Train
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -40,4 +40,16 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Train
+    userID: 1
+    uniqueID: 3785575401
+    locked: 0
+  - name: Obstacles
+    userID: 3
+    uniqueID: 257457845
+    locked: 0
+  - name: Player
+    userID: 2
+    uniqueID: 3629822683
     locked: 0

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class charcontroller : MonoBehaviour {
 
-	public float maxSpeed = 10f;
+	/*public float maxSpeed = 10f;
 	//bool facingRight = true;
 	// Use this for initialization
 	//Animator anim;
@@ -25,7 +25,7 @@ public class charcontroller : MonoBehaviour {
 		//		Flip ();
 		//else if (move < 0 && facingRight)
 		//		Flip();
-	}
+	}*/
 
 	/*void Flip()
 	{
