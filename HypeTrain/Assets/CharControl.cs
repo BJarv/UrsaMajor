@@ -20,8 +20,10 @@ public class CharControl : MonoBehaviour {
 	void Update () {
 		if(grounded && Input.GetKey(KeyCode.Space) && !hasJumped) {
 			Debug.Log ("space pressed");
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
-			hasJumped = true;
+			if(Mathf.Abs (rigidbody2D.velocity.y) <= .5){
+				rigidbody2D.AddForce(new Vector2(0, jumpForce));
+				hasJumped = true;
+			}
 		}
 		if (!Input.GetKey(KeyCode.Space) && hasJumped) {
 			Debug.Log ("Reset jump");
