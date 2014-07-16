@@ -19,14 +19,14 @@ public class CharControl : MonoBehaviour {
 
 	void Update () {
 		if(grounded && Input.GetKey(KeyCode.Space) && !hasJumped) {
-			Debug.Log ("space pressed");
-			if(Mathf.Abs (rigidbody2D.velocity.y) <= .5){
+			//Debug.Log ("space pressed");
+			if(Mathf.Abs (rigidbody2D.velocity.y) <= .5){ //still doesnt fix getting jump boost from ledges
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 				hasJumped = true;
 			}
 		}
 		if (!Input.GetKey(KeyCode.Space) && hasJumped) {
-			Debug.Log ("Reset jump");
+			//Debug.Log ("Reset jump");
 			hasJumped= false;
 		}
 	}
