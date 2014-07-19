@@ -14,6 +14,15 @@ public class BasicEnemy : MonoBehaviour
 	public float EnemySpeed = 2f;
 	public GameObject Player = null;
 	private float AttackDist = 10f;
+
+	public int direction = 1;
+	public float StrollDist = 3f;
+
+	private Vector2 StrollStart = new Vector2(0, 0);
+
+	private bool strolling = false;
+
+
 	// Use this for initialization
 	void Start() 
 	{
@@ -49,11 +58,11 @@ public class BasicEnemy : MonoBehaviour
 	{
 		if (transform.position.x < Player.transform.position.x) 
 		{
-			transform.position += transform.right * EnemySpeed * Time.deltaTime;
+			rigidbody2D.velocity = new Vector2 (EnemySpeed, rigidbody2D.velocity.y); 
 		} 
 		else 
 		{
-			transform.position += transform.right*-1 * EnemySpeed * Time.deltaTime;
+			rigidbody2D.velocity = new Vector2 (EnemySpeed *-1, rigidbody2D.velocity.y); 
 		}
 
 		//transform.LookAt(Player.transform);
@@ -61,5 +70,20 @@ public class BasicEnemy : MonoBehaviour
 	}
 	void Idle()
 	{
+		if (!strolling)
+		{
+			StrollStart = transform.position;
+			strolling = true;
+		}
+
+		if (Vector2.Distance (transform.position, StrollStart) > StrollDist) 
+		{
+			direction *= -1;
+			strolling = false;
+		}
+
+		rigidbody2D.velocity = new Vector2 (EnemySpeed *direction, rigidbody2D.velocity.y); 
+
+
 	}
 }
