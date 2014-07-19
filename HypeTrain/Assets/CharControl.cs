@@ -33,7 +33,6 @@ public class CharControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
 		grounded = Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround);
 
 		float moveH = Input.GetAxis ("Horizontal");
