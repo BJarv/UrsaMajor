@@ -47,8 +47,17 @@ public class BasicEnemy : MonoBehaviour
 	}
 	void Attack()
 	{
-		transform.LookAt(Player.transform);
-		transform.position += transform.forward*EnemySpeed*Time.deltaTime;
+		if (transform.position.x < Player.transform.position.x) 
+		{
+			transform.position += transform.right * EnemySpeed * Time.deltaTime;
+		} 
+		else 
+		{
+			transform.position += transform.right*-1 * EnemySpeed * Time.deltaTime;
+		}
+
+		//transform.LookAt(Player.transform);
+
 	}
 	void Idle()
 	{
