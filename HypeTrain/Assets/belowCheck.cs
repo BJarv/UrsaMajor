@@ -13,6 +13,7 @@ public class belowCheck : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.parent.gameObject.collider2D.enabled = !oneway;
+		//Physics.IgnoreCollision (Character.collider, parent.gameObject.collider2D) = !oneway;
 	}
 
 	void OnTriggerEnter2D(Collider2D hit) {
