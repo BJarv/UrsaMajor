@@ -21,12 +21,13 @@ public class CharControl : MonoBehaviour {
 	public float CurrJumpForce = 0f;
 	public float MaxJumpForce = 1100f;
 
+	public int horizDirection = 1;
+
 	void Start() {
 
 	}
 
 	void Update () {
-		Debug.Log(Jump);
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
@@ -50,7 +51,7 @@ public class CharControl : MonoBehaviour {
 
 		case JumpState.FALLING: 
 
-			if (Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround)) {
+			if (Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround) && rigidbody2D.velocity.y <= 0) {
 				Jump = JumpState.GROUNDED;
 			}
 			break;
@@ -77,7 +78,17 @@ public class CharControl : MonoBehaviour {
 
 		//Horizontal Movement
 		float moveH = Input.GetAxis ("Horizontal");
+		Debug.Log (moveH);
+		Flip (moveH);
 		rigidbody2D.velocity = new Vector2 (moveH * maxSpeed, rigidbody2D.velocity.y);
 
+	}
+
+	void Flip(float moveH)
+	{
+		if (moveH > 0)
+			transform.localEulerAngles = new Vector3 (0, 0, 0);
+		else if (moveH < 0)
+			transform.localEulerAngles = new Vector3 (0, 180, 0);
 	}
 }
