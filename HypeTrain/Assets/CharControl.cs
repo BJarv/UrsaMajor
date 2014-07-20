@@ -15,7 +15,7 @@ public class CharControl : MonoBehaviour {
 	private JumpState Jump = JumpState.GROUNDED;
 	//Ground stuff
 	public Transform groundCheck;
-	float raycastLength = 0.15f;
+	float raycastLength = 0.3f;
 	public LayerMask whatIsGround;
 	public float PlusJumpForce = 300f;
 	public float CurrJumpForce = 0f;
@@ -31,7 +31,7 @@ public class CharControl : MonoBehaviour {
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
-			if(Input.GetKey(KeyCode.Space)) {
+			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
 				Jump = JumpState.JUMPING;
 			}
 			break;
@@ -50,26 +50,18 @@ public class CharControl : MonoBehaviour {
 			break;
 
 		case JumpState.FALLING: 
-
-			if (Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround) && rigidbody2D.velocity.y <= 0) {
+			if (isGrounded() && rigidbody2D.velocity.y <= 0) {
+				Debug.Log("Grounded");
 				Jump = JumpState.GROUNDED;
 			}
 			break;
 			
 		}
-		/*if(grounded && Input.GetKey(KeyCode.Space) && !hasJumped) {
-			while(Input.GetKey(KeyCode.Space){
-				for(int count = 1; count < 12; count++){
-					rigidbody2D.AddForce(new Vector2(0, 100));
+	}
 
-				}
-			}
-		hasJumped = true;
-		}
-		if (!Input.GetKey(KeyCode.Space) && hasJumped) {
-			//Debug.Log ("Reset jump");
-			hasJumped= false;
-		}*/
+	bool isGrounded()
+	{
+		return Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround);
 	}
 	
 	// Update is called once per frame
@@ -78,7 +70,7 @@ public class CharControl : MonoBehaviour {
 
 		//Horizontal Movement
 		float moveH = Input.GetAxis ("Horizontal");
-		Debug.Log (moveH);
+		//Debug.Log (moveH);
 		Flip (moveH);
 		rigidbody2D.velocity = new Vector2 (moveH * maxSpeed, rigidbody2D.velocity.y);
 

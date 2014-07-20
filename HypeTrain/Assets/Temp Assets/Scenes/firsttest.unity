@@ -876,8 +876,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1220530150}
   - 212: {fileID: 1220530149}
-  - 61: {fileID: 1220530148}
   - 114: {fileID: 1220530151}
+  - 68: {fileID: 1220530148}
   m_Layer: 0
   m_Name: one_way_plat
   m_TagString: Untagged
@@ -885,8 +885,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1220530148
-BoxCollider2D:
+--- !u!68 &1220530148
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -894,8 +894,9 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Points:
+  - {x: -.5, y: .507888377}
+  - {x: .500000238, y: .507888377}
 --- !u!212 &1220530149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -925,7 +926,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220530147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .648338437, y: 1.93144631, z: 0}
+  m_LocalPosition: {x: .648338437, y: 1.89573157, z: 0}
   m_LocalScale: {x: 6.38620138, y: .339872092, z: 1.4068836}
   m_Children:
   - {fileID: 1603333241}
@@ -1212,7 +1213,7 @@ GameObject:
   m_Layer: 0
   m_Name: isBelow
   m_TagString: Untagged
-  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
