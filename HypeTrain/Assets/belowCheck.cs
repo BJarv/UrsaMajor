@@ -1,34 +1,25 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class belowCheck : MonoBehaviour {
-
-	public bool oneway;
-	private Vector2 colliderSize = Vector2.zero;
+	
+	private GameObject Player = null;
 	// Use this for initialization
 	void Start () {
-		colliderSize = (collider as BoxCollider).size;
+		Player = GameObject.Find("Character");
 	}
 
 	// Update is called once per frame
 	void Update () {
-		transform.parent.gameObject.collider2D.enabled = !oneway;
+
 	}
 
-	void OnTriggerEnter2D(Collider2D hit) {
-		if(hit.gameObject.tag == "Player"){
-			oneway = true;
-		}
+	void OnTriggerEnter2D(Collider2D hit) 
+	{
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 	}
-	void OnTriggerStay2D(Collider2D hit) {
-		if(hit.gameObject.tag == "Player"){
-			oneway = true;
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D hit) {
-		if(hit.gameObject.tag == "Player"){
-			oneway = false;
-		}
+	void OnTriggerExit2D(Collider2D hit) 
+	{
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
 	}
 }
