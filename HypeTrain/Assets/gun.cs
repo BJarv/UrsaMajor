@@ -21,7 +21,7 @@ public class gun : MonoBehaviour {
 
 			var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
 			Rigidbody2D go = Instantiate(bullet, transform.position, q) as Rigidbody2D;
-			go.rigidbody2D.AddForce(go.transform.up);
+			go.rigidbody2D.AddForce(go.transform.up * 500);
 		}
 
 	}
