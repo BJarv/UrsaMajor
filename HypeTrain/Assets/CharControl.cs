@@ -17,6 +17,7 @@ public class CharControl : MonoBehaviour {
 	public Transform groundCheck;
 	float raycastLength = 0.3f;
 	public LayerMask whatIsGround;
+	//Jumpforce variables
 	public float PlusJumpForce = 300f;
 	public float CurrJumpForce = 0f;
 	public float MaxJumpForce = 1100f;
