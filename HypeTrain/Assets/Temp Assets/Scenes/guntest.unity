@@ -318,6 +318,7 @@ MonoBehaviour:
   PlusJumpForce: 300
   CurrJumpForce: 0
   MaxJumpForce: 1100
+  horizDirection: 1
 --- !u!50 &291561388
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -982,6 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b9df3c5c5747eba35ded498917251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1000
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
 --- !u!1 &1301319967
 GameObject:
