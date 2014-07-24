@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class OneWay : MonoBehaviour {
+public class TrainEnter : MonoBehaviour {
 	
 	//private GameObject Player = null;
 	// Use this for initialization
@@ -16,7 +16,15 @@ public class OneWay : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hit) 
 	{
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+		if(Input.GetKey(KeyCode.E)){
+			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+		}
+	}
+	void OnTriggerStay2D(Collider2D hit) 
+	{
+		if(Input.GetKey(KeyCode.E)){
+			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
