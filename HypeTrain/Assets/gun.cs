@@ -40,7 +40,7 @@ public class gun : MonoBehaviour {
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
 			//if(player.GetComponent<)
-			if(charControl.isGrounded()){
+			if(!charControl.isGrounded()){
 				player.rigidbody2D.AddForce (go.transform.up * -kickForce);
 			}
 		}
