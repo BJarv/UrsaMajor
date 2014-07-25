@@ -60,7 +60,7 @@ public class CharControl : MonoBehaviour {
 		}
 	}
 
-	bool isGrounded()
+	public bool isGrounded()
 	{
 		return Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround);
 	}
