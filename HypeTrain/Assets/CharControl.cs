@@ -14,7 +14,9 @@ public class CharControl : MonoBehaviour {
 	public float maxSpeed = 2f;
 	private JumpState Jump = JumpState.GROUNDED;
 	//Ground stuff
-	public Transform groundCheck;
+	public Transform midGroundCheck;
+	public Transform leftGroundCheck;
+	public Transform rightGroundCheck;
 	float raycastLength = 0.3f;
 	public LayerMask whatIsGround;
 	//Jumpforce variables
@@ -62,7 +64,9 @@ public class CharControl : MonoBehaviour {
 
 	public bool isGrounded()
 	{
-		return Physics2D.Raycast (groundCheck.position, -Vector2.up, raycastLength, whatIsGround);
+		return Physics2D.Raycast (midGroundCheck.position, -Vector2.up, raycastLength, whatIsGround) || 
+			Physics2D.Raycast (leftGroundCheck.position, -Vector2.up, raycastLength, whatIsGround) ||
+			Physics2D.Raycast (rightGroundCheck.position, -Vector2.up, raycastLength, whatIsGround);
 	}
 	
 	// Update is called once per frame
