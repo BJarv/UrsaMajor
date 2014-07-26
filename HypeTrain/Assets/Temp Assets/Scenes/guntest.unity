@@ -984,13 +984,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 500
-  kickForce: 100
+  kickForce: 10000
   magSize: 3
   reloadTime: 2
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
-  player: {fileID: 0}
-  charControl: {fileID: 0}
 --- !u!1 &1301319967
 GameObject:
   m_ObjectHideFlags: 0
