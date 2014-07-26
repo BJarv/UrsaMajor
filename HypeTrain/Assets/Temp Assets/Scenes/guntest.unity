@@ -311,7 +311,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  groundCheck: {fileID: 833246500}
+  midGroundCheck: {fileID: 0}
+  leftGroundCheck: {fileID: 0}
+  rightGroundCheck: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966271
