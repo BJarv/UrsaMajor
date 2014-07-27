@@ -4,7 +4,7 @@ using System.Collections;
 public class gun : MonoBehaviour {
 
 	public float bulletSpeed = 500f;
-	public float kickForce = 100f;
+	public float kickForce = 10000f;
 	public int magSize = 3;
 	public float reloadTime = 2f;
 	private int inMag;
@@ -14,14 +14,15 @@ public class gun : MonoBehaviour {
 	public float interShotDelay = .5f;
 	private bool sTimerOn = false;
 	private float shotTimer;
-	public GameObject player;
-	public CharControl charControl;
+	private GameObject player = null;
+	//private CharControl charControl;
 
 	// Use this for initialization
 	void Start () {
 		inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
+		player = GameObject.Find("character");
 		//charControl = player.GetComponent<CharControl>() as CharControl;
 	}
 	
@@ -40,8 +41,9 @@ public class gun : MonoBehaviour {
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
 			//if(player.GetComponent<)
-			if(charControl.isGrounded()){
-				player.rigidbody2D.AddForce (go.transform.up * -kickForce);
+			if(!player.GetComponent<CharControl>().isGrounded()){
+				Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
+				player.rigidbody2D.AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
 		}
 
