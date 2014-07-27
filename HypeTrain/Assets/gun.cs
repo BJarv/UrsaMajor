@@ -40,6 +40,10 @@ public class gun : MonoBehaviour {
 			Rigidbody2D go = Instantiate(bullet, transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
+			if(inMag <= 0){
+				rTimerOn = true;
+			}
+
 			//if(player.GetComponent<)
 			if(!player.GetComponent<CharControl>().isGrounded()){
 				Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
