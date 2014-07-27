@@ -22,7 +22,7 @@ public class gun : MonoBehaviour {
 		inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
-		player = GameObject.Find("Character");
+		player = GameObject.Find("character");
 		//charControl = player.GetComponent<CharControl>() as CharControl;
 	}
 	
