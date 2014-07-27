@@ -311,11 +311,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  groundCheck: {fileID: 833246500}
+  addSpeed: 25
+  midGroundCheck: {fileID: 0}
+  leftGroundCheck: {fileID: 0}
+  rightGroundCheck: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966271
-  jumpForce: 1100
+  PlusJumpForce: 300
+  CurrJumpForce: 0
+  MaxJumpForce: 1100
+  horizDirection: 1
 --- !u!50 &291561388
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1140,6 +1146,7 @@ GameObject:
   - 92: {fileID: 1409445586}
   - 124: {fileID: 1409445585}
   - 81: {fileID: 1409445584}
+  - 114: {fileID: 1409445589}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1212,6 +1219,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1409445589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409445583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a4779d02b2a984bb3643e58be558f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1546076460
 GameObject:
   m_ObjectHideFlags: 0
