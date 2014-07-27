@@ -12,6 +12,7 @@ public enum JumpState
 public class CharControl : MonoBehaviour {
 
 	public float maxSpeed = 2f;
+	public float addSpeed = 25f;
 	private JumpState Jump = JumpState.GROUNDED;
 	//Ground stuff
 	public Transform midGroundCheck;
@@ -77,8 +78,17 @@ public class CharControl : MonoBehaviour {
 		float moveH = Input.GetAxis ("Horizontal");
 		//Debug.Log (moveH);
 		Flip (moveH);
-		rigidbody2D.velocity = new Vector2 (moveH * maxSpeed, rigidbody2D.velocity.y);
-
+	
+		if(moveH > 0)
+		{
+			if(rigidbody2D.velocity.x <= maxSpeed)
+				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
+		}
+		else
+		{
+			if(rigidbody2D.velocity.x > -maxSpeed)
+				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
+		}
 	}
 
 	void Flip(float moveH)
