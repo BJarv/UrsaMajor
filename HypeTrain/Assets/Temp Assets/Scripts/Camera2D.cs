@@ -22,8 +22,9 @@ public class Camera2D : MonoBehaviour {
 
 		newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, 
 			ref velocity.x, smoothrate);
-		newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, 
-			ref velocity.y, smoothrate);
+		newPos2D.y = 18; //*****Replace 18 with the line below for omnidirectional tracking
+
+			//Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
 
 		//Update the camera based on player location
 		Vector3 newPos = new Vector3 (newPos2D.x, newPos2D.y, transform.position.z);
