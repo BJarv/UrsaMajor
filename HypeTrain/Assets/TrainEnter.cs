@@ -21,6 +21,7 @@ public class TrainEnter : MonoBehaviour {
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			trainSpawner.KillTrain(train);
+			//How do I change the camera height in Camera2D only when these conditions are met?
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) 
@@ -28,6 +29,7 @@ public class TrainEnter : MonoBehaviour {
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			trainSpawner.KillTrain(train);
+			//How do I change the camera height in Camera2D only when these conditions are met?
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
