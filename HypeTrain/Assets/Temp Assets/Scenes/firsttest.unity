@@ -2101,6 +2101,10 @@ Prefab:
       propertyPath: reloadTime
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+      propertyPath: addSpeed
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
   m_RootGameObject: {fileID: 1601425287}
@@ -3044,7 +3048,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409445583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .287623525, y: 17.3899994, z: -10}
+  m_LocalPosition: {x: -59.7000008, y: 18.0100002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3410,7 +3414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  addSpeed: 25
+  addSpeed: 35
   midGroundCheck: {fileID: 420809766}
   leftGroundCheck: {fileID: 545465687}
   rightGroundCheck: {fileID: 1335623460}
