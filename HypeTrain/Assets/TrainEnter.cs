@@ -22,7 +22,7 @@ public class TrainEnter : MonoBehaviour {
 	{
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
-			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			//trainSpawn.GetComponent<trainSpawner>().KillTrain();   //gives an error currently WTFF????
 			//How do I change the camera height in Camera2D only when these conditions are met?
 			//Camera2D.lockCamera = true; //How do I reference this variable here?
 		}
@@ -31,7 +31,7 @@ public class TrainEnter : MonoBehaviour {
 	{
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
-			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			//trainSpawn.GetComponent<trainSpawner>().KillTrain();
 			//How do I change the camera height in Camera2D only when these conditions are met?
 			//Camera2D.lockCamera = true; //How do I reference this variable here?
 		}
