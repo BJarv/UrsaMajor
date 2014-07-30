@@ -1347,6 +1347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainSpawner: {fileID: 0}
+  train: {fileID: 0}
 --- !u!61 &657403895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1756,6 +1758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainSpawner: {fileID: 0}
+  train: {fileID: 0}
 --- !u!61 &1016011634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2772,6 +2776,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1333875118}
   - 114: {fileID: 1333875119}
+  - 114: {fileID: 1333875120}
   m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
@@ -2809,6 +2814,20 @@ MonoBehaviour:
   reloadTime: 1.25
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
+--- !u!114 &1333875120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208410400}
+  m_GameObject: {fileID: 1333875117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2044052dca99424babc799a8860afbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticalSize: 32
+  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
 --- !u!1 &1335623459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,6 +3710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainSpawner: {fileID: 0}
+  train: {fileID: 0}
 --- !u!61 &1675327205
 BoxCollider2D:
   m_ObjectHideFlags: 0
