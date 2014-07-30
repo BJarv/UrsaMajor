@@ -17,7 +17,8 @@ public class getWidthCar : MonoBehaviour {
 	}
 
 	public float carWidth(){
-
+	
 		return right.transform.position.x - left.transform.position.x;
 	}
+
 }

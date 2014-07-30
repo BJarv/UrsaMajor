@@ -72,8 +72,6 @@ public class CharControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-
 		//Horizontal Movement
 		float moveH = Input.GetAxis ("Horizontal");
 		//Debug.Log (moveH);
