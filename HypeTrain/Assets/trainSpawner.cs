@@ -1,4 +1,4 @@
-﻿/* BRANDONusing UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class trainSpawner : MonoBehaviour {
@@ -8,6 +8,8 @@ public class trainSpawner : MonoBehaviour {
 	private Queue trains;
 	private GameObject tempTrain;
 	public GameObject player;
+	private getWidthCar widthFind;
+	private float theWidth;
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +19,11 @@ public class trainSpawner : MonoBehaviour {
 	}
 
 	void QueueAndMove(){
-		tempTrain = Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity);
+		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity);
 		trains.Enqueue(tempTrain);
-		transform.position.x += tempTrain.carWidth();
+		widthFind = tempTrain.GetComponent<getWidthCar>();
+		theWidth = widthFind.carWidth();
+		gameObject.transform.position = new Vector2(transform.position.x + theWidth + 2, transform.position.y);
 	}
 
 	//queue train
@@ -37,9 +41,13 @@ public class trainSpawner : MonoBehaviour {
 
 
 	//only kill train if !(train.left.x < player.x && player.x < train.right.x)
-	void KillTrain(GameObject train) {
-		if(!(train.left.x < player.x && player.x < train.right.x)){
-			Destroy(trains.Dequeue());
+	public void KillTrain() {
+		GameObject trainCheck = (GameObject)trains.Peek ();
+		float leftPos = trainCheck.transform.Find ("left").transform.position.x;
+		float rightPos = trainCheck.transform.Find ("right").transform.position.x;
+		if(!(leftPos < player.transform.position.x && player.transform.position.x < rightPos)){
+			Destroy((GameObject)trains.Dequeue());
+			QueueAndMove();
 		}
 	}
 
@@ -47,4 +55,4 @@ public class trainSpawner : MonoBehaviour {
 	void Update () {
 		
 	}
-} */
+} 
