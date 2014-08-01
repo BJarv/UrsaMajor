@@ -1,4 +1,4 @@
-﻿/* BRANDONusing UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class trainSpawner : MonoBehaviour {
@@ -23,7 +23,7 @@ public class trainSpawner : MonoBehaviour {
 		trains.Enqueue(tempTrain);
 		widthFind = tempTrain.GetComponent<getWidthCar>();
 		theWidth = widthFind.carWidth();
-		gameObject.transform.position = new Vector2(transform.position.x + theWidth, transform.position.y);
+		gameObject.transform.position = new Vector2(transform.position.x + theWidth + 2, transform.position.y);
 	}
 
 	//queue train
@@ -47,6 +47,7 @@ public class trainSpawner : MonoBehaviour {
 		float rightPos = trainCheck.transform.Find ("right").transform.position.x;
 		if(!(leftPos < player.transform.position.x && player.transform.position.x < rightPos)){
 			Destroy((GameObject)trains.Dequeue());
+			QueueAndMove();
 		}
 	}
 
@@ -54,4 +55,4 @@ public class trainSpawner : MonoBehaviour {
 	void Update () {
 		
 	}
-} */
+} 
