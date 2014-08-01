@@ -186,6 +186,7 @@ MonoBehaviour:
   possTrains:
   - {fileID: 100014, guid: 247d8c99eef5347efaf1174f62577350, type: 2}
   player: {fileID: 943513042}
+  widthBetween: 0
 --- !u!4 &663554556
 Transform:
   m_ObjectHideFlags: 0
@@ -558,6 +559,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.75487614
@@ -598,6 +603,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 943513042}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[1]
+      value: 
+      objectReference: {fileID: 100014, guid: 247d8c99eef5347efaf1174f62577350, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 663554554}
