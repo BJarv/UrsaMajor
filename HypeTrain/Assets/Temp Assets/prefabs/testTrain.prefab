@@ -531,7 +531,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .473659992, y: 4.12472725, z: 0}
+  m_LocalPosition: {x: 12.6423407, y: 2.93321609, z: 0}
   m_LocalScale: {x: 6.48000002, y: 5.38267231, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainSpawn: {fileID: 0}
+  trainSpawn: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   lockCamera: 0
 --- !u!114 &11400006
 MonoBehaviour:

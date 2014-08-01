@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class TrainEnter : MonoBehaviour {
 
-	public GameObject trainSpawn;
+	private GameObject trainSpawn;
 
 	public bool lockCamera;
 
@@ -11,6 +11,7 @@ public class TrainEnter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Player = GameObject.Find("Character");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 
 	}
 
