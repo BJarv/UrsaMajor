@@ -4,8 +4,11 @@ using System.Collections.Generic;
 public class TrainExit : MonoBehaviour {
 	
 	private GameObject Player = null;
+	public GameObject cameraObj;
+
 	// Use this for initialization
 	void Start () {
+		cameraObj = GameObject.Find("Main Camera");
 		Player = GameObject.Find("character");
 	}
 	
@@ -19,6 +22,7 @@ public class TrainExit : MonoBehaviour {
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
+			cameraObj.GetComponent<Camera2D>().setLock(false);
 			//Camera2D.lockCamera = false; //How do I reference this variable here?
 			//How do I change the camera height in Camera2D only when these conditions are met?
 		}
@@ -28,6 +32,7 @@ public class TrainExit : MonoBehaviour {
 		if(Input.GetKey(KeyCode.E)){
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
+			cameraObj.GetComponent<Camera2D>().setLock(false);
 			//Camera2D.lockCamera = false; //How do I reference this variable here?
 			//How do I change the camera height in Camera2D only when these conditions are met?
 		}
