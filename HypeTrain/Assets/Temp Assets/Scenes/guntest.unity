@@ -614,6 +614,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 556908091}
   - 114: {fileID: 556908090}
+  - 114: {fileID: 556908093}
+  - 114: {fileID: 556908092}
   m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
@@ -651,6 +653,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1301644280}
   m_RootOrder: 3
+--- !u!114 &556908092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 340577376}
+  m_GameObject: {fileID: 556908089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2044052dca99424babc799a8860afbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticalSize: 32
+  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
+--- !u!114 &556908093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 340577376}
+  m_GameObject: {fileID: 556908089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2044052dca99424babc799a8860afbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticalSize: 32
+  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
 --- !u!1 &563531683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1603333238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be23ce264b7f8da4dabe7ee2ccbfb06e, type: 3}
+  m_Script: {fileID: 11500000, guid: ad501e9b1a9b9c04caf1f245d4dfaabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1603333240
