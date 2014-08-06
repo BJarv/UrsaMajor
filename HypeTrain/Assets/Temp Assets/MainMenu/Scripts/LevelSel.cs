@@ -26,6 +26,10 @@ public class LevelSel : MonoBehaviour {
 			Debug.Log ("Pressed Options!");	
 			Application.LoadLevel("Anim");
 		};
+		if (GUI.Button (new Rect (Screen.width * .7f, Screen.height * .1f, Screen.width * .2f, Screen.height * .1f), "trainGen")) {
+			Debug.Log ("Pressed Options!");	
+			Application.LoadLevel("trainGen");
+		};
 	}
 }
 

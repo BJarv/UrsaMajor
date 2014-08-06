@@ -61,7 +61,7 @@ GameObject:
   - 212: {fileID: 21200004}
   - 61: {fileID: 6100004}
   m_Layer: 0
-  m_Name: left
+  m_Name: left_seg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ GameObject:
   - 212: {fileID: 21200028}
   - 61: {fileID: 6100024}
   m_Layer: 0
-  m_Name: right
+  m_Name: right_seg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,6 +435,21 @@ GameObject:
   - 4: {fileID: 400050}
   m_Layer: 12
   m_Name: left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400052}
+  m_Layer: 0
+  m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .473659992, y: 4.12472725, z: 0}
+  m_LocalPosition: {x: 85.0244904, y: 3.01281404, z: 0}
   m_LocalScale: {x: 6.48000002, y: 5.38267231, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -550,6 +565,7 @@ Transform:
   - {fileID: 400034}
   - {fileID: 400050}
   - {fileID: 400048}
+  - {fileID: 400052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400016
@@ -777,6 +793,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400014}
   m_RootOrder: 14
+--- !u!4 &400052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.00820042193, y: .172111496, z: 0}
+  m_LocalScale: {x: .154320985, y: .18578133, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400014}
+  m_RootOrder: 16
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -1094,8 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainSpawn: {fileID: 0}
-  lockCamera: 0
+  cameraObj: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1118,6 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad3f3411d5c6e248a9b572bcbc7f85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraObj: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

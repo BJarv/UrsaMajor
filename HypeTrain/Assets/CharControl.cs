@@ -11,6 +11,7 @@ public enum JumpState
 
 public class CharControl : MonoBehaviour {
 
+	private Animator animator; //Store a ref to the animator so we can use it later
 	public float maxSpeed = 2f;
 	public float addSpeed = 25f;
 	private JumpState Jump = JumpState.GROUNDED;
@@ -27,6 +28,10 @@ public class CharControl : MonoBehaviour {
 
 	public int horizDirection = 1;
 
+
+	void Awake() {
+		animator = GetComponent<Animator>();
+		}
 	void Start() {
 
 	}
@@ -37,6 +42,7 @@ public class CharControl : MonoBehaviour {
 		case JumpState.GROUNDED: 
 			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
 				Jump = JumpState.JUMPING;
+				animator.SetBool ("Jump",true); //Switch to jump animation
 			}
 			break;
 
@@ -57,6 +63,7 @@ public class CharControl : MonoBehaviour {
 			if (isGrounded() && rigidbody2D.velocity.y <= 0) {
 				Debug.Log("Grounded");
 				Jump = JumpState.GROUNDED;
+				animator.SetBool ("Jump", false); //End jump animation
 			}
 			break;
 			
@@ -79,11 +86,14 @@ public class CharControl : MonoBehaviour {
 	
 		if(moveH > 0)
 		{
+			animator.SetBool ("Run",true); //Begin run animation
 			if(rigidbody2D.velocity.x <= maxSpeed)
 				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
+		else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
 		else
 		{
+			animator.SetBool ("Run",true); //Begin run animation
 			if(rigidbody2D.velocity.x > -maxSpeed)
 				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
