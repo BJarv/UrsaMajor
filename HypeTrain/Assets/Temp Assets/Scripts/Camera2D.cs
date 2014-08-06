@@ -28,11 +28,11 @@ public class Camera2D : MonoBehaviour {
 			
 		if (lockCamera) {	//Lock on second car (for now)
 			newPos2D.x = centerLock; //trainleft + trainright / 2
-			newPos2D.y = 4.5f; //default for now
+			newPos2D.y = 6.5f; //default for now
 		} else { 								//Left-right tracking an train-top level
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, 
 			                               ref velocity.x, smoothrate);
-			newPos2D.y = 18;   //default for now
+			newPos2D.y = 20;   //default for now
 			//*****Replace 18 with the line below for omnidirectional tracking
 			//Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
 		}
