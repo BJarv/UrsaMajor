@@ -20,7 +20,7 @@ public class EnemyGun : MonoBehaviour {
 			bool timer = (Time.time > lastShot + 1.0f);
 			if(timer){
 				GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-				//bulletInstance.GetComponent<rigidbody2D>().velocity = new Vector2(direction*bulletSpeed, 0);
+				bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(direction*bulletSpeed, 0);
 				lastShot = Time.time;
 				shooting = false;
 			}
