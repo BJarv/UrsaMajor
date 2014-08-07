@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
+  sidePanel: {fileID: 0}
 --- !u!1 &416228047
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +797,7 @@ Prefab:
       objectReference: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_Name
-      value: TrainSpawner
+      value: trainSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
@@ -1780,6 +1781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
+  sidePanel: {fileID: 0}
 --- !u!1 &1409445583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2082,7 @@ GameObject:
   - 4: {fileID: 1554076582}
   - 114: {fileID: 1554076581}
   m_Layer: 0
-  m_Name: TrainSpawner
+  m_Name: trainSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

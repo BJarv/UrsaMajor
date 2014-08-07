@@ -12,7 +12,7 @@ public class TrainEnter : MonoBehaviour {
 	void Start () {
 		//Player = GameObject.Find("Character");
 		cameraObj = GameObject.Find("Main Camera");
-		trainSpawn = GameObject.Find ("TrainSpawner");
+		trainSpawn = GameObject.Find ("trainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
 
