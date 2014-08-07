@@ -806,6 +806,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+    - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: m_Name
+      value: TrainSpawner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}
@@ -2112,7 +2116,7 @@ GameObject:
   - 4: {fileID: 1554076582}
   - 114: {fileID: 1554076581}
   m_Layer: 0
-  m_Name: trainSpawner
+  m_Name: TrainSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
