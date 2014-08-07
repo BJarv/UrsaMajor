@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
-  sidePanel: {r: 0, g: 0, b: 0, a: 0}
+  sidePanel: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad501e9b1a9b9c04caf1f245d4dfaabf, type: 3}
+  m_Script: {fileID: 11500000, guid: 757017090171bd94494dc0eebf2b91d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400008
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad501e9b1a9b9c04caf1f245d4dfaabf, type: 3}
+  m_Script: {fileID: 11500000, guid: 757017090171bd94494dc0eebf2b91d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400014
