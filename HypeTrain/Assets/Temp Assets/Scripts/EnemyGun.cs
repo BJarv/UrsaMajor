@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyGun : MonoBehaviour {
@@ -19,7 +19,7 @@ public class EnemyGun : MonoBehaviour {
 		if (shooting) {
 			bool timer = (Time.time > lastShot + 1.0f);
 			if(timer){
-				Rigidbody2D bulletInstance = Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+				Rigidbody2D bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity) as Rigidbody2D;
 				bulletInstance.velocity = new Vector2(direction*bulletSpeed, 0);
 				lastShot = Time.time;
 				shooting = false;
