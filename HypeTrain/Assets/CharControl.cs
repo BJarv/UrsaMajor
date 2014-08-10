@@ -61,7 +61,7 @@ public class CharControl : MonoBehaviour {
 
 		case JumpState.FALLING: 
 			if (isGrounded() && rigidbody2D.velocity.y <= 0) {
-				Debug.Log("Grounded");
+				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
 			}
