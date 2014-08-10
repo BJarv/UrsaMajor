@@ -28,9 +28,11 @@ public class TrainEnter : MonoBehaviour {
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();
-			//Lock camera on the current car and remove side panel
+			//Lock camera on the current car
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
 			cameraObj.GetComponent<Camera2D>().setLock(true);
+			//Remove side panel
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(false);
 		}
 	}
@@ -41,9 +43,11 @@ public class TrainEnter : MonoBehaviour {
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();
-			//Lock camera on the current car and remove side panel
+			//Lock camera on the current carl
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
 			cameraObj.GetComponent<Camera2D>().setLock(true);
+			//Remove side panel
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(false);
 		}
 	}
