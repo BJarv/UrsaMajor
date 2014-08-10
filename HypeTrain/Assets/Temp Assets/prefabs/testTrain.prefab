@@ -113,7 +113,7 @@ GameObject:
   - 61: {fileID: 6100010}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: bonus
+  m_Name: cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,8 +548,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.53525829, y: -1.20669973, z: 0}
-  m_LocalScale: {x: .152184859, y: .183209732, z: 1}
+  m_LocalPosition: {x: 2.46000004, y: -1.01999998, z: 0}
+  m_LocalScale: {x: -.280000001, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 400014}
   m_RootOrder: 13
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c1885c948614819a3f3386b2b59ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaChing: {fileID: 8300000, guid: 24ac3f27eace3a747a8b54d7057ce1c9, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1174,6 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
+  sidePanel: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
