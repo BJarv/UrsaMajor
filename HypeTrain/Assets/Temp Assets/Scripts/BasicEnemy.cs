@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum EnemyState
+/* public enum EnemyStateold
 {
 	IDLE,
-	ATTACK
+	ATTACK,
+	CHASE
 }
 
 public class BasicEnemy : MonoBehaviour 
 {
 
-	private EnemyState State = EnemyState.IDLE;
+	private EnemyStateold State = EnemyState.IDLE;
 	public float EnemySpeed = 2f;
 	public GameObject Player = null;
 	private float AttackDist = 10f;
@@ -33,7 +34,7 @@ public class BasicEnemy : MonoBehaviour
 	void Update() 
 	{
 		var distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
-		Debug.Log (distToPlayer);
+		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 
 		{
 			State = EnemyState.ATTACK;
@@ -50,6 +51,7 @@ public class BasicEnemy : MonoBehaviour
 		{
 		case EnemyState.ATTACK: Attack(); break;
 		case EnemyState.IDLE: Idle(); break;
+		case EnemyState.CHASE: Chase(); break;
 		default: Idle();break;
 
 		}
@@ -84,6 +86,10 @@ public class BasicEnemy : MonoBehaviour
 
 		rigidbody2D.velocity = new Vector2 (EnemySpeed *direction, rigidbody2D.velocity.y); 
 
+	}
+	void Chase()
+	{
+
 
 	}
-}
+}*/

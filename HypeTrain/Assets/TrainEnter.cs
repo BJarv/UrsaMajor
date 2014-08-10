@@ -12,7 +12,7 @@ public class TrainEnter : MonoBehaviour {
 	void Start () {
 		//Player = GameObject.Find("Character");
 		cameraObj = GameObject.Find("Main Camera");
-		trainSpawn = GameObject.Find ("TrainSpawner");
+		trainSpawn = GameObject.Find ("trainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
 
@@ -24,25 +24,27 @@ public class TrainEnter : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hit) 
 	{
 		if(Input.GetKey(KeyCode.E)){
+			//Pass through
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			//Lock camera on the current car and remove side panel
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
-			sidePanel.SetActive(false);
-			//Find center of current train before locking
 			cameraObj.GetComponent<Camera2D>().setLock(true);
-			//How do I change the camera height in Camera2D only when these conditions are met?
+			sidePanel.SetActive(false);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) 
 	{
 		if(Input.GetKey(KeyCode.E)){
+			//Pass through
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			//Lock camera on the current car and remove side panel
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
-			sidePanel.SetActive(false);
-			//Find center of current train before locking
 			cameraObj.GetComponent<Camera2D>().setLock(true);
-			//How do I change the camera height in Camera2D only when these conditions are met?
+			sidePanel.SetActive(false);
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 

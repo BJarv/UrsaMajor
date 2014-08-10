@@ -2,6 +2,7 @@ Initialize engine version: 4.5.2f1 (9abb1b59b47c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
+<<<<<<< HEAD
     Renderer: NVIDIA GeForce GTX 550 Ti (ID=0x1244)
     Vendor:   NVIDIA
     VRAM:     1998 MB
@@ -14,20 +15,50 @@ Loading C:\Users\SlamFields\Documents\UrsaMajor\rough_Data\Managed\Assembly-CSha
 - Completed reload, in  0.100 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 =======
+=======
+<<<<<<< HEAD
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6818)
+    Vendor:   ATI
+    VRAM:     2029 MB
+Begin MonoManager ReloadAssembly
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
 Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+<<<<<<< HEAD
 - Completed reload, in  0.048 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 >>>>>>> 0b9174ee039af0abd1151b7009734d85f035c5c4
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\System.dll (this message is harmless)
+=======
+- Completed reload, in  0.041 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\System.dll (this message is harmless)
+=======
+    Renderer: AMD Radeon HD 7900 Series (ID=0x679a)
+    Vendor:   ATI
+    VRAM:     3046 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.203 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
+<RI> Initializing input.
+<RI> Input initialized.
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
 Pressed Play!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 UnloadTime: 0.365698 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
@@ -93,10 +124,39 @@ Pressed Options!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+=======
+UnloadTime: 0.222679 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 93.
+Total: 0.455000 ms (FindLiveObjects: 0.004043 ms CreateObjectMapping: 0.005287 ms MarkObjects: 0.075263 ms  DeleteObjects: 0.005598 ms)
+=======
+UnloadTime: 0.258990 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 93.
+Total: 0.473608 ms (FindLiveObjects: 0.008150 ms CreateObjectMapping: 0.005131 ms MarkObjects: 0.077878 ms  DeleteObjects: 0.005433 ms)
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+
+Pressed Options!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+<<<<<<< HEAD
+UnloadTime: 0.240718 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 255.
+Total: 0.428876 ms (FindLiveObjects: 0.006220 ms CreateObjectMapping: 0.006220 ms MarkObjects: 0.080239 ms  DeleteObjects: 0.002799 ms)
+
+(-290.9, 956.7)
+=======
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
 The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1783)
 
+<<<<<<< HEAD
 UnloadTime: 0.313038 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
@@ -273,6 +333,15 @@ Grounded
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 (-212.3, 977.2)
+=======
+UnloadTime: 0.221258 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 217.
+Total: 0.489908 ms (FindLiveObjects: 0.006942 ms CreateObjectMapping: 0.005433 ms MarkObjects: 0.080594 ms  DeleteObjects: 0.002414 ms)
+
+(-902.3, -431.1)
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -280,11 +349,19 @@ Grounded
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 Grounded
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 (192.0, 981.4)
+=======
+(-576.1, 817.4)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-161.6, 986.9)
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -292,7 +369,11 @@ Grounded
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 (16.4, 999.9)
+=======
+(165.3, 986.2)
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -300,6 +381,7 @@ Grounded
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 (621.9, 783.1)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -309,10 +391,25 @@ Grounded
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 (-687.0, 726.6)
+=======
+(-381.6, 924.3)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-284.3, 958.7)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-212.5, 977.2)
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Grounded
+<<<<<<< HEAD
+=======
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -320,6 +417,7 @@ Pressed ESC!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 UnloadTime: 0.475408 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
@@ -2334,108 +2432,59 @@ NullReferenceException: Object reference not set to an instance of an object
 NullReferenceException: Object reference not set to an instance of an object
   at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
   at CharControl.Update () [0x00000] in <filename unknown>:0 
+=======
+<<<<<<< HEAD
+UnloadTime: 0.386268 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 138 unused Assets to reduce memory usage. Loaded Objects now: 90.
+Total: 0.638182 ms (FindLiveObjects: 0.009019 ms CreateObjectMapping: 0.006220 ms MarkObjects: 0.081794 ms  DeleteObjects: 0.163899 ms)
+=======
+UnloadTime: 0.321776 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 90.
+Total: 0.536394 ms (FindLiveObjects: 0.005131 ms CreateObjectMapping: 0.005433 ms MarkObjects: 0.074859 ms  DeleteObjects: 0.066407 ms)
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+
+Pressed Options!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+<<<<<<< HEAD
+UnloadTime: 0.211483 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 255.
+Total: 0.441627 ms (FindLiveObjects: 0.006220 ms CreateObjectMapping: 0.006220 ms MarkObjects: 0.088636 ms  DeleteObjects: 0.002488 ms)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
-  at CharControl.Update () [0x00000] in <filename unknown>:0 
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
@@ -2443,6 +2492,193 @@ Pressed ESC!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+UnloadTime: 0.403995 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 138 unused Assets to reduce memory usage. Loaded Objects now: 90.
+Total: 0.550479 ms (FindLiveObjects: 0.005909 ms CreateObjectMapping: 0.005909 ms MarkObjects: 0.085526 ms  DeleteObjects: 0.114760 ms)
+
+Pressed Options!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 0.221124 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 255.
+Total: 0.471483 ms (FindLiveObjects: 0.006220 ms CreateObjectMapping: 0.006531 ms MarkObjects: 0.106674 ms  DeleteObjects: 0.002799 ms)
+
+(22.3, 999.8)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+=======
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+UnloadTime: 0.235446 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 206.
+Total: 0.497757 ms (FindLiveObjects: 0.006640 ms CreateObjectMapping: 0.005433 ms MarkObjects: 0.088745 ms  DeleteObjects: 0.002414 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at OneWay.OnTriggerEnter2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharControl.isGrounded () [0x00000] in <filename unknown>:0 
+  at CharControl.Update () [0x00000] in <filename unknown>:0 
+<<<<<<< HEAD
+=======
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
+ 
+(Filename:  Line: -1)
+
+Pressed ESC!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+<<<<<<< HEAD
 UnloadTime: 0.417262 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
@@ -2663,4 +2899,19 @@ Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty seri
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 90.
 Total: 0.767601 ms (FindLiveObjects: 0.004754 ms CreateObjectMapping: 0.012799 ms MarkObjects: 0.110075 ms  DeleteObjects: 0.002559 ms)
+=======
+<<<<<<< HEAD
+UnloadTime: 0.418924 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 138 unused Assets to reduce memory usage. Loaded Objects now: 90.
+Total: 0.508182 ms (FindLiveObjects: 0.005909 ms CreateObjectMapping: 0.005909 ms MarkObjects: 0.074019 ms  DeleteObjects: 0.098899 ms)
+=======
+UnloadTime: 0.287063 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 90.
+Total: 0.523414 ms (FindLiveObjects: 0.003320 ms CreateObjectMapping: 0.005131 ms MarkObjects: 0.081802 ms  DeleteObjects: 0.068520 ms)
+>>>>>>> e4f7026952fe1771a3293e3561d1f03ee84ac9c5
+>>>>>>> 0e4c3094180205e99e47a557382b5bd5b449f46f
 
