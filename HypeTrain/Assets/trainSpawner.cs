@@ -59,6 +59,11 @@ public class trainSpawner : MonoBehaviour {
 		return trainCheck.transform.Find ("center").transform.position.x;
 	}
 
+	public GameObject headPanel(){
+		GameObject trainCheck = (GameObject)trains.Peek ();
+		return GameObject.Find ("sidePanel");
+	}
+
 	// Update is called once per frame
 	void Update () {
 		
