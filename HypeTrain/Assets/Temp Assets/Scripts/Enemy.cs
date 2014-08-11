@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour {
 	public int direction = 1;
 	public float StrollDist = 3f;
 	public float distToPlayer;
+	public Vector3 posOfTrans1;
+	public Vector3 posOfTrans2;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
@@ -32,6 +34,8 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		posOfTrans1 = transform.position;
+		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 

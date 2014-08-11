@@ -7,12 +7,13 @@ public class ShootingEnemy : Enemy {
 
 
 	override protected void Start () {
+		base.Start ();
 		gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
 	}
 
 	override protected void Attack()
 	{
-		//base.Attack ();
+		base.Attack ();
 		gun.isShooting(true, direction);
 	}
 
