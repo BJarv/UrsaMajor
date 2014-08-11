@@ -4,9 +4,11 @@ using System.Collections;
 public class enemyBullet : MonoBehaviour {
 	
 	public int bulletDeath = 3;
+	private GameObject player = null;
 	
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find("character");
 		Destroy (gameObject, bulletDeath);
 	}
 	
@@ -17,14 +19,14 @@ public class enemyBullet : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D colObj) {
 		
-		if(colObj.tag != "enemy") {
-			//colObj.gameObject.GetComponent<Enemy>().Hurt();
+		if(colObj.tag == "Player") {
+			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			Destroy (gameObject);
 		}
 		
-		//else if(colObj.tag != "Player") {
-		//	Destroy (gameObject);
-		//}
+		else if(colObj.tag != "enemy") {
+			Destroy (gameObject);
+		}
 		
 	}
 	

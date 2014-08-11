@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum EnemyState
@@ -13,10 +13,11 @@ public class Enemy : MonoBehaviour {
 
 	private EnemyState State = EnemyState.IDLE;
 	public float EnemySpeed = 2f;
-	public GameObject Player;
+	public GameObject Player = null;
 	private float AttackDist = 10f;
 	public int direction = 1;
 	public float StrollDist = 3f;
+	public float distToPlayer;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
@@ -24,14 +25,14 @@ public class Enemy : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
-	
+	virtual protected void Start () {
+		Player = GameObject.Find("character");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		var distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
+		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 
 		{
@@ -52,7 +53,7 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	virtual public void Attack()
+	virtual protected void Attack()
 	{
 		if (transform.position.x < Player.transform.position.x) 
 		{
