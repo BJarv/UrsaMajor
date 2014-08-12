@@ -9,6 +9,7 @@ public class EnemyGun : MonoBehaviour {
 	public GameObject bullet;
 
 	float lastShot = 0.0f;
+
 	// Use this for initialization
 	void Start () {
 

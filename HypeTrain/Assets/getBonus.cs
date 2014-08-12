@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class getBonus : MonoBehaviour {
+	public AudioClip kaChing;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class getBonus : MonoBehaviour {
 		//Debug.Log ("\n");
 		if(hit.gameObject.tag == "Player"){
 			//Debug.Log ("entered");
+			AudioSource.PlayClipAtPoint(kaChing, transform.position);
 			Destroy (gameObject);
 		}
 	}

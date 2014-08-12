@@ -113,7 +113,7 @@ GameObject:
   - 61: {fileID: 6100010}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: bonus
+  m_Name: cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,8 +548,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.53525829, y: -1.20669973, z: 0}
-  m_LocalScale: {x: .152184859, y: .183209732, z: 1}
+  m_LocalPosition: {x: -1.74624002, y: .0406097248, z: 0}
+  m_LocalScale: {x: .219655126, y: .21965529, z: 1}
   m_Children: []
   m_Father: {fileID: 400014}
   m_RootOrder: 13
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c1885c948614819a3f3386b2b59ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaChing: {fileID: 8300000, guid: 3b19b622cffbcc54cbc343d179862033, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1151,6 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
   sidePanel: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: 2a56e075898712d4d8490288dd339e62, type: 3}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1159,7 +1161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757017090171bd94494dc0eebf2b91d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 32af2fcca329da442b298a4513251c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400008
@@ -1174,6 +1176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
+  sidePanel: {fileID: 0}
+  exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1182,7 +1186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757017090171bd94494dc0eebf2b91d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 32af2fcca329da442b298a4513251c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400016

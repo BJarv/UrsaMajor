@@ -26,6 +26,8 @@ public class CharControl : MonoBehaviour {
 	public float CurrJumpForce = 0f;
 	public float MaxJumpForce = 1100f;
 
+	public Vector3 test;
+
 	public int horizDirection = 1;
 
 
@@ -37,6 +39,7 @@ public class CharControl : MonoBehaviour {
 	}
 
 	void Update () {
+		test = transform.position;
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 

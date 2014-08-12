@@ -19,6 +19,7 @@ public class trainSpawner : MonoBehaviour {
 		trains = new Queue<GameObject>();
 		QueueAndMove();
 		QueueAndMove();
+		player = GameObject.Find ("character");
 	}
 
 	void QueueAndMove(){
@@ -57,6 +58,11 @@ public class trainSpawner : MonoBehaviour {
 	public float headCenter() {
 		GameObject trainCheck = (GameObject)trains.Peek ();
 		return trainCheck.transform.Find ("center").transform.position.x;
+	}
+
+	public GameObject headPanel(){
+		GameObject trainCheck = (GameObject)trains.Peek ();
+		return GameObject.Find ("trainCheck/sidePanel");
 	}
 
 	// Update is called once per frame

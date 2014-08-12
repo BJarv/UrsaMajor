@@ -7,6 +7,9 @@ public class TrainExit : MonoBehaviour {
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 
+	private bool soundPlayed;
+	public AudioClip exitSound;
+
 	// Use this for initialization
 	void Start () {
 		cameraObj = GameObject.Find("Main Camera");
@@ -22,6 +25,10 @@ public class TrainExit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hit) 
 	{
 		if(Input.GetKey(KeyCode.E)){
+			if(!soundPlayed){
+				AudioSource.PlayClipAtPoint(exitSound, transform.position);
+				soundPlayed = true;
+			}
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
 			cameraObj.GetComponent<Camera2D>().setLock(false);
@@ -33,6 +40,10 @@ public class TrainExit : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D hit) 
 	{
 		if(Input.GetKey(KeyCode.E)){
+			if(!soundPlayed){
+				AudioSource.PlayClipAtPoint(exitSound, transform.position);
+				soundPlayed = true;
+			}
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
 			cameraObj.GetComponent<Camera2D>().setLock(false);
