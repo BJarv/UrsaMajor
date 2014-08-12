@@ -20,8 +20,7 @@ public class getBonus : MonoBehaviour {
 		//Debug.Log ("\n");
 		if(hit.gameObject.tag == "Player"){
 			//Debug.Log ("entered");
-			audio.clip = kaChing;
-			audio.Play();
+			AudioSource.PlayClipAtPoint(kaChing, transform.position);
 			Destroy (gameObject);
 		}
 	}

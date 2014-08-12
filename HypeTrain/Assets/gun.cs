@@ -15,6 +15,8 @@ public class gun : MonoBehaviour {
 	private bool sTimerOn = false;
 	private float shotTimer;
 	private GameObject player = null;
+	public AudioClip gunshot;
+	public AudioClip reload;
 	//private CharControl charControl;
 
 	// Use this for initialization
@@ -30,6 +32,8 @@ public class gun : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetButtonDown ("Fire1") && Firable ()) {
+			AudioSource.PlayClipAtPoint(gunshot, transform.position);
+
 			sTimerOn = true;
 			inMag -= 1;
 			var pos = Input.mousePosition;
@@ -40,7 +44,9 @@ public class gun : MonoBehaviour {
 			Rigidbody2D go = Instantiate(bullet, transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
+
 			if(inMag <= 0){
+				AudioSource.PlayClipAtPoint(reload, transform.position);
 				rTimerOn = true;
 			}
 
@@ -52,6 +58,7 @@ public class gun : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("Reload") && inMag != magSize) {
+			AudioSource.PlayClipAtPoint(reload, transform.position);
 			//play reload anim
 			rTimerOn = true;
 		}
