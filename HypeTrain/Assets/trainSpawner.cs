@@ -19,6 +19,7 @@ public class trainSpawner : MonoBehaviour {
 		trains = new Queue<GameObject>();
 		QueueAndMove();
 		QueueAndMove();
+		player = GameObject.Find ("character");
 	}
 
 	void QueueAndMove(){

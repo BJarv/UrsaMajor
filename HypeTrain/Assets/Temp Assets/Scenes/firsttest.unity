@@ -2327,6 +2327,7 @@ GameObject:
   - 114: {fileID: 1601425291}
   - 95: {fileID: 1601425290}
   - 60: {fileID: 1601425289}
+  - 114: {fileID: 1601425294}
   m_Layer: 10
   m_Name: character
   m_TagString: Player
@@ -2411,6 +2412,7 @@ MonoBehaviour:
   PlusJumpForce: 100
   CurrJumpForce: 0
   MaxJumpForce: 1100
+  test: {x: 0, y: 0, z: 0}
   horizDirection: 1
 --- !u!50 &1601425292
 Rigidbody2D:
@@ -2451,6 +2453,20 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: ac5f8fafa9db35c42bcab838dea3ec47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1601425294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208410400}
+  m_GameObject: {fileID: 1601425287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e304b4bce0653949b20add589423dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  deathDelay: 1
 --- !u!1 &1611821530
 GameObject:
   m_ObjectHideFlags: 0
