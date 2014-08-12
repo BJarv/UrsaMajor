@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
   - 60: {fileID: 6000000}
+  - 114: {fileID: 11400008}
   m_Layer: 10
   m_Name: character
   m_TagString: Player
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.5360489, y: 17.0273914, z: 0}
+  m_LocalPosition: {x: 11.8708363, y: .72317636, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -264,6 +265,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticalSize: 32
   reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e304b4bce0653949b20add589423dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  deathDelay: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
