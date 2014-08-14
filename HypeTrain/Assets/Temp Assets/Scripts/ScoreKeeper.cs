@@ -11,6 +11,7 @@ public class ScoreKeeper : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		GUI.Label (new Rect (0, 0, 125, 25), "Loot Collected: $" + Score);
+		GUI.color = Color.black;
+		GUI.Label (new Rect (0, 0, 250, 50), "Loot Collected: $" + Score);
 	}
 }
