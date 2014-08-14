@@ -25,7 +25,7 @@ public class bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		else if(colObj.tag != "Player") {
-			Destroy (gameObject, .8);
+			Destroy (gameObject, .8f);
 		}
 
 	}
