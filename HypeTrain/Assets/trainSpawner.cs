@@ -12,6 +12,7 @@ public class trainSpawner : MonoBehaviour {
 	private getWidthCar widthFind;
 	private float theWidth;
 	public float widthBetween;
+	private float begTim = Time.time;
 
 	// Use this for initialization
 	void Start () {
@@ -46,13 +47,18 @@ public class trainSpawner : MonoBehaviour {
 
 	//only kill train if !(train.left.x < player.x && player.x < train.right.x)
 	public void KillTrain() {
-		GameObject trainCheck = (GameObject)trains.Peek();
-		float leftPos = trainCheck.transform.Find ("left").transform.position.x;
-		float rightPos = trainCheck.transform.Find ("right").transform.position.x;
-		if(!(leftPos < player.transform.position.x && player.transform.position.x < rightPos)){
+		if(!playerWithinFirst ()){
 			Destroy((GameObject)trains.Dequeue());
 			QueueAndMove();
 		}
+	}
+
+	public bool playerWithinFirst()
+	{
+		GameObject trainCheck = (GameObject)trains.Peek();
+		float leftPos = trainCheck.transform.Find ("left").transform.position.x;
+		float rightPos = trainCheck.transform.Find ("right").transform.position.x;
+		return (leftPos < player.transform.position.x && player.transform.position.x < rightPos);
 	}
 
 	public float headCenter() {
@@ -67,6 +73,16 @@ public class trainSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+		if (!playerWithinFirst ()) {
+			bool timer = (Time.time > begTim + 2.0f);
+			if(timer){
+				Destroy((GameObject)trains.Dequeue());
+				QueueAndMove();
+				begTim = Time.time;
+			}
+		}
+		if (Input.GetKey (KeyCode.Escape)) {
+			Application.LoadLevel ("MainMenu");
+		}
 	}
 } 
