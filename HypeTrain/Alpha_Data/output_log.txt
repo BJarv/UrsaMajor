@@ -12,7 +12,7 @@ Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\HypeTrain\Alpha_Data\Managed
 Loading D:\Users\BJarv\Desktop\UrsaMajor\HypeTrain\Alpha_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\HypeTrain\Alpha_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading D:\Users\BJarv\Desktop\UrsaMajor\HypeTrain\Alpha_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.260 seconds
+- Completed reload, in  0.180 seconds
 desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -21,707 +21,109 @@ Pressed Play!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.267743 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+UnloadTime: 0.303664 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 504.
-Total: 0.543033 ms (FindLiveObjects: 0.016300 ms CreateObjectMapping: 0.008150 ms MarkObjects: 0.105648 ms  DeleteObjects: 0.007848 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 667.
+Total: 0.581670 ms (FindLiveObjects: 0.019620 ms CreateObjectMapping: 0.009055 ms MarkObjects: 0.124061 ms  DeleteObjects: 0.008753 ms)
 
-(53.1, 998.6)
+(-366.9, 930.2)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(233.8, 972.3)
+(457.0, 889.5)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(319.1, 947.7)
+(-159.6, 987.2)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(672.6, 740.1)
+(-434.2, 900.8)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(440.9, 897.6)
+(-291.3, 956.6)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(492.4, 870.3)
+(836.6, 547.8)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(119.5, 992.8)
+(-215.8, 976.4)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(382.5, 923.9)
+(82.3, 996.6)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(113.6, 993.5)
+(124.7, 992.2)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(7.1, 1000.0)
+(726.3, 687.4)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-(356.9, 934.1)
+(105.0, 994.5)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(719.7, 694.3)
+(113.2, 993.6)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(572.3, 820.0)
+(-56.0, 998.4)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(-147.0, 989.1)
+(-277.4, 960.8)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(-1.8, 1000.0)
+(-948.2, 317.6)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(149.0, 988.8)
+(186.2, 982.5)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(344.1, 938.9)
+(35.0, 999.4)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-274.5, 961.6)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-664.6, 747.2)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-246.0, 969.3)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(179.1, 983.8)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-874.3, 485.4)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-109.3, 994.0)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-92.7, 995.7)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+(-13.2, 999.9)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -761,15 +163,17 @@ NullReferenceException
  
 (Filename:  Line: -1)
 
-(-383.2, 923.6)
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at TrainExit.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+(-997.9, -64.8)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-(30.4, 999.5)
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-(171.7, 985.2)
+(-984.6, 175.1)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -777,17 +181,17 @@ Pressed ESC!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.367355 ms
+UnloadTime: 0.451873 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 350 unused Assets to reduce memory usage. Loaded Objects now: 120.
-Total: 6.799842 ms (FindLiveObjects: 0.014187 ms CreateObjectMapping: 0.009055 ms MarkObjects: 0.070331 ms  DeleteObjects: 6.308727 ms)
+Unloading 513 unused Assets to reduce memory usage. Loaded Objects now: 120.
+Total: 7.252319 ms (FindLiveObjects: 0.012375 ms CreateObjectMapping: 0.009659 ms MarkObjects: 0.070331 ms  DeleteObjects: 6.700230 ms)
 
-UnloadTime: 0.210391 ms
+UnloadTime: 0.247821 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 119.
-Total: 0.500774 ms (FindLiveObjects: 0.004225 ms CreateObjectMapping: 0.005735 ms MarkObjects: 0.095687 ms  DeleteObjects: 0.025355 ms)
+Total: 0.448553 ms (FindLiveObjects: 0.004225 ms CreateObjectMapping: 0.006037 ms MarkObjects: 0.068218 ms  DeleteObjects: 0.004829 ms)
 
 Pressed Quit!
  

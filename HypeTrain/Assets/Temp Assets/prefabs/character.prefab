@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.8708363, y: .72317636, z: 0}
+  m_LocalPosition: {x: -46.1272583, y: 24.6499996, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  addSpeed: 25
+  addSpeed: 35
   midGroundCheck: {fileID: 400002}
   leftGroundCheck: {fileID: 400006}
   rightGroundCheck: {fileID: 400004}
@@ -238,11 +238,11 @@ MonoBehaviour:
   bulletSpeed: 500
   kickForce: 1000
   magSize: 3
-  reloadTime: 1
+  reloadTime: 1.25
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
-  gunshot: {fileID: 0}
-  reload: {fileID: 0}
+  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
