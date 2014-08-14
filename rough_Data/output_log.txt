@@ -2,73 +2,30 @@ Initialize engine version: 4.5.2f1 (9abb1b59b47c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA Quadro K2100M (ID=0x11fc)
-    Vendor:   NVIDIA
-    VRAM:     1990 MB
+    Renderer: AMD Radeon HD 7900 Series (ID=0x679a)
+    Vendor:   ATI
+    VRAM:     3046 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Ford\UrsaMajor\rough_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Ford\UrsaMajor\rough_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Ford\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Ford\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.071 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.359 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
 <RI> Initializing input.
-XInput1_3.dll not found.
 <RI> Input initialized.
-Platform assembly: C:\Users\Ford\UrsaMajor\rough_Data\Managed\System.dll (this message is harmless)
-Pressed Play!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 0.548524 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 93.
-Total: 1.220590 ms (FindLiveObjects: 0.014064 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.191204 ms  DeleteObjects: 0.017485 ms)
-
+Platform assembly: D:\Users\BJarv\Desktop\UrsaMajor\rough_Data\Managed\System.dll (this message is harmless)
 Pressed Options!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.589198 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 255.
-Total: 1.338430 ms (FindLiveObjects: 0.023948 ms CreateObjectMapping: 0.024708 ms MarkObjects: 0.263808 ms  DeleteObjects: 0.008362 ms)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
+Pressed Play!
  
-(Filename:  Line: -1)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+UnloadTime: 0.250838 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
-  at TrainEnter.OnTriggerStay2D (UnityEngine.Collider2D hit) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 93.
+Total: 0.476623 ms (FindLiveObjects: 0.008451 ms CreateObjectMapping: 0.005131 ms MarkObjects: 0.077575 ms  DeleteObjects: 0.013281 ms)
 
