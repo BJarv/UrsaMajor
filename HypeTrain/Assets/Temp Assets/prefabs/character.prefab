@@ -14,6 +14,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 60: {fileID: 6000000}
   - 114: {fileID: 11400008}
+  - 114: {fileID: 11400010}
   m_Layer: 10
   m_Name: character
   m_TagString: Player
@@ -221,6 +222,7 @@ MonoBehaviour:
   PlusJumpForce: 100
   CurrJumpForce: 0
   MaxJumpForce: 1100
+  test: {x: 0, y: 0, z: 0}
   horizDirection: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -239,6 +241,8 @@ MonoBehaviour:
   reloadTime: 1
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
+  gunshot: {fileID: 0}
+  reload: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,6 +282,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   deathDelay: 1
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6940eea18fe00764986b4033cff1a66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
