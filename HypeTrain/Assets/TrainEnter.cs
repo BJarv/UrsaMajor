@@ -39,7 +39,7 @@ public class TrainEnter : MonoBehaviour {
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
 			cameraObj.GetComponent<Camera2D>().setLock(true);
 			//Remove side panel
-			//sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel(); HEADPANEL IS BROKEN
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(false);
 		}
 	}
@@ -58,7 +58,7 @@ public class TrainEnter : MonoBehaviour {
 			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
 			cameraObj.GetComponent<Camera2D>().setLock(true);
 			//Remove side panel
-			//sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel(); HEADPANEL IS BROKEN
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(false);
 		}
 	}
