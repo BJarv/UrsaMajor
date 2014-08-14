@@ -4,10 +4,12 @@ using System.Collections;
 public class ShootingEnemy : Enemy {
 
 	private EnemyGun gun;
+	
 
 
 	override protected void Start () {
 		base.Start ();
+		health = 10f;
 		gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
 	}
 

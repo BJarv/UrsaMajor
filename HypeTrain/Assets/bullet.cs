@@ -17,14 +17,16 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 
-			if(colObj.tag == "Enemy") {
-				//colObj.gameObject.GetComponent<Enemy>().Hurt();
-				Destroy (gameObject);
-			}
-
-			else if(colObj.tag != "Player") {
-				Destroy (gameObject);
-			}
+		if (colObj.tag == "bonus") {
+			return;
+		}
+		if(colObj.tag == "enemy") {
+			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			Destroy (gameObject);
+		}
+		else if(colObj.tag != "Player") {
+			Destroy (gameObject);
+		}
 
 	}
 
