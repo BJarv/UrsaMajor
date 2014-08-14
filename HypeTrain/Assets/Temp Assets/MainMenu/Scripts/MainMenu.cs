@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour {
 		};
 
 		if (GUI.Button (new Rect (Screen.width * .73f, Screen.height * .5f, Screen.width * .2f, Screen.height * .1f), "Quit")) {
-			Debug.Log ("Pressed Options!");	
+			Debug.Log ("Pressed Quit!");	
 			Application.Quit ();
 		};
 	}

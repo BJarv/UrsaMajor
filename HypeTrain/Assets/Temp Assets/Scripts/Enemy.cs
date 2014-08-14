@@ -10,6 +10,7 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour {
 
+	public float health = 20f;
 
 	private EnemyState State = EnemyState.IDLE;
 	public float EnemySpeed = 2f;
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour {
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
 	private bool strolling = false;
+
+	private float startTime;
 
 
 	// Use this for initialization
@@ -92,5 +95,18 @@ public class Enemy : MonoBehaviour {
 	{
 		//move until reach edge or near enough to player
 		
+	}
+
+	void OnCollisionEnter2D(Collision2D colObj){
+		if (colObj.collider.tag == "Player") {
+			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
+		}
+	}
+
+	public void Hurt(float damage){
+		health -= damage;
+		if (health <= 0) {
+			Destroy (gameObject);
+		}
 	}
 }

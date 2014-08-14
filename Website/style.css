@@ -1,0 +1,131 @@
+.menuelement {
+	font-family: 'Press Start 2P', arial, serif;
+	text-align: center;
+	text-shadow: 2px 3px #8f0023;
+}
+
+.bigtext {
+	font-family: 'Press Start 2P', arial, serif;
+	text-align: center;
+	color: #002863;
+	text-shadow: 2px 3px #8f0023;
+}
+
+.subtext {
+	font-family: 'Press Start 2P', arial, serif;
+	text-align: center;
+}
+
+#linkcont {
+	display: inline;
+	width: 1500px;
+	height: 100px;
+}
+
+#smalllogo {
+	width: 150px;
+	height: 150px;
+}
+
+.mainlinks {
+	padding: 15px 15px 15px 15px;
+}
+
+th,td {
+	padding:35px;
+}
+
+/* unvisited link */
+a:link {
+    color: #002863;
+	text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #002863;
+	text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #8f0023;
+	text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #002863;
+	text-decoration: none;
+}
+
+.name {
+	width: 100px;
+	font-family: 'Press Start 2P', arial, serif;
+	text-shadow: 2px 1px #8f0023;
+	color: #002863;
+}
+
+.role {
+	font-family: 'Cuprum', sans-serif;
+}
+
+.about {
+	font-family: 'Cuprum', sans-serif;
+}
+
+.older {
+	position:absolute;
+	right: 200px;
+	height: 100px;
+	width: 150px;
+}
+
+.newer {
+	position:absolute;
+	left:200px;
+	height: 100px;
+	width: 150px;
+}
+
+.goodlink {
+	font-family: 'Press Start 2P', arial, serif;
+	text-shadow: 2px 1px #8f0023;
+}
+
+.deadlink {
+	font-family: 'Press Start 2P', arial, serif;
+	text-shadow: 2px 1px 	#A3A3A3;
+	color: #CCCCCC;
+}
+
+.pagetitle {
+	font-family: 'Press Start 2P', arial, serif;
+	text-align: center;
+	text-shadow: 2px 3px #8f0023;
+	color: #002863;
+	font-size: 55px;
+}
+
+.blogpost {
+	font-family:'Cuprum', sans-serif;
+	text-align: left;
+}
+
+.blogcont {
+	width: 600px;
+	text-align: left;
+	border-top: 1px gray solid;
+}
+
+.imgBox { 
+	width: 613px; 
+	height: 526px; 
+	background: url(http://i.imgur.com/svsuVtL.png) no-repeat; 
+} 
+
+.imgBox:hover { 
+	width: 613px; 
+	height: 526px; 
+	background: url(http://i.imgur.com/gsDMD0G.png) no-repeat; 
+}

@@ -723,7 +723,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.4941254, y: 6.0222559, z: 0}
+  m_LocalPosition: {x: 23.9561024, y: 62.3432236, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400018}
@@ -917,7 +917,7 @@ EdgeCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: be74c72091c4bcc47a010048be2ebf3f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
   - {x: -15.0669889, y: 11.3134966}
@@ -929,7 +929,7 @@ EdgeCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: be74c72091c4bcc47a010048be2ebf3f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
   - {x: -.277206004, y: -.0418505929}
@@ -999,8 +999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b839e904c44ec49d385edabe4d827cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: {fileID: 0}
-  right: {fileID: 0}
+  left: {fileID: 100028}
+  right: {fileID: 100030}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
