@@ -329,6 +329,14 @@ Prefab:
       propertyPath: reloadTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+      propertyPath: gunshot
+      value: 
+      objectReference: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+    - target: {fileID: 11400002, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
   m_RootGameObject: {fileID: 1301644279}
@@ -526,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c1885c948614819a3f3386b2b59ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaChing: {fileID: 0}
 --- !u!61 &480256414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -641,6 +650,8 @@ MonoBehaviour:
   reloadTime: 1
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .25
+  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
 --- !u!4 &556908091
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,6 +1039,8 @@ GameObject:
   - 114: {fileID: 1301644283}
   - 95: {fileID: 1301644282}
   - 60: {fileID: 1301644281}
+  - 114: {fileID: 1301644287}
+  - 114: {fileID: 1301644286}
   m_Layer: 10
   m_Name: character
   m_TagString: Player
@@ -1112,6 +1125,7 @@ MonoBehaviour:
   PlusJumpForce: 100
   CurrJumpForce: 0
   MaxJumpForce: 1100
+  test: {x: 0, y: 0, z: 0}
   horizDirection: 1
 --- !u!50 &1301644284
 Rigidbody2D:
@@ -1152,6 +1166,32 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: ac5f8fafa9db35c42bcab838dea3ec47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1301644286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 340577376}
+  m_GameObject: {fileID: 1301644279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6940eea18fe00764986b4033cff1a66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1301644287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 8f32b1c2f771c42c4945648c1ffa55b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 340577376}
+  m_GameObject: {fileID: 1301644279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e304b4bce0653949b20add589423dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  deathDelay: 1
 --- !u!1 &1376968692
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 Initialize engine version: 4.5.2f1 (9abb1b59b47c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
+<<<<<<< HEAD
     Version:  Direct3D 11.0 [level 10.1]
     Renderer: Intel(R) HD Graphics Family (ID=0x126)
     Vendor:   Intel
@@ -3127,3 +3128,18 @@ NullReferenceException: Object reference not set to an instance of an object
  
 (Filename:  Line: -1)
 
+=======
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6818)
+    Vendor:   ATI
+    VRAM:     2029 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Platt\Desktop\UrsaMajor\rough_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.052 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+>>>>>>> faa58b7b5a2ba13f0694f74d06a66791f67b5f4b

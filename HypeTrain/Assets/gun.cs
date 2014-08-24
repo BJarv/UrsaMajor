@@ -63,7 +63,7 @@ public class gun : MonoBehaviour {
 
 			//if(player.GetComponent<)
 			if(!player.GetComponent<CharControl>().isGrounded()){
-				Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
+				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
 				player.rigidbody2D.AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
 		}
