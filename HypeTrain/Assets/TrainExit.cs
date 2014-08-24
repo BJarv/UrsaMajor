@@ -21,11 +21,17 @@ public class TrainExit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (Camera.main.orthographicSize);
+
 	}
-	
-	void OnTriggerEnter2D(Collider2D hit) 
-	{
+
+	void exitZoom() {
+		//while (Camera.main.orthographicSize < 34) {
+		Camera.main.orthographicSize = Mathf.SmoothDamp (12.79f, 35, ref velocity.y, 0.5f);
+		//}
+		Camera.main.orthographicSize = Mathf.SmoothDamp (35, 13, ref velocity.y, 0.5f);
+	}
+
+	void OnTriggerEnter2D(Collider2D hit) {
 		if(Input.GetKey(KeyCode.E)){
 			//Play exit sound
 			if(!soundPlayed){
@@ -37,14 +43,12 @@ public class TrainExit : MonoBehaviour {
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
 			//Hard zoom out, then unlock camera
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			Camera.main.orthographicSize = Mathf.SmoothDamp (Camera.main.orthographicSize, 50, ref velocity.y, 0.5f);
-			//Camera.main.orthographicSize = Mathf.SmoothDamp (Camera.main.orthographicSize, 12.79f, ref velocity.y, 3); START HERE HAYDEN
+			exitZoom();
 			//Make sidePanel visible again
 			sidePanel.SetActive(true);
 		}
 	}
-	void OnTriggerStay2D(Collider2D hit) 
-	{
+	void OnTriggerStay2D(Collider2D hit) {
 		if(Input.GetKey(KeyCode.E)){
 			if(!soundPlayed){
 				AudioSource.PlayClipAtPoint(exitSound, transform.position);
@@ -55,8 +59,7 @@ public class TrainExit : MonoBehaviour {
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
 			//Hard zoom out, then unlock camera
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			Camera.main.orthographicSize = Mathf.SmoothDamp (Camera.main.orthographicSize, 50, ref velocity.y, 0.5f);
-			//Camera.main.orthographicSize = Mathf.SmoothDamp (Camera.main.orthographicSize, 12.79f, ref velocity.y, 3); START HERE HAYDEN
+			exitZoom();
 			//Make sidePanel visible again
 			sidePanel.SetActive(true);
 		}
