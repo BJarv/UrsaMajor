@@ -8,8 +8,14 @@ public class TrainExit : MonoBehaviour {
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 
+	//Audio variables
 	private bool soundPlayed;
 	public AudioClip exitSound;
+
+	//Camera variables
+	private float cameraPosition;
+	private float targetCameraPosition;
+	private Vector2 cameraVelocity = new Vector2 (0.5f, 0.5f);
 
 	// Use this for initialization
 	void Start () {
@@ -17,18 +23,19 @@ public class TrainExit : MonoBehaviour {
 		Player = GameObject.Find("character");
 		sidePanel = GameObject.Find ("sidepanel");
 		velocity = new Vector2 (0.5f, 0.5f);
+
+		targetCameraPosition = Camera.main.orthographicSize;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		//Debug.Log (targetCameraPosition);
+		cameraPosition = Camera.main.orthographicSize;
+		Camera.main.orthographicSize = Mathf.SmoothDamp (cameraPosition, targetCameraPosition, ref cameraVelocity.y, 1f);
 	}
 
-	void exitZoom() {
-		//while (Camera.main.orthographicSize < 34) {
-		Camera.main.orthographicSize = Mathf.SmoothDamp (12.79f, 35, ref velocity.y, 0.5f);
-		//}
-		Camera.main.orthographicSize = Mathf.SmoothDamp (35, 13, ref velocity.y, 0.5f);
+	void zoomIn () {
+		targetCameraPosition = 12.79f;
 	}
 
 	void OnTriggerEnter2D(Collider2D hit) {
@@ -41,15 +48,17 @@ public class TrainExit : MonoBehaviour {
 			//Temporary Exit Solution
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
-			//Hard zoom out, then unlock camera
+			//Hard zoom out, zoom in, then unlock camera
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			exitZoom();
+			targetCameraPosition = 35;
+			Invoke ("zoomIn", 1.5f);
 			//Make sidePanel visible again
 			sidePanel.SetActive(true);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
 		if(Input.GetKey(KeyCode.E)){
+			//Play exit sound
 			if(!soundPlayed){
 				AudioSource.PlayClipAtPoint(exitSound, transform.position);
 				soundPlayed = true;
@@ -57,9 +66,10 @@ public class TrainExit : MonoBehaviour {
 			//Temporary Exit Solution
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 			Player.rigidbody2D.AddForce(new Vector2(0, 300));
-			//Hard zoom out, then unlock camera
+			//Hard zoom out, zoom in, then unlock camera
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			exitZoom();
+			targetCameraPosition = 35;
+			Invoke ("zoomIn", 1.5f);
 			//Make sidePanel visible again
 			sidePanel.SetActive(true);
 		}
