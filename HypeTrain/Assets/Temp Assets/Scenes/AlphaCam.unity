@@ -430,7 +430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
       propertyPath: reloadTime
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
       propertyPath: addSpeed
@@ -468,6 +468,14 @@ Prefab:
     - target: {fileID: 11400010, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
       propertyPath: scoreStyle.m_FontSize
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+      propertyPath: MaxJumpForce
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+      propertyPath: magSize
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
@@ -520,8 +528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 750
   kickForce: 1000
-  magSize: 3
-  reloadTime: 1.25
+  magSize: 4
+  reloadTime: 1
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
   gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
@@ -918,7 +926,7 @@ MonoBehaviour:
     m_Bits: 4294966271
   PlusJumpForce: 100
   CurrJumpForce: 0
-  MaxJumpForce: 1100
+  MaxJumpForce: 1300
   test: {x: 0, y: 0, z: 0}
   horizDirection: 1
 --- !u!50 &1601425292
