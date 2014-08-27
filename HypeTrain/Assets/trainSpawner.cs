@@ -11,12 +11,12 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject player;
 	private getWidthCar widthFind;
 	private float theWidth;
-	public float widthBetween;
-	private float begTim = Time.time;
+	public float widthBetween = 2f;
+	private float begTim;
 
 	// Use this for initialization
 	void Start () {
-		widthBetween = 2f;
+		begTim = Time.time;
 		trains = new Queue<GameObject>();
 		QueueAndMove();
 		QueueAndMove();
