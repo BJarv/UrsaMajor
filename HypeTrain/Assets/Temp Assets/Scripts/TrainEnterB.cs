@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TrainEnter : MonoBehaviour {
+public class TrainEnterB : MonoBehaviour {
 	
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 	private GameObject trainSpawn;
-
+	
 	private bool soundPlayed;
 	public AudioClip enterSound;
-
+	
 	//private GameObject Player = null;
 	// Use this for initialization
 	void Start () {
@@ -18,36 +18,31 @@ public class TrainEnter : MonoBehaviour {
 		trainSpawn = GameObject.Find ("trainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
-
+	
 	void OnTriggerEnter2D(Collider2D hit) 
 	{
-		if(Input.GetKey(KeyCode.E)){
-			EnteredTrain(hit);
-		}
+		EnteredTrain(hit);
 	}
 	void OnTriggerStay2D(Collider2D hit) 
 	{
-		if(Input.GetKey(KeyCode.E)){
-			EnteredTrain (hit);
-		}
+		EnteredTrain (hit);
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
-	}
 
+	}
+	
 	void EnteredTrain(Collider2D hit){
 		if(!soundPlayed){
 			AudioSource.PlayClipAtPoint(enterSound, transform.position);
 			soundPlayed = true;
 		}
 		//Pass through
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 		//Remove previous train
 		trainSpawn.GetComponent<trainSpawner>().KillTrain();
 		//Lock camera on the current car

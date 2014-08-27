@@ -12,6 +12,9 @@ public class Camera2D : MonoBehaviour {
 	private Transform thisTransform;
 	private Vector2 velocity;
 
+	public float maxCamHeight = 20f;
+	private float heightTest;
+
 	// Use this for initialization
 	void Start () {
 		thisTransform = transform;
@@ -32,7 +35,12 @@ public class Camera2D : MonoBehaviour {
 		} else { 								//Left-right tracking an train-top level
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, 
 			                               ref velocity.x, smoothrate);
-			newPos2D.y = 20;   //default for now
+			heightTest = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
+			if (heightTest > maxCamHeight){
+				newPos2D.y = 20f;
+			} else {
+				newPos2D.y = heightTest;   //default for now
+			}
 			//*****Replace 20 with the line below for omnidirectional tracking
 			//Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
 		}
