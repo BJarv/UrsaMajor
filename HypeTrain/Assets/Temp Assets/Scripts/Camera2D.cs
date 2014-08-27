@@ -18,10 +18,6 @@ public class Camera2D : MonoBehaviour {
 		velocity = new Vector2 (0.5f, 0.5f);
 	}
 
-	void findCenter(){
-
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		Vector2 newPos2D = Vector2.zero;
