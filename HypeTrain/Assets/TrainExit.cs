@@ -13,10 +13,6 @@ public class TrainExit : MonoBehaviour {
 	private bool soundPlayed;
 	public AudioClip exitSound;
 
-	//Camera variables
-	private float cameraPosition;
-	private float targetCameraPosition;
-	private Vector2 cameraVelocity = new Vector2 (0.5f, 0.5f);
 
 	// Use this for initialization
 	void Start () {
@@ -26,18 +22,15 @@ public class TrainExit : MonoBehaviour {
 		trainSpawn = GameObject.Find ("trainSpawner");
 		velocity = new Vector2 (0.5f, 0.5f);
 
-		targetCameraPosition = Camera.main.orthographicSize;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("TARGET: " + targetCameraPosition);
-		cameraPosition = Camera.main.orthographicSize;
-		Camera.main.orthographicSize = Mathf.SmoothDamp (cameraPosition, targetCameraPosition, ref cameraVelocity.y, 1f);
 	}
 
 	void zoomIn () {
-		targetCameraPosition = 12.79f;
+		Camera2D.setCameraTarget(12.79f);
 	}
 
 	void OnTriggerEnter2D(Collider2D hit) {
@@ -55,8 +48,8 @@ public class TrainExit : MonoBehaviour {
 			sidePanel.SetActive(true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			targetCameraPosition = 35;
-			Invoke ("zoomIn", 1.25f);
+			Camera2D.setCameraTarget(25.0f);
+			cameraObj.GetComponent<Camera2D>().scheduleZoomIn();
 		
 		}
 	}
@@ -75,8 +68,8 @@ public class TrainExit : MonoBehaviour {
 			sidePanel.SetActive(true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D>().setLock(false);
-			targetCameraPosition = 35;
-			Invoke ("zoomIn", 1.25f);
+			Camera2D.setCameraTarget(25.0f);
+			cameraObj.GetComponent<Camera2D>().scheduleZoomIn();
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
