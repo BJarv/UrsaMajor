@@ -53,11 +53,11 @@ public class TrainExit : MonoBehaviour {
 			//Make sidePanel visible again
 			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(true);
-			//Hard zoom out, zoom in, then unlock camera
+			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D>().setLock(false);
 			targetCameraPosition = 35;
-			Invoke ("zoomIn", 1.5f);
-
+			Invoke ("zoomIn", 1.25f);
+		
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
@@ -73,11 +73,10 @@ public class TrainExit : MonoBehaviour {
 			//Make sidePanel visible again
 			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
 			sidePanel.SetActive(true);
-			//Hard zoom out, zoom in, then unlock camera
+			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D>().setLock(false);
 			targetCameraPosition = 35;
-			Invoke ("zoomIn", 1.5f);
-
+			Invoke ("zoomIn", 1.25f);
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
