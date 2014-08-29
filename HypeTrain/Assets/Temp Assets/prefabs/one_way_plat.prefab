@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 68: {fileID: 6800000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: one_way_plat
   m_TagString: bonus
@@ -29,7 +30,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: isBelow
-  m_TagString: Untagged
+  m_TagString: bonus
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.604187, y: 162.303101, z: 0}
+  m_LocalPosition: {x: -39.7868233, y: 24.6111526, z: 0}
   m_LocalScale: {x: 7.01007509, y: .373073995, z: 1.40688396}
   m_Children:
   - {fileID: 400002}
@@ -91,6 +92,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32af2fcca329da442b298a4513251c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00860cae8190beb4a9c26ea0e0784ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21200000
