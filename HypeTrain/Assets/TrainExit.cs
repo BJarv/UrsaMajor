@@ -47,7 +47,7 @@ public class TrainExit : MonoBehaviour {
 
 	//What to do if E is pressed in trigger
 	void ExitedTrain(Collider2D hit) {
-		//Play exit sound
+		//Play exit 
 		if(!soundPlayed){
 			AudioSource.PlayClipAtPoint(exitSound, transform.position);
 			soundPlayed = true;

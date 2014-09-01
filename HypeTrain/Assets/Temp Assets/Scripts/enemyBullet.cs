@@ -16,19 +16,25 @@ public class enemyBullet : MonoBehaviour {
 	void Update () {
 		
 	}
-	
+
+	void returnColor() {
+		player.GetComponent<SpriteRenderer> ().color = Color.white;
+	}
+
 	void OnTriggerEnter2D(Collider2D colObj) {
 		
 		if(colObj.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
-				player.rigidbody2D.AddForce(new Vector2(-200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+				player.rigidbody2D.AddForce(new Vector2(-200, 375));
 			}
 			else if(transform.position.x - colObj.transform.position.x < 0)
 			{
-				player.rigidbody2D.AddForce(new Vector2(200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+				player.rigidbody2D.AddForce(new Vector2(200, 375));
 			}
+			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+			//Invoke("returnColor", .3f); HELP: need a way/place to return color after a short delay, even though bullet is gone. Maybe call in CharControl?
 			Destroy (gameObject);
 		}
 		

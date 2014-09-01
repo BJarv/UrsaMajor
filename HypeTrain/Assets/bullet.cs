@@ -24,12 +24,14 @@ public class bullet : MonoBehaviour {
 			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
-				colObj.gameObject.rigidbody2D.AddForce(new Vector2(-200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+				colObj.gameObject.rigidbody2D.AddForce(new Vector2(-200, 375));
 			}
 			else if(transform.position.x - colObj.transform.position.x < 0)
 			{
-				colObj.gameObject.rigidbody2D.AddForce(new Vector2(200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+				colObj.gameObject.rigidbody2D.AddForce(new Vector2(200, 375));
 			}
+			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+			//Invoke("returnColor", .3f); HELP: need a way/place to return color after a short delay, even though bullet is gone. Maybe call in enemyScripts?
 			Destroy (gameObject);
 		}
 		else if(colObj.tag != "Player") {
