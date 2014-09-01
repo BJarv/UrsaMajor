@@ -21,7 +21,14 @@ public class enemyBullet : MonoBehaviour {
 		
 		if(colObj.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			player.rigidbody2D.AddForce(new Vector2(-200, 375)); //HELP: Need to make x value rely on where player is hit from
+			if(transform.position.x - colObj.transform.position.x > 0)
+			{
+				player.rigidbody2D.AddForce(new Vector2(-200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+			}
+			else if(transform.position.x - colObj.transform.position.x < 0)
+			{
+				player.rigidbody2D.AddForce(new Vector2(200, 375)); //HELP: Need to make x value rely on where enemy is hit from
+			}
 			Destroy (gameObject);
 		}
 		
