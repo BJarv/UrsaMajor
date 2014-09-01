@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 61: {fileID: 6100000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400032}
   m_Layer: 0
   m_Name: isBelow
-  m_TagString: Untagged
-  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
+  m_TagString: bonus
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   - 68: {fileID: 6800000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: one_way_plat
   m_TagString: bonus
@@ -562,8 +563,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.69405794, y: .91848594, z: 0}
-  m_LocalScale: {x: 15.4680986, y: .200028628, z: 1.40688396}
+  m_LocalPosition: {x: .00537777925, y: .943094373, z: 0}
+  m_LocalScale: {x: 18.8981915, y: .200000003, z: 1.40688396}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400046}
@@ -822,7 +823,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.0966415, y: 167.920471, z: 0}
+  m_LocalPosition: {x: 22.7421665, y: 16.6551533, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -954,7 +955,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -969,7 +970,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -984,7 +985,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -999,7 +1000,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1014,7 +1015,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1029,7 +1030,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1044,7 +1045,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1059,7 +1060,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1472,10 +1473,10 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32af2fcca329da442b298a4513251c62, type: 3}
+  m_Script: {fileID: 11500000, guid: 00860cae8190beb4a9c26ea0e0784ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400002
@@ -1723,6 +1724,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kaChing: {fileID: 8300000, guid: 3b19b622cffbcc54cbc343d179862033, type: 3}
   value: 100
+--- !u!114 &11400032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32af2fcca329da442b298a4513251c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

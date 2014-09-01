@@ -70,7 +70,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -112,11 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81feb4e37eaef3841906842a5efacc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 20
   EnemySpeed: 2
   Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
+  posOfTrans1: {x: 0, y: 0, z: 0}
+  posOfTrans2: {x: 0, y: 0, z: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

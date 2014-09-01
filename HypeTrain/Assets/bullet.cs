@@ -22,6 +22,7 @@ public class bullet : MonoBehaviour {
 		}
 		if(colObj.tag == "enemy") {
 			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			colObj.gameObject.rigidbody2D.AddForce(new Vector2(200, 375)); //HELP: Need to make x value rely on where enemy is hit from
 			Destroy (gameObject);
 		}
 		else if(colObj.tag != "Player") {
