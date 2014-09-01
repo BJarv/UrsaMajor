@@ -23,24 +23,23 @@ public class TrainEnter : MonoBehaviour {
 	void Update () {
 
 	}
-
-	void OnTriggerEnter2D(Collider2D hit) 
-	{
+	//Check if E is pressed in trigger zone
+	void OnTriggerEnter2D(Collider2D hit) {
 		if(Input.GetKey(KeyCode.E)){
 			EnteredTrain(hit);
 		}
 	}
-	void OnTriggerStay2D(Collider2D hit) 
-	{
+	void OnTriggerStay2D(Collider2D hit) {
 		if(Input.GetKey(KeyCode.E)){
 			EnteredTrain (hit);
 		}
 	}
-	void OnTriggerExit2D(Collider2D hit) 
-	{
+	//What to do once trigger zone is left
+	void OnTriggerExit2D(Collider2D hit) {
 		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
 	}
 
+	//What to do if E is pressed in trigger
 	void EnteredTrain(Collider2D hit){
 		if(!soundPlayed){
 			AudioSource.PlayClipAtPoint(enterSound, transform.position);
