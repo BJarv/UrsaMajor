@@ -5,6 +5,7 @@ TagManager:
   tags:
   - enemy
   - bonus
+  - UI
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -39,6 +40,10 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
+  - name: UI
+    userID: 5
+    uniqueID: 2086468211
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0

@@ -8,7 +8,9 @@ public class TrainExit : MonoBehaviour {
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 	private GameObject trainSpawn;
-
+	private Vector2 exitPos;
+	private Collider2D playerColl;
+	
 	//Audio variables
 	private bool soundPlayed;
 	public AudioClip exitSound;
@@ -27,6 +29,7 @@ public class TrainExit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
 	void zoomIn () {
@@ -34,46 +37,49 @@ public class TrainExit : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
-			//Play exit sound
-			if(!soundPlayed){
-				AudioSource.PlayClipAtPoint(exitSound, transform.position);
-				soundPlayed = true;
-			}
-			//Temporary Exit Solution
-			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
-			Player.rigidbody2D.AddForce(new Vector2(0, 300));
-			//Make sidePanel visible again
-			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
-			sidePanel.SetActive(true);
-			//Unlock camera, hard zoom out, slow zoom in
-			cameraObj.GetComponent<Camera2D>().setLock(false);
-			Camera2D.setCameraTarget(25.0f);
-			cameraObj.GetComponent<Camera2D>().scheduleZoomIn();
-		
+		playerColl = hit;
+		if (Input.GetKey (KeyCode.E)) {
+			ExitTrain (hit);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
-			//Play exit sound
-			if(!soundPlayed){
-				AudioSource.PlayClipAtPoint(exitSound, transform.position);
-				soundPlayed = true;
-			}
-			//Temporary Exit Solution
-			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
-			Player.rigidbody2D.AddForce(new Vector2(0, 300));
-			//Make sidePanel visible again
-			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
-			sidePanel.SetActive(true);
-			//Unlock camera, hard zoom out, slow zoom in
-			cameraObj.GetComponent<Camera2D>().setLock(false);
-			Camera2D.setCameraTarget(25.0f);
-			cameraObj.GetComponent<Camera2D>().scheduleZoomIn();
+		if (Input.GetKey (KeyCode.E)) {
+			ExitTrain (hit);
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
+		Invoke ("ignoreExitCollide", .8f);
+	}
+
+	void ignoreExitCollide()
+	{
+		Physics2D.IgnoreCollision (playerColl, transform.parent.gameObject.collider2D, false);
+	}
+
+	void ExitTrain(Collider2D hit)
+	{
+		//Play exit sound
+		if(!soundPlayed){
+			AudioSource.PlayClipAtPoint(exitSound, transform.position);
+			soundPlayed = true;
+			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+
+			exitPos = trainSpawn.GetComponent<trainSpawner>().exitTele();
+			exitPos.y += .5f;
+			Player.rigidbody2D.position = exitPos;
+			
+			Player.rigidbody2D.AddForce(new Vector2(0, 900));
+			//Make sidePanel visible again
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
+			sidePanel.SetActive(true);
+			//Unlock camera, hard zoom out, slow zoom in
+			cameraObj.GetComponent<Camera2D>().setLock(false);
+			Camera2D.setCameraTarget(25.0f);
+			cameraObj.GetComponent<Camera2D>().scheduleZoomIn();
+
+		}
+
+		
 	}
 }

@@ -30,20 +30,7 @@ public class trainSpawner : MonoBehaviour {
 		theWidth = widthFind.carWidth();
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y);
 	}
-
-	//queue train
-	//move spawner to end of train
-	//queue train
-	//move spawner
-	//wait for player to move to 2nd train
-	//queue train
-	//move spawner
-	//wait for player to move to 3rd train
-	//queue train, move spawner, and delete first
-	//wait
-	//queue and delete
-	//repeat last 2
-
+	
 
 	//only kill train if !(train.left.x < player.x && player.x < train.right.x)
 	public void KillTrain() {
@@ -67,22 +54,31 @@ public class trainSpawner : MonoBehaviour {
 	}
 
 	public GameObject headPanel(){
-		GameObject trainCheck = (GameObject)trains.Peek ();
+		GameObject trainCheck = (GameObject)trains.Peek();
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (!playerWithinFirst ()) {
+		if (!playerWithinFirst () && player.transform.position.x > -40f) {
 			bool timer = (Time.time > begTim + 2.0f);
-			if(timer){
+			if(timer)
+			{
 				Destroy((GameObject)trains.Dequeue());
 				QueueAndMove();
 				begTim = Time.time;
 			}
+
 		}
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.LoadLevel ("MainMenu");
 		}
+	}
+
+	public Vector3 exitTele() 
+	{
+		GameObject trainCheck = (GameObject)trains.Peek();
+
+		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exit").gameObject.transform.position;
 	}
 } 

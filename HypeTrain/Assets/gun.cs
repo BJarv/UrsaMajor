@@ -17,6 +17,11 @@ public class gun : MonoBehaviour {
 	private GameObject player = null;
 	public AudioClip gunshot;
 	public AudioClip reload;
+
+	public GameObject bull1;
+	public GameObject bull2;
+	public GameObject bull3;
+	public GameObject bull4;
 	//private CharControl charControl;
 
 	// Use this for initialization
@@ -31,6 +36,7 @@ public class gun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
 		//rotation
 		Vector3 mousePos = Input.mousePosition;
 		mousePos.z = 5.23f;
@@ -43,10 +49,12 @@ public class gun : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	
 		if (Input.GetButtonDown ("Fire1") && Firable ()) {
+			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
 			sTimerOn = true;
 			inMag -= 1;
+			adjustCounter(inMag);
 			var pos = Input.mousePosition;
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
@@ -79,6 +87,7 @@ public class gun : MonoBehaviour {
 			if(reloadTimer <= 0) {
 				rTimerOn = false;
 				inMag = magSize;
+				adjustCounter(inMag);
 				reloadTimer = reloadTime;
 			}
 		}
@@ -90,6 +99,40 @@ public class gun : MonoBehaviour {
 			}
 		}
 
+	}
+
+	private void adjustCounter(int currBulls)
+	{
+		if (currBulls == 4) {
+			bull1.SetActive (true);
+			bull2.SetActive (true);
+			bull3.SetActive (true);
+			bull4.SetActive (true);
+		}
+		if (currBulls == 3) {
+			bull1.SetActive (true);
+			bull2.SetActive (true);
+			bull3.SetActive (true);
+			bull4.SetActive (false);
+		}
+		if (currBulls == 2) {
+			bull1.SetActive (true);
+			bull2.SetActive (true);
+			bull3.SetActive (false);
+			bull4.SetActive (false);
+		}
+		if (currBulls == 1) {
+			bull1.SetActive (true);
+			bull2.SetActive (false);
+			bull3.SetActive (false);
+			bull4.SetActive (false);
+		}
+		if (currBulls == 0) {
+			bull1.SetActive (false);
+			bull2.SetActive (false);
+			bull3.SetActive (false);
+			bull4.SetActive (false);
+		}
 	}
 
 	bool Firable() {

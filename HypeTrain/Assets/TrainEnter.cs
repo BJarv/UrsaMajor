@@ -8,7 +8,7 @@ public class TrainEnter : MonoBehaviour {
 	private GameObject trainSpawn;
 
 	private bool soundPlayed;
-	public AudioClip enterSound;
+	public AudioClip enterSound;	
 
 	//private GameObject Player = null;
 	// Use this for initialization

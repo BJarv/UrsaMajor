@@ -77,9 +77,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
-  - 114: {fileID: 11400006}
-  - 212: {fileID: 21200004}
-  - 212: {fileID: 21200006}
+  - 212: {fileID: 21200010}
   m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
@@ -110,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.1272583, y: 24.6499996, z: 0}
+  m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -206,17 +204,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .209999993, y: .0799999982}
-      - {x: .159999996, y: .349999994}
-      - {x: -.119999997, y: .349999994}
+    - - {x: .133927673, y: .301332474}
       - {x: -.189999998, y: .219999999}
-      - {x: -.230000004, y: .0399999991}
-      - {x: -.230000004, y: -.180000007}
-      - {x: -.129999995, y: -.349999994}
-      - {x: .140000001, y: -.349999994}
-      - {x: .159999996, y: -.25999999}
-      - {x: .230000004, y: -.209999993}
-      - {x: .230000004, y: -.0599999987}
+      - {x: -.128267929, y: -.341335297}
+      - {x: -.07129924, y: -.361078918}
+      - {x: .00777181005, y: -.365163177}
+      - {x: .0765533447, y: -.362204254}
+      - {x: .0969314575, y: -.355084121}
+      - {x: .118456528, y: -.341349304}
+      - {x: .114596054, y: -.246306747}
+      - {x: .130926773, y: -.0547854118}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -243,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  addSpeed: 85
+  addSpeed: 100
   midGroundCheck: {fileID: 400002}
   leftGroundCheck: {fileID: 400006}
   rightGroundCheck: {fileID: 400004}
@@ -266,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b9df3c5c5747eba35ded498917251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 750
+  bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
   reloadTime: 1
@@ -274,20 +271,11 @@ MonoBehaviour:
   interShotDelay: .5
   gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
   reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
+  bull1: {fileID: 0}
+  bull2: {fileID: 0}
+  bull3: {fileID: 0}
+  bull4: {fileID: 0}
 --- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2044052dca99424babc799a8860afbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reticalSize: 32
-  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
---- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -311,8 +299,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e304b4bce0653949b20add589423dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 100
+  maxHealth: 30
+  playerHealth: 30
   deathDelay: 1
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,29 +419,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1ab60754a45b29e4ab2b40a24b91cb6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21200004
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300036, guid: dbf768eeddaf74648ae0ec74cf951b1f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21200006
+--- !u!212 &21200010
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

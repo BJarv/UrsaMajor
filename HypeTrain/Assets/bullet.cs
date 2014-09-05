@@ -4,7 +4,7 @@ using System.Collections;
 public class bullet : MonoBehaviour {
 
 	public int bulletDeath = 3;
-
+	
 	// Use this for initialization
 	void Start () {
 		Destroy (gameObject, bulletDeath);
@@ -17,7 +17,7 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 
-		if (colObj.tag == "bonus") {
+		if (colObj.tag == "bonus" || colObj.tag == "UI") {
 			return;
 		}
 		if(colObj.tag == "enemy") {
