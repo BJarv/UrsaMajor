@@ -3,19 +3,22 @@ using System.Collections;
 
 public class Camera2D : MonoBehaviour {
 
+	//Camera Tracking Variables
 	public Transform player;
 	public float smoothrate = 0.5f;
 
 	public bool lockCamera = false;
 	private float centerLock;
-
+	
 	private Transform thisTransform;
 	private Vector2 velocity;
 
 	public float maxCamHeight = 20f;
 	private float heightTest;
 
-	private float cameraPosition =0;
+	//Zoom variables
+	private float cameraPosition = 0;
+	private static float zoomTime = 1f;
 	private static float targetCameraPosition;
 	private Vector2 cameraVelocity = new Vector2 (0.5f, 0.5f);
 
@@ -49,28 +52,27 @@ public class Camera2D : MonoBehaviour {
 		Vector3 newPos = new Vector3 (newPos2D.x, newPos2D.y, transform.position.z);
 		transform.position = Vector3.Slerp (transform.position, newPos, Time.time);
 		cameraPosition = Camera.main.orthographicSize;
-		Camera.main.orthographicSize = Mathf.SmoothDamp (cameraPosition, targetCameraPosition, ref cameraVelocity.y, 1f);
+		Camera.main.orthographicSize = Mathf.SmoothDamp (cameraPosition, targetCameraPosition, ref cameraVelocity.y, zoomTime);
 	}
 
-	public static void setCameraTarget(float target)
-	{
+	public static void setCameraTarget(float target, float time) {
 		targetCameraPosition = target;
+		zoomTime = time;
 	}
-
+	//Toggles the locking/unlocking of the camera
 	public void setLock(bool x) {
 		lockCamera = x;
 	}
-
+	//Determines
 	public void setCenter(float x) {
 		centerLock = x;
 	}
 
 	private void zoomIn () {
-		setCameraTarget(12.79f);
+		setCameraTarget(12.79f, 0.4f);
 	}
 
-	public void scheduleZoomIn()
-	{
-		Invoke ("zoomIn", 1.25f);
+	public void scheduleZoomIn() {
+		Invoke ("zoomIn", 1.75f);
 	}
 }

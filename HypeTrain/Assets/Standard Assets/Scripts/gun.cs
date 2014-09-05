@@ -41,6 +41,19 @@ public class gun : MonoBehaviour {
 		
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+		//rotation done
+
+		//Check position of mouse vs. character, flip gun accordingly
+		Vector3 newScale = transform.localScale;
+		Debug.Log (mousePos.x + " + " + player.transform.position.x);
+		if (player.transform.position.x > mousePos.x) {
+						newScale.x = -1;
+						transform.localScale = newScale;
+				} else {
+						newScale = transform.localScale;
+						newScale.x = 1;
+						transform.localScale = newScale;
+				}
 	
 		if (Input.GetButtonDown ("Fire1") && Firable ()) {
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
