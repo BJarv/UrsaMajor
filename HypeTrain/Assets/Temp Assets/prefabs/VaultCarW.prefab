@@ -942,7 +942,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.8664999, y: 4.8567071, z: 0}
+  m_LocalPosition: {x: -13.0100002, y: 4.8567071, z: 0}
   m_LocalScale: {x: 3.34224701, y: 2.77626443, z: 1}
   m_Children: []
   m_Father: {fileID: 400066}
@@ -1020,7 +1020,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.0225983, y: 14.1206169, z: 0}
+  m_LocalPosition: {x: -15.677907, y: 118.942833, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400064}
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
