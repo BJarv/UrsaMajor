@@ -920,7 +920,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.0457649, y: 54.091053, z: 0}
+  m_LocalPosition: {x: -99.3739777, y: 122.724724, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400058}
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
-  sidePanel: {fileID: 0}
-  enterSound: {fileID: 8300000, guid: 020abef8436933b43b6c8d5583a23977, type: 3}
+  sidePanel: {fileID: 100058}
+  enterSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1

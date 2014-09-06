@@ -749,7 +749,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9090137, y: -.194127083, z: 0}
+  m_LocalPosition: {x: -10.9090137, y: -.289999992, z: 0}
   m_LocalScale: {x: 3.21120548, y: .709999979, z: 1.4068836}
   m_Children:
   - {fileID: 400040}
@@ -799,8 +799,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28727399e-05, y: -.159999996, z: -7.10790873}
-  m_LocalScale: {x: .189999998, y: 2.79999995, z: .710790873}
+  m_LocalPosition: {x: 4.28727399e-05, y: -.889999986, z: -7.10790873}
+  m_LocalScale: {x: .180000007, y: 6.01000023, z: .710790873}
   m_Children: []
   m_Father: {fileID: 400032}
   m_RootOrder: 0
@@ -823,7 +823,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.7421665, y: 16.6551533, z: 0}
+  m_LocalPosition: {x: -94.5129089, y: 121.875969, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0

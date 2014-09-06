@@ -239,17 +239,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6255a83150d841da8f4b47a90c3b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
-  addSpeed: 25
+  maxSpeed: 6
+  addSpeed: 100
   midGroundCheck: {fileID: 400014}
   leftGroundCheck: {fileID: 400016}
   rightGroundCheck: {fileID: 400020}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  PlusJumpForce: 300
+    m_Bits: 4294966271
+  PlusJumpForce: 100
   CurrJumpForce: 0
-  MaxJumpForce: 1100
+  MaxJumpForce: 1300
   test: {x: 0, y: 0, z: 0}
   horizDirection: 1
 --- !u!114 &11400008
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
-  playerHealth: 0
+  playerHealth: 30
   deathDelay: 1
   heart1: {fileID: 0}
   heart2: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 0
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 0
@@ -350,10 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b9df3c5c5747eba35ded498917251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 500
-  kickForce: 10000
-  magSize: 3
-  reloadTime: 2
+  bulletSpeed: 1000
+  kickForce: 1000
+  magSize: 4
+  reloadTime: 1
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .5
   gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
@@ -373,8 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2044052dca99424babc799a8860afbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticalSize: 0
-  reticalSprite: {fileID: 0}
+  reticalSize: 32
+  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
 --- !u!212 &21200004
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -395,7 +395,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: dbf768eeddaf74648ae0ec74cf951b1f, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200010
 SpriteRenderer:
@@ -415,9 +415,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2441434759
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300036, guid: dbf768eeddaf74648ae0ec74cf951b1f, type: 3}
+  m_Sprite: {fileID: 21300036, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200012
 SpriteRenderer:
