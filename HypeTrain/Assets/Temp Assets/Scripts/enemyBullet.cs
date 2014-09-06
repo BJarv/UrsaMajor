@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class enemyBullet : MonoBehaviour {
-	
+
+	private Animator animator; //LOOK HERE HAYDEN Store a ref to the animator so we can use it later
 	public int bulletDeath = 3;
 	private GameObject player = null;
 	
@@ -24,6 +25,7 @@ public class enemyBullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj) {
 		
 		if(colObj.tag == "Player") {
+			animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
