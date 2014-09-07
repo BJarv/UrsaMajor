@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum JumpState
@@ -19,8 +19,10 @@ public class CharControl : MonoBehaviour {
 	public Transform midGroundCheck;
 	public Transform leftGroundCheck;
 	public Transform rightGroundCheck;
+	public Transform wallCheck;
 	float raycastLength = 0.3f;
 	public LayerMask whatIsGround;
+	public LayerMask whatIsWall;
 	//Jumpforce variables
 	public float PlusJumpForce = 300f;
 	public float CurrJumpForce = 0f;
@@ -33,13 +35,18 @@ public class CharControl : MonoBehaviour {
 
 	void Awake() {
 		animator = GetComponent<Animator>();
-		}
+	}
+
 	void Start() {
 
 	}
 
 	void Update () {
 		test = transform.position;
+		//Prevent Sticking to the Wall
+		if (Physics2D.Raycast (wallCheck.position, Vector2.right, .5f, whatIsWall)) {
+			//Debug.Log ("THERE'S THE WALL DUMBASS"); For testing the raycast	
+		}
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
@@ -67,10 +74,19 @@ public class CharControl : MonoBehaviour {
 				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
+				animator.SetBool ("Hit",false);
 			}
 			break;
 			
 		}
+	}
+
+	public void hitAnim () {
+		animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
+		Invoke ("endHit", .5f);
+	}
+	void endHit() {
+		animator.SetBool ("Hit",false);
 	}
 
 	public bool isGrounded()

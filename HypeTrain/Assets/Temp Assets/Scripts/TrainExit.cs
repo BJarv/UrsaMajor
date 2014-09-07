@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class TrainExit : MonoBehaviour {
 	
 	private GameObject Player = null;
-	private Vector2 velocity;
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 	private GameObject trainSpawn;
@@ -22,9 +21,6 @@ public class TrainExit : MonoBehaviour {
 		Player = GameObject.Find("character");
 		sidePanel = GameObject.Find ("sidepanel");
 		trainSpawn = GameObject.Find ("trainSpawner");
-		velocity = new Vector2 (0.5f, 0.5f);
-
-
 	}
 	
 	// Update is called once per frame

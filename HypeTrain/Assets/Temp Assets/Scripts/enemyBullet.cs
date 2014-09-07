@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class enemyBullet : MonoBehaviour {
 
-	private Animator animator; //LOOK HERE HAYDEN Store a ref to the animator so we can use it later
 	public int bulletDeath = 3;
 	private GameObject player = null;
-	
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("character");
@@ -25,7 +24,6 @@ public class enemyBullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj) {
 		
 		if(colObj.tag == "Player") {
-			animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
@@ -35,8 +33,7 @@ public class enemyBullet : MonoBehaviour {
 			{
 				player.rigidbody2D.AddForce(new Vector2(200, 375));
 			}
-			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-			//Invoke("returnColor", .3f); HELP: need a way/place to return color after a short delay, even though bullet is gone. Maybe call in CharControl?
+			player.GetComponent<CharControl>().hitAnim();
 			Destroy (gameObject);
 		}
 		

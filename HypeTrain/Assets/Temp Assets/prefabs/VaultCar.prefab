@@ -170,7 +170,7 @@ GameObject:
   - 212: {fileID: 21200008}
   - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: left_seg
+  m_Name: leftSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,7 @@ GameObject:
   - 212: {fileID: 21200016}
   - 61: {fileID: 6100006}
   m_Layer: 0
-  m_Name: right_seg
+  m_Name: rightSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,8 +622,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.18971086, y: 4.93118334, z: 0}
-  m_LocalScale: {x: .51577884, y: .515778124, z: 1}
+  m_LocalPosition: {x: -2.17943192, y: 4.87955523, z: 0}
+  m_LocalScale: {x: .51577884, y: .515778184, z: 1}
   m_Children:
   - {fileID: 400020}
   - {fileID: 400022}
@@ -723,8 +723,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9090137, y: -.194127083, z: 0}
-  m_LocalScale: {x: 3.21120548, y: .709999979, z: 1.4068836}
+  m_LocalPosition: {x: -10.7595444, y: -.180000007, z: 0}
+  m_LocalScale: {x: 4.64803839, y: .589999974, z: 1.4068836}
   m_Children:
   - {fileID: 400030}
   m_Father: {fileID: 400006}
@@ -761,7 +761,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.2699966, y: .0334123746, z: 0}
+  m_LocalPosition: {x: 21.2700005, y: .0334119797, z: 0}
   m_LocalScale: {x: 1.19000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -785,8 +785,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.100000001, y: -1.77999997, z: -7.10790873}
-  m_LocalScale: {x: .189999998, y: 2.79999995, z: .710790873}
+  m_LocalPosition: {x: -.150000006, y: -.159999996, z: -7.10790873}
+  m_LocalScale: {x: .189999998, y: 2.94000006, z: .710790873}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 0
@@ -1076,12 +1076,12 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_Poly:
     m_Paths:
-    - - {x: 7.99193859, y: .432783633}
+    - - {x: 8.03195763, y: -.119880699}
       - {x: 8.02652359, y: -3.91950798}
       - {x: -.242811009, y: -3.49914956}
       - {x: -6.82523251, y: -2.16282678}
-      - {x: -10.2739992, y: .438903123}
-      - {x: -1.13380241, y: .437563747}
+      - {x: -10.3140163, y: -.113761447}
+      - {x: -.85368067, y: -.115099847}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1091,8 +1091,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 3.72915459, y: 3.36299491}
-  m_Center: {x: 1.48681641, y: -1.81093633}
+  m_Size: {x: 3.27929974, y: .567375481}
+  m_Center: {x: 1.23237443, y: -.284737468}
 --- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1113,8 +1113,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 25.9354324, y: .530631006}
-  m_Center: {x: 2.3022728, y: .0620028079}
+  m_Size: {x: 25.0723248, y: .564198852}
+  m_Center: {x: 2.73381424, y: .187896669}
 --- !u!61 &6100006
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1124,8 +1124,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 3.94716549, y: 3.36317325}
-  m_Center: {x: .784417093, y: -1.8536315}
+  m_Size: {x: 3.91465616, y: .55150038}
+  m_Center: {x: .768146932, y: -.292667806}
 --- !u!61 &6100008
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1500,7 +1500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0

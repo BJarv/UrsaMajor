@@ -796,8 +796,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9090137, y: -.194127083, z: 0}
-  m_LocalScale: {x: 3.21120548, y: .709999979, z: 1.4068836}
+  m_LocalPosition: {x: -10.7595444, y: -.179996565, z: 0}
+  m_LocalScale: {x: 4.64803839, y: .589999974, z: 1.4068836}
   m_Children:
   - {fileID: 400044}
   m_Father: {fileID: 400020}
@@ -1128,8 +1128,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.99041748, y: .567375422}
-  m_Center: {x: 1.85618532, y: -.284741223}
+  m_Size: {x: 2.51103735, y: .567375422}
+  m_Center: {x: 1.61649549, y: -.284737527}
 --- !u!61 &6100018
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1150,8 +1150,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 25.9354324, y: .564198852}
-  m_Center: {x: 2.3022747, y: .18789959}
+  m_Size: {x: 25.0723248, y: .564198852}
+  m_Center: {x: 2.73381424, y: .187896669}
 --- !u!61 &6100022
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   EnemySpeed: 2
-  Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
+  Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
