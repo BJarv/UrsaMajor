@@ -10,6 +10,7 @@ public class TrainExit : MonoBehaviour {
 	private GameObject trainSpawn;
 	private Vector2 exitPos;
 	private Collider2D playerColl;
+	public float vertForce = 1500f;
 	
 	//Audio variables
 	private bool soundPlayed;
@@ -63,10 +64,10 @@ public class TrainExit : MonoBehaviour {
 
 			Player.rigidbody2D.velocity = Vector3.zero;
 			exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele ();
-			exitPos.y -= .5f;
+			exitPos.y -= .4f;
 			Player.rigidbody2D.position = exitPos;
 			
-			Player.rigidbody2D.AddForce (new Vector2 (0, 1500));
+			Player.rigidbody2D.AddForce (new Vector2 (0, vertForce));
 			//Make sidePanel visible again
 			sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
 			sidePanel.SetActive (true);
