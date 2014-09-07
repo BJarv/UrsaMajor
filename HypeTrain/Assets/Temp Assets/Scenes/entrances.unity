@@ -170,6 +170,10 @@ Prefab:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 847302168}
+    - target: {fileID: 11400020, guid: f733315f15e59d84baf19077a33e8505, type: 2}
+      propertyPath: reticalSprite
+      value: 
+      objectReference: {fileID: 2800000, guid: c812bfd2b7536bf4ea89a7e6fd1f875e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f733315f15e59d84baf19077a33e8505, type: 2}
   m_RootGameObject: {fileID: 1601425287}
@@ -675,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticalSize: 32
-  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
+  reticalSprite: {fileID: 2800000, guid: c812bfd2b7536bf4ea89a7e6fd1f875e, type: 3}
 --- !u!212 &1333875122
 SpriteRenderer:
   m_ObjectHideFlags: 0
