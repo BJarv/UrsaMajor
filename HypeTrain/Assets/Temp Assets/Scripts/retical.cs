@@ -24,7 +24,7 @@ public class retical : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.position = Input.mousePosition;
-		currPlace = transform.position;
+		//currPlace = Camera.ScreenToWorldPoint(Input.mousePosition); //get mouse position in reference to world rather than screen
+		transform.position = currPlace;
 	}
 }
