@@ -9,7 +9,8 @@ public class TrainExit : MonoBehaviour {
 	private GameObject trainSpawn;
 	private Vector2 exitPos;
 	private Collider2D playerColl;
-	public float vertForce = 1500f;
+	public float vertForce = 7500f;
+	public float zoomOutSpeed = .5f;
 	
 	//Audio variables
 	private bool soundPlayed;
@@ -63,13 +64,13 @@ public class TrainExit : MonoBehaviour {
 			exitPos.y -= .4f;
 			Player.rigidbody2D.position = exitPos;
 			
-			Player.rigidbody2D.AddForce (new Vector2 (0, vertForce));
+			Player.rigidbody2D.AddForce (new Vector2 (0, 2500f));
 			//Make sidePanel visible again
 			sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
-			Camera2D.setCameraTarget (25.0f, .5f);
+			Camera2D.setCameraTarget (25.0f, zoomOutSpeed);
 			cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 
 		}

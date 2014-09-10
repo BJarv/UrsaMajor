@@ -20,8 +20,11 @@ public class CharControl : MonoBehaviour {
 	public Transform leftGroundCheck;
 	public Transform rightGroundCheck;
 	public Transform wallCheck;
-	float raycastLength = 0.3f;
+	float raycastLength = 0.15f;
 	public LayerMask whatIsGround;
+
+	private bool leftWalled;
+	private bool rightWalled;
 	public LayerMask whatIsWall;
 	//Jumpforce variables
 	public float PlusJumpForce = 300f;
@@ -44,9 +47,15 @@ public class CharControl : MonoBehaviour {
 	void Update () {
 		test = transform.position;
 		//Prevent Sticking to the Wall
-		if (Physics2D.Raycast (wallCheck.position, Vector2.right, .5f, whatIsWall)) {
-			//Debug.Log ("THERE'S THE WALL DUMBASS"); For testing the raycast	
+		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
+		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .85f, whatIsWall);
+		if (leftWalled){
+			Debug.Log ("Left!");
 		}
+		if (rightWalled){
+			Debug.Log ("Right!");
+		}
+
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
@@ -74,7 +83,7 @@ public class CharControl : MonoBehaviour {
 				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
-				animator.SetBool ("Hit",false);
+				animator.SetBool ("Hit", false);
 			}
 			break;
 			
@@ -83,10 +92,6 @@ public class CharControl : MonoBehaviour {
 
 	public void hitAnim () {
 		animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
-		Invoke ("endHit", .5f);
-	}
-	void endHit() {
-		animator.SetBool ("Hit",false);
 	}
 
 	public bool isGrounded()
@@ -104,14 +109,14 @@ public class CharControl : MonoBehaviour {
 		//Debug.Log (moveH);
 		Flip (moveH);
 	
-		if(moveH > 0)
+		if(moveH > 0 && !rightWalled) //Add && !rightWalled
 		{
 			animator.SetBool ("Run",true); //Begin run animation
 			if(rigidbody2D.velocity.x <= maxSpeed)
 				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
 		else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-		else
+		else if(!leftWalled)  //Add if(!leftWalled)
 		{
 			animator.SetBool ("Run",true); //Begin run animation
 			if(rigidbody2D.velocity.x > -maxSpeed)
@@ -125,5 +130,9 @@ public class CharControl : MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		else if (moveH < 0)
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
+	}
+
+	void disableKey(KeyCode key){
+
 	}
 }
