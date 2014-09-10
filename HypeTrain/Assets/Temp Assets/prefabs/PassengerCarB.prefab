@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 61: {fileID: 6100022}
   - 114: {fileID: 11400022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: isBelow
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200022}
   - 68: {fileID: 6800002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: one_way_plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 212: {fileID: 21200024}
   - 114: {fileID: 11400024}
   - 61: {fileID: 6100024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200026}
   - 61: {fileID: 6100026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rightSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400026}
   - 60: {fileID: 6000000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: exitRange
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200028}
   - 68: {fileID: 6800010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200030}
   - 61: {fileID: 6100028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400028}
   - 68: {fileID: 6800000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: entryRange
   m_TagString: bonus
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -147,7 +147,7 @@ GameObject:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200032}
   - 68: {fileID: 6800012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: entry
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 212: {fileID: 21200034}
   - 61: {fileID: 6100030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: leftSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100020
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -182,7 +182,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   - 61: {fileID: 6100000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100022
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -200,7 +200,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 114: {fileID: 11400002}
   - 61: {fileID: 6100002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100024
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -218,7 +218,7 @@ GameObject:
   - 212: {fileID: 21200004}
   - 114: {fileID: 11400004}
   - 61: {fileID: 6100004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - 61: {fileID: 6100006}
   - 114: {fileID: 11400006}
   - 95: {fileID: 9500000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - 61: {fileID: 6100008}
   - 114: {fileID: 11400008}
   - 95: {fileID: 9500002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - 61: {fileID: 6100010}
   - 114: {fileID: 11400010}
   - 95: {fileID: 9500004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - 61: {fileID: 6100012}
   - 114: {fileID: 11400012}
   - 95: {fileID: 9500006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - 61: {fileID: 6100014}
   - 114: {fileID: 11400014}
   - 95: {fileID: 9500008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - 61: {fileID: 6100016}
   - 114: {fileID: 11400016}
   - 95: {fileID: 9500010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - 61: {fileID: 6100018}
   - 114: {fileID: 11400018}
   - 95: {fileID: 9500012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   - 61: {fileID: 6100020}
   - 114: {fileID: 11400020}
   - 95: {fileID: 9500014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400050}
   - 68: {fileID: 6800004}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400052}
   - 68: {fileID: 6800006}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: rightwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400054}
   - 68: {fileID: 6800008}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: leftwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400056}
   - 212: {fileID: 21200036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: train_car_roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400058}
   - 212: {fileID: 21200038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: sidepanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,11 +563,11 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.69405794, y: .91848594, z: 0}
-  m_LocalScale: {x: 15.4680986, y: .200028628, z: 1.40688396}
+  m_LocalScale: {x: 15.4680977, y: .200028628, z: 1.40688396}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400042}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -579,7 +579,7 @@ Transform:
   m_LocalScale: {x: 1.61861074, y: 1.61860847, z: 1}
   m_Children: []
   m_Father: {fileID: 400042}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -674,10 +674,10 @@ Transform:
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.19022012, y: -.899298489, z: 0}
-  m_LocalScale: {x: 1.61861074, y: 1.61860847, z: 1}
+  m_LocalScale: {x: 1.61861074, y: 1.61860836, z: 1}
   m_Children: []
-  m_Father: {fileID: 400060}
-  m_RootOrder: 19
+  m_Father: {fileID: 400042}
+  m_RootOrder: 4
 --- !u!4 &400022
 Transform:
   m_ObjectHideFlags: 1
@@ -686,10 +686,10 @@ Transform:
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.92770827, y: -.98923856, z: 0}
-  m_LocalScale: {x: 1.61861074, y: 1.61860847, z: 1}
+  m_LocalScale: {x: 1.61861074, y: 1.61860836, z: 1}
   m_Children: []
-  m_Father: {fileID: 400060}
-  m_RootOrder: 18
+  m_Father: {fileID: 400042}
+  m_RootOrder: 3
 --- !u!4 &400024
 Transform:
   m_ObjectHideFlags: 1
@@ -698,10 +698,10 @@ Transform:
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.16555834, y: -1.01922381, z: 0}
-  m_LocalScale: {x: 1.61861074, y: 1.61860847, z: 1}
+  m_LocalScale: {x: 1.61861074, y: 1.61860836, z: 1}
   m_Children: []
-  m_Father: {fileID: 400060}
-  m_RootOrder: 17
+  m_Father: {fileID: 400042}
+  m_RootOrder: 2
 --- !u!4 &400026
 Transform:
   m_ObjectHideFlags: 1
@@ -808,8 +808,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400004}
   - {fileID: 400002}
+  - {fileID: 400004}
+  - {fileID: 400024}
+  - {fileID: 400022}
+  - {fileID: 400020}
   m_Father: {fileID: 400060}
   m_RootOrder: 8
 --- !u!4 &400044
@@ -920,7 +923,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -99.3739777, y: 122.724724, z: 0}
+  m_LocalPosition: {x: -21.4822102, y: 70.7567368, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400058}
@@ -940,9 +943,6 @@ Transform:
   - {fileID: 400030}
   - {fileID: 400028}
   - {fileID: 400026}
-  - {fileID: 400024}
-  - {fileID: 400022}
-  - {fileID: 400020}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -1356,6 +1356,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500002
 Animator:
   serializedVersion: 3
@@ -1370,6 +1371,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500004
 Animator:
   serializedVersion: 3
@@ -1384,6 +1386,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500006
 Animator:
   serializedVersion: 3
@@ -1398,6 +1401,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500008
 Animator:
   serializedVersion: 3
@@ -1412,6 +1416,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500010
 Animator:
   serializedVersion: 3
@@ -1426,6 +1431,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500012
 Animator:
   serializedVersion: 3
@@ -1440,6 +1446,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500014
 Animator:
   serializedVersion: 3
@@ -1454,6 +1461,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500016
 Animator:
   serializedVersion: 3
@@ -1468,6 +1476,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1696,6 +1705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
   sidePanel: {fileID: 0}
+  vertForce: 1500
   exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400028
 MonoBehaviour:

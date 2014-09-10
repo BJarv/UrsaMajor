@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 68: {fileID: 6800000}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: enemyGun
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400002}
   - 95: {fileID: 9500000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: shootingEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 61: {fileID: 6100002}
   - 114: {fileID: 11400004}
   - 95: {fileID: 9500002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: enemyGun
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - 61: {fileID: 6100004}
   - 114: {fileID: 11400008}
   - 95: {fileID: 9500004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: shootingEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 61: {fileID: 6100006}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: isBelow
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -135,7 +135,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200006}
   - 68: {fileID: 6800004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: one_way_plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200008}
   - 68: {fileID: 6800006}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: steps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 212: {fileID: 21200010}
   - 61: {fileID: 6100008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: vault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - 212: {fileID: 21200012}
   - 114: {fileID: 11400012}
   - 61: {fileID: 6100010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - 212: {fileID: 21200014}
   - 114: {fileID: 11400014}
   - 61: {fileID: 6100012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - 212: {fileID: 21200016}
   - 114: {fileID: 11400016}
   - 61: {fileID: 6100014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - 212: {fileID: 21200020}
   - 114: {fileID: 11400020}
   - 61: {fileID: 6100018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - 212: {fileID: 21200038}
   - 114: {fileID: 11400022}
   - 61: {fileID: 6100028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - 212: {fileID: 21200022}
   - 114: {fileID: 11400024}
   - 61: {fileID: 6100020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - 4: {fileID: 400036}
   - 212: {fileID: 21200024}
   - 61: {fileID: 6100022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_seg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - 4: {fileID: 400068}
   - 114: {fileID: 11400026}
   - 60: {fileID: 6000000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: exitRange
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -328,7 +328,7 @@ GameObject:
   - 4: {fileID: 400038}
   - 212: {fileID: 21200026}
   - 68: {fileID: 6800014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - 4: {fileID: 400040}
   - 212: {fileID: 21200028}
   - 61: {fileID: 6100024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - 4: {fileID: 400034}
   - 114: {fileID: 11400028}
   - 68: {fileID: 6800002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: entryRange
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -378,7 +378,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400042}
   - 212: {fileID: 21200030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - 4: {fileID: 400044}
   - 212: {fileID: 21200032}
   - 61: {fileID: 6100026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_seg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - 212: {fileID: 21200018}
   - 114: {fileID: 11400018}
   - 61: {fileID: 6100016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cash
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400052}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400056}
   - 68: {fileID: 6800008}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400058}
   - 68: {fileID: 6800010}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: rightwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400060}
   - 68: {fileID: 6800012}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: leftwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400062}
   - 212: {fileID: 21200034}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: train_car_roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400064}
   - 212: {fileID: 21200036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: sidepanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1020,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.677907, y: 20.3999996, z: 0}
+  m_LocalPosition: {x: -29.9073124, y: 74.3972168, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400064}
@@ -1389,6 +1389,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500002
 Animator:
   serializedVersion: 3
@@ -1403,6 +1404,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500004
 Animator:
   serializedVersion: 3
@@ -1417,6 +1419,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500006
 Animator:
   serializedVersion: 3
@@ -1431,6 +1434,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1629,6 +1633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
   sidePanel: {fileID: 0}
+  vertForce: 1500
   exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400028
 MonoBehaviour:

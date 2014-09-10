@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: basicEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -72,6 +72,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
