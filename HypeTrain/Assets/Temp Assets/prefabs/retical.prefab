@@ -24,8 +24,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.68396, y: 56.9985886, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -37.8797073, y: 41.0740662, z: 10}
+  m_LocalScale: {x: 4.11456728, y: 4.11455774, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticalSize: 32
-  reticalSprite: {fileID: 2800000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
   currPlace: {x: 0, y: 0, z: 0}
+  cameraObj: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -63,7 +63,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2086468211
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3e057e5a1bfb54287a2a51bd5588dbc0, type: 3}
+  m_Sprite: {fileID: 21300002, guid: c812bfd2b7536bf4ea89a7e6fd1f875e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
