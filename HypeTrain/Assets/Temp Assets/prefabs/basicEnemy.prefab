@@ -85,13 +85,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 10
   Player: {fileID: 100000, guid: 8f32b1c2f771c42c4945648c1ffa55b4, type: 2}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 200, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

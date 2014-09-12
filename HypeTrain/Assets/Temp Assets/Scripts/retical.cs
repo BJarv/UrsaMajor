@@ -4,11 +4,12 @@ using System.Collections;
 public class retical : MonoBehaviour {
 
 	public int reticalSize = 32;
-	public Texture2D reticalSprite;
+	//public Texture2D reticalSprite;
 	private int retX;
 	private int retY;
 	private int retOffset;
 	public Vector3 currPlace;
+	public GameObject cameraObj;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,9 @@ public class retical : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//currPlace = Camera.ScreenToWorldPoint(Input.mousePosition); //get mouse position in reference to world rather than screen
-		transform.position = currPlace;
+
+		currPlace = Input.mousePosition;
+		currPlace.z = 100;
+		transform.position = cameraObj.GetComponent<Camera2D> ().camera.ScreenToWorldPoint(currPlace);
 	}
 }

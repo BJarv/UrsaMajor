@@ -823,7 +823,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.1131058, y: 72.0048981, z: 0}
+  m_LocalPosition: {x: -34.1327095, y: 4.58463097, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -1513,13 +1513,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1532,13 +1545,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1551,13 +1577,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1570,13 +1609,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1631,13 +1683,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1650,13 +1715,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1669,13 +1747,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1688,13 +1779,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  EnemySpeed: 2
+  State: 0
+  EnemySpeed: 5
   Player: {fileID: 0}
   direction: 1
   StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
+  dashCast: 1
+  jumpCast: 2
+  dashMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dashVec: {x: 400, y: 400}
+  jumpVec: {x: 200, y: 700}
+  dashCD: 2
+  dashable: 0
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1

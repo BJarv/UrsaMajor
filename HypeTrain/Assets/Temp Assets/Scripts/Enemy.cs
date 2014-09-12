@@ -5,14 +5,15 @@ public enum EnemyState
 {
 	IDLE,
 	ATTACK,
-	CHASE
+	CHASE,
+	DASH
 }
 
 public class Enemy : MonoBehaviour {
 
 	public float health = 20f;
 
-	private EnemyState State = EnemyState.IDLE;
+	public EnemyState State = EnemyState.IDLE;
 	public float EnemySpeed = 2f;
 	public GameObject Player = null;
 	private float AttackDist = 10f;
@@ -28,6 +29,17 @@ public class Enemy : MonoBehaviour {
 
 	private float startTime;
 
+	//raycast info
+	public float dashCast = 1f;
+	public float jumpCast = 2f;
+	public LayerMask dashMask;
+	public LayerMask jumpMask; 
+	public Vector2 dashVec;
+	public Vector2 jumpVec;
+	public float dashCD = 2f;
+	private bool dashRdy = true;
+
+	public bool dashable;
 
 	// Use this for initialization
 	virtual protected void Start () {
@@ -44,6 +56,12 @@ public class Enemy : MonoBehaviour {
 		if (distToPlayer < AttackDist) 
 		{
 			State = EnemyState.ATTACK;
+		} 
+		if (isDash ()) 
+		{
+			dashRdy = false;
+			Invoke ("dashOn", dashCD);
+			State = EnemyState.DASH;
 		}
 		Act();
 	}
@@ -52,10 +70,11 @@ public class Enemy : MonoBehaviour {
 	{
 		switch(State)
 		{
-		case EnemyState.ATTACK: Attack(); break;
-		case EnemyState.IDLE: Idle(); break;
-		case EnemyState.CHASE: Chase(); break;
-		default: Idle();break;
+			case EnemyState.ATTACK: Attack(); break;
+			case EnemyState.IDLE: Idle(); break;
+			case EnemyState.CHASE: Chase(); break;
+			case EnemyState.DASH: Dash (); break;
+			default: Idle();break;
 			
 		}
 	}
@@ -91,6 +110,12 @@ public class Enemy : MonoBehaviour {
 		
 	}
 
+	void Dash()
+	{
+		rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
+		State = EnemyState.ATTACK;
+	}
+
 	void Chase()
 	{
 		//move until reach edge or near enough to player
@@ -108,5 +133,20 @@ public class Enemy : MonoBehaviour {
 		if (health <= 0) {
 			Destroy (gameObject);
 		}
+	}
+
+	public bool isDash()
+	{
+		return Physics2D.Raycast (transform.position, Vector2.right*direction, dashCast, dashMask) && dashRdy;
+	}
+	public bool isJump()
+	{
+		return Physics2D.Raycast (transform.position, (Vector2.up + (Vector2.right*direction)).normalized, jumpCast, jumpMask) && 
+			Physics2D.Raycast (transform.position, Vector2.right*direction, dashCast, jumpMask);
+	}
+
+	public void dashOn()
+	{
+		dashRdy = true;
 	}
 }
