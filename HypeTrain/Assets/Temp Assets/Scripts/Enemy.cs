@@ -66,6 +66,18 @@ public class Enemy : MonoBehaviour {
 		Act();
 	}
 
+	void FixedUpdate () {
+		Flip (transform.rigidbody2D.velocity.x); //Uses velocity to determine when to flip
+	}
+	//Code to flip sprite
+	void Flip(float moveH){
+		if (moveH > 0) {
+			transform.localEulerAngles = new Vector3 (0, 0, 0);
+		} else if (moveH < 0) {
+			transform.localEulerAngles = new Vector3 (0, 180, 0);
+		}
+	}
+
 	void Act()
 	{
 		switch(State)

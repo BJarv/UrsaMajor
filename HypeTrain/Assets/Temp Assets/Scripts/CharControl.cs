@@ -46,15 +46,9 @@ public class CharControl : MonoBehaviour {
 
 	void Update () {
 		test = transform.position;
-		//Prevent Sticking to the Wall
+		//Raycast to see if a wall is in front of the player
 		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
-		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .85f, whatIsWall);
-		if (leftWalled){
-			Debug.Log ("Left!");
-		}
-		if (rightWalled){
-			Debug.Log ("Right!");
-		}
+		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .75f, whatIsWall);
 
 		switch (Jump) {
 
@@ -116,7 +110,7 @@ public class CharControl : MonoBehaviour {
 				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
 		else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-		else if(!leftWalled)  //Add if(!leftWalled)
+		else if(moveH < 0 && !leftWalled)  //Add if(!leftWalled)
 		{
 			animator.SetBool ("Run",true); //Begin run animation
 			if(rigidbody2D.velocity.x > -maxSpeed)
@@ -130,9 +124,5 @@ public class CharControl : MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		else if (moveH < 0)
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
-	}
-
-	void disableKey(KeyCode key){
-
 	}
 }
