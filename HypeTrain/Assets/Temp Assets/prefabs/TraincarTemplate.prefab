@@ -171,7 +171,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: entryRange
-  m_TagString: Untagged
+  m_TagString: bonus
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ GameObject:
   - 60: {fileID: 6000000}
   m_Layer: 0
   m_Name: exitRange
-  m_TagString: Untagged
+  m_TagString: bonus
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,7 +561,7 @@ EdgeCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: be74c72091c4bcc47a010048be2ebf3f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
   - {x: -15.0669889, y: 11.3134966}
@@ -573,7 +573,7 @@ EdgeCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: be74c72091c4bcc47a010048be2ebf3f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
   - {x: -.277206004, y: -.0418505929}
@@ -631,6 +631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
   sidePanel: {fileID: 0}
+  vertForce: 7500
+  zoomOutSpeed: .5
   exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:

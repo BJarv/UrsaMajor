@@ -153,6 +153,15 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
+			if(transform.position.x - colObj.transform.position.x > 0)
+			{
+				Player.rigidbody2D.AddForce(new Vector2(-200, 375));
+			}
+			else if(transform.position.x - colObj.transform.position.x < 0)
+			{
+				Player.rigidbody2D.AddForce(new Vector2(200, 375));
+			}
+			Player.GetComponent<CharControl>().hitAnim();
 		}
 	}
 
