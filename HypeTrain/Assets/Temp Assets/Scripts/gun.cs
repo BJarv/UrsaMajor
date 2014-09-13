@@ -15,6 +15,7 @@ public class gun : MonoBehaviour {
 	private bool sTimerOn = false;
 	private float shotTimer;
 	private GameObject player = null;
+	private GameObject shootFrom = null;
 	public AudioClip gunshot;
 	public AudioClip reload;
 
@@ -30,6 +31,7 @@ public class gun : MonoBehaviour {
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
 		player = GameObject.Find("character");
+		shootFrom = GameObject.Find("barrelTip");
 		//charControl = player.GetComponent<CharControl>() as CharControl;
 	}
 	
@@ -60,7 +62,7 @@ public class gun : MonoBehaviour {
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
 			var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
-			Rigidbody2D go = Instantiate(bullet, transform.position, q) as Rigidbody2D;
+			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
 

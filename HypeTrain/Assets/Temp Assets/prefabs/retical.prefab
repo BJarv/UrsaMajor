@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticalSize: 32
   currPlace: {x: 0, y: 0, z: 0}
-  cameraObj: {fileID: 0}
+  cameraObj: {fileID: 100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

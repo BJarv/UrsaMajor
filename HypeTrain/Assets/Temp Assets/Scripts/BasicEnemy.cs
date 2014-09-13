@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//FORD'S OLD ATTEMPT AT ENEMY, CURRENTLY NOT IN USE. REFER TO ENEMY.CS
+
 /* public enum EnemyStateold
 {
 	IDLE,

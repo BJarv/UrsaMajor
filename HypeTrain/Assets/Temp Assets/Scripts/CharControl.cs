@@ -49,7 +49,9 @@ public class CharControl : MonoBehaviour {
 		//Raycast to see if a wall is in front of the player
 		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
 		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .75f, whatIsWall);
-
+		if (isGrounded ()) {
+			animator.SetBool ("Hit", false);		
+		}
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
@@ -77,7 +79,6 @@ public class CharControl : MonoBehaviour {
 				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
-				animator.SetBool ("Hit", false);
 			}
 			break;
 			
