@@ -76,7 +76,7 @@ public class gun : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown ("Reload") && inMag != magSize) {
+		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {
 			AudioSource.PlayClipAtPoint(reload, transform.position);
 			//play reload anim
 			rTimerOn = true;
