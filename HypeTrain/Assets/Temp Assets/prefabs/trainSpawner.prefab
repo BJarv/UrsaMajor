@@ -40,14 +40,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possTrains:
-  - {fileID: 100034, guid: dbc08130814ee6f41842b8c916b447ae, type: 2}
   - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
   - {fileID: 100012, guid: 87bdbdb1ccf50054191194cdd7e155da, type: 2}
   - {fileID: 100044, guid: a6354c5ce795d4340accac95b4aabcaf, type: 2}
   - {fileID: 100060, guid: fcc9910d18e30f64d8488e0624ff4ab4, type: 2}
+  - {fileID: 100034, guid: dbc08130814ee6f41842b8c916b447ae, type: 2}
   - {fileID: 100068, guid: 23bf1ff972528254fad1f16a1de11805, type: 2}
+  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
   player: {fileID: 0}
-  widthBetween: 1
+  widthBetween: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
