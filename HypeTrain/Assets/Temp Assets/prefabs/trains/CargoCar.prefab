@@ -796,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.7595444, y: -.179996565, z: 0}
-  m_LocalScale: {x: 4.64803839, y: .589999974, z: 1.4068836}
+  m_LocalScale: {x: 4.64803839, y: .589999914, z: 1.4068836}
   m_Children:
   - {fileID: 400044}
   m_Father: {fileID: 400020}
@@ -1362,6 +1362,7 @@ MonoBehaviour:
   sidePanel: {fileID: 0}
   vertForce: 1500
   zoomOutSpeed: .5
+  check: 0
   exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:

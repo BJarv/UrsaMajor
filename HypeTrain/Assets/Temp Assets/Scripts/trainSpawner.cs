@@ -48,12 +48,14 @@ public class trainSpawner : MonoBehaviour {
 		return (leftPos < player.transform.position.x && player.transform.position.x < rightPos);
 	}
 
-	public float headCenter() {
+	public float headCenter() 
+	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
 		return trainCheck.transform.Find ("center").transform.position.x;
 	}
 
-	public GameObject headPanel(){
+	public GameObject headPanel()
+	{
 		GameObject trainCheck = (GameObject)trains.Peek();
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
 	}
@@ -81,4 +83,6 @@ public class trainSpawner : MonoBehaviour {
 
 		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exit").gameObject.transform.position;
 	}
+
+
 } 
