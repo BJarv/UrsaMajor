@@ -4,6 +4,7 @@ using System.Collections;
 public class bullet : MonoBehaviour {
 
 	public int bulletDeath = 3;
+	public int layerOfTrigs = 8; //8 is the triggers layer
 	
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 
-		if (colObj.tag == "bonus" || colObj.tag == "UI") {
+		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == layerOfTrigs) {
 			return;
 		}
 		if(colObj.tag == "enemy") {

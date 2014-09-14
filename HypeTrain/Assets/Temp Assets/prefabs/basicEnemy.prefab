@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.21490669, y: 16.4062061, z: 0}
-  m_LocalScale: {x: 3.16643882, y: 3.23370814, z: 1}
+  m_LocalPosition: {x: -13.3405046, y: 7.39403343, z: 0}
+  m_LocalScale: {x: 1.61808264, y: 1.65246034, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,6 +72,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,8 +86,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 10
+  EnemySpeed: 5
   Player: {fileID: 0}
+  AttackDist: 10
   direction: 1
   StrollDist: 3
   distToPlayer: 0
@@ -101,9 +103,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   dashVec: {x: 200, y: 400}
-  jumpVec: {x: 200, y: 700}
+  jumpVec: {x: 100, y: 1000}
   dashCD: 2
-  dashable: 0
+  dashRdy: 1
+  jumpCD: 2
+  jumpRdy: 1
+  groundCast: 1
+  enemyGroundMask:
+    serializedVersion: 2
+    m_Bits: 4294890205
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
