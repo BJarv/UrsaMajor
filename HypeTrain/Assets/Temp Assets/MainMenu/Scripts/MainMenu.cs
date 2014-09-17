@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
 		//Display buttons
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .335f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {
 			Debug.Log ("Pressed Play!");
-			Application.LoadLevel("Alpha");
+			Application.LoadLevel("entrances");
 		};
 
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .48f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {
