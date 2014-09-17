@@ -402,6 +402,11 @@ Prefab:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 1409445583}
+    - target: {fileID: 21200000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 4c58c2907a801dd4da2d9b919580cc71,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
   m_RootGameObject: {fileID: 1308236587}
@@ -709,7 +714,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2086468211
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: c812bfd2b7536bf4ea89a7e6fd1f875e, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 4c58c2907a801dd4da2d9b919580cc71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1308236589
 MonoBehaviour:
