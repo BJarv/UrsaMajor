@@ -402,6 +402,11 @@ Prefab:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 1409445583}
+    - target: {fileID: 21200000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 4c58c2907a801dd4da2d9b919580cc71,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
   m_RootGameObject: {fileID: 1308236587}
@@ -680,6 +685,7 @@ GameObject:
   - 4: {fileID: 1308236590}
   - 114: {fileID: 1308236589}
   - 212: {fileID: 1308236588}
+  - 95: {fileID: 1308236591}
   m_Layer: 5
   m_Name: retical
   m_TagString: Untagged
@@ -708,7 +714,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2086468211
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: c812bfd2b7536bf4ea89a7e6fd1f875e, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 4c58c2907a801dd4da2d9b919580cc71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1308236589
 MonoBehaviour:
@@ -737,6 +743,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!95 &1308236591
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308236587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 557c25a852130bb45aae35f43a05bf49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1333875117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1312,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1601425291
 MonoBehaviour:
   m_ObjectHideFlags: 0
