@@ -29,6 +29,7 @@ public class Camera2D : MonoBehaviour {
 		thisTransform = transform;
 		velocity = new Vector2 (0.5f, 0.5f);
 		targetCameraPosition = Camera.main.orthographicSize;
+		AudioListener.volume = 0.35f;
 	}
 
 	// Update is called once per frame

@@ -56,6 +56,7 @@ public class CharControl : MonoBehaviour {
 			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
 				Jump = JumpState.JUMPING;
 				animator.SetBool ("Jump",true); //Switch to jump animation
+				animator.SetBool ("Hit",false);
 			}
 			break;
 
@@ -86,7 +87,7 @@ public class CharControl : MonoBehaviour {
 	public void hitAnim () {
 		animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
 		animator.SetBool ("Jump", false);
-		Invoke ("hitToIdle", 3f);
+		Invoke ("hitToIdle", .35f);
 	}
 
 	void hitToIdle (){
