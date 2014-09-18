@@ -637,6 +637,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1160417350}
   - 131: {fileID: 1160417349}
+  - 114: {fileID: 1160417351}
   m_Layer: 16
   m_Name: Background Image
   m_TagString: Untagged
@@ -675,6 +676,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1160417351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160417348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1308236587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8106e981bb7e4fb161b0eaff493f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1601425288}
+  player: {fileID: 0}
   smoothrate: .5
   lockCamera: 0
   zoomInSpeed: .400000006
