@@ -651,14 +651,14 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1160417348}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: cbb25b4f956516d42a939816db43a9d1, type: 3}
+  m_Texture: {fileID: 2800000, guid: 70c058849cff9ef429daf2f497c8530f, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: -962.51001
-    y: -1071.80005
-    width: 2117.8999
-    height: 2196.1001
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   m_LeftBorder: 0
   m_RightBorder: 0
   m_TopBorder: 0
@@ -670,8 +670,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1160417348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.27586746, y: -.0287322998, z: 0}
-  m_LocalScale: {x: .00100000005, y: .00100000005, z: .00100000005}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
