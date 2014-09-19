@@ -39,7 +39,7 @@ public class Background : MonoBehaviour {
 		if (t >= 1f && delay % 1000 == 0)
 						countSwitch = 1;
 
-		lerpedColor = Color.Lerp(dayday, nightynight, t);
+		lerpedColor = Color.Lerp(nightynight,dayday, t);
 
 		guiTexture.color = lerpedColor;
 		delay = delay + 1;
