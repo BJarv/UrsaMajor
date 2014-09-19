@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿// Background Script
+// by Sam Fields
+// 
+// Yo dis here, dis be my shit. Dis be my script for backgrounds, damn. This shit changes a background
+// from night to day and back. Got - damn. This shit is trippy.
+
+using UnityEngine;
 using System.Collections;
 
 public class Background : MonoBehaviour {
@@ -39,7 +45,7 @@ public class Background : MonoBehaviour {
 		if (t >= 1f && delay % 1000 == 0)
 						countSwitch = 1;
 
-		lerpedColor = Color.Lerp(dayday, nightynight, t);
+		lerpedColor = Color.Lerp(nightynight,dayday, t);
 
 		guiTexture.color = lerpedColor;
 		delay = delay + 1;
