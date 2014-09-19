@@ -10,6 +10,7 @@ public class Background : MonoBehaviour {
 	public Color nightynight = new Color(.01f, .01f, .5f,1);
 	public Color dayday = new Color(1f, 1f, 1f, 0);
 	public Color lerpedColor = new Color(.5f, .5f, 0, 1);
+	public int countSwitch = 0; // 0 = let's count up, 1 = let's count down
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,16 @@ public class Background : MonoBehaviour {
 
 	void Update () {
 		//Increment t
-		t = t + .01f;
+		if (countSwitch == 0)
+						t = t + .01f;
+		else if (countSwitch == 1)
+						t = t - .01f;
+
+		if (t <= 0f)
+						countSwitch = 0; 
+
+		if (t >= 1f)
+						countSwitch = 1;
 
 		/*Increment red
 		red = red + 0.001f;
