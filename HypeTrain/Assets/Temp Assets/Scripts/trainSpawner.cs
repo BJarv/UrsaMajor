@@ -13,6 +13,7 @@ public class trainSpawner : MonoBehaviour {
 	private float theWidth;
 	public float widthBetween = 2f;
 	private float begTim;
+	public float railHeight = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,11 +25,13 @@ public class trainSpawner : MonoBehaviour {
 	}
 
 	void QueueAndMove(){
-		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity);
-		trains.Enqueue(tempTrain);
-		widthFind = tempTrain.GetComponent<getWidthCar>();
-		theWidth = widthFind.carWidth();
-		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y);
+		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
+		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x, railToCenter);
+		trains.Enqueue(tempTrain); //put train game object into trains queue
+		widthFind = tempTrain.GetComponent<getWidthCar>();  //get width of car
+		theWidth = widthFind.carWidth();					
+		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
 	
 

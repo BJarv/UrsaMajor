@@ -396,7 +396,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: cameraObj
@@ -760,7 +760,7 @@ Transform:
   m_LocalScale: {x: 4.11456728, y: 4.11455774, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &1308236591
 Animator:
   serializedVersion: 3
@@ -775,6 +775,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1333875117
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +996,7 @@ Transform:
   m_Children:
   - {fileID: 1392622148}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!114 &1409445589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,7 +1120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: bull1
@@ -1217,7 +1218,7 @@ GameObject:
   m_Layer: 1
   m_Name: trainSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1242,6 +1243,7 @@ MonoBehaviour:
   - {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
   player: {fileID: 1601425287}
   widthBetween: 5
+  railHeight: 0
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -1253,7 +1255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1601425287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1294,7 @@ Transform:
   - {fileID: 81372055}
   - {fileID: 1333875118}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!60 &1601425289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1330,6 +1332,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1601425291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,12 +1527,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1601425287}
+    - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -1203168336, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}

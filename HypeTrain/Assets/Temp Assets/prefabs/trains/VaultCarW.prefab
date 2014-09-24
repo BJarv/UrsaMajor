@@ -593,6 +593,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400070}
+  m_Layer: 12
+  m_Name: base
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -930,7 +945,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.291451722, y: -.365620017, z: 0}
+  m_LocalPosition: {x: -3.36407995, y: -.365620017, z: 0}
   m_LocalScale: {x: .51577884, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 400066}
@@ -942,7 +957,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.0100002, y: 4.8567071, z: 0}
+  m_LocalPosition: {x: -13.7700005, y: 4.8567071, z: 0}
   m_LocalScale: {x: 3.34224701, y: 2.77626443, z: 1}
   m_Children: []
   m_Father: {fileID: 400066}
@@ -1020,7 +1035,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.7891273, y: 62.7532349, z: 0}
+  m_LocalPosition: {x: 3.78672576, y: 3.78200936, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400064}
@@ -1033,6 +1048,7 @@ Transform:
   - {fileID: 400050}
   - {fileID: 400048}
   - {fileID: 400046}
+  - {fileID: 400070}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400068
@@ -1047,6 +1063,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 0
+--- !u!4 &400070
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400066}
+  m_RootOrder: 10
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
