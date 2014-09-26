@@ -325,6 +325,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400036}
+  m_Layer: 12
+  m_Name: base
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100042
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,8 +517,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.69405794, y: .91848594, z: 0}
-  m_LocalScale: {x: 15.4680977, y: .200028628, z: 1.40688396}
+  m_LocalPosition: {x: .0108136004, y: .91848594, z: 0}
+  m_LocalScale: {x: 18.8345947, y: .24356319, z: 1.40688396}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400042}
@@ -702,6 +717,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400060}
   m_RootOrder: 9
+--- !u!4 &400036
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6.03999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400060}
+  m_RootOrder: 14
 --- !u!4 &400042
 Transform:
   m_ObjectHideFlags: 1
@@ -738,7 +765,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .535750329, y: .934267044, z: 0}
+  m_LocalPosition: {x: -3.20131803, y: .934267044, z: 0}
   m_LocalScale: {x: .51577884, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 400060}
@@ -827,7 +854,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.98111, y: 59.3775063, z: 0}
+  m_LocalPosition: {x: 88.5326462, y: 2.13365984, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400058}
@@ -844,6 +871,7 @@ Transform:
   - {fileID: 400030}
   - {fileID: 400028}
   - {fileID: 400026}
+  - {fileID: 400036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -1528,6 +1556,7 @@ MonoBehaviour:
   sidePanel: {fileID: 0}
   vertForce: 1500
   zoomOutSpeed: .5
+  check: 0
   exitSound: {fileID: 8300000, guid: 6f70b77007352cf40bd29705701c6736, type: 3}
 --- !u!114 &11400028
 MonoBehaviour:

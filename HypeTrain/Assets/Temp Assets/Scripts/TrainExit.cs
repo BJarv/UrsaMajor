@@ -11,6 +11,7 @@ public class TrainExit : MonoBehaviour {
 	private Collider2D playerColl;
 	public float vertForce = 7500f;
 	public float zoomOutSpeed = .5f;
+	public bool check;
 	
 	//Audio variables
 	private bool soundPlayed;
@@ -32,17 +33,20 @@ public class TrainExit : MonoBehaviour {
 	//Check if E is pressed in trigger zone
 	void OnTriggerEnter2D(Collider2D hit) {
 		playerColl = hit;
-		if (Input.GetKey (KeyCode.E)) {
+		if (Input.GetKey (KeyCode.E) && hit.tag == "Player")
+		{
 			ExitTrain (hit);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
-		if (Input.GetKey (KeyCode.E)) {
+		if (Input.GetKey (KeyCode.E) && hit.tag == "Player")
+		{
 			ExitTrain (hit);
 		}
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
+		check = false;
 		Invoke ("ignoreExitCollide", .5f);
 	}
 

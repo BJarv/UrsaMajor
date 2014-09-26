@@ -49,15 +49,14 @@ public class CharControl : MonoBehaviour {
 		//Raycast to see if a wall is in front of the player
 		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
 		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .75f, whatIsWall);
-		if (isGrounded ()) {
-			animator.SetBool ("Hit", false);		
-		}
+
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
 			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
 				Jump = JumpState.JUMPING;
 				animator.SetBool ("Jump",true); //Switch to jump animation
+				animator.SetBool ("Hit",false);
 			}
 			break;
 
@@ -87,6 +86,12 @@ public class CharControl : MonoBehaviour {
 
 	public void hitAnim () {
 		animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
+		animator.SetBool ("Jump", false);
+		Invoke ("hitToIdle", .35f);
+	}
+
+	void hitToIdle (){
+		animator.SetBool ("Hit", false);
 	}
 
 	public bool isGrounded()
