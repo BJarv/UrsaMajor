@@ -35,13 +35,16 @@ public class CharControl : MonoBehaviour {
 
 	public int horizDirection = 1;
 
+	int IDofTrigs = 8;
+	int IDofProjs = 13;
+
 
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
 
 	void Start() {
-
+		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 	}
 
 	void Update () {

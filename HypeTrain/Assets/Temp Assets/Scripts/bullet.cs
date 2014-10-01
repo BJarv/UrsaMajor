@@ -5,6 +5,8 @@ public class bullet : MonoBehaviour {
 
 	public int bulletDeath = 3;
 	public int layerOfTrigs = 8; //8 is the triggers layer
+	public int layerOfLoot = 14; //14 is the Loot layer
+
 	
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,7 @@ public class bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 
-		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == layerOfTrigs) {
+		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == layerOfTrigs || colObj.gameObject.layer == layerOfLoot) {
 			return;
 		}
 		if(colObj.tag == "enemy") {
