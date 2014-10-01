@@ -40,6 +40,11 @@ public class enemyBullet : MonoBehaviour {
 			player.GetComponent<CharControl>().hitAnim();
 			Destroy (gameObject);
 		}
+		//If it hits a breakable object
+		if (colObj.collider2D.tag == "breakable") {
+			colObj.gameObject.GetComponent<breakable>().Damage();
+			Destroy (gameObject);
+		}
 		
 		else if(colObj.tag != "enemy") {
 			Destroy (gameObject);
