@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Not being used
+using UnityEngine;
 using System.Collections;
 
 public class charcontroller : MonoBehaviour {
