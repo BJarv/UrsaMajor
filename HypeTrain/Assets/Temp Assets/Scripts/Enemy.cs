@@ -43,9 +43,11 @@ public class Enemy : MonoBehaviour {
 	public bool jumpRdy = true;
 	public float groundCast = 1f;
 	public LayerMask enemyGroundMask;
+	coinSpawn money; 
 
 	// Use this for initialization
 	virtual protected void Start () {
+		money = GameObject.Find ("Main Camera").GetComponent<coinSpawn>();
 		Player = GameObject.Find("character");
 	}
 	
@@ -169,6 +171,11 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
+			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 5
+			while(repeat > 0){
+				money.At (transform.position);
+				repeat -= 1;
+			}
 			Destroy (gameObject);
 		}
 	}
