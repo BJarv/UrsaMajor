@@ -47,7 +47,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 61: {fileID: 6100002}
   m_Layer: 9
-  m_Name: woodWall
+  m_Name: glassWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2401,6 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3125bff12a7669e4587c491e57783166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glass: 0
   durability: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -2491,6 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3125bff12a7669e4587c491e57783166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glass: 0
   durability: 1
 --- !u!114 &11400022
 MonoBehaviour:

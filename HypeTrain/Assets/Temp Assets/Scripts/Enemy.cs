@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour {
 	public float groundCast = 1f;
 	public LayerMask enemyGroundMask;
 	coinSpawn money; 
+	//public bool grounde;
 
 	// Use this for initialization
 	virtual protected void Start () {
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	virtual protected void Update () {
-	
+		//grounde = isGrounded ();
 		posOfTrans1 = transform.position;
 		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour {
 			Invoke ("jumpOn", jumpCD); //turn it back on again after a cooldown
 			State = EnemyState.JUMP;
 		}
-		if (isDash ()) //enemy is about to dash!
+		if (State == EnemyState.ATTACK && isDash ()) //enemy is about to dash!
 		{
 			dashRdy = false;           //turn off dashing
 			Invoke ("dashOn", dashCD); //turn it back on again after a cooldown
@@ -105,7 +106,8 @@ public class Enemy : MonoBehaviour {
 
 	virtual protected void Attack()
 	{
-		if (isJump ()) return;
+		if (isJump ()) return; //prevents enemy from moving when he should be jumping
+		if (isDash ()) return;
 		if (transform.position.x < Player.transform.position.x) 
 		{
 			rigidbody2D.velocity = new Vector2 (EnemySpeed, rigidbody2D.velocity.y); 
@@ -182,13 +184,15 @@ public class Enemy : MonoBehaviour {
 
 	public bool isDash() //raycast in front of enemy, if it hits the player, true
 	{
-		return Physics2D.Raycast (transform.position, transform.right*direction, dashCast, dashMask) && dashRdy;
+		return Physics2D.Raycast (transform.position, transform.right, dashCast, dashMask) && dashRdy;
 	}
 	public bool isJump() //raycast in front of enemy, if it hits a wall, and it looks small enough to jump over, true
 	{
 		//return Physics2D.Raycast (transform.position, (transform.up + transform.right).normalized, jumpCast, jumpMask) && 
-
-			return Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask) && jumpRdy;
+		//if (Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask)) {
+		//	return true;
+		//}
+		return Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask) && jumpRdy && isGrounded ();
 	}
 
 	public void dashOn() 

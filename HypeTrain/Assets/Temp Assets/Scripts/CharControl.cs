@@ -37,6 +37,7 @@ public class CharControl : MonoBehaviour {
 
 	int IDofTrigs = 8;
 	int IDofProjs = 13;
+	int IDofEnes = 11;
 
 
 	void Awake() {
@@ -45,6 +46,7 @@ public class CharControl : MonoBehaviour {
 
 	void Start() {
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
+		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
 	}
 
 	void Update () {
