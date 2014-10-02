@@ -812,7 +812,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.3511581, y: 87.2019043, z: 0}
+  m_LocalPosition: {x: -11.0289345, y: 6.84835863, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -1511,21 +1511,21 @@ MonoBehaviour:
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
-  dashCast: 1
-  jumpCast: 2
+  dashCast: 4
+  jumpCast: 4
   dashMask:
     serializedVersion: 2
     m_Bits: 1024
   jumpMask:
     serializedVersion: 2
     m_Bits: 512
-  dashVec: {x: 200, y: 400}
+  dashVec: {x: 1000, y: 600}
   jumpVec: {x: 100, y: 1000}
   dashCD: 2
   dashRdy: 1
   jumpCD: 1
   jumpRdy: 1
-  groundCast: 1
+  groundCast: 1.02499998
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
