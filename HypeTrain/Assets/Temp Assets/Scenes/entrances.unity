@@ -605,8 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc131675f3e6bc248a4c3c7920a97789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 10, y: 0}
-  direction: {x: -1, y: 0}
+  scrollSpeed: 0
 --- !u!212 &875254060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1103,7 +1102,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
@@ -1316,10 +1315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possTrains:
-  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
-  - {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
-  - {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
-  - {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
   - {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
   - {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
   player: {fileID: 1601425287}
@@ -1578,6 +1573,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
       value: -28.0125217
@@ -1619,6 +1618,22 @@ Prefab:
       value: 
       objectReference: {fileID: -1203168336, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[1]
+      value: 
+      objectReference: {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}

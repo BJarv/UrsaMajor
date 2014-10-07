@@ -57,11 +57,11 @@ public class gun : MonoBehaviour {
 			sTimerOn = true;
 			inMag -= 1;
 			adjustCounter(inMag);
-			var pos = Input.mousePosition;
+			Vector3 pos = Input.mousePosition;
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
-			var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
+			Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
 			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
