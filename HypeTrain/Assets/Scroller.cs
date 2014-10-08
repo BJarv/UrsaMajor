@@ -2,21 +2,36 @@
 using System.Collections;
 
 // <summary>
-// Changes transform.position for an object
+// Simply moves the current game object
 // </summary>
 
 public class Scroller : MonoBehaviour 
 {
-
-	public float scrollSpeed;
+	// 1 - Designer variables
+	
+	// <summary>
+	// Object speed
+	// </summary>
+	public Vector2 speed = new Vector2(10,10);
+	
+	// <summary>
+	// Moving direction
+	// </summary>
+	public Vector2 direction = new Vector2(-1,0);
+	
+	private Vector2 movement;
 	
 	void Update() 
 	{
+		// 2 - Movement
+		movement = new Vector2 (
+			speed.x * direction.x,
+			speed.y * direction.y);
 	}
 	
 	void FixedUpdate()
 	{
-		Debug.Log (transform.position.x);
-		transform.position = new Vector2(transform.position.x - scrollSpeed,transform.position.y);
+		//Apply movement to the rigidbody
+		rigidbody2D.velocity = movement;
 	}
 }
