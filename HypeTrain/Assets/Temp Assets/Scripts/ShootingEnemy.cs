@@ -4,8 +4,6 @@ using System.Collections;
 public class ShootingEnemy : Enemy {
 
 	private EnemyGun gun;
-	
-
 
 	override protected void Start () {  //overrides start function of enemy.cs
 		base.Start ();
