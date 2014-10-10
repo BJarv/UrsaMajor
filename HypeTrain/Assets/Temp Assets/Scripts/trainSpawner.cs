@@ -54,7 +54,12 @@ public class trainSpawner : MonoBehaviour {
 	public float headCenter() 
 	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
+		if (trainCheck.tag == "bigCar") {
+			Debug.Log ("Shit's BIG!");
+			return trainCheck.transform.Find ("center").transform.position.x; //Replace with something that indicates a scrolling camera
+		} else {
 		return trainCheck.transform.Find ("center").transform.position.x;
+		}
 	}
 
 	public GameObject headPanel()
