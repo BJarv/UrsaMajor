@@ -43,12 +43,12 @@ public class Enemy : MonoBehaviour {
 	public bool jumpRdy = true;
 	public float groundCast = 1f;
 	public LayerMask enemyGroundMask;
-	coinSpawn money; 
+	public Itemizer money; 
 	//public bool grounde;
 
 	// Use this for initialization
 	virtual protected void Start () {
-		money = GameObject.Find ("Main Camera").GetComponent<coinSpawn>();
+		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 	}
 	
@@ -169,13 +169,13 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	public void Hurt(float damage){
+	virtual public void Hurt(float damage){
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
 			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 5
 			while(repeat > 0){
-				money.At (transform.position);
+				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
 			Destroy (gameObject);
