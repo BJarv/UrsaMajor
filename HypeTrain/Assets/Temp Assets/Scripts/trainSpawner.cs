@@ -67,6 +67,12 @@ public class trainSpawner : MonoBehaviour {
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
 	}
 
+	public Vector3 headVault()
+	{
+		GameObject trainCheck = (GameObject)trains.Peek();
+		return trainCheck.transform.FindChild ("objects").transform.FindChild ("vault").transform.position;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (!playerWithinFirst () && player.transform.position.x > -40f) {

@@ -121,7 +121,7 @@ GameObject:
   m_Layer: 8
   m_Name: isBelow
   m_TagString: bonus
-  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -315,7 +315,7 @@ GameObject:
   m_Layer: 8
   m_Name: exitRange
   m_TagString: bonus
-  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -366,7 +366,7 @@ GameObject:
   m_Layer: 8
   m_Name: entryRange
   m_TagString: bonus
-  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.5804825, y: 85.7460098, z: 0}
+  m_LocalPosition: {x: -40.427784, y: 125.847, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400064}
@@ -1503,6 +1503,7 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
+  money: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1555,6 +1556,8 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  money: {fileID: 0}
+  spawnKey: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1607,6 +1610,8 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  money: {fileID: 0}
+  spawnKey: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

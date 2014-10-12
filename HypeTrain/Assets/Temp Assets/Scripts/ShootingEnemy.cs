@@ -4,6 +4,7 @@ using System.Collections;
 public class ShootingEnemy : Enemy {
 
 	private EnemyGun gun;
+	public bool spawnKey = false;
 
 	override protected void Start () {  //overrides start function of enemy.cs
 		base.Start ();
@@ -15,6 +16,22 @@ public class ShootingEnemy : Enemy {
 	{
 		base.Attack ();
 		gun.isShooting(true, direction);
+	}
+
+	override public void Hurt(float damage){
+		State = EnemyState.ATTACK;
+		health -= damage;
+		if (health <= 0) {
+			if(spawnKey) {
+				money.At (transform.position, 1); //1 for key
+			}
+			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 5
+			while(repeat > 0){
+				money.At (transform.position, 0); //0 for coin
+				repeat -= 1;
+			}
+			Destroy (gameObject);
+		}
 	}
 
 	override protected void Update () {
