@@ -55,8 +55,7 @@ public class trainSpawner : MonoBehaviour {
 	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
 		if (trainCheck.tag == "bigCar") {
-			Debug.Log ("Shit's BIG!");
-			return trainCheck.transform.Find ("center").transform.position.x; //Replace with something that indicates a scrolling camera
+			return 1f; //Camera2D knows that 1 means it's a long car
 		} else {
 		return trainCheck.transform.Find ("center").transform.position.x;
 		}

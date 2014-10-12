@@ -35,13 +35,15 @@ public class Camera2D : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector2 newPos2D = Vector2.zero;
-			
-		if (lockCamera) {	//Lock on second car (for now)
-			newPos2D.x = centerLock; //trainleft + trainright / 2
+		if (centerLock == 1f) { //1 means it's a long car, so shift down the y value and keep the x scrolling
+			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
 			newPos2D.y = 6.5f; //default for now
+		}
+		else if (lockCamera) {	//Lock on second car (for now)
+			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, centerLock, ref velocity.x, smoothrate);//trainleft + trainright / 2
+			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate); //default for now
 		} else { 								//Left-right tracking an train-top level
-			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, 
-			                               ref velocity.x, smoothrate);
+			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
 			heightTest = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
 			if (heightTest > maxCamHeight){
 				newPos2D.y = 20f;
