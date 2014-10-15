@@ -9,6 +9,9 @@ public class EnemyGun : MonoBehaviour {
 	public GameObject bullet;
 	Transform player;
 	bool shootable = true; //currently able to shoot
+	public float shootCD = 1f;
+	
+	public float woff = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +28,7 @@ public class EnemyGun : MonoBehaviour {
 				lastShot = Time.time;
 				shooting = false;*/
 				shootable = false;
-				Invoke ("shootOn", 1.0f);
+				Invoke ("shootOn", shootCD);
 				shootBullet ();
 			}
 		}
@@ -41,6 +44,7 @@ public class EnemyGun : MonoBehaviour {
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rotToPlayer = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position);
+		rotToPlayer.Set (rotToPlayer.x, rotToPlayer.y, rotToPlayer.z, rotToPlayer.w + woff);
 		GameObject bulletInstance = Instantiate(bullet, transform.position, rotToPlayer) as GameObject;
 		bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * bulletSpeed);
 		return bulletInstance;

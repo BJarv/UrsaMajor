@@ -46,7 +46,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400002}
   m_Layer: 11
-  m_Name: enemyGun
+  m_Name: enemyShotgun
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.427784, y: 125.847, z: 0}
+  m_LocalPosition: {x: 98.1139297, y: 251.687042, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400064}
@@ -1512,11 +1512,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c902c53689188494198aea266bf3ab6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a578dc3e129c98469b4477d8d55351d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 500
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
+  shootCD: 3
+  bulletRotsToPlayer: []
+  spread: .5
+  bullets: 5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1571,6 +1575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 500
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
+  shootCD: 1
+  woff: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
