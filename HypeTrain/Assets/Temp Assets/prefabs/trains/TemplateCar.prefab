@@ -718,7 +718,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -761,8 +760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b839e904c44ec49d385edabe4d827cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: {fileID: 0}
-  right: {fileID: 0}
+  left: {fileID: 100010}
+  right: {fileID: 100012}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

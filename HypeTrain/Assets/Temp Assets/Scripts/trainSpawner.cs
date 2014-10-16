@@ -54,13 +54,23 @@ public class trainSpawner : MonoBehaviour {
 	public float headCenter() 
 	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
+		if (trainCheck.tag == "bigCar") {
+			return 1f; //Camera2D knows that 1 means it's a long car
+		} else {
 		return trainCheck.transform.Find ("center").transform.position.x;
+		}
 	}
 
 	public GameObject headPanel()
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
+	}
+
+	public Vector3 headVault()
+	{
+		GameObject trainCheck = (GameObject)trains.Peek();
+		return trainCheck.transform.FindChild ("objects").transform.FindChild ("vault").transform.position;
 	}
 
 	// Update is called once per frame

@@ -1,22 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 
 public class ShootingEnemy : Enemy {
 
 	private EnemyGun gun;
-	
-
+	private EnemyShotgun shotgun;
+	public bool spawnKey = false;
 
 	override protected void Start () {  //overrides start function of enemy.cs
 		base.Start ();
-		health = 10f;
-		gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
+		try {
+			gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
+		} catch {
+			Debug.Log ("No 'enemyGun' found, looking for shotgun");
+			try {
+				shotgun = transform.Find ("enemyShotgun").GetComponent<EnemyShotgun>();
+			} catch {
+				Debug.Log ("No 'enemyShotgun' found, OH NOOOOOO");
+			}
+		}
 	}
 
 	override protected void Attack() //overrides attack function of enemy.cs
 	{
 		base.Attack ();
-		gun.isShooting(true, direction);
+		if(gun != null){ //shoot the correct gun type
+			gun.isShooting(true, direction);
+		} else if(shotgun != null) {
+			shotgun.isShooting(true, direction);
+		}
+	}
+
+	override public void Hurt(float damage){
+		State = EnemyState.ATTACK;
+		health -= damage;
+		if (health <= 0) {
+			if(spawnKey) {
+				money.At (transform.position, 1); //1 for key
+			}
+			int repeat = (int)UnityEngine.Random.Range (1, 5); //spawn coins between 1 and 5
+			while(repeat > 0){
+				money.At (transform.position, 0); //0 for coin
+				repeat -= 1;
+			}
+			Destroy (gameObject);
+		}
 	}
 
 	override protected void Update () {
