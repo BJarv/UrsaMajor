@@ -50,6 +50,12 @@ public class gun : MonoBehaviour {
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	
+		//Gun image will flip depending on where the mouse is relative to the player
+		if (mousePos.x - 15 > player.transform.position.x)
+						transform.localScale = new Vector3(1,1,1);
+				else
+						transform.localScale = new Vector3(1,-1,1);
+
 		if (Input.GetButtonDown ("Fire1") && Firable ()) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
