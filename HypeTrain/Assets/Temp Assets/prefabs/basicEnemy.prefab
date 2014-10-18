@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.3405046, y: 7.39403343, z: 0}
-  m_LocalScale: {x: 1.61808264, y: 1.65246034, z: 1}
+  m_LocalPosition: {x: 8.03994274, y: 8.9679575, z: 0}
+  m_LocalScale: {x: 3.24079967, y: 3.30965161, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,7 +86,7 @@ MonoBehaviour:
   health: 20
   State: 0
   EnemySpeed: 5
-  Player: {fileID: 0}
+  Player: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   AttackDist: 10
   direction: 1
   StrollDist: 3
@@ -112,6 +111,7 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 4294890205
+  money: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
