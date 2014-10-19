@@ -66,7 +66,10 @@ public class Camera2D : MonoBehaviour {
 	}
 	//Toggles the locking/unlocking of the camera
 	public void setLock(bool x) {
-		lockCamera = x;
+		lockCamera = x;  //Disables regular car camera lock
+		if(!x){  //Disables big car camera lock
+			centerLock = 2f;
+		}
 	}
 	//Determines
 	public void setCenter(float x) {
