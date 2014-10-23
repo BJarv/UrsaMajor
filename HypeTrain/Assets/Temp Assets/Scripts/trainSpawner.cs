@@ -85,9 +85,6 @@ public class trainSpawner : MonoBehaviour {
 			}
 
 		}
-		if (Input.GetKey (KeyCode.Escape)) {
-			Application.LoadLevel ("MainMenu");
-		}
 	}
 
 	public Vector3 exitTele() 
