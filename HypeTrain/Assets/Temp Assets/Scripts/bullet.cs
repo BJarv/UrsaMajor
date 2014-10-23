@@ -8,6 +8,9 @@ public class bullet : MonoBehaviour {
 	public int layerOfLoot = 14; //14 is the Loot layer
 	public int layerOfProj = 13; //13 is the Projectiles layer
 
+	public GameObject meatObj;
+	public Component test;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -41,6 +44,15 @@ public class bullet : MonoBehaviour {
 		//If it hits a breakable object
 		if (colObj.collider2D.tag == "breakable") {
 			colObj.gameObject.GetComponent<breakable>().Damage();
+			Destroy (gameObject);
+		}
+
+		if (colObj.collider2D.tag == "meat") { //HERE
+			meatObj = colObj.gameObject;
+			//Component.Destroy (meatObj.GetComponent<HingeJoint2D>.hingeJoint); //Fuck this shit
+			//Destroy (meatObj.GetComponent<HingeJoint2D>);
+			//Component.Destroy(meatObj.hingeJoint);
+			Debug.Log ("MEAT");
 			Destroy (gameObject);
 		}
 
