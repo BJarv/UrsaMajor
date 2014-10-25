@@ -6,6 +6,7 @@ public class Popup : MonoBehaviour {
 	private bool paused = false;
 	public float vol = .35f;
 	public float volOffset = .3f; //offset amount volume gets decreased during pause
+	public bool canReset = false;
 
 	void Start () {
 		paused = false;
@@ -52,6 +53,27 @@ public class Popup : MonoBehaviour {
 			}
 			vol = GUI.HorizontalSlider (new Rect(Screen.width/2 - 100, Screen.height/2 + 75, 250, 50), vol, 0, 1); //set vol based on slider
 		}
+		if(PlayerHealth.endOfLife) {
 
+			Time.timeScale = 0;
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 200), "Press Any Key to Retry"); //main background box
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 250, 50), "Main Menu")) {
+				Application.LoadLevel ("MainMenu");
+			}
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Quit")) {
+				Application.Quit ();
+			}
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 200), "Loot: " + Game.currLoot); //loot counter
+			if(Input.anyKey && !Input.GetMouseButton(0) && canReset){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
+				PlayerHealth.endOfLife = false;
+				Time.timeScale = 1;
+				Application.LoadLevel (Application.loadedLevelName);
+			}
+		}
+
+	}
+
+	public void resetAvailable(){
+		canReset = true;
 	}
 }
