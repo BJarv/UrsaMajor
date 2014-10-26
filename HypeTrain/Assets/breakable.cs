@@ -4,10 +4,13 @@ using System.Collections;
 public class breakable : MonoBehaviour {
 
 	public bool glass = false;
+	public bool dropCash = false;
+
 	public float durability = 1f;
+	public Itemizer money; 
 	// Use this for initialization
 	void Start () {
-		
+		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 	}
 	
 	// Update is called once per frame
@@ -18,6 +21,9 @@ public class breakable : MonoBehaviour {
 	public void Damage(){
 		durability--;
 		if (durability <= 0) {
+			if (dropCash){
+				money.At(transform.position, 0);
+			}
 			Destroy (gameObject);
 		}
 	}
