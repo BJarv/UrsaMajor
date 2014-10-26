@@ -6,7 +6,6 @@ public class Popup : MonoBehaviour {
 	private bool paused = false;
 	public float vol = .35f;
 	public float volOffset = .3f; //offset amount volume gets decreased during pause
-	public bool canReset = false;
 
 	void Start () {
 		paused = false;
@@ -64,7 +63,7 @@ public class Popup : MonoBehaviour {
 				Application.Quit ();
 			}
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 200), "Loot: " + Game.currLoot); //loot counter
-			if(Input.anyKey && !Input.GetMouseButton(0) && canReset){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
+			if(Input.anyKeyDown && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				PlayerHealth.endOfLife = false;
 				Time.timeScale = 1;
 				Application.LoadLevel (Application.loadedLevelName);
@@ -72,8 +71,5 @@ public class Popup : MonoBehaviour {
 		}
 
 	}
-
-	public void resetAvailable(){
-		canReset = true;
-	}
+	
 }

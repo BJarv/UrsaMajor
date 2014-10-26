@@ -44,7 +44,6 @@ public class PlayerHealth : MonoBehaviour {
 	public void deathCheck() {
 		deathCheckCheck = false;
 		if (playerHealth <= 0f || transform.position.y < -5f) {
-			resetOn ();
 			Game.addLoot(ScoreKeeper.Score);
 			endOfLife = true;
 		}
@@ -86,12 +85,5 @@ public class PlayerHealth : MonoBehaviour {
 
 	void invincOff(){
 		invincibility = false;
-	}
-
-	void resetOn() {
-		float resetDel = Time.realtimeSinceStartup + 2;
-		while(Time.realtimeSinceStartup < resetDel){
-		}
-		camObj.GetComponent<Popup> ().resetAvailable();
 	}
 }
