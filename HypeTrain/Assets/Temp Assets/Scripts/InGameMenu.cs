@@ -10,10 +10,10 @@ public class InGameMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.Escape)) {
-			Screen.showCursor = true;
-			Debug.Log ("Pressed ESC!");
-			Application.LoadLevel("LevelSel");
-		};
+		//if (Input.GetKey(KeyCode.Escape)) {
+		//	Screen.showCursor = true;
+		//	Debug.Log ("Pressed ESC!");
+		//	Application.LoadLevel("LevelSel");
+		//};
 	}
 }

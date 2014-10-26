@@ -30,9 +30,7 @@ public class CharControl : MonoBehaviour {
 	public float PlusJumpForce = 300f;
 	public float CurrJumpForce = 0f;
 	public float MaxJumpForce = 1100f;
-
-	public Vector3 test;
-
+	
 	public int horizDirection = 1;
 
 	int IDofTrigs = 8;
@@ -50,7 +48,7 @@ public class CharControl : MonoBehaviour {
 	}
 
 	void Update () {
-		test = transform.position;
+
 		//Raycast to see if a wall is in front of the player
 		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
 		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .75f, whatIsWall);
