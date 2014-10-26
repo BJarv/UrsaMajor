@@ -70,6 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDeath: 3
   layerOfTrigs: 8
+  layerOfLoot: 14
+  layerOfProj: 13
+  meatObj: {fileID: 0}
+  test: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
