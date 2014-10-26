@@ -1025,12 +1025,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.86180687, y: 6.60577393, z: 0}
-  m_LocalScale: {x: 3.07034492, y: 3.13558817, z: 1}
+  m_LocalPosition: {x: 8.86135483, y: 6.59621572, z: 10.097168}
+  m_LocalScale: {x: 3.07034492, y: 3.13558865, z: 1}
   m_Children:
   - {fileID: 400058}
   m_Father: {fileID: 400068}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400062
 Transform:
   m_ObjectHideFlags: 1
@@ -1050,12 +1050,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6239424, y: -1.16943443, z: 0}
-  m_LocalScale: {x: 3.07034492, y: 3.13558817, z: 1}
+  m_LocalPosition: {x: 14.5676785, y: -1.17803848, z: 10.097168}
+  m_LocalScale: {x: 3.07034492, y: 3.13558841, z: 1}
   m_Children:
   - {fileID: 400062}
   m_Father: {fileID: 400068}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &400066
 Transform:
   m_ObjectHideFlags: 1
@@ -1079,8 +1079,8 @@ Transform:
   m_LocalScale: {x: .51577884, y: .515778184, z: 1}
   m_Children:
   - {fileID: 400066}
-  - {fileID: 400064}
   - {fileID: 400060}
+  - {fileID: 400064}
   m_Father: {fileID: 400048}
   m_RootOrder: 9
 --- !u!4 &400070
@@ -1090,7 +1090,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74468827, y: .743387341, z: 0}
+  m_LocalPosition: {x: -5.9000001, y: .962666452, z: 0}
   m_LocalScale: {x: 1.16680968, y: 1.1668067, z: 1}
   m_Children:
   - {fileID: 400072}
@@ -1810,6 +1810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSpeed: 6
+  playerDamage: 10
+  enemyDamage: 50
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2323,7 +2325,7 @@ HingeJoint2D:
   m_CollideConnected: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: .0364571474, y: .336135}
-  m_ConnectedAnchor: {x: -38.6635246, y: 14.0986786}
+  m_ConnectedAnchor: {x: -42.6683807, y: 14.0936995}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

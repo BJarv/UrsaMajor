@@ -4,6 +4,8 @@ using System.Collections;
 public class fallObj : MonoBehaviour {
 
 	public float damageSpeed;
+	public float playerDamage;
+	public float enemyDamage;
 
 	// Use this for initialization
 	void Start () {
@@ -17,11 +19,11 @@ public class fallObj : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 		if(colObj.tag == "player" && rigidbody2D.velocity.y <= -damageSpeed) {
-			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			colObj.gameObject.GetComponent<Enemy>().Hurt(playerDamage);
 		}
 		if(colObj.tag == "enemy" && rigidbody2D.velocity.y <= -damageSpeed) {
 			Debug.Log ("BONK!");
-			colObj.gameObject.GetComponent<Enemy>().Hurt(50f);
+			colObj.gameObject.GetComponent<Enemy>().Hurt(enemyDamage);
 		}
 	}
 }
