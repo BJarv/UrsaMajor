@@ -16,6 +16,10 @@ public class DesertHandler : MonoBehaviour {
 
 		//This is now a reference to the character.
 		player = GameObject.Find("character");
+
+
+		float playerPosition;
+
 		if (transform.position.x + 100 > player.transform.position.x)
 		Instantiate(desert, new Vector3(transform.position.x + (transform.localScale.x), transform.position.y, 1),Quaternion.identity);
 	}

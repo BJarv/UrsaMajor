@@ -17,6 +17,7 @@ public class trainSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SaveLoad.Load (); //LOADS SAVE GAME
 		begTim = Time.time;
 		trains = new Queue<GameObject>();
 		QueueAndMove();
@@ -84,9 +85,6 @@ public class trainSpawner : MonoBehaviour {
 				begTim = Time.time;
 			}
 
-		}
-		if (Input.GetKey (KeyCode.Escape)) {
-			Application.LoadLevel ("MainMenu");
 		}
 	}
 

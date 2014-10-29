@@ -4,8 +4,8 @@ using System.Collections;
 [System.Serializable]
 public class Game {
 	public static Game current;
-	public int lifetimeLoot;
-	public int currLoot;
+	public static int lifetimeLoot;
+	public static int currLoot;
 	public int carsCleared;
 	public int enemiesKilled;
 	public int hypeModesActivated;
@@ -13,9 +13,14 @@ public class Game {
 	public int deaths;
 	public float accuracy;
 
-	public Game () {
+	public Game () { //constructor
 
+	}
 
+	public static void addLoot(int amount) {
+		currLoot += amount;
+		lifetimeLoot += amount;
+		SaveLoad.Save ();
 	}
 
 }

@@ -4,15 +4,19 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour {
 	public float maxHealth = 30f;
 	public float playerHealth;
-	private float resetTimer = 0.0f;
-	private bool dying = false;
 	public float deathDelay = 1.0f;
 	public GameObject heart1;
 	public GameObject heart2;
 	public GameObject heart3;
+	public bool invincibility; 
+	public float invincCD = .5f;
+	public static bool endOfLife = false;
+	public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
+	public GameObject camObj;
 
 	// Use this for initialization
 	void Start () {
+		camObj = GameObject.Find ("Main Camera");
 		playerHealth = maxHealth;
 	}
 	
@@ -20,15 +24,28 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () {
 
 		if (playerHealth <= 0f || transform.position.y < -5f) {
-			if(!dying){
+			if(!deathCheckCheck){
+				deathCheckCheck = true;
+				Invoke("deathCheck", deathDelay);
+			}
+			/*if(!dying){
 				resetTimer = 0.0f;
 				dying = true;
 			} else { 
 				bool timer = (Time.time > resetTimer + deathDelay);
 				if(timer){
-					Application.LoadLevel (Application.loadedLevelName);
+					Game.addLoot(ScoreKeeper.Score);
+					endOfLife = true;
 				}
-			}
+			}*/
+		}
+	}
+
+	public void deathCheck() {
+		deathCheckCheck = false;
+		if (playerHealth <= 0f || transform.position.y < -5f) {
+			Game.addLoot(ScoreKeeper.Score);
+			endOfLife = true;
 		}
 	}
 
@@ -58,7 +75,15 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void Hurt(float damage)
 	{
-		playerHealth -= damage;
-		adjustCounter (playerHealth);
+		if (!invincibility) {
+			invincibility = true;
+			Invoke("invincOff", invincCD);
+			playerHealth -= damage;
+			adjustCounter (playerHealth);
+		}
+	}
+
+	void invincOff(){
+		invincibility = false;
 	}
 }

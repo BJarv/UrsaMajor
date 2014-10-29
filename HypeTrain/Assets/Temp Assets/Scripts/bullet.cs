@@ -42,17 +42,14 @@ public class bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		//If it hits a breakable object
-		if (colObj.collider2D.tag == "breakable") {
+		if (colObj.collider2D.tag == "breakable" || colObj.collider2D.tag == "meat") {
 			colObj.gameObject.GetComponent<breakable>().Damage();
 			Destroy (gameObject);
 		}
 
 		if (colObj.collider2D.tag == "meat") { //HERE
 			meatObj = colObj.gameObject;
-			//Component.Destroy (meatObj.GetComponent<HingeJoint2D>.hingeJoint); //Fuck this shit
-			//Destroy (meatObj.GetComponent<HingeJoint2D>);
-			//Component.Destroy(meatObj.hingeJoint);
-			Debug.Log ("MEAT");
+			Destroy (meatObj.GetComponent<HingeJoint2D>());
 			Destroy (gameObject);
 		}
 
