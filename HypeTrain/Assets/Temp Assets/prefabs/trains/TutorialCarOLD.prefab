@@ -513,7 +513,7 @@ GameObject:
   - 95: {fileID: 9500010}
   - 212: {fileID: 21200074}
   m_Layer: 0
-  m_Name: TutorialCar
+  m_Name: TutorialCarOLD
   m_TagString: bigCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2979,6 +2979,8 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  money: {fileID: 0}
+  spawnKey: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2992,6 +2994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 20
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
+  shootCD: 1
+  woff: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3074,7 +3078,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glass: 0
+  dropCash: 0
   durability: 1
+  money: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3114,6 +3120,7 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 71168
+  money: {fileID: 0}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3153,6 +3160,7 @@ MonoBehaviour:
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 71168
+  money: {fileID: 0}
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3165,7 +3173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glass: 0
+  dropCash: 0
   durability: 1
+  money: {fileID: 0}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3231,7 +3241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glass: 1
+  dropCash: 0
   durability: 1
+  money: {fileID: 0}
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
