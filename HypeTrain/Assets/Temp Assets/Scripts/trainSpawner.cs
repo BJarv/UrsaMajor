@@ -20,13 +20,28 @@ public class trainSpawner : MonoBehaviour {
 		SaveLoad.Load (); //LOADS SAVE GAME
 		begTim = Time.time;
 		trains = new Queue<GameObject>();
-		QueueAndMove();
-		QueueAndMove();
+		if (MainMenu.tutorial) {
+			QueueAndMove(possTrains[0]);
+			QueueAndMove(possTrains[1]);		
+		} else {
+			QueueAndMove();
+			QueueAndMove();
+		}
 		player = GameObject.Find ("character");
 	}
 
 	void QueueAndMove(){
-		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(2, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
+		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x, railToCenter);
+		trains.Enqueue(tempTrain); //put train game object into trains queue
+		widthFind = tempTrain.GetComponent<getWidthCar>();  //get width of car
+		theWidth = widthFind.carWidth();					
+		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
+	}
+
+	void QueueAndMove(GameObject traincar){
+		tempTrain = (GameObject)Instantiate(traincar, transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
 		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x, railToCenter);
 		trains.Enqueue(tempTrain); //put train game object into trains queue
