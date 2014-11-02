@@ -6,6 +6,8 @@ public class Game {
 	public static Game current;
 	public static int lifetimeLoot;
 	public static int currLoot;
+	public static int skin;
+	public static int hype;
 	public int carsCleared;
 	public int enemiesKilled;
 	public int hypeModesActivated;

@@ -13,7 +13,11 @@ public class Scroller : MonoBehaviour
 	public float speed = .05f;
 	public bool true4Left = true;
 	public bool handleSpeed = false;
+	public bool randomDimension = false;
+	public bool flipHoriz = false;
+	public float dimension = 1;
 	public float e = Mathf.Exp (1);
+
 
 	//We will make this into a reference to the character.
 	private GameObject player = null;
@@ -21,8 +25,16 @@ public class Scroller : MonoBehaviour
 	void Start() {
 		//This is now a reference to the character.
 		player = GameObject.Find("character");
-		float dimension = Random.Range (1,3);
-		gameObject.transform.localScale = new Vector3 (-dimension, dimension, 1);
+
+		//If random dimension is true, generate a random scale for the object
+		if (randomDimension == true)
+			dimension = Random.Range (1,3);
+
+		//If flipHoriz is true, flip the object horizontally
+		if (flipHoriz == true)
+			gameObject.transform.localScale = new Vector3 (-dimension, dimension, 1);
+		else
+			gameObject.transform.localScale = new Vector3 (dimension, dimension, 1);
 		}
 	
 	void Update() 

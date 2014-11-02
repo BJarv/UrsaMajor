@@ -43,6 +43,15 @@ public class CharControl : MonoBehaviour {
 	}
 
 	void Start() {
+		SaveLoad.Load (); //LOADS SAVE GAME
+		//switch(Game.skin) {
+		//case 0:
+		//  //default char skin, do nothing
+		//	break;
+		//case 1:
+		//  GetComponent<SpriteRenderer>().sprite = skin2; //or whatever itll be called
+		// 	break;
+		//}
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
 	}
@@ -133,5 +142,9 @@ public class CharControl : MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		else if (moveH < 0)
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
+	}
+
+	public void skinChange(Sprite skin){
+		GetComponent<SpriteRenderer>().sprite = skin;
 	}
 }
