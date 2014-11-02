@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25, y: 27, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,6 +43,9 @@ MonoBehaviour:
   speed: .0500000007
   true4Left: 1
   handleSpeed: 1
+  randomDimension: 1
+  flipHoriz: 1
+  dimension: 1
   e: 2.71828175
 --- !u!212 &21200000
 SpriteRenderer:
