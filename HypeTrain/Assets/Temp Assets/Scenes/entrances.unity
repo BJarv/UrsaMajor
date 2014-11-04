@@ -1144,6 +1144,9 @@ MonoBehaviour:
   speed: .0500000007
   true4Left: 1
   handleSpeed: 1
+  randomDimension: 1
+  flipHoriz: 1
+  dimension: 1
   e: 2.71828175
 --- !u!212 &875254060
 SpriteRenderer:
@@ -2528,7 +2531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb8252f47b02402abfcb7647724d63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSheetName: 
 --- !u!1 &1657452637
 GameObject:
   m_ObjectHideFlags: 0
