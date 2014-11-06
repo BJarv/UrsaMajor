@@ -669,6 +669,9 @@ MonoBehaviour:
   speed: .0500000007
   true4Left: 1
   handleSpeed: 1
+  randomDimension: 1
+  flipHoriz: 1
+  dimension: 1
   e: 2.71828175
 --- !u!212 &875254060
 SpriteRenderer:
@@ -903,6 +906,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1333875117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1554076581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,6 +1439,7 @@ MonoBehaviour:
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
+  despawnBuffer: 10
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -1442,7 +1447,7 @@ Transform:
   m_PrefabInternal: {fileID: 1686544785}
   m_GameObject: {fileID: 1554076580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.0125217, y: 6.72908211, z: 0}
+  m_LocalPosition: {x: -51.2999992, y: 6.72908211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1523,6 +1528,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1601425291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,7 +1702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -28.0125217
+      value: -51.2999992
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1825,7 +1831,7 @@ Prefab:
       objectReference: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[2]

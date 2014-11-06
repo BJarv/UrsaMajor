@@ -810,6 +810,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &649991417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1604,6 +1605,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1320428342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,6 +2270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possTrains:
   - {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+  - {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+  - {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
@@ -2360,6 +2364,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1601425291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,7 +2613,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2738,7 +2743,11 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[1]
       value: 
-      objectReference: {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
+      objectReference: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[2]
+      value: 
+      objectReference: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}

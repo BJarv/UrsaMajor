@@ -14,6 +14,7 @@ public class trainSpawner : MonoBehaviour {
 	public float widthBetween = 2f;
 	private float begTim;
 	public float railHeight = 0f;
+	public float despawnBuffer = 10f;
 
 	// Use this for initialization
 	void Start () {
@@ -31,21 +32,19 @@ public class trainSpawner : MonoBehaviour {
 
 	void QueueAndMove(){
 		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(2, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
-		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x, railToCenter);
+		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter);
 		trains.Enqueue(tempTrain); //put train game object into trains queue
-		widthFind = tempTrain.GetComponent<getWidthCar>();  //get width of car
-		theWidth = widthFind.carWidth();					
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
 
 	void QueueAndMove(GameObject traincar){
 		tempTrain = (GameObject)Instantiate(traincar, transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
-		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x, railToCenter);
+		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter);
 		trains.Enqueue(tempTrain); //put train game object into trains queue
-		widthFind = tempTrain.GetComponent<getWidthCar>();  //get width of car
-		theWidth = widthFind.carWidth();					
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
 	
@@ -63,7 +62,7 @@ public class trainSpawner : MonoBehaviour {
 		GameObject trainCheck = (GameObject)trains.Peek();
 		float leftPos = trainCheck.transform.Find ("left").transform.position.x;
 		float rightPos = trainCheck.transform.Find ("right").transform.position.x;
-		return (leftPos < player.transform.position.x && player.transform.position.x < rightPos);
+		return (leftPos - despawnBuffer < player.transform.position.x && player.transform.position.x < rightPos + despawnBuffer);
 	}
 
 	public float headCenter() 
