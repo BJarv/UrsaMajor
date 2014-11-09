@@ -21,6 +21,8 @@ public class Popup : MonoBehaviour {
 				Time.timeScale = 1;
 				if(vol + volOffset > 1.0){ //properly adjust audio during pause and nonpause
 					vol = 1.0f;
+				} else if(vol <= 0) {
+					vol = 0f;
 				} else {
 					vol += volOffset;
 				}
