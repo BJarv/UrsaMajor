@@ -932,7 +932,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400054}
-  - {fileID: 400056}
   m_Father: {fileID: 400048}
   m_RootOrder: 9
 --- !u!4 &400052
@@ -954,10 +953,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.73175526, y: -.759831548, z: 0}
-  m_LocalScale: {x: 1.583619, y: 1.61726797, z: 1}
+  m_LocalPosition: {x: 4.75281954, y: -.713221729, z: 0}
+  m_LocalScale: {x: 1.583619, y: 1.61726773, z: 1}
   m_Children:
   - {fileID: 400052}
+  - {fileID: 400056}
   m_Father: {fileID: 400050}
   m_RootOrder: 0
 --- !u!4 &400056
@@ -967,10 +967,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.25436544, y: -4.37443924, z: 0}
-  m_LocalScale: {x: 1.65371573, y: 1.68885183, z: 1}
+  m_LocalPosition: {x: -5.24566936, y: -2.25742984, z: 0}
+  m_LocalScale: {x: .977838755, y: .977832973, z: 1}
   m_Children: []
-  m_Father: {fileID: 400050}
+  m_Father: {fileID: 400054}
   m_RootOrder: 1
 --- !u!4 &400058
 Transform:
@@ -1295,8 +1295,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .698020339}
+  m_Center: {x: 0, y: -.0340101384}
 --- !u!61 &6100026
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1306,8 +1306,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .698597491}
+  m_Center: {x: -1.45984075e-07, y: -.0342953727}
 --- !u!61 &6100028
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1479,7 +1479,7 @@ Animator:
   m_GameObject: {fileID: 100054}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 425755260dda48a4591dbd7af1ad8427, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1493,7 +1493,7 @@ Animator:
   m_GameObject: {fileID: 100056}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9bc17d2e0b11544f86ec9d5b5687ed8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c902c53689188494198aea266bf3ab6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 500
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
-  spawnKey: 0
+  spawnKey: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1723,32 +1723,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 5
+  EnemySpeed: 6
   Player: {fileID: 0}
   AttackDist: 10
   direction: 1
-  StrollDist: 2
+  StrollDist: 3
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
-  dashCast: 1
-  jumpCast: 2
+  dashCast: 4
+  jumpCast: 4
   dashMask:
     serializedVersion: 2
     m_Bits: 1024
   jumpMask:
     serializedVersion: 2
     m_Bits: 512
-  dashVec: {x: 200, y: 400}
+  dashVec: {x: 1000, y: 600}
   jumpVec: {x: 100, y: 1000}
   dashCD: 2
   dashRdy: 1
-  jumpCD: 1
+  jumpCD: 2
   jumpRdy: 1
-  groundCast: 1
+  groundCast: 1.02499998
   enemyGroundMask:
     serializedVersion: 2
-    m_Bits: 71168
+    m_Bits: 70145
   money: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
@@ -2080,7 +2080,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 121282003
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 9cb621c7f53ad2e4cb78f27fa9eaf01a, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 29177c31f5051714a95c89938c280c6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200020
 SpriteRenderer:
@@ -2234,7 +2234,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 121282003
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 738613239c7686d43abba0763d1a8c8d, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 765a2ba0087eb574797569fbeef4562b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200034
 SpriteRenderer:

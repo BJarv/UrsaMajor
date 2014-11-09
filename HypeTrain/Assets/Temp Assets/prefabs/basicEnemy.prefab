@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.03994274, y: 8.9679575, z: 0}
-  m_LocalScale: {x: 3.24079967, y: 3.30965161, z: 1}
+  m_LocalPosition: {x: 2.58722472, y: 1.0154891, z: 0}
+  m_LocalScale: {x: 3.12820196, y: 3.19465327, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,8 +56,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .698597491}
+  m_Center: {x: -1.45984075e-07, y: -.0342953727}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -67,7 +67,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9bc17d2e0b11544f86ec9d5b5687ed8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -85,8 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 5
-  Player: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+  EnemySpeed: 6
+  Player: {fileID: 0}
   AttackDist: 10
   direction: 1
   StrollDist: 3
@@ -110,7 +110,7 @@ MonoBehaviour:
   groundCast: 1.02499998
   enemyGroundMask:
     serializedVersion: 2
-    m_Bits: 4294890205
+    m_Bits: 70145
   money: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 121282003
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 738613239c7686d43abba0763d1a8c8d, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 765a2ba0087eb574797569fbeef4562b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
