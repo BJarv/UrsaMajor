@@ -14,7 +14,11 @@ public class trainSpawner : MonoBehaviour {
 	public float widthBetween = 2f;
 	private float begTim;
 	public float railHeight = 0f;
-	public float despawnBuffer = 10f;
+	public float despawnBuffer = 8f; //if this is increased, there could be problems with entering trains properly
+	public float trainFallSpeed = .07f;
+	public GameObject deadTrain;
+	public float deathDelay = 8f;
+	public Vector2 fallAwayPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -49,12 +53,22 @@ public class trainSpawner : MonoBehaviour {
 	}
 	
 
-	//only kill train if !(train.left.x < player.x && player.x < train.right.x)
-	public void KillTrain() {
+	public void KillTrain() { //IF YOU WANT MULTIPLE TRAINS TO BE ABLE TO DIE AT THE SAME TIME, ALL THIS NEEDS TO BE DONE ON AN INSTANTIATED OBJECT
 		if(!playerWithinFirst ()){
-			Destroy((GameObject)trains.Dequeue());
+			Destroy (deadTrain);
+			CancelInvoke();
+			deadTrain = (GameObject)trains.Dequeue();
+			fallAwayPoint = new Vector2(deadTrain.transform.position.x - deadTrain.GetComponent<getWidthCar>().carWidth() * 3f,  deadTrain.transform.position.y);
+			Destroy(deadTrain, deathDelay);
+			Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
 		}
+	}
+
+	public void emptyDeadTrain ()
+	{
+		deadTrain = null;
+		//fallAwayPoint = null;
 	}
 
 	public bool playerWithinFirst()
@@ -93,11 +107,14 @@ public class trainSpawner : MonoBehaviour {
 			bool timer = (Time.time > begTim + 2.0f);
 			if(timer)
 			{
-				Destroy((GameObject)trains.Dequeue());
-				QueueAndMove();
+				KillTrain ();
 				begTim = Time.time;
 			}
-
+		}
+	}
+	void FixedUpdate() {
+		if(deadTrain != null) {
+			deadTrain.transform.position = Vector2.Lerp (deadTrain.transform.position, fallAwayPoint, Time.deltaTime * trainFallSpeed);
 		}
 	}
 
