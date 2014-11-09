@@ -406,6 +406,7 @@ GameObject:
   - 212: {fileID: 21200024}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400012}
+  - 50: {fileID: 5000018}
   m_Layer: 12
   m_Name: FreezerCar
   m_TagString: Untagged
@@ -1027,7 +1028,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.3118439, y: 11.4668512, z: 0}
+  m_LocalPosition: {x: -32.8981285, y: 17.7175255, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400046}
@@ -1148,7 +1149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.65860176, y: -6.14043379, z: 10.097168}
+  m_LocalPosition: {x: -8.29374504, y: -6.16947889, z: 10.097168}
   m_LocalScale: {x: 3.12820196, y: 3.19465375, z: 1}
   m_Children: []
   m_Father: {fileID: 400068}
@@ -1175,7 +1176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65551329, y: .368442088, z: 0}
+  m_LocalPosition: {x: 5.1905303, y: .488437295, z: 0}
   m_LocalScale: {x: 1.1668098, y: 1.16680646, z: 1}
   m_Children:
   - {fileID: 400072}
@@ -1377,6 +1378,21 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!50 &5000018
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100048}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 2
   m_CollisionDetection: 0
 --- !u!60 &6000000
 PolygonCollider2D:
@@ -1947,7 +1963,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
-  spawnKey: 1
+  spawnKey: 0
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2018,7 +2034,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
-  spawnKey: 1
+  spawnKey: 0
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2745,9 +2761,9 @@ HingeJoint2D:
   m_GameObject: {fileID: 100070}
   m_Enabled: 1
   m_CollideConnected: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 5000018}
   m_Anchor: {x: .0364571474, y: .336135}
-  m_ConnectedAnchor: {x: -20.2643757, y: 12.9416065}
+  m_ConnectedAnchor: {x: 5.23306847, y: .880641162}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2764,9 +2780,9 @@ HingeJoint2D:
   m_GameObject: {fileID: 100074}
   m_Enabled: 1
   m_CollideConnected: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 5000018}
   m_Anchor: {x: .0364571474, y: .336135}
-  m_ConnectedAnchor: {x: -31.862009, y: 13.3241253}
+  m_ConnectedAnchor: {x: -.283761442, y: .957942426}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2821,9 +2837,9 @@ HingeJoint2D:
   m_GameObject: {fileID: 100080}
   m_Enabled: 1
   m_CollideConnected: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 5000018}
   m_Anchor: {x: .0364571474, y: .336135}
-  m_ConnectedAnchor: {x: -40.5746841, y: 13.1109447}
+  m_ConnectedAnchor: {x: -4.77757597, y: .847988546}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

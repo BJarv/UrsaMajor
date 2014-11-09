@@ -823,11 +823,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.28999996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -7.28999949, z: 0}
+  m_LocalScale: {x: 1, y: .99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 400064}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!4 &400044
 Transform:
   m_ObjectHideFlags: 1
@@ -844,7 +844,7 @@ Transform:
   - {fileID: 400006}
   - {fileID: 400002}
   m_Father: {fileID: 400064}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!4 &400046
 Transform:
   m_ObjectHideFlags: 1
@@ -862,7 +862,7 @@ Transform:
   - {fileID: 400010}
   - {fileID: 400000}
   m_Father: {fileID: 400064}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!4 &400048
 Transform:
   m_ObjectHideFlags: 1
@@ -982,9 +982,9 @@ Transform:
   - {fileID: 400052}
   - {fileID: 400050}
   - {fileID: 400048}
+  - {fileID: 400042}
   - {fileID: 400046}
   - {fileID: 400044}
-  - {fileID: 400042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c902c53689188494198aea266bf3ab6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 500
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0
@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c902c53689188494198aea266bf3ab6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 500
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0
