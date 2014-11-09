@@ -1118,8 +1118,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .698597491}
+  m_Center: {x: -1.45984075e-07, y: -.0342953727}
 --- !u!61 &6100014
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1129,8 +1129,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .682490647}
+  m_Center: {x: 0, y: -.0262452848}
 --- !u!61 &6100016
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1140,8 +1140,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: .629999995}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .68998903}
+  m_Center: {x: 0, y: -.0299945045}
 --- !u!61 &6100018
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 6
+  EnemySpeed: 3.5
   Player: {fileID: 0}
   AttackDist: 10
   direction: 1
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   jumpVec: {x: 100, y: 1000}
   dashCD: 2
   dashRdy: 1
-  jumpCD: 1
+  jumpCD: 2
   jumpRdy: 1
   groundCast: 1.02499998
   enemyGroundMask:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 2
+  EnemySpeed: 2.5
   Player: {fileID: 0}
   AttackDist: 10
   direction: 1
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 2
+  EnemySpeed: 2.5
   Player: {fileID: 0}
   AttackDist: 10
   direction: 1
