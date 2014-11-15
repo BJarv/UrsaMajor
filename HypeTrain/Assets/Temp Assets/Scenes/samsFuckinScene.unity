@@ -1362,6 +1362,11 @@ MonoBehaviour:
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
+  despawnBuffer: 8
+  trainFallSpeed: .0700000003
+  deadTrain: {fileID: 0}
+  deathDelay: 8
+  fallAwayPoint: {x: 0, y: 0}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -1369,7 +1374,7 @@ Transform:
   m_PrefabInternal: {fileID: 1686544785}
   m_GameObject: {fileID: 1554076580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.0125217, y: 6.72908211, z: 0}
+  m_LocalPosition: {x: -48.8122215, y: 6.72908211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1667,7 +1672,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -28.0125217
+      value: -48.8122215
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1695,7 +1700,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: player
