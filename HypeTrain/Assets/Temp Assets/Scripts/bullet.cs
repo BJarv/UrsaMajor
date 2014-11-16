@@ -47,7 +47,7 @@ public class bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
-		if (colObj.collider2D.tag == "meat") { //HERE
+		if (colObj.collider2D.tag == "meat") {
 			meatObj = colObj.gameObject;
 			Destroy (meatObj.GetComponent<HingeJoint2D>());
 			Destroy (gameObject);

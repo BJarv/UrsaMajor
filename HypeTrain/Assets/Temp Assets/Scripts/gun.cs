@@ -107,6 +107,17 @@ public class gun : MonoBehaviour {
 			}
 		}
 
+		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset (IN PROGRESS)
+		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "GNAR") {
+			Debug.Log ("HYPE MODE");
+			SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+			renderers[1].color = Color.red;
+			magSize = 100;
+			interShotDelay = .3f;
+			rTimerOn = true;
+			ScoreKeeper.HYPE = "HYPEMODE";
+		}
+
 	}
 
 	private void adjustCounter(int currBulls)

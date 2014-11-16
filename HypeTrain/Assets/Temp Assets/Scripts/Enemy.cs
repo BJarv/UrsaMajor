@@ -178,6 +178,7 @@ public class Enemy : MonoBehaviour {
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
+			ScoreKeeper.HYPE = "GNAR"; //HYPE INCREMENT CHANGE LATER
 			Destroy (gameObject);
 		}
 	}

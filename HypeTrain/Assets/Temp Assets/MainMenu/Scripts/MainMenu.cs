@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour {
 	public Texture playButton;
 	public GUISkin playSkin;
 
-	public static bool tutorial = true;
+	public static bool tutorial;
 
 	void OnGUI(){
 		//Display Background Texture
@@ -16,12 +16,13 @@ public class MainMenu : MonoBehaviour {
 		//Display buttons
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .335f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {
 			Debug.Log ("Pressed Play!");
-			Application.LoadLevel("entrances");
+			Application.LoadLevel("haydenZone");
 		};
 
-		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .1f, Screen.width * .2f, Screen.height * .1f), "Start w/ Tutorial")) {
+		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .21f, Screen.width * .3f, Screen.height * .12f), "Start w/ Tutorial")) {
 			Debug.Log ("Start with Tutorial");
 			tutorial = true;
+			Application.LoadLevel("haydenZone");
 		};
 
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .48f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {

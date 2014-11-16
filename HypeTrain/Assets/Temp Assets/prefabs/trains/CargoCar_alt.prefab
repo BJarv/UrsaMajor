@@ -453,6 +453,7 @@ GameObject:
   - 4: {fileID: 400054}
   - 212: {fileID: 21200030}
   - 61: {fileID: 6100024}
+  - 50: {fileID: 5000014}
   m_Layer: 9
   m_Name: steelCrate
   m_TagString: Untagged
@@ -739,7 +740,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.34357834, y: 2.00991058, z: 0}
+  m_LocalPosition: {x: -30.6310654, y: 16.1518745, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -1254,6 +1255,21 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 4
   m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!50 &5000014
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100054}
+  m_Mass: 50
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 2
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
