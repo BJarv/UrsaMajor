@@ -11,6 +11,7 @@ public class DesertHandler : MonoBehaviour {
 	public float speed = .05f;
 	public bool true4Left = true;
 	public GameObject firstDesert;
+	public GameObject secondDesert;
 	Vector3 oldDesertPos;
 	float desertSize;
 	int flipper= -1;
@@ -25,16 +26,25 @@ public class DesertHandler : MonoBehaviour {
 		//This is now a reference to the character.
 		player = GameObject.Find("character");
 
+		//New queue for all the deserts
 		deserts = new Queue<GameObject>();
 
-		if (transform.position.x + 100 > player.transform.position.x)
-		firstDesert = (GameObject)Instantiate(desert, new Vector3(transform.position.x + (transform.localScale.x), -2, 1),Quaternion.identity);
+		//firstDesert spawns at the camera position
+		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, -2, 1),Quaternion.identity);
 
-		deserts.Enqueue (firstDesert);
+		//firstDesert is added to the queue
+		deserts.Enqueue(firstDesert);
 
-		dimension = deserts.Peek ().renderer.bounds.size.x;
-	
-		firstDesert.transform.localScale = new Vector3(-dimension,dimension,1);
+		//Record x dimension of desert
+		dimension = deserts.Dequeue().renderer.bounds.size.x;
+
+		//
+		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, -2, 1),Quaternion.identity);
+
+		deserts.Enqueue (secondDesert);
+
+		//Horizontally mirror the first desert.
+		//firstDesert.transform.localScale = new Vector3(-dimension,dimension,1);
 	}
 	
 	// Update is called once per frame
@@ -44,7 +54,10 @@ public class DesertHandler : MonoBehaviour {
 
 	void FixedUpdate()
 	{	
+		//Peek at the size of the next thing in the queue
 		desertSize = deserts.Peek ().renderer.bounds.size.x;
+
+		//
 		if (deserts.Peek ().transform.position.x < player.transform.position.x + desertSize) {
 			oldDesertPos = deserts.Dequeue().transform.position;
 			deserts.Enqueue ((GameObject)Instantiate (desert, oldDesertPos + new Vector3(desertSize,0,0), Quaternion.identity));
