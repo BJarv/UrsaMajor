@@ -12,9 +12,13 @@ public enum JumpState
 public class CharControl : MonoBehaviour {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
+	public Transform spawn;
+
+	//Movement variables
 	public float maxSpeed = 2f;
 	public float addSpeed = 25f;
 	private JumpState Jump = JumpState.GROUNDED;
+
 	//Ground stuff
 	public Transform midGroundCheck;
 	public Transform leftGroundCheck;
@@ -23,9 +27,11 @@ public class CharControl : MonoBehaviour {
 	float raycastLength = 0.15f;
 	public LayerMask whatIsGround;
 
+	//Wall collision variables
 	private bool leftWalled;
 	private bool rightWalled;
 	public LayerMask whatIsWall;
+
 	//Jumpforce variables
 	public float PlusJumpForce = 300f;
 	public float CurrJumpForce = 0f;
@@ -43,6 +49,10 @@ public class CharControl : MonoBehaviour {
 	}
 
 	void Start() {
+		if (MainMenu.tutorial) {
+			//spawn = transform.Find("TutorialCar_1/tutorial_Spawn");
+			//transform.position = 		
+		}
 		SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:
