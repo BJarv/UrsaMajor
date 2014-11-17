@@ -4,12 +4,14 @@ using System.Collections;
 public class ScoreKeeper : MonoBehaviour {
 
 	public GUIStyle scoreStyle;
-	
+
+	public static int carsCompleted;
 	public static int Score;
 	public static string HYPE;
 
 	void Awake () 
 	{
+		carsCompleted = 0;
 		Score = 0;
 		HYPE = "LAME";
 	}

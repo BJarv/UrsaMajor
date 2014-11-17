@@ -376,7 +376,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742212e6d3c16744b87751550fe44ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 100000, guid: 3b44acedbbcf1cf4ab8b431bd71c2632, type: 2}
+  coin: {fileID: 100000, guid: bbdcf719058af394a9462dde485082d6, type: 2}
   safeKey: {fileID: 100000, guid: ab3e0580adbab1d4ea71a82d1df0792a, type: 2}
   xMin: -400
   xMax: 400
@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vol: .349999994
   volOffset: .200000003
+  player: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

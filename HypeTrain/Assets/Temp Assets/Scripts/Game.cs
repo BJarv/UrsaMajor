@@ -8,7 +8,7 @@ public class Game {
 	public static int currLoot;
 	public static int skin;
 	public static int hype;
-	public int carsCleared;
+	public static int carsCleared;
 	public int enemiesKilled;
 	public int hypeModesActivated;
 	public int shotsFired;
@@ -22,6 +22,11 @@ public class Game {
 	public static void addLoot(int amount) {
 		currLoot += amount;
 		lifetimeLoot += amount;
+		SaveLoad.Save ();
+	}
+
+	public static void addCarsCleared(int amount) {
+		carsCleared += amount;
 		SaveLoad.Save ();
 	}
 

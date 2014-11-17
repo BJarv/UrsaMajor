@@ -55,12 +55,21 @@ public class TrainExit : MonoBehaviour {
 		Physics2D.IgnoreCollision (playerColl, transform.parent.gameObject.collider2D, false);
 	}
 
+	void soundPlayedOff()
+	{
+		soundPlayed = false;
+	}
+
 	void ExitTrain(Collider2D hit)
 	{
 		//Play exit sound
 		if (!soundPlayed) {
-			AudioSource.PlayClipAtPoint (exitSound, transform.position);
 			soundPlayed = true;
+			Invoke ("soundPlayedOff", 3f);
+			AudioSource.PlayClipAtPoint (exitSound, transform.position);
+
+			ScoreKeeper.carsCompleted += 1;
+
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 
 			Player.rigidbody2D.velocity = Vector3.zero;

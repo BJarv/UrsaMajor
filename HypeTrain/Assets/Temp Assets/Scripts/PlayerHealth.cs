@@ -10,10 +10,11 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject heart3;
 	public bool invincibility; 
 	public float invincCD = .5f;
-	public static bool endOfLife = false;
+	//public static bool endOfLife = false;
 	public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
 	public GameObject camObj;
 	public GameObject player;
+	public bool alreadyDying = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,8 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (playerHealth <= 0f || transform.position.y < -5f) {
+		if ((playerHealth <= 0f || transform.position.y < -5f) && !alreadyDying) {
+			alreadyDying = true;
 			player.GetComponent<CharControl>().StartDeath ();
 			Invoke("deathCheck", deathDelay);
 			/*if(!dying){
@@ -43,7 +45,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void deathCheck() {
 		Game.addLoot(ScoreKeeper.Score);
-		endOfLife = true;
+		Game.addCarsCleared (ScoreKeeper.carsCompleted);
+		//endOfLife = true;
 	}
 
 	private void adjustCounter(float currHealth)
