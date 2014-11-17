@@ -5,14 +5,17 @@ using System.Collections.Generic;
 public class DesertHandler : MonoBehaviour {
 
 	public GameObject desert;
-	
-	private Queue<GameObject> deserts;
 
-	public float speed = .05f;
-	public bool true4Left = true;
-	public GameObject firstDesert;
-	public GameObject secondDesert;
-	Vector3 oldDesertPos;
+	//The following variable is to be set to avoid z fighting
+	public float zPos = 1;
+
+	//The following variable controls where your objects are going to spawn
+	public float yPos = -2;
+
+	private Queue<GameObject> deserts;
+	
+	GameObject firstDesert;
+	GameObject secondDesert;
 	float desertSize;
 	int flipper= -1;
 	float dimension;
@@ -30,7 +33,7 @@ public class DesertHandler : MonoBehaviour {
 		deserts = new Queue<GameObject>();
 
 		//firstDesert spawns at the camera position
-		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, -2, 1),Quaternion.identity);
+		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, yPos, zPos),Quaternion.identity);
 
 		//firstDesert is added to the queue
 		deserts.Enqueue(firstDesert);
@@ -39,7 +42,7 @@ public class DesertHandler : MonoBehaviour {
 		dimension = deserts.Dequeue().renderer.bounds.size.x;
 
 		//
-		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, -2, 1),Quaternion.identity);
+		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, -2, zPos),Quaternion.identity);
 
 		deserts.Enqueue (secondDesert);
 
@@ -59,8 +62,7 @@ public class DesertHandler : MonoBehaviour {
 
 		//
 		if (deserts.Peek ().transform.position.x < player.transform.position.x + desertSize) {
-			oldDesertPos = deserts.Dequeue().transform.position;
-			deserts.Enqueue ((GameObject)Instantiate (desert, oldDesertPos + new Vector3(desertSize,0,0), Quaternion.identity));
+			deserts.Enqueue ((GameObject)Instantiate (desert, new Vector3(deserts.Peek ().transform.position.x + desertSize,yPos,deserts.Dequeue().transform.position.z), Quaternion.identity));
 			if (flipper == -1) {
 				deserts.Peek().transform.localScale = Vector3.Scale (deserts.Peek ().transform.localScale , new Vector3(-1,1,1));
 			}

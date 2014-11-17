@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: desert
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,8 +24,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.2786064, y: 18.4991016, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -46.9891281, y: 8.32007885, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: .899999976}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc131675f3e6bc248a4c3c7920a97789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .0500000007
+  speed: 1
   true4Left: 1
   handleSpeed: 0
   randomDimension: 0
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2984410635
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 073c82c08dad05847bc9ed09dcc8a592, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32d06de49a52df84e97dae6b9284fa73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
