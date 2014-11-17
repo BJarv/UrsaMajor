@@ -27,8 +27,9 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () {
 
 		if ((playerHealth <= 0f || transform.position.y < -5f) && !alreadyDying) {
+			//Causes game end in Popup script
 			alreadyDying = true;
-			player.GetComponent<CharControl>().StartDeath ();
+			player.GetComponent<CharControl>().StartDeath (); 
 			Invoke("deathCheck", deathDelay);
 			/*if(!dying){
 				resetTimer = 0.0f;
