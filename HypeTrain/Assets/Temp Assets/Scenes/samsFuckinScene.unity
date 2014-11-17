@@ -1054,6 +1054,7 @@ GameObject:
   - 114: {fileID: 1409445593}
   - 114: {fileID: 1409445594}
   - 114: {fileID: 1409445595}
+  - 114: {fileID: 1409445596}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1279,10 +1280,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desert: {fileID: 100000, guid: fa7e2a144dbcc584380dd221b5d5e428, type: 2}
-  speed: .0500000007
-  true4Left: 1
-  firstDesert: {fileID: 0}
-  secondDesert: {fileID: 0}
+  zPos: 1
+  yPos: -2
+--- !u!114 &1409445596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409445583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d233bc8dfaa7ab14c980bc63613ca566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desert: {fileID: 100000, guid: a3a6fb9c741d3284aa6e6a6b1d974fd1, type: 2}
+  zPos: .899999976
+  yPos: -6
 --- !u!1001 &1416130582
 Prefab:
   m_ObjectHideFlags: 0
