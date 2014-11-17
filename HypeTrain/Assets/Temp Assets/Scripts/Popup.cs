@@ -64,7 +64,7 @@ public class Popup : MonoBehaviour {
 			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Quit")) {
 				Application.Quit ();
 			}
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 200), "Loot: " + Game.currLoot); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 200), "Total Loot: " + Game.currLoot); //loot counter
 			if(Input.anyKeyDown && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				PlayerHealth.endOfLife = false;
 				Time.timeScale = 1;

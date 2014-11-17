@@ -136,6 +136,14 @@ public class CharControl : MonoBehaviour {
 		}
 	}
 
+	public void StartDeath() //turns on hit animation, and makes character drop through floor.
+	{
+		animator.SetBool ("Hit",true);
+		animator.SetBool ("Jump", false);
+		gameObject.collider2D.enabled = false;
+		Destroy (gameObject, 5f);
+	}
+
 	void Flip(float moveH)
 	{
 		if (moveH > 0)

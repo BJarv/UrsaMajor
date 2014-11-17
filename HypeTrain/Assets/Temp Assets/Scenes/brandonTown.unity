@@ -810,6 +810,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &649991417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -906,6 +907,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1601425288}
+    - target: {fileID: 8200000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: Mute
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
   m_RootGameObject: {fileID: 1409445583}
@@ -1604,6 +1609,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1320428342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,7 +2002,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
@@ -2367,6 +2373,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1601425291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2456,6 +2463,7 @@ MonoBehaviour:
   invincCD: .5
   deathCheckCheck: 0
   camObj: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1601425295
 MonoBehaviour:
   m_ObjectHideFlags: 0

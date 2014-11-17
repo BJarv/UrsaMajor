@@ -4,7 +4,7 @@ using System.Collections;
 public class ScoreKeeper : MonoBehaviour {
 
 	public GUIStyle scoreStyle;
-
+	
 	public static int Score;
 	public static string HYPE;
 

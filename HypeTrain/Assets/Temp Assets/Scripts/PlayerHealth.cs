@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour {
 	public float maxHealth = 30f;
 	public float playerHealth;
-	public float deathDelay = 1.0f;
+	public float deathDelay = 2f;
 	public GameObject heart1;
 	public GameObject heart2;
 	public GameObject heart3;
@@ -13,9 +13,11 @@ public class PlayerHealth : MonoBehaviour {
 	public static bool endOfLife = false;
 	public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
 	public GameObject camObj;
+	public GameObject player;
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find ("character");
 		camObj = GameObject.Find ("Main Camera");
 		playerHealth = maxHealth;
 	}
@@ -24,10 +26,8 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () {
 
 		if (playerHealth <= 0f || transform.position.y < -5f) {
-			if(!deathCheckCheck){
-				deathCheckCheck = true;
-				Invoke("deathCheck", deathDelay);
-			}
+			player.GetComponent<CharControl>().StartDeath ();
+			Invoke("deathCheck", deathDelay);
 			/*if(!dying){
 				resetTimer = 0.0f;
 				dying = true;
@@ -42,11 +42,8 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	public void deathCheck() {
-		deathCheckCheck = false;
-		if (playerHealth <= 0f || transform.position.y < -5f) {
-			Game.addLoot(ScoreKeeper.Score);
-			endOfLife = true;
-		}
+		Game.addLoot(ScoreKeeper.Score);
+		endOfLife = true;
 	}
 
 	private void adjustCounter(float currHealth)
