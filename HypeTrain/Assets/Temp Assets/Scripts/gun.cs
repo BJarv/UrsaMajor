@@ -23,6 +23,7 @@ public class gun : MonoBehaviour {
 	public GameObject bull2;
 	public GameObject bull3;
 	public GameObject bull4;
+	public ScoreKeeper HYPECounter;
 	//private CharControl charControl;
 
 	// Use this for initialization
@@ -32,6 +33,7 @@ public class gun : MonoBehaviour {
 		shotTimer = interShotDelay;
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
+		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
 		//charControl = player.GetComponent<CharControl>() as CharControl;
 	}
 	
@@ -108,14 +110,14 @@ public class gun : MonoBehaviour {
 		}
 
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset (IN PROGRESS)
-		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "GNAR") {
+		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "OVERHYPED") {
 			Debug.Log ("HYPE MODE");
 			SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 			renderers[1].color = Color.red;
 			magSize = 100;
 			interShotDelay = .3f;
 			rTimerOn = true;
-			ScoreKeeper.HYPE = "HYPEMODE";
+			HYPECounter.incrementHype(); //Increment HYPE on kill
 		}
 
 	}

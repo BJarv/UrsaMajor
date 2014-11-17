@@ -45,7 +45,7 @@ public class ShootingEnemy : Enemy {
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
-			ScoreKeeper.HYPE = "GNAR"; //HYPE INCREMENT CHANGE LATER
+			HYPECounter.incrementHype(); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
 	}
