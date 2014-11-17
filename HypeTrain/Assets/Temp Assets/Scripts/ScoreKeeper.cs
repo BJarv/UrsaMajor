@@ -4,7 +4,7 @@ using System.Collections;
 public class ScoreKeeper : MonoBehaviour {
 
 	public GUIStyle scoreStyle;
-
+	
 	public static int Score;
 	public static string HYPE;
 
@@ -21,7 +21,12 @@ public class ScoreKeeper : MonoBehaviour {
 		GUI.Label (new Rect (150, 3, 500, 25), "HYPE: " + HYPE, scoreStyle);
 	}
 
-	/*void setHype(){
-		Increment the HYPE up one each time. (LAME->GNAR->HYPE->OVERHYPED)
-	}*/
+	public string incrementHype(){ //Called in Enemy, Shooting Enemy to inrease HYPE level by 1 on kill
+		if (HYPE == "LAME")HYPE = "GNAR";
+		else if (HYPE == "GNAR")HYPE = "HYPE";
+		else if (HYPE == "HYPE")HYPE = "OVERHYPED";
+		else if (HYPE == "OVERHYPED")HYPE = "LAME";
+
+		return HYPE;
+	}
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class trainSpawner : MonoBehaviour {
 
+
+	//variables
 	private int carsCompleted;
 	public GameObject[] possTrains;
 	private Queue<GameObject> trains;
@@ -19,31 +21,31 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject deadTrain;
 	public float deathDelay = 8f;
 	public Vector2 fallAwayPoint;
-
-	// Use this for initialization
+	
 	void Start () {
-		begTim = Time.time;
+		//begTim = Time.time;
 		trains = new Queue<GameObject>();
-		if (MainMenu.tutorial) {
+		if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first
 			QueueAndMove(possTrains[0]);
 			QueueAndMove(possTrains[1]);		
-		} else {
+		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
 		}
 		player = GameObject.Find ("character");
 	}
 
-	void QueueAndMove(){
+	//loads a random car from a list of posible cars, spawn car right justified of this objects position, then moves transform by car width
+	void QueueAndMove(){ 
 		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(2, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
 		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
-		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter);
+		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
 		trains.Enqueue(tempTrain); //put train game object into trains queue
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
 
-	void QueueAndMove(GameObject traincar){
+	void QueueAndMove(GameObject traincar){ //loads specific car passed in rather than random car
 		tempTrain = (GameObject)Instantiate(traincar, transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
 		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
@@ -53,7 +55,8 @@ public class trainSpawner : MonoBehaviour {
 	}
 	
 
-	public void KillTrain() { //IF YOU WANT MULTIPLE TRAINS TO BE ABLE TO DIE AT THE SAME TIME, ALL THIS NEEDS TO BE DONE ON AN INSTANTIATED OBJECT
+	public void KillTrain() { 
+		//NOTE: if trains are despawning improperly, may need to make this function on its own instantiated object
 		if(!playerWithinFirst ()){
 			Destroy (deadTrain);
 			CancelInvoke();
@@ -71,7 +74,7 @@ public class trainSpawner : MonoBehaviour {
 		//fallAwayPoint = null;
 	}
 
-	public bool playerWithinFirst()
+	public bool playerWithinFirst() //checks if player is within the left and right bounds of the first car in the queue, with a bit of a buffer to make sure cars despawn correctly
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
 		float leftPos = trainCheck.transform.Find ("left").transform.position.x;
@@ -85,7 +88,7 @@ public class trainSpawner : MonoBehaviour {
 		if (trainCheck.tag == "bigCar") {
 			return 1f; //Camera2D knows that 1 means it's a long car
 		} else {
-		return trainCheck.transform.Find ("center").transform.position.x;
+			return trainCheck.transform.Find ("center").transform.position.x;
 		}
 	}
 
@@ -103,13 +106,13 @@ public class trainSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!playerWithinFirst () && player.transform.position.x > -40f) {
-			bool timer = (Time.time > begTim + 2.0f);
-			if(timer)
-			{
-				KillTrain ();
-				begTim = Time.time;
-			}
+		if (!playerWithinFirst () && player.transform.position.x > -40f) { //if the player isn't within bounds of a train car, kill the first train of the queue.
+			//bool timer = (Time.time > begTim + 2.0f);
+			//if(timer)
+			//{
+			KillTrain ();
+			//	begTim = Time.time;
+			//}
 		}
 	}
 	void FixedUpdate() {

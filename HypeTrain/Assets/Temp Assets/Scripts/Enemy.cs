@@ -43,13 +43,15 @@ public class Enemy : MonoBehaviour {
 	public bool jumpRdy = true;
 	public float groundCast = 1f;
 	public LayerMask enemyGroundMask;
-	public Itemizer money; 
+	public Itemizer money;
+	public ScoreKeeper HYPECounter;
 	//public bool grounde;
 
 	// Use this for initialization
 	virtual protected void Start () {
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
+		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
 	}
 	
 	// Update is called once per frame
@@ -178,7 +180,7 @@ public class Enemy : MonoBehaviour {
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
-			ScoreKeeper.HYPE = "GNAR"; //HYPE INCREMENT CHANGE LATER
+			HYPECounter.incrementHype(); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
 	}

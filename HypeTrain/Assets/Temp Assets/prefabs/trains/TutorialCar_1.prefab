@@ -544,6 +544,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400066}
+  m_Layer: 12
+  m_Name: tutorial_Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -555,7 +570,7 @@ Transform:
   m_LocalScale: {x: .673211277, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -567,7 +582,7 @@ Transform:
   m_LocalScale: {x: 4.36240911, y: 2.77626395, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -604,7 +619,7 @@ Transform:
   - {fileID: 400026}
   - {fileID: 400036}
   m_Father: {fileID: 400056}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -629,7 +644,7 @@ Transform:
   m_LocalScale: {x: 4.36240911, y: 2.77626443, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -653,7 +668,7 @@ Transform:
   m_LocalScale: {x: 1.12249994, y: 106.747375, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &400016
 Transform:
   m_ObjectHideFlags: 1
@@ -693,7 +708,7 @@ Transform:
   m_LocalScale: {x: .815770268, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &400022
 Transform:
   m_ObjectHideFlags: 1
@@ -717,7 +732,7 @@ Transform:
   m_LocalScale: {x: 1.30523241, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!4 &400026
 Transform:
   m_ObjectHideFlags: 1
@@ -814,7 +829,7 @@ Transform:
   m_LocalScale: {x: .610000014, y: .509999931, z: 1}
   m_Children: []
   m_Father: {fileID: 400056}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!4 &400042
 Transform:
   m_ObjectHideFlags: 1
@@ -863,7 +878,7 @@ Transform:
   m_Children:
   - {fileID: 400032}
   m_Father: {fileID: 400056}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!4 &400050
 Transform:
   m_ObjectHideFlags: 1
@@ -912,6 +927,7 @@ Transform:
   m_Children:
   - {fileID: 400044}
   - {fileID: 400018}
+  - {fileID: 400066}
   - {fileID: 400002}
   - {fileID: 400010}
   - {fileID: 400020}
@@ -972,6 +988,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 8
+--- !u!4 &400066
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.4757414, y: -4.12135839, z: 0}
+  m_LocalScale: {x: 1, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400056}
+  m_RootOrder: 2
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
