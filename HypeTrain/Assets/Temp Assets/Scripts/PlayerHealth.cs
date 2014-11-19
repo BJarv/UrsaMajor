@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject camObj;
 	public GameObject player;
 	public bool alreadyDying = false;
+	private bool healed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,15 @@ public class PlayerHealth : MonoBehaviour {
 				}
 			}*/
 		}
+		//Restore health upon entering HYPEMode
+		if (ScoreKeeper.HYPED && !healed) {
+			playerHealth = 30f;
+			heart1.SetActive (true);
+			heart2.SetActive (true);
+			heart3.SetActive (true);
+			healed = true;
+		}
+		if (!ScoreKeeper.HYPED) healed = false;
 	}
 
 	public void deathCheck() {

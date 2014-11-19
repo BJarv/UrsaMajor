@@ -2,27 +2,33 @@
 using System.Collections;
 
 public class gun : MonoBehaviour {
-
+	//Bullet variables
 	public float bulletSpeed = 500f;
 	public float kickForce = 10000f;
 	public int magSize = 3;
-	public float reloadTime = 2f;
 	private int inMag;
-	private float reloadTimer;
+	public GameObject bull1;
+	public GameObject bull2;
+	public GameObject bull3;
+	public GameObject bull4;
 	public Rigidbody2D bullet;
-	private bool rTimerOn = false;
-	public float interShotDelay = .5f;
-	private bool sTimerOn = false;
+	//Timing Variables
+	private float reloadTimer;
 	private float shotTimer;
+	private float HYPETimer;
+	private bool rTimerOn = false;
+	private bool sTimerOn = false;
+	private bool hTimerOn = false;
+	public float reloadTime = 2f;
+	public float interShotDelay = .5f;
+	public float HYPEDuration = 7f; 
+
 	private GameObject player = null;
 	private GameObject shootFrom = null;
 	public AudioClip gunshot;
 	public AudioClip reload;
 
-	public GameObject bull1;
-	public GameObject bull2;
-	public GameObject bull3;
-	public GameObject bull4;
+
 	public ScoreKeeper HYPECounter;
 	//private CharControl charControl;
 
@@ -31,6 +37,7 @@ public class gun : MonoBehaviour {
 		inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
+		HYPETimer = HYPEDuration;
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
@@ -92,6 +99,7 @@ public class gun : MonoBehaviour {
 			rTimerOn = true;
 		}
 
+		//Timer for how long reload takes
 		if (rTimerOn) {
 			reloadTimer -= Time.deltaTime;
 			if(reloadTimer <= 0) {
@@ -101,11 +109,33 @@ public class gun : MonoBehaviour {
 				reloadTimer = reloadTime;
 			}
 		}
+
+		//Timer for how long before you can shoot again
 		if (sTimerOn) {
 			shotTimer -= Time.deltaTime;
 			if(shotTimer <= 0) {
 				sTimerOn = false;
 				shotTimer = interShotDelay;
+			}
+		}
+
+		//Timer for how long HYPE lasts, resets gun modifications once time runs out
+		if (hTimerOn) {
+			HYPETimer -= Time.deltaTime;
+			if (HYPETimer <= 0) {
+				Debug.Log ("hype over...");
+				//Reset gun values
+				magSize = 4;
+				inMag = magSize;
+				adjustCounter(inMag);
+				interShotDelay = .5f;
+				SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+				renderers[1].color = Color.white;
+				//Reset HYPE gauge and Timer
+				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.
+				ScoreKeeper.HYPED = false;
+				hTimerOn = false;
+				HYPETimer = HYPEDuration;
 			}
 		}
 
@@ -115,9 +145,11 @@ public class gun : MonoBehaviour {
 			SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 			renderers[1].color = Color.red;
 			magSize = 100;
+			inMag = magSize;
+			adjustCounter(inMag);
 			interShotDelay = .3f;
-			rTimerOn = true;
-			HYPECounter.incrementHype(); //Increment HYPE on kill
+			hTimerOn = true;
+			ScoreKeeper.HYPED = true;
 		}
 
 	}
@@ -153,6 +185,23 @@ public class gun : MonoBehaviour {
 			bull2.SetActive (false);
 			bull3.SetActive (false);
 			bull4.SetActive (false);
+		}
+		//Bullet counter modifications for during and after HYPEmode
+		if (ScoreKeeper.HYPED) {
+			bull1.SetActive (true);
+			bull2.SetActive (true);
+			bull3.SetActive (true);
+			bull4.SetActive (true);
+			bull1.GetComponent<SpriteRenderer>().color = Color.red;
+			bull2.GetComponent<SpriteRenderer>().color = Color.red;
+			bull3.GetComponent<SpriteRenderer>().color = Color.red;
+			bull4.GetComponent<SpriteRenderer>().color = Color.red;
+		}
+		if (!ScoreKeeper.HYPED) {
+			bull1.GetComponent<SpriteRenderer>().color = Color.white;
+			bull2.GetComponent<SpriteRenderer>().color = Color.white;
+			bull3.GetComponent<SpriteRenderer>().color = Color.white;
+			bull4.GetComponent<SpriteRenderer>().color = Color.white;
 		}
 	}
 

@@ -45,7 +45,7 @@ public class ShootingEnemy : Enemy {
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
-			HYPECounter.incrementHype(); //Increment HYPE on kill
+			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
 	}

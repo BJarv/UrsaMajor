@@ -527,7 +527,7 @@ Prefab:
       objectReference: {fileID: 1601425288}
     - target: {fileID: 8200000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: Mute
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: interval
@@ -841,15 +841,17 @@ MonoBehaviour:
   bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
-  reloadTime: 1
-  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
-  interShotDelay: .5
-  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
-  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   bull1: {fileID: 82757804}
   bull2: {fileID: 1862193020}
   bull3: {fileID: 921435179}
   bull4: {fileID: 1518455098}
+  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
+  reloadTime: 1
+  interShotDelay: .5
+  HYPEDuration: 5
+  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
+  HYPECounter: {fileID: 0}
 --- !u!212 &1333875122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1055,7 +1057,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
@@ -1147,6 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vol: .349999994
   volOffset: .200000003
+  player: {fileID: 0}
 --- !u!1001 &1416130582
 Prefab:
   m_ObjectHideFlags: 0
@@ -1498,6 +1501,8 @@ MonoBehaviour:
   invincCD: .5
   deathCheckCheck: 0
   camObj: {fileID: 0}
+  player: {fileID: 0}
+  alreadyDying: 0
 --- !u!114 &1601425295
 MonoBehaviour:
   m_ObjectHideFlags: 0
