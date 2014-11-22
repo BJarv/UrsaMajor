@@ -180,7 +180,7 @@ public class Enemy : MonoBehaviour {
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
 			}
-			HYPECounter.incrementHype(); //Increment HYPE on kill
+			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
 	}
@@ -210,5 +210,10 @@ public class Enemy : MonoBehaviour {
 	public bool isGrounded()
 	{
 		return Physics2D.Raycast (transform.position, -Vector2.up, groundCast, enemyGroundMask);
+	}
+
+	public void aggro()
+	{
+		State = EnemyState.ATTACK;
 	}
 }

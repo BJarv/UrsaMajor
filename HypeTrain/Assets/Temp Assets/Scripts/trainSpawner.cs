@@ -11,6 +11,7 @@ public class trainSpawner : MonoBehaviour {
 	private Queue<GameObject> trains;
 	private GameObject tempTrain;
 	public GameObject player;
+	private GameObject cameraObj;
 	private getWidthCar widthFind;
 	private float theWidth;
 	public float widthBetween = 2f;
@@ -25,14 +26,18 @@ public class trainSpawner : MonoBehaviour {
 	void Start () {
 		//begTim = Time.time;
 		trains = new Queue<GameObject>();
-		if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first
+		player = GameObject.Find ("character");
+		cameraObj = GameObject.Find ("Main Camera");
+		if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
 			QueueAndMove(possTrains[0]);
-			QueueAndMove(possTrains[1]);		
+			QueueAndMove(possTrains[1]);
+			GameObject tutorialCar = (GameObject)trains.Peek();
+			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
+			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
 		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
 		}
-		player = GameObject.Find ("character");
 	}
 
 	//loads a random car from a list of posible cars, spawn car right justified of this objects position, then moves transform by car width
@@ -63,7 +68,7 @@ public class trainSpawner : MonoBehaviour {
 			deadTrain = (GameObject)trains.Dequeue();
 			fallAwayPoint = new Vector2(deadTrain.transform.position.x - deadTrain.GetComponent<getWidthCar>().carWidth() * 3f,  deadTrain.transform.position.y);
 			Destroy(deadTrain, deathDelay);
-			Invoke ("emptyDeadTrain", deathDelay);
+			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
 		}
 	}

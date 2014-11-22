@@ -8,6 +8,7 @@ public class ScoreKeeper : MonoBehaviour {
 	public static int carsCompleted;
 	public static int Score;
 	public static string HYPE;
+	public static bool HYPED;
 
 	void Awake () 
 	{
@@ -23,12 +24,14 @@ public class ScoreKeeper : MonoBehaviour {
 		GUI.Label (new Rect (150, 3, 500, 25), "HYPE: " + HYPE, scoreStyle);
 	}
 
-	public string incrementHype(){ //Called in Enemy, Shooting Enemy to inrease HYPE level by 1 on kill
-		if (HYPE == "LAME")HYPE = "GNAR";
-		else if (HYPE == "GNAR")HYPE = "HYPE";
-		else if (HYPE == "HYPE")HYPE = "OVERHYPED";
-		else if (HYPE == "OVERHYPED")HYPE = "LAME";
+	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
+	public string incrementHype(bool increment){ 
+		if 		(HYPE == "LAME" && !HYPED) HYPE = "GNAR";
+		else if (HYPE == "GNAR" && !HYPED) HYPE = "HYPE";
+		else if (HYPE == "HYPE" && !HYPED) HYPE = "OVERHYPED";
+		else if (HYPE == "OVERHYPED" && !increment) HYPE = "LAME";
 
 		return HYPE;
 	}
+
 }

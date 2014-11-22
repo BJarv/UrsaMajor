@@ -765,7 +765,7 @@ Transform:
   m_PrefabInternal: {fileID: 784030440}
   m_GameObject: {fileID: 649991413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.9809151, y: 70.4655838, z: 0}
+  m_LocalPosition: {x: 45.4748154, y: 107.066177, z: 0}
   m_LocalScale: {x: 3, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 187236350}
@@ -979,11 +979,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 43.9809151
+      value: 45.4748154
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 70.4655838
+      value: 107.066177
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1667,15 +1667,16 @@ MonoBehaviour:
   bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
-  reloadTime: 1
-  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
-  interShotDelay: .5
-  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
-  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   bull1: {fileID: 82757804}
   bull2: {fileID: 1862193020}
   bull3: {fileID: 921435179}
   bull4: {fileID: 1518455098}
+  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
+  reloadTime: 1
+  interShotDelay: .5
+  HYPEDuration: 7
+  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   HYPECounter: {fileID: 0}
 --- !u!212 &1333875122
 SpriteRenderer:
@@ -2231,9 +2232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possTrains:
-  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
-  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
-  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+  - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
+  - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
+  - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
@@ -2709,15 +2710,15 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[0]
       value: 
-      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[1]
       value: 
-      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[2]
       value: 
-      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}
