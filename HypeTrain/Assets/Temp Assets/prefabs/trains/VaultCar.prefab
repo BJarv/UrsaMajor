@@ -323,9 +323,9 @@ GameObject:
   - 4: {fileID: 400038}
   - 212: {fileID: 21200020}
   - 68: {fileID: 6800012}
-  - 114: {fileID: 11400032}
+  - 114: {fileID: 11400024}
   m_Layer: 9
-  m_Name: one_way_plat
+  m_Name: oneWayPlat_metal
   m_TagString: bonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +752,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.0219994, y: 12.8974943, z: 0}
+  m_LocalPosition: {x: -4.21269655, y: 11.8996677, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -775,8 +775,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28727399e-05, y: -.636372447, z: -7.10790873}
-  m_LocalScale: {x: .222175285, y: 4.71920204, z: .710790873}
+  m_LocalPosition: {x: 4.28727399e-05, y: -.100000001, z: -7.10790873}
+  m_LocalScale: {x: .560000002, y: .730000019, z: .710790873}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 0
@@ -787,8 +787,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.288867861, y: -1.67052746, z: 0}
-  m_LocalScale: {x: 4.86657858, y: .258997589, z: 1.40688396}
+  m_LocalPosition: {x: -.297760874, y: -1.67536712, z: 0}
+  m_LocalScale: {x: 1.94448626, y: 1.70444512, z: 1.40688396}
   m_Children:
   - {fileID: 400036}
   m_Father: {fileID: 400040}
@@ -1295,8 +1295,8 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
-  - {x: -.5, y: .507888377}
-  - {x: .500000238, y: .507888377}
+  - {x: -1.24986601, y: .0800210238}
+  - {x: 1.24993122, y: .0800304711}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -1532,6 +1532,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 70145
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1587,6 +1588,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
   spawnKey: 0
 --- !u!114 &11400014
 MonoBehaviour:
@@ -1643,6 +1645,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
   spawnKey: 1
 --- !u!114 &11400018
 MonoBehaviour:
@@ -1683,7 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kaChing: {fileID: 8300000, guid: 3b19b622cffbcc54cbc343d179862033, type: 3}
   value: 100
---- !u!114 &11400032
+--- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1934,7 +1937,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 257457845
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1baa9120dae20412cb2e4dcd44d7b58c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9c32a5814004894d933a1ad2b1ad044, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200022
 SpriteRenderer:
