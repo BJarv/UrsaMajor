@@ -9,9 +9,10 @@ public class aggroTrigger : MonoBehaviour {
 			Transform parent = transform.parent;
 			if(parent != null) 
 			{
-				parent.SendMessage ("aggro");
+				parent.BroadcastMessage ("aggro");
 			}
 		}
+
 
 	}
 }

@@ -8,7 +8,7 @@ public class trainSpawner : MonoBehaviour {
 	//variables
 	private int carsCompleted;
 	public GameObject[] possTrains;
-	private Queue<GameObject> trains;
+	public Queue<GameObject> trains;
 	private GameObject tempTrain;
 	public GameObject player;
 	private GameObject cameraObj;
@@ -33,6 +33,7 @@ public class trainSpawner : MonoBehaviour {
 			QueueAndMove(possTrains[1]);
 			GameObject tutorialCar = (GameObject)trains.Peek();
 			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
+
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
 		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();

@@ -67,8 +67,10 @@ public class TrainExit : MonoBehaviour {
 			soundPlayed = true;
 			Invoke ("soundPlayedOff", 3f);
 			AudioSource.PlayClipAtPoint (exitSound, transform.position);
-
+		
 			ScoreKeeper.carsCompleted += 1;
+
+			trainSpawn.GetComponent<topTrainEnemies>().spawnEnemies();
 
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 
