@@ -13,6 +13,7 @@ public class CharControl : MonoBehaviour {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
 	public Transform spawn;
+	public GameObject tutorialCar;
 
 	//Movement variables
 	public float maxSpeed = 2f;
@@ -49,10 +50,6 @@ public class CharControl : MonoBehaviour {
 	}
 
 	void Start() {
-		if (MainMenu.tutorial) {
-			//spawn = transform.Find("TutorialCar_1/tutorial_Spawn");
-			//transform.position = 		
-		}
 		SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:

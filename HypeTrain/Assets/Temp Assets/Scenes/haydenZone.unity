@@ -848,7 +848,7 @@ MonoBehaviour:
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   reloadTime: 1
   interShotDelay: .5
-  HYPEDuration: 5
+  HYPEDuration: 7
   gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
   reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   HYPECounter: {fileID: 0}
@@ -1424,6 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
+  tutorialCar: {fileID: 0}
   maxSpeed: 6
   addSpeed: 100
   midGroundCheck: {fileID: 420809766}

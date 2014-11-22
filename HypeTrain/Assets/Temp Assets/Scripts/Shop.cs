@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class Shop : MonoBehaviour {
-	public Sprite skin;
 	public GameObject player;
-	//public int hypeMode;
+	public RuntimeAnimatorController skin;
+	public string HYPEcolor;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");
-		skin = transform.Find("skin").GetComponent<SpriteRenderer>().sprite;
+		//skin = transform.Find("skin").GetComponent<SpriteRenderer>().sprite;
 		//hypeMode = transform.Find("hype").........
 	}
 	
@@ -21,7 +21,8 @@ public class Shop : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			Debug.Log ("player entered shop box");
-			player.GetComponent<CharControl>().skinChange (skin);
+			HYPEController.HYPEMode = HYPEcolor;
+			//player.GetComponent<CharControl>().skinChange (skin);
 		}
 		else
 			Debug.Log ("NOT-player entered shop box");
