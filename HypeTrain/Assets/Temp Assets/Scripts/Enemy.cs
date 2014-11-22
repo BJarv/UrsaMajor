@@ -211,4 +211,9 @@ public class Enemy : MonoBehaviour {
 	{
 		return Physics2D.Raycast (transform.position, -Vector2.up, groundCast, enemyGroundMask);
 	}
+
+	public void aggro()
+	{
+		State = EnemyState.ATTACK;
+	}
 }

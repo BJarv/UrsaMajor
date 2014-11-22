@@ -68,7 +68,7 @@ public class trainSpawner : MonoBehaviour {
 			deadTrain = (GameObject)trains.Dequeue();
 			fallAwayPoint = new Vector2(deadTrain.transform.position.x - deadTrain.GetComponent<getWidthCar>().carWidth() * 3f,  deadTrain.transform.position.y);
 			Destroy(deadTrain, deathDelay);
-			Invoke ("emptyDeadTrain", deathDelay);
+			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
 		}
 	}
