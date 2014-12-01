@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			Debug.Log ("player entered shop box");
-			HYPEController.HYPEMode = HYPEcolor;
+			//HYPEController.HYPEMode = HYPEcolor;
 			//player.GetComponent<CharControl>().skinChange (skin);
 		}
 		else
