@@ -841,6 +841,7 @@ MonoBehaviour:
   bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
+  inMag: 0
   bull1: {fileID: 82757804}
   bull2: {fileID: 1862193020}
   bull3: {fileID: 921435179}
@@ -948,6 +949,7 @@ GameObject:
   - 114: {fileID: 1409445592}
   - 114: {fileID: 1409445593}
   - 114: {fileID: 1409445594}
+  - 114: {fileID: 1409445589}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1025,6 +1027,23 @@ Transform:
   - {fileID: 1392622148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1409445589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409445583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cdfe7af7062a92459291d0040036b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  revolver: {fileID: 0}
+  HYPECounter: {fileID: 0}
+  HYPETimer: 0
+  hTimerOn: 0
+  HYPEDuration: 7
 --- !u!114 &1409445590
 MonoBehaviour:
   m_ObjectHideFlags: 0

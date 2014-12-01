@@ -8,6 +8,8 @@ public class topTrainEnemies : MonoBehaviour {
 	private Vector2 spawn1;
 	private Vector2 spawn2;
 	private GameObject[] trains;
+	private GameObject enemy1;
+	private GameObject enemy2;
 
 	// Use this for initialization
 	void Start () {
@@ -21,27 +23,72 @@ public class topTrainEnemies : MonoBehaviour {
 
 	void setSpawns() { //sets 2 spawns, each a third of the way in from the top corners of the trains
 		trains = trainSpawner.GetComponent<trainSpawner>().trains.ToArray();
-		float spawnOffset = trains[1].GetComponent<getWidthCar>().carWidth() / 3f;
-		spawn1 = new Vector2(trains[1].GetComponent<getWidthCar>().left.transform.position.x + spawnOffset, trains[1].GetComponent<getWidthCar>().left.transform.position.y - .4f);
+		float spawnOffset = trains[0].GetComponent<getWidthCar>().carWidth() / 3f;
+		spawn1 = new Vector2(trains[0].GetComponent<getWidthCar>().left.transform.position.x + spawnOffset, trains[1].GetComponent<getWidthCar>().left.transform.position.y - .4f);
 		spawn2 = new Vector2(spawn1.x + spawnOffset, spawn1.y);
+		spawn1 = new Vector2(spawn1.x + spawnOffset/3f, spawn1.y);
 	}
 
-	//on exit of train, make an enemy possibly jump onto top of next train
+	//called when outside of train bounds in trainSpawner, make enemies possibly jump onto top of train
 	public void spawnEnemies() {
 		setSpawns ();
-		//GameObject nuEnemy = (GameObject)Instantiate(possEnemies[Random.Range(0, possEnemies.GetLength(0))], spawn1, Quaternion.identity);
-		//turn off collision for enemy
-		//Physics2D.IgnoreCollision (trains[1].gameObject.collider2D, transform.parent.gameObject.collider2D, true);
-		//invoke it to turn back on in a bit
-		//set the aggro distance to shorter if it needs it
-		//give it a force upwards
-		//set state to idle if need be
+		int roll = Random.Range(1, 100);
+		if(ScoreKeeper.carsCompleted < 10) {
+			if(roll <= 10) spawn2enemy();
+			else if(roll <= 50) spawn1enemy();
+			else Debug.Log ("no enemies spawned");
+		} 
+		else if (ScoreKeeper.carsCompleted >=10 && ScoreKeeper.carsCompleted < 20) {
+			if(roll <= 25) spawn2enemy();
+			else if(roll <= 60) spawn1enemy();
+			else Debug.Log ("no enemies spawned");
+		} else {
+			if(roll <= 40) spawn2enemy();
+			else if(roll <= 70) spawn1enemy();
+			else Debug.Log ("no enemies spawned");
+		}
 
-		//clear array here?
 	}
 
-	void collisionOn() 
+	private void spawn1enemy() //private because spawns are only set in the main spawnEnemies function, same for other spawn functions
 	{
+		if(Random.value < .5f)
+		{
+			spawn1left();
+		}
+		else
+		{
+			spawn1right();
+		}
+	}
 
+	private void spawn2enemy() {
+		spawn1left ();
+		spawn1right ();
+	}
+
+	private void spawn1left() {
+		enemy1 = (GameObject)Instantiate(possEnemies[Random.Range(0, possEnemies.GetLength(0))], spawn1, Quaternion.identity); //spawn enemy behind train on left spawn point
+		enemy1.collider2D.enabled = false;					//make it not collide with train
+		Invoke ("collisionOn", .5f);						//turn collision back on in a bit
+		enemy1.rigidbody2D.AddForce (new Vector2 (0, 900f)); //pop him up from behind train
+	}
+
+	private void spawn1right() {
+		enemy2 = (GameObject)Instantiate(possEnemies[Random.Range(0, possEnemies.GetLength(0))], spawn2, Quaternion.identity); //spawn enemy behind train on right spawn point
+		enemy2.collider2D.enabled = false;
+		Invoke ("collisionOn", .5f);
+		enemy2.rigidbody2D.AddForce (new Vector2 (0, 900f));
+	}
+
+
+	void collisionOn() {
+		//Physics2D.IgnoreCollision (trains[1].gameObject.collider2D, enemy1.collider2D, false);
+		try {
+			enemy1.collider2D.enabled = true;
+		} catch {}
+		try {
+			enemy2.collider2D.enabled = true;
+		} catch {}
 	}
 }

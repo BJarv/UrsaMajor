@@ -14,7 +14,7 @@ public class ScoreKeeper : MonoBehaviour {
 	{
 		carsCompleted = 0;
 		Score = 0;
-		HYPE = "LAME";
+		HYPE = "CHILL";
 	}
 
 	void OnGUI()
@@ -26,10 +26,10 @@ public class ScoreKeeper : MonoBehaviour {
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
 	public string incrementHype(bool increment){ 
-		if 		(HYPE == "LAME" && !HYPED) HYPE = "GNAR";
+		if 		(HYPE == "CHILL" && !HYPED) HYPE = "RAD";
+		else if (HYPE == "RAD" && !HYPED) HYPE = "GNAR";
 		else if (HYPE == "GNAR" && !HYPED) HYPE = "HYPE";
-		else if (HYPE == "HYPE" && !HYPED) HYPE = "OVERHYPED";
-		else if (HYPE == "OVERHYPED" && !increment) HYPE = "LAME";
+		else if (HYPE == "HYPE" && !increment) HYPE = "CHILL";
 
 		return HYPE;
 	}

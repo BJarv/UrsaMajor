@@ -6,7 +6,7 @@ public class gun : MonoBehaviour {
 	public float bulletSpeed = 500f;
 	public float kickForce = 10000f;
 	public int magSize = 3;
-	private int inMag;
+	public int inMag;
 	public GameObject bull1;
 	public GameObject bull2;
 	public GameObject bull3;
@@ -154,7 +154,7 @@ public class gun : MonoBehaviour {
 
 	}
 
-	private void adjustCounter(int currBulls)
+	public void adjustCounter(int currBulls)
 	{
 		if (currBulls == 4) {
 			bull1.SetActive (true);
