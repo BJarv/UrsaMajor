@@ -71,6 +71,12 @@ public class trainSpawner : MonoBehaviour {
 			Destroy(deadTrain, deathDelay);
 			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
+			string c = trains.Peek ().name;
+			//if car is named any of these names, DONT spawn any enemies of top of it
+			if(c == "TutorialCar_1(Clone)" || c == "TutorialCar_2(Clone)" || c == "CoalCar(Clone)" || c == "LumberCar(Clone)" || c == "LumberCar_alt(Clone)" || c == "ShopCar(Clone)" || c == "PassengerCarB(Clone)" || c == "VaultCarW(Clone)") {} 
+			else {
+				gameObject.GetComponent<topTrainEnemies>().spawnEnemies();
+			}
 		}
 	}
 
