@@ -86,9 +86,9 @@ public class topTrainEnemies : MonoBehaviour {
 		//Physics2D.IgnoreCollision (trains[1].gameObject.collider2D, enemy1.collider2D, false);
 		try {
 			enemy1.collider2D.enabled = true;
-		} catch (UnityException e){}
+		} catch {}
 		try {
 			enemy2.collider2D.enabled = true;
-		} catch (UnityException e) {}
+		} catch {}
 	}
 }
