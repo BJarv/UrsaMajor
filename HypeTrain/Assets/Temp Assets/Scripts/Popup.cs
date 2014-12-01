@@ -59,16 +59,20 @@ public class Popup : MonoBehaviour {
 		if(player.transform.position.y < -15f) {
 
 			Time.timeScale = 0;
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 200), "Press Any Key to Retry"); //main background box
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 300), "Press Any Key to Retry"); //main background box
 			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 250, 50), "Main Menu")) {
 				Application.LoadLevel ("MainMenu");
 			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Quit")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Shop")) {
+				MainMenu.shop = true;
+				Application.LoadLevel (Application.loadedLevelName);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 50), "Quit")) {
 				Application.Quit ();
 			}
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 200), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 100, 250, 200), "Total Cars Completed: " + Game.carsCleared); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 200), "Total Loot: " + Game.currLoot); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 100, 250, 25), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 125, 250, 25), "Total Cars Completed: " + Game.carsCleared); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 25), "Total Loot: " + Game.currLoot); //loot counter
 			if(Input.anyKeyDown && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				//PlayerHealth.endOfLife = false;
 				Time.timeScale = 1;

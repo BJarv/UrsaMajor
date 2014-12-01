@@ -22,6 +22,9 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject deadTrain;
 	public float deathDelay = 8f;
 	public Vector2 fallAwayPoint;
+	public GameObject tutCar1;
+	public GameObject tutCar2;
+	public GameObject shopCar;
 	
 	void Start () {
 		//begTim = Time.time;
@@ -29,12 +32,16 @@ public class trainSpawner : MonoBehaviour {
 		player = GameObject.Find ("character");
 		cameraObj = GameObject.Find ("Main Camera");
 		if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
-			QueueAndMove(possTrains[0]);
-			QueueAndMove(possTrains[1]);
+			QueueAndMove(tutCar1);
+			QueueAndMove(tutCar2);
 			GameObject tutorialCar = (GameObject)trains.Peek();
 			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
 
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
+		} else if (MainMenu.shop) {
+			QueueAndMove(shopCar);
+			MainMenu.shop = false;
+			QueueAndMove();
 		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
@@ -43,7 +50,7 @@ public class trainSpawner : MonoBehaviour {
 
 	//loads a random car from a list of posible cars, spawn car right justified of this objects position, then moves transform by car width
 	void QueueAndMove(){ 
-		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(2, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
 		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
 		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
