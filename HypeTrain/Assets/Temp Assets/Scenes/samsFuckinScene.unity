@@ -951,15 +951,16 @@ MonoBehaviour:
   bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
-  reloadTime: 1
-  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
-  interShotDelay: .5
-  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
-  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   bull1: {fileID: 82757804}
   bull2: {fileID: 1862193020}
   bull3: {fileID: 921435179}
   bull4: {fileID: 1518455098}
+  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
+  reloadTime: 1
+  interShotDelay: .5
+  HYPEDuration: 7
+  gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
+  reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   HYPECounter: {fileID: 0}
 --- !u!212 &1333875122
 SpriteRenderer:
@@ -1052,7 +1053,6 @@ GameObject:
   - 92: {fileID: 1409445586}
   - 124: {fileID: 1409445585}
   - 81: {fileID: 1409445584}
-  - 114: {fileID: 1409445589}
   - 114: {fileID: 1409445590}
   - 82: {fileID: 1409445591}
   - 114: {fileID: 1409445592}
@@ -1137,18 +1137,6 @@ Transform:
   - {fileID: 1392622148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1409445589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 31ff6c41e4e992e4081007275f504a75,
-    type: 2}
-  m_PrefabInternal: {fileID: 717773977}
-  m_GameObject: {fileID: 1409445583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a4779d02b2a984bb3643e58be558f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1409445590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,7 +1327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: bull1
@@ -1372,7 +1360,7 @@ Prefab:
     - target: {fileID: 9500000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c543c54ee15d0e749bfe64a4540b80f4, type: 2}
+      objectReference: {fileID: 9100000, guid: 529071626d6e9f549a418232a317cc97, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_RootGameObject: {fileID: 1601425287}
@@ -1444,7 +1432,7 @@ GameObject:
   m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1554076581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,7 +1468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1601425287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1508,7 @@ Transform:
   - {fileID: 81372055}
   - {fileID: 1333875118}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!60 &1601425289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1553,7 +1541,7 @@ Animator:
   m_GameObject: {fileID: 1601425287}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c543c54ee15d0e749bfe64a4540b80f4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 529071626d6e9f549a418232a317cc97, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1571,6 +1559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
+  tutorialCar: {fileID: 0}
   maxSpeed: 6
   addSpeed: 100
   midGroundCheck: {fileID: 420809766}
@@ -1878,7 +1867,7 @@ Prefab:
       objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
