@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	virtual protected void Update () {
+		if(transform.position.y < -5f) Destroy (gameObject);
 		//grounde = isGrounded ();
 		posOfTrans1 = transform.position;
 		posOfTrans1 = Player.transform.position;
@@ -175,7 +176,7 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
-			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 5
+			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 4
 			while(repeat > 0){
 				money.At (transform.position, 0); //0 for coin
 				repeat -= 1;
@@ -216,4 +217,10 @@ public class Enemy : MonoBehaviour {
 	{
 		State = EnemyState.ATTACK;
 	}
+
+	public void shortenAttack()
+	{
+		AttackDist = AttackDist/2;
+	}
+
 }

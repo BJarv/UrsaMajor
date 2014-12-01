@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour {
 	public bool alreadyDying = false;
 	private bool healed = false;
 
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");

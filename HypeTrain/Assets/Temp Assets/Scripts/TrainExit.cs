@@ -70,8 +70,6 @@ public class TrainExit : MonoBehaviour {
 		
 			ScoreKeeper.carsCompleted += 1;
 
-			trainSpawn.GetComponent<topTrainEnemies>().spawnEnemies();
-
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 
 			Player.rigidbody2D.velocity = Vector3.zero;
@@ -89,5 +87,5 @@ public class TrainExit : MonoBehaviour {
 			cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 
 		}
-	}
+	}	
 }

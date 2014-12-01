@@ -14,11 +14,11 @@ public class ShootingEnemy : Enemy {
 		try {
 			gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
 		} catch {
-			Debug.Log ("No 'enemyGun' found, looking for shotgun");
+			//Debug.Log ("No 'enemyGun' found, looking for shotgun");
 			try {
 				shotgun = transform.Find ("enemyShotgun").GetComponent<EnemyShotgun>();
 			} catch {
-				Debug.Log ("No 'enemyShotgun' found, OH NOOOOOO");
+				Debug.Log ("No gun attached to a shooting enemy");
 			}
 		}
 	}
@@ -51,7 +51,7 @@ public class ShootingEnemy : Enemy {
 	}
 
 	override protected void Update () {
-		
+		if(transform.position.y < -5f) Destroy (gameObject);
 		posOfTrans1 = transform.position;
 		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);

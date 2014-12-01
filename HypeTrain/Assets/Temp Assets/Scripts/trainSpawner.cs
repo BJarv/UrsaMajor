@@ -71,6 +71,7 @@ public class trainSpawner : MonoBehaviour {
 			Destroy(deadTrain, deathDelay);
 			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
+			gameObject.GetComponent<topTrainEnemies>().spawnEnemies();
 		}
 	}
 
