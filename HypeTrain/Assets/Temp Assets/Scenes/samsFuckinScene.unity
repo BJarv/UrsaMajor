@@ -503,7 +503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
 --- !u!1 &704444355
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ Transform:
   m_LocalScale: {x: 4.11456728, y: 4.11455774, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!95 &1308236591
 Animator:
   serializedVersion: 3
@@ -951,6 +951,7 @@ MonoBehaviour:
   bulletSpeed: 1000
   kickForce: 1000
   magSize: 4
+  inMag: 0
   bull1: {fileID: 82757804}
   bull2: {fileID: 1862193020}
   bull3: {fileID: 921435179}
@@ -1360,7 +1361,7 @@ Prefab:
     - target: {fileID: 9500000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 529071626d6e9f549a418232a317cc97, type: 2}
+      objectReference: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_RootGameObject: {fileID: 1601425287}
@@ -1468,7 +1469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1601425287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1509,7 @@ Transform:
   - {fileID: 81372055}
   - {fileID: 1333875118}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!60 &1601425289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1541,7 +1542,7 @@ Animator:
   m_GameObject: {fileID: 1601425287}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 529071626d6e9f549a418232a317cc97, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
