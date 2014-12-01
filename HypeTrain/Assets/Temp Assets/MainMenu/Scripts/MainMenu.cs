@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
 	public GUISkin playSkin;
 
 	public static bool tutorial;
+	public static bool shop = false;
 
 	void OnGUI(){
 		//Display Background Texture

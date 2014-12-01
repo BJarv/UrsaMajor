@@ -1,4 +1,4 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class HYPEController : MonoBehaviour {
@@ -38,6 +38,14 @@ public class HYPEController : MonoBehaviour {
 				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
 				revolver.GetComponent<gun> ().interShotDelay = .3f;
 			}
+			if (HYPEMode == "purple"){
+				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				renderers[1].color = new Vector4(114, 0, 255, 255);
+				revolver.GetComponent<gun> ().magSize = 100;
+				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+				revolver.GetComponent<gun> ().interShotDelay = .3f;
+			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
 		}
@@ -65,4 +73,4 @@ public class HYPEController : MonoBehaviour {
 			}
 		}
 	}
-}*/
+}

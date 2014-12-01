@@ -119,7 +119,7 @@ public class gun : MonoBehaviour {
 			}
 		}
 
-		//Timer for how long HYPE lasts, resets gun modifications once time runs out
+		/*Timer for how long HYPE lasts, resets gun modifications once time runs out
 		if (hTimerOn) {
 			HYPETimer -= Time.deltaTime;
 			if (HYPETimer <= 0) {
@@ -150,7 +150,7 @@ public class gun : MonoBehaviour {
 			interShotDelay = .3f;
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
-		}
+		} */
 
 	}
 

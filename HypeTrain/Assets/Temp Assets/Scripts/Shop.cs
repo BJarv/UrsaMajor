@@ -15,13 +15,13 @@ public class Shop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.Log (HYPEController.HYPEMode);
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			Debug.Log ("player entered shop box");
-			//HYPEController.HYPEMode = HYPEcolor;
+			HYPEController.HYPEMode = HYPEcolor;
 			//player.GetComponent<CharControl>().skinChange (skin);
 		}
 		else

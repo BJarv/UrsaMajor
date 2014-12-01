@@ -38,7 +38,7 @@ public class topTrainEnemies : MonoBehaviour {
 			else if(roll <= 50) spawn1enemy();
 			else Debug.Log ("no enemies spawned");
 		} 
-		else if (ScoreKeeper.carsCompleted >=10 && ScoreKeeper.carsCompleted < 20) {
+		else if (ScoreKeeper.carsCompleted >= 10 && ScoreKeeper.carsCompleted < 20) {
 			if(roll <= 25) spawn2enemy();
 			else if(roll <= 60) spawn1enemy();
 			else Debug.Log ("no enemies spawned");
