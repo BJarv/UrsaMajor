@@ -15,7 +15,9 @@ public class EnemyShotgun : MonoBehaviour {
 	
 	public float spread = 0f;
 	public int bullets = 3; //must be more than 2
-	
+
+	public GameObject shotParticles;
+
 	// Use this for initialization
 	void Start () {
 		if (bullets < 2){
@@ -53,6 +55,7 @@ public class EnemyShotgun : MonoBehaviour {
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rot = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position); //point to player
+		Quaternion rotToPlayer = rot;
 		if (bullets % 2 == 1) { // if odd number of bullets, aim 1 at player, then do the rest as if you had even number of bullets
 			bulletRotsToPlayer.Add (rot);
 			BR--;
@@ -79,6 +82,11 @@ public class EnemyShotgun : MonoBehaviour {
 			bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * bulletSpeed);
 			i++;
 		}
+
+		rotToPlayer *= Quaternion.Euler (0, 0, 90);
+		GameObject particles = (GameObject)Instantiate(shotParticles, transform.position, rotToPlayer); //apply particles
+		particles.GetComponent<ParticleSystem>().Play ();
+		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 	}
 	
 	public void isShooting(bool x, int y){

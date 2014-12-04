@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.3326187, y: 24.7916756, z: 0}
+  m_LocalPosition: {x: 42.1669388, y: 109.141449, z: 0}
   m_LocalScale: {x: 3.07034492, y: 3.13558769, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -101,6 +101,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +142,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
   spawnKey: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -157,6 +159,7 @@ MonoBehaviour:
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0
+  shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

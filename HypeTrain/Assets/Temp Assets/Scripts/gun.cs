@@ -28,6 +28,7 @@ public class gun : MonoBehaviour {
 	public AudioClip gunshot;
 	public AudioClip reload;
 
+	public GameObject shotParticles;
 
 	public ScoreKeeper HYPECounter;
 	//private CharControl charControl;
@@ -65,8 +66,7 @@ public class gun : MonoBehaviour {
 				else
 						transform.localScale = new Vector3(1,-1,1);
 
-		if (Input.GetButtonDown ("Fire1") && Firable ()) {
-			//shoot bullet
+		if (Input.GetButtonDown ("Fire1") && Firable ()) { //SHOOT BULLET
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
 			sTimerOn = true;
@@ -80,6 +80,9 @@ public class gun : MonoBehaviour {
 			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
+			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
+			particles.GetComponent<ParticleSystem>().Play ();
+			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
 			if(inMag <= 0){
 				AudioSource.PlayClipAtPoint(reload, transform.position);
