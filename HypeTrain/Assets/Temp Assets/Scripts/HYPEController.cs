@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// AUTHOR
+// Hayden Platt     (platt@ursamajorgames.com)
+
+using UnityEngine;
 using System.Collections;
 
 public class HYPEController : MonoBehaviour {
@@ -30,21 +33,23 @@ public class HYPEController : MonoBehaviour {
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
 		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "HYPE") {
 			Debug.Log ("HYPE MODE");
-			if (HYPEMode == "red"){
+
+			if (HYPEMode == "red"){ //Enable rapid fire
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.red;
 				revolver.GetComponent<gun> ().magSize = 100;
 				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
 				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-				revolver.GetComponent<gun> ().interShotDelay = .3f;
+				revolver.GetComponent<gun> ().interShotDelay = .1f;
+				revolver.GetComponent<gun> ().rTimerOn = false;
+				revolver.GetComponent<gun> ().kickForce = 300f;
 			}
-			if (HYPEMode == "purple"){
+
+			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Vector4(114, 0, 255, 255);
-				revolver.GetComponent<gun> ().magSize = 100;
-				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-				revolver.GetComponent<gun> ().interShotDelay = .3f;
+				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
+				//ENABLE LASERS SOMEHOW
 			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
@@ -57,10 +62,16 @@ public class HYPEController : MonoBehaviour {
 				Debug.Log ("hype over...");
 
 				if(HYPEMode == "red"){	//Reset gun values
-				revolver.GetComponent<gun> ().magSize = 4;
-				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-				revolver.GetComponent<gun> ().interShotDelay = .5f;
+					revolver.GetComponent<gun> ().magSize = 4;
+					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+					revolver.GetComponent<gun> ().interShotDelay = .5f;
+					revolver.GetComponent<gun> ().kickForce = 1000f;
+				}
+
+				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets
+					//DISABLE LASERS SOMEHOW
+					//revolver.GetComponent<gun> (). REENABLE BULLETS SOMEHOW
 				}
 
 				//Reset HYPE gauge, Timer, and gun color

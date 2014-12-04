@@ -1,3 +1,6 @@
+// AUTHORS
+// Hayden Platt     (platt@ursamajorgames.com)
+
 using UnityEngine;
 using System.Collections.Generic;
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class gun : MonoBehaviour {
 	//Bullet variables
 	public float bulletSpeed = 500f;
-	public float kickForce = 10000f;
+	public float kickForce = 1000f;
 	public int magSize = 3;
 	public int inMag;
 	public GameObject bull1;
@@ -15,13 +15,10 @@ public class gun : MonoBehaviour {
 	//Timing Variables
 	private float reloadTimer;
 	private float shotTimer;
-	private float HYPETimer;
-	private bool rTimerOn = false;
+	public bool rTimerOn = false;
 	private bool sTimerOn = false;
-	private bool hTimerOn = false;
 	public float reloadTime = 2f;
 	public float interShotDelay = .5f;
-	public float HYPEDuration = 7f; 
 
 	private GameObject player = null;
 	private GameObject shootFrom = null;
@@ -31,18 +28,15 @@ public class gun : MonoBehaviour {
 	public GameObject shotParticles;
 
 	public ScoreKeeper HYPECounter;
-	//private CharControl charControl;
 
 	// Use this for initialization
 	void Start () {
 		inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
-		HYPETimer = HYPEDuration;
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
-		//charControl = player.GetComponent<CharControl>() as CharControl;
 	}
 	
 	// Update is called once per frame
@@ -65,8 +59,9 @@ public class gun : MonoBehaviour {
 						transform.localScale = new Vector3(1,1,1);
 				else
 						transform.localScale = new Vector3(1,-1,1);
-
-		if (Input.GetButtonDown ("Fire1") && Firable ()) { //SHOOT BULLET
+		
+		if (Input.GetButton ("Fire1") && Firable ()) {
+			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
 			sTimerOn = true;
@@ -121,39 +116,6 @@ public class gun : MonoBehaviour {
 				shotTimer = interShotDelay;
 			}
 		}
-
-		/*Timer for how long HYPE lasts, resets gun modifications once time runs out
-		if (hTimerOn) {
-			HYPETimer -= Time.deltaTime;
-			if (HYPETimer <= 0) {
-				Debug.Log ("hype over...");
-				//Reset gun values
-				magSize = 4;
-				inMag = magSize;
-				adjustCounter(inMag);
-				interShotDelay = .5f;
-				SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-				renderers[1].color = Color.white;
-				//Reset HYPE gauge and Timer
-				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.
-				ScoreKeeper.HYPED = false;
-				hTimerOn = false;
-				HYPETimer = HYPEDuration;
-			}
-		}
-
-		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset (IN PROGRESS)
-		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "OVERHYPED") {
-			Debug.Log ("HYPE MODE");
-			SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-			renderers[1].color = Color.red;
-			magSize = 100;
-			inMag = magSize;
-			adjustCounter(inMag);
-			interShotDelay = .3f;
-			hTimerOn = true;
-			ScoreKeeper.HYPED = true;
-		} */
 
 	}
 
