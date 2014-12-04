@@ -14,7 +14,7 @@ public class ScoreKeeper : MonoBehaviour {
 	{
 		carsCompleted = 0;
 		Score = 0;
-		HYPE = "CHILL";
+		HYPE = "HYPE"; //CHANGE BACK TO CHILL
 	}
 
 	void OnGUI()
