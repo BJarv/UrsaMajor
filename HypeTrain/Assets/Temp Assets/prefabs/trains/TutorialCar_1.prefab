@@ -733,7 +733,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.97167063, y: .939932585, z: 0}
+  m_LocalPosition: {x: -4.32999992, y: 1.54999995, z: 0}
   m_LocalScale: {x: .606270909, y: 1.32022905, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -781,7 +781,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .609794796, y: -.0209528003, z: 0}
+  m_LocalPosition: {x: .889999986, y: -.129999995, z: 0}
   m_LocalScale: {x: .60928899, y: 1.32679927, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -805,7 +805,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.18636298, y: 1.12900651, z: 0}
+  m_LocalPosition: {x: 3.55999994, y: 1.51999998, z: 0}
   m_LocalScale: {x: .639320135, y: 1.3921982, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -939,7 +939,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -81.673851, y: 10.9574966, z: 0}
+  m_LocalPosition: {x: -21.8863926, y: 15.0356903, z: 0}
   m_LocalScale: {x: 3.44000006, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400044}
@@ -1000,7 +1000,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3345499, y: -1.43035161, z: 0}
+  m_LocalPosition: {x: -8.64000034, y: -1.89999998, z: 0}
   m_LocalScale: {x: .55030787, y: 1.19836318, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -1024,7 +1024,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0071795, y: -3.70861387, z: 0}
+  m_LocalPosition: {x: -2.01999998, y: -3.67000008, z: 0}
   m_LocalScale: {x: .579278827, y: 1.26145005, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -1280,6 +1280,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500002
 Animator:
   serializedVersion: 3
@@ -1294,6 +1295,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1

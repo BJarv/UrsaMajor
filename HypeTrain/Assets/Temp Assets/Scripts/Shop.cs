@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj){
-		if(colObj.tag == "Player"){
+		if(colObj.tag == "Player" && buy.purchased){
 			Debug.Log ("player entered shop box");
 			if(skin){
 				player.GetComponent<Animator>().runtimeAnimatorController = skin;

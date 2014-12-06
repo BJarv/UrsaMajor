@@ -19,6 +19,8 @@ public class HYPEController : MonoBehaviour {
 	//Default HYPE value
 	public static string HYPEMode = "red";
 
+	public static bool lazers = false;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");
@@ -48,6 +50,7 @@ public class HYPEController : MonoBehaviour {
 			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Vector4(114, 0, 255, 255);
+				lazers = true;
 				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
 				//ENABLE LASERS SOMEHOW
 			}
@@ -70,7 +73,7 @@ public class HYPEController : MonoBehaviour {
 				}
 
 				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets
-					//DISABLE LASERS SOMEHOW
+					lazers = false;
 					//revolver.GetComponent<gun> (). REENABLE BULLETS SOMEHOW
 				}
 
