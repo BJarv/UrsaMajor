@@ -18,17 +18,17 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .335f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {
 			Debug.Log ("Pressed Play!");
 			Application.LoadLevel("haydenZone");
-		};
+		}
 
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .21f, Screen.width * .3f, Screen.height * .12f), "Start w/ Tutorial")) {
 			Debug.Log ("Start with Tutorial");
 			tutorial = true;
 			Application.LoadLevel("haydenZone");
-		};
+		}
 
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .48f, Screen.width * .3f, Screen.height * .12f), playButton, GUIStyle.none)) {
 			Debug.Log ("Pressed Quit!");	
 			Application.Quit ();
-		};
+		}
 	}
 }

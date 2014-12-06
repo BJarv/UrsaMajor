@@ -15,13 +15,19 @@ public class Shop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (HYPEController.HYPEMode);
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			Debug.Log ("player entered shop box");
-			HYPEController.HYPEMode = HYPEcolor;
+			if(skin){
+				player.GetComponent<Animator>().runtimeAnimatorController = skin;
+			} else if (HYPEcolor != "") {
+				HYPEController.HYPEMode = HYPEcolor;
+			} else {
+				Debug.Log ("shop item with no attachment!");
+			}
+			gameObject.GetComponent<ParticleSystem>().Play();
 			//player.GetComponent<CharControl>().skinChange (skin);
 		}
 		else

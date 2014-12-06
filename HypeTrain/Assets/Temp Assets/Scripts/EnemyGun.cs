@@ -13,6 +13,8 @@ public class EnemyGun : MonoBehaviour {
 	
 	public float woff = 0;
 
+	public GameObject shotParticles;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character").transform;
@@ -47,6 +49,12 @@ public class EnemyGun : MonoBehaviour {
 		rotToPlayer.Set (rotToPlayer.x, rotToPlayer.y, rotToPlayer.z, rotToPlayer.w + woff);
 		GameObject bulletInstance = Instantiate(bullet, transform.position, rotToPlayer) as GameObject;
 		bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * bulletSpeed);
+
+		rotToPlayer *= Quaternion.Euler (0, 0, 90);
+		GameObject particles = (GameObject)Instantiate(shotParticles, transform.position, rotToPlayer); //apply particles
+		particles.GetComponent<ParticleSystem>().Play ();
+		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+
 		return bulletInstance;
 	}
 

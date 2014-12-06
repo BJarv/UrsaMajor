@@ -905,7 +905,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.8668518, y: 14.5557232, z: 0}
+  m_LocalPosition: {x: 36.2685699, y: 117.037216, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400018}
@@ -1470,6 +1470,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500002
 Animator:
   serializedVersion: 3
@@ -1484,6 +1485,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500004
 Animator:
   serializedVersion: 3
@@ -1498,6 +1500,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500006
 Animator:
   serializedVersion: 3
@@ -1512,6 +1515,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500008
 Animator:
   serializedVersion: 3
@@ -1526,6 +1530,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500010
 Animator:
   serializedVersion: 3
@@ -1540,6 +1545,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500012
 Animator:
   serializedVersion: 3
@@ -1554,6 +1560,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -1669,6 +1676,7 @@ MonoBehaviour:
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0
+  shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1709,6 +1717,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
   spawnKey: 0
 --- !u!114 &11400010
 MonoBehaviour:
@@ -1750,6 +1759,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 70145
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
