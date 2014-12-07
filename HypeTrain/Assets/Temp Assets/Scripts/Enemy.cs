@@ -176,11 +176,7 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
-			int repeat = (int)Random.Range (1, 5); //spawn coins between 1 and 4
-			while(repeat > 0){
-				money.At (transform.position, 0); //0 for coin
-				repeat -= 1;
-			}
+			money.At (transform.position, Random.Range (1, 6));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}

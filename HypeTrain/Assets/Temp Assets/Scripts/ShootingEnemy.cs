@@ -38,13 +38,9 @@ public class ShootingEnemy : Enemy {
 		health -= damage;
 		if (health <= 0) {
 			if(spawnKey) {
-				money.At (transform.position, 1); //1 for key
+				money.keyAt (transform.position); 
 			}
-			int repeat = (int)UnityEngine.Random.Range (1, 5); //spawn coins between 1 and 5
-			while(repeat > 0){
-				money.At (transform.position, 0); //0 for coin
-				repeat -= 1;
-			}
+			money.At (transform.position, (int)UnityEngine.Random.Range (5, 11)); 	
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
