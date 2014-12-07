@@ -1427,6 +1427,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1554076582}
   - 114: {fileID: 1554076581}
+  - 114: {fileID: 1554076583}
   m_Layer: 1
   m_Name: trainSpawner
   m_TagString: Untagged
@@ -1458,6 +1459,9 @@ MonoBehaviour:
   deadTrain: {fileID: 0}
   deathDelay: 8
   fallAwayPoint: {x: 0, y: 0}
+  tutCar1: {fileID: 0}
+  tutCar2: {fileID: 0}
+  shopCar: {fileID: 0}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -1470,6 +1474,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1554076583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: ea4703f05acd84180a2a18f2363a0c0a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1686544785}
+  m_GameObject: {fileID: 1554076580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2464ac82df06470ab4d489f47351354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possEnemies:
+  - {fileID: 100000, guid: 351a2c2dfb97cd141b7088de87cb96d2, type: 2}
+  - {fileID: 100000, guid: f9c6bdde832930b4b948b57db82190e6, type: 2}
 --- !u!1 &1601425287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1782,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: player
