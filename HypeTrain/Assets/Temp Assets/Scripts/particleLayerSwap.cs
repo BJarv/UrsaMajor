@@ -5,8 +5,10 @@ public class particleLayerSwap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Player";
+		particleSystem.renderer.sortingLayerName = "UI";
+		particleSystem.renderer.sortingOrder = 2;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
