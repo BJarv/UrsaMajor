@@ -17,7 +17,7 @@ public class HYPEController : MonoBehaviour {
 	public float HYPEDuration = 7f; 
 
 	//Default HYPE value
-	public static string HYPEMode = "red";
+	public static string HYPEMode = "purple";
 
 	public static bool lazers = false;
 
