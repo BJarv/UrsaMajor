@@ -6,14 +6,18 @@ public class TrainEnter : MonoBehaviour {
 	public GameObject cameraObj;
 	public GameObject sidePanel;
 	private GameObject trainSpawn;
+	private Animator hatchAnimator;
 
 	private bool soundPlayed;
 	public AudioClip enterSound;	
 
-	//private GameObject Player = null;
+	//Find the hatch's Animator
+	void Awake() {
+		hatchAnimator = transform.parent.gameObject.GetComponent<Animator>();
+	}
+
 	// Use this for initialization
 	void Start () {
-		//Player = GameObject.Find("Character");
 		cameraObj = GameObject.Find("Main Camera");
 		trainSpawn = GameObject.Find ("trainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
@@ -45,6 +49,7 @@ public class TrainEnter : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(enterSound, transform.position);
 			soundPlayed = true;
 		}
+		hatchAnimator.Play ("Entry"); //Play entry animation once
 		//Pass through
 		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
 		//Remove previous train
