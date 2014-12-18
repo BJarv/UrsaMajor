@@ -6,7 +6,7 @@ public class Popup : MonoBehaviour {
 	private bool paused = false;
 	public float vol = .35f;
 	public float volOffset = .3f; //offset amount volume gets decreased during pause
-	public GameObject player;
+	[HideInInspector] public GameObject player;
 
 	void Start () {
 		player = GameObject.Find ("character");

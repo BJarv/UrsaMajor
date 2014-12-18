@@ -23,9 +23,9 @@ public class getSafeKey : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(kaChing, transform.position);
 			try {
 				Vector3 vaultLoc = trainSpawn.GetComponent<trainSpawner>().headVault();
-				int repeat = (int)Random.Range (30, 60); //spawn coins between 30 and 60
+				int repeat = (int)Random.Range (30 * Multiplier.safeDrop, 60 * Multiplier.safeDrop); //spawn coins between 30 and 60
 				while(repeat > 0){
-					money.At (vaultLoc, 1); 
+					money.At (vaultLoc, 1);
 					repeat--;
 				}
 				money.At (vaultLoc, 25);

@@ -23,6 +23,7 @@ public class EnemyShotgun : MonoBehaviour {
 		if (bullets < 2){
 			bullets = 2;
 		}
+		bullets += Multiplier.shotgunBullets;
 		bulletRotsToPlayer = new List<Quaternion> ();
 		player = GameObject.Find ("character").transform;
 	}

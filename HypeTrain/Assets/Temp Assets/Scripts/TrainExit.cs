@@ -7,8 +7,8 @@ using System.Collections.Generic;
 public class TrainExit : MonoBehaviour {
 	
 	private GameObject Player = null;
-	public GameObject cameraObj;
-	public GameObject sidePanel;
+	[HideInInspector] public GameObject cameraObj;
+	[HideInInspector] public GameObject sidePanel;
 	private GameObject trainSpawn;
 	private Vector2 exitPos;
 	private Collider2D playerColl;

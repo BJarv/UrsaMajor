@@ -13,16 +13,15 @@ public enum EnemyState //enemy states dictate what mode enemies are in
 public class Enemy : MonoBehaviour {
 
 	public float health = 20f;
-
 	public EnemyState State = EnemyState.IDLE; //basic state
 	public float EnemySpeed = 2f;
-	public GameObject Player = null;
 	public float AttackDist = 10f;  //distance at which enemy will switch to attacking
-	public int direction = 1;      //direction enemy is facing, 1 for right, -1 for left
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
-	public float distToPlayer;	
-	public Vector3 posOfTrans1; 
-	public Vector3 posOfTrans2;
+	[HideInInspector] public GameObject Player;
+	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
+	[HideInInspector] public float distToPlayer;	
+	[HideInInspector] public Vector3 posOfTrans1; 
+	[HideInInspector] public Vector3 posOfTrans2;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
@@ -38,17 +37,18 @@ public class Enemy : MonoBehaviour {
 	public Vector2 dashVec; //force vector applied during dash
 	public Vector2 jumpVec; //force vector applied during jump
 	public float dashCD = 2f; //time between dashes
-	public bool dashRdy = true;
 	public float jumpCD = 2f; //time between dashes
-	public bool jumpRdy = true;
-	public float groundCast = 1f;
 	public LayerMask enemyGroundMask;
-	public Itemizer money;
-	public ScoreKeeper HYPECounter;
-	//public bool grounde;
+	[HideInInspector] public bool dashRdy = true;
+	[HideInInspector] public bool jumpRdy = true;
+	[HideInInspector] public float groundCast = 1f;
+	[HideInInspector] public Itemizer money;
+	[HideInInspector] public ScoreKeeper HYPECounter;
 
 	// Use this for initialization
 	virtual protected void Start () {
+		health *= Multiplier.enemyHealth;
+		EnemySpeed *= Multiplier.enemySpeed;
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
@@ -176,7 +176,7 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
-			money.At (transform.position, Random.Range (1, 6));
+			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}

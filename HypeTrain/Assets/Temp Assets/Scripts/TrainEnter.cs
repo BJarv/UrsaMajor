@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class TrainEnter : MonoBehaviour {
 	
-	public GameObject cameraObj;
-	public GameObject sidePanel;
+	[HideInInspector] public GameObject cameraObj;
+	[HideInInspector] public GameObject sidePanel;
 	private GameObject trainSpawn;
 	private Animator hatchAnimator;
 
