@@ -4,10 +4,11 @@ using System.Collections;
 public class Camera2D : MonoBehaviour {
 
 	//Camera Tracking Variables
-	public Transform player;
-	public float smoothrate = 0.5f;
 
-	public bool lockCamera = false;
+	[HideInInspector] public Transform player;
+	[HideInInspector] public float smoothrate = 0.5f;
+	[HideInInspector] public bool lockCamera = false;
+
 	private float centerLock;
 	public float zoomInSpeed = 0.4f;
 	public float timeBeforeZoomIn = .5f;
@@ -26,6 +27,7 @@ public class Camera2D : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find("character").transform;
 		thisTransform = transform;
 		velocity = new Vector2 (0.5f, 0.5f);
 		targetCameraPosition = Camera.main.orthographicSize;

@@ -19,6 +19,7 @@ public class DesertHandler : MonoBehaviour {
 	float desertSize;
 	int flipper= -1;
 	float dimension;
+	public float buffer = 0;
 
 	//We will make this into a reference to the character.
 	private GameObject player = null;
@@ -42,7 +43,7 @@ public class DesertHandler : MonoBehaviour {
 		dimension = deserts.Dequeue().renderer.bounds.size.x;
 
 		//
-		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, -2, zPos),Quaternion.identity);
+		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, yPos, zPos),Quaternion.identity);
 
 		deserts.Enqueue (secondDesert);
 
@@ -62,7 +63,7 @@ public class DesertHandler : MonoBehaviour {
 
 		//
 		if (deserts.Peek ().transform.position.x < player.transform.position.x + desertSize) {
-			deserts.Enqueue ((GameObject)Instantiate (desert, new Vector3(deserts.Peek ().transform.position.x + desertSize,yPos,deserts.Dequeue().transform.position.z), Quaternion.identity));
+			deserts.Enqueue ((GameObject)Instantiate (desert, new Vector3(deserts.Peek ().transform.position.x + desertSize - buffer,yPos,deserts.Dequeue().transform.position.z), Quaternion.identity));
 			if (flipper == -1) {
 				deserts.Peek().transform.localScale = Vector3.Scale (deserts.Peek ().transform.localScale , new Vector3(-1,1,1));
 			}

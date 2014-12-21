@@ -40,7 +40,7 @@ public class ShootingEnemy : Enemy {
 			if(spawnKey) {
 				money.keyAt (transform.position); 
 			}
-			money.At (transform.position, (int)UnityEngine.Random.Range (5, 11)); 	
+			money.At (transform.position, (int)UnityEngine.Random.Range ((int)(5 * Multiplier.moneyDrop),(int)(11 * Multiplier.moneyDrop))); 	
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}

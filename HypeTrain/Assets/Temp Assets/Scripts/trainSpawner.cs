@@ -144,7 +144,7 @@ public class trainSpawner : MonoBehaviour {
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
 
-		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exit").gameObject.transform.position;
+		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
 	}
 
 
