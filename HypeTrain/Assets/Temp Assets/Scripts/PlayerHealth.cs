@@ -3,18 +3,18 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 	public float maxHealth = 30f;
-	public float playerHealth;
+	[HideInInspector] public float playerHealth;
 	public float deathDelay = 2f;
 	public GameObject heart1;
 	public GameObject heart2;
 	public GameObject heart3;
-	public bool invincibility; 
+	[HideInInspector] public bool invincibility; 
 	public float invincCD = .5f;
 	//public static bool endOfLife = false;
-	public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
-	public GameObject camObj;
-	public GameObject player;
-	public bool alreadyDying = false;
+	[HideInInspector] public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
+	[HideInInspector] public GameObject camObj;
+	[HideInInspector] public GameObject player;
+	[HideInInspector] public bool alreadyDying = false;
 	private bool healed = false;
 
 

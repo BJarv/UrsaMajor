@@ -6,10 +6,10 @@ using System.Collections;
 
 public class HYPEController : MonoBehaviour {
 
-	public GameObject player;
-	public GameObject revolver;
-	public Component gunScript;
-	public ScoreKeeper HYPECounter;
+	[HideInInspector] public GameObject player;
+	[HideInInspector] public GameObject revolver;
+	[HideInInspector] public Component gunScript;
+	[HideInInspector] public ScoreKeeper HYPECounter;
 
 	//Timer variables
 	private float HYPETimer;

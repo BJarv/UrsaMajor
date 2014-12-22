@@ -8,7 +8,7 @@ public class retical : MonoBehaviour {
 	private int retY;
 	private int retOffset;
 	public Vector3 currPlace;
-	public GameObject cameraObj;
+	[HideInInspector] public GameObject cameraObj;
 	//private Animator animat; //Store a ref to the animator so we can use it later
 
 	// Use this for initialization

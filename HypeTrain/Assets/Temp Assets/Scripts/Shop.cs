@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Shop : MonoBehaviour {
-	public GameObject player;
+
+	[HideInInspector] public GameObject player;
 	public RuntimeAnimatorController skin;
 	public string HYPEcolor;
 

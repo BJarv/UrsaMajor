@@ -15,7 +15,7 @@ public class gun : MonoBehaviour {
 	//Timing Variables
 	private float reloadTimer;
 	private float shotTimer;
-	public bool rTimerOn = false;
+	[HideInInspector] public bool rTimerOn = false;
 	private bool sTimerOn = false;
 	public float reloadTime = 2f;
 	public float interShotDelay = .5f;
@@ -27,7 +27,7 @@ public class gun : MonoBehaviour {
 
 	public GameObject shotParticles;
 
-	public ScoreKeeper HYPECounter;
+	[HideInInspector] public ScoreKeeper HYPECounter;
 
 	// Use this for initialization
 	void Start () {
