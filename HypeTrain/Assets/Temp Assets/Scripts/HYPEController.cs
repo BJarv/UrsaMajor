@@ -6,10 +6,10 @@ using System.Collections;
 
 public class HYPEController : MonoBehaviour {
 
-	public GameObject player;
-	public GameObject revolver;
-	public Component gunScript;
-	public ScoreKeeper HYPECounter;
+	[HideInInspector] public GameObject player;
+	[HideInInspector] public GameObject revolver;
+	[HideInInspector] public Component gunScript;
+	[HideInInspector] public ScoreKeeper HYPECounter;
 
 	//Timer variables
 	private float HYPETimer;
@@ -18,6 +18,8 @@ public class HYPEController : MonoBehaviour {
 
 	//Default HYPE value
 	public static string HYPEMode = "red";
+
+	public static bool lazers = false;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +50,7 @@ public class HYPEController : MonoBehaviour {
 			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Vector4(114, 0, 255, 255);
+				lazers = true;
 				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
 				//ENABLE LASERS SOMEHOW
 			}
@@ -70,7 +73,7 @@ public class HYPEController : MonoBehaviour {
 				}
 
 				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets
-					//DISABLE LASERS SOMEHOW
+					lazers = false;
 					//revolver.GetComponent<gun> (). REENABLE BULLETS SOMEHOW
 				}
 

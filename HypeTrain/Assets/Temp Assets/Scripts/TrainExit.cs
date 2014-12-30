@@ -7,19 +7,24 @@ using System.Collections.Generic;
 public class TrainExit : MonoBehaviour {
 	
 	private GameObject Player = null;
-	public GameObject cameraObj;
-	public GameObject sidePanel;
+	[HideInInspector] public GameObject cameraObj;
+	[HideInInspector] public GameObject sidePanel;
 	private GameObject trainSpawn;
 	private Vector2 exitPos;
 	private Collider2D playerColl;
 	public float vertForce = 7500f;
 	public float zoomOutSpeed = .5f;
 	public bool check;
+	private Animator hatchAnimator;
 	
 	//Audio variables
 	private bool soundPlayed;
 	public AudioClip exitSound;
 
+	//Find the hatch's Animator
+	void Awake() {
+		hatchAnimator = transform.parent.gameObject.GetComponent<Animator>();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -70,6 +75,8 @@ public class TrainExit : MonoBehaviour {
 			soundPlayed = true;
 			Invoke ("soundPlayedOff", 3f);
 			AudioSource.PlayClipAtPoint (exitSound, transform.position);
+
+			hatchAnimator.Play ("Entry"); //Play exit animation once
 		
 			ScoreKeeper.carsCompleted += 1;
 

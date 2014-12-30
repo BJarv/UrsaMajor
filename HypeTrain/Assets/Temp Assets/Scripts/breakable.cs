@@ -22,7 +22,7 @@ public class breakable : MonoBehaviour {
 		durability--;
 		if (durability <= 0) {
 			if (dropCash){
-				money.At(transform.position, 0);
+				money.At(transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
 			}
 			Destroy (gameObject);
 		}

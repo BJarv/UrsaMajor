@@ -8,6 +8,7 @@ public class ScoreKeeper : MonoBehaviour {
 	public static int carsCompleted;
 	public static int Score;
 	public static string HYPE;
+	//public GameObject HYPEBAR;
 	public static bool HYPED;
 
 	void Awake () 

@@ -43,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51186681, y: -3.98931479, z: 0}
-  m_LocalScale: {x: 1.583619, y: 1.61726797, z: 1}
+  m_LocalPosition: {x: -39.7511292, y: 24.6683331, z: 0}
+  m_LocalScale: {x: 2.97261071, y: 3.03577304, z: 1.87709963}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -116,10 +116,10 @@ MonoBehaviour:
   health: 20
   State: 0
   EnemySpeed: 2
-  Player: {fileID: 0}
   AttackDist: 10
-  direction: 1
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
@@ -134,14 +134,15 @@ MonoBehaviour:
   dashVec: {x: 0, y: 0}
   jumpVec: {x: 0, y: 0}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
   spawnKey: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -159,7 +160,8 @@ MonoBehaviour:
   shootCD: 3
   bulletRotsToPlayer: []
   spread: .5
-  bullets: 5
+  bullets: 3
+  shotParticles: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

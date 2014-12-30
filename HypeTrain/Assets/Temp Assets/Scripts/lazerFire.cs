@@ -10,17 +10,51 @@ public class lazerFire : MonoBehaviour {
 	public LayerMask lazerStoppers;
 	LineRenderer lazer;
 	public float lazerLength;
+
+
+	private float lazerTimer;
+	private bool lTimerOn = false;
+	public float interShotDelay = 20f;
+
+	private float reloadTimer;
+	public bool rTimerOn = false;
+	public float reloadTime = 2f;
 		
 	void Start () {
 		//Grab the linerenderer from the object and default it to disabled
 		lazer = gameObject.GetComponent<LineRenderer>();
 		lazer.enabled = false;
+		lazer.sortingLayerName = "Player";
+		lazer.sortingOrder = 2;
+		lazerTimer = interShotDelay;
+		reloadTimer = reloadTime;
 	}
 
 	void Update () {
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButtonDown("Fire1") && !lTimerOn && !rTimerOn && HYPEController.lazers){
 			StopCoroutine("Firelazer");
 			StartCoroutine("Firelazer");
+			lTimerOn = true;
+		}
+
+		//Turns off the lazer quickly after it's fired, starts reload timer
+		if (lTimerOn) {
+			lazerTimer -= Time.deltaTime;
+			if(lazerTimer <= 0) {
+				lTimerOn = false;
+				lazerTimer = interShotDelay;
+				lazer.enabled = false;
+				rTimerOn = true;
+			}
+		}
+
+		//Once completed, player can fire lazer again
+		if (rTimerOn) {
+			reloadTimer -= Time.deltaTime;
+			if(reloadTimer <= 0) {
+				rTimerOn = false;
+				reloadTimer = reloadTime;
+			}
 		}
 	}
 

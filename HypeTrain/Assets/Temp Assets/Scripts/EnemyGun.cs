@@ -11,13 +11,14 @@ public class EnemyGun : MonoBehaviour {
 	bool shootable = true; //currently able to shoot
 	public float shootCD = 1f;
 	
-	public float woff = 0;
+	[HideInInspector] public float woff = 0;
 
 	public GameObject shotParticles;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character").transform;
+		shootCD *= Multiplier.enemyShootCD;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +47,7 @@ public class EnemyGun : MonoBehaviour {
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rotToPlayer = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position);
-		rotToPlayer.Set (rotToPlayer.x, rotToPlayer.y, rotToPlayer.z, rotToPlayer.w + woff);
+		rotToPlayer.Set (rotToPlayer.x, rotToPlayer.y, rotToPlayer.z, rotToPlayer.w);
 		GameObject bulletInstance = Instantiate(bullet, transform.position, rotToPlayer) as GameObject;
 		bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * bulletSpeed);
 

@@ -12,8 +12,6 @@ public enum JumpState
 public class CharControl : MonoBehaviour {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
-	public Transform spawn;
-	public GameObject tutorialCar;
 
 	//Movement variables
 	public float maxSpeed = 2f;
@@ -21,10 +19,10 @@ public class CharControl : MonoBehaviour {
 	private JumpState Jump = JumpState.GROUNDED;
 
 	//Ground stuff
-	public Transform midGroundCheck;
-	public Transform leftGroundCheck;
-	public Transform rightGroundCheck;
-	public Transform wallCheck;
+	[HideInInspector] public Transform midGroundCheck;
+	[HideInInspector] public Transform leftGroundCheck;
+	[HideInInspector] public Transform rightGroundCheck;
+	[HideInInspector] public Transform wallCheck;
 	float raycastLength = 0.15f;
 	public LayerMask whatIsGround;
 
@@ -44,7 +42,6 @@ public class CharControl : MonoBehaviour {
 	int IDofProjs = 13;
 	int IDofEnes = 11;
 
-
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
@@ -59,6 +56,10 @@ public class CharControl : MonoBehaviour {
 		//  GetComponent<SpriteRenderer>().sprite = skin2; //or whatever itll be called
 		// 	break;
 		//}
+		midGroundCheck = GameObject.Find("character/midGroundCheck").transform;
+		leftGroundCheck = GameObject.Find("character/leftGroundCheck").transform;
+		rightGroundCheck = GameObject.Find("character/rightGroundCheck").transform;
+		wallCheck = GameObject.Find("character/wallCheck").transform;
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
 	}
