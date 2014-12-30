@@ -1285,7 +1285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.4772453, y: 7.55231857, z: 0}
+  m_LocalPosition: {x: 8.61381435, y: -.0415598825, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 400046}
@@ -1345,8 +1345,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.54154968, y: -1.37734711, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.37381172, y: -1.21957648, z: 0}
+  m_LocalScale: {x: .708950698, y: .708950818, z: 1}
   m_Children: []
   m_Father: {fileID: 400030}
   m_RootOrder: 3
@@ -2013,8 +2013,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.01999998, y: 2.01999974}
-  m_Center: {x: 4.76837158e-07, y: -9.53674316e-07}
+  m_Size: {x: 3.31999993, y: 3.3099997}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6100024
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -2505,10 +2505,10 @@ MonoBehaviour:
   health: 20
   State: 0
   EnemySpeed: 2.5
-  Player: {fileID: 0}
   AttackDist: 10
-  direction: 1
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
@@ -2523,13 +2523,13 @@ MonoBehaviour:
   dashVec: {x: 0, y: 0}
   jumpVec: {x: 0, y: 0}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
   spawnKey: 0
@@ -2579,10 +2579,10 @@ MonoBehaviour:
   health: 20
   State: 0
   EnemySpeed: 2.5
-  Player: {fileID: 0}
   AttackDist: 10
-  direction: 1
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
@@ -2597,13 +2597,13 @@ MonoBehaviour:
   dashVec: {x: 0, y: 0}
   jumpVec: {x: 0, y: 0}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
   spawnKey: 0
@@ -2621,10 +2621,10 @@ MonoBehaviour:
   health: 20
   State: 0
   EnemySpeed: 3
-  Player: {fileID: 0}
   AttackDist: 10
-  direction: 1
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
   posOfTrans1: {x: 0, y: 0, z: 0}
   posOfTrans2: {x: 0, y: 0, z: 0}
@@ -2639,13 +2639,13 @@ MonoBehaviour:
   dashVec: {x: 1000, y: 600}
   jumpVec: {x: 100, y: 1000}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1.02499998
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1.02499998
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
 --- !u!114 &11400024
@@ -9611,7 +9611,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 257457845
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 523f7ba7976cab845bd27a9fe2b2a06e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10f06085afa4e2c46883a33aa6b8e001, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200034
 SpriteRenderer:
