@@ -2136,7 +2136,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2441434759
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300036, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
+  m_Sprite: {fileID: 21300032, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1335623459
 GameObject:
@@ -2493,7 +2493,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: bull1
@@ -2526,15 +2526,28 @@ Prefab:
     - target: {fileID: 9500000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
+      objectReference: {fileID: 9100000, guid: b9579ec849f95804ea23002ecf93a51e, type: 2}
     - target: {fileID: 21200002, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300002, guid: 57c6a78af26e64a41aa2d7cbdb2260ab,
+      objectReference: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef,
         type: 3}
     - target: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300032, guid: 862c3fede42ed124895ae28149b1d3ef,
+        type: 3}
+    - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
@@ -2633,9 +2646,9 @@ MonoBehaviour:
   deadTrain: {fileID: 0}
   deathDelay: 8
   fallAwayPoint: {x: 0, y: 0}
-  tutCar1: {fileID: 0}
-  tutCar2: {fileID: 0}
-  shopCar: {fileID: 0}
+  tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
+  tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
+  shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -2695,7 +2708,7 @@ Transform:
   m_GameObject: {fileID: 1601425287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 545465687}
   - {fileID: 420809766}
@@ -2736,7 +2749,7 @@ Animator:
   m_GameObject: {fileID: 1601425287}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
+  m_Controller: {fileID: 9100000, guid: b9579ec849f95804ea23002ecf93a51e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2753,8 +2766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6255a83150d841da8f4b47a90c3b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 0}
-  tutorialCar: {fileID: 0}
   maxSpeed: 6
   addSpeed: 100
   midGroundCheck: {fileID: 420809766}
@@ -2808,7 +2819,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1601425294
 MonoBehaviour:
