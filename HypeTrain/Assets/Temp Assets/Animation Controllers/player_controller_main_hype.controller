@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: player_controller_main
+  m_Name: player_controller_main_hype
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Jump
@@ -167,7 +167,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 51b5fddd08afc8e43912e9b237dbb0ed, type: 2}
+  - {fileID: 7400000, guid: fd9b065b6be254b4c94e2d8b83aee1b1, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 36, y: 84, z: 0}
   m_IKOnFeet: 0
@@ -182,7 +182,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 243c1b42f1f7b5f48bc881c1b519968f, type: 2}
+  - {fileID: 7400000, guid: 329a3a75ed19ae741960d1dbd4d06f20, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 120, y: 180, z: 0}
   m_IKOnFeet: 0
@@ -197,54 +197,9 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: a4e5f0f6e0d004f46abd8db13f77965e, type: 2}
+  - {fileID: 7400000, guid: 896a7d7e44f97d246add1d2311514165, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -96, y: -24, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110227263
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: main_hype_jump
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 329a3a75ed19ae741960d1dbd4d06f20, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -136, y: 344, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110238011
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: main_hype_hit
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 2ff8541399cac3a4e83c269efc575ba3, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -101, y: 409, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110249691
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: main_hype_idle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: fd9b065b6be254b4c94e2d8b83aee1b1, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -206, y: 214, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -259,7 +214,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 5b4c5dd461e417d4383839390cad07cb, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -241, y: 149, z: 0}
+  m_Position: {x: -156, y: 264, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -275,21 +230,6 @@ State:
   - {fileID: 7400000, guid: 9e7fe866661ffb6418bd1aeda0f5b656, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 156, y: 240, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110282667
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: main_hype_run
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 896a7d7e44f97d246add1d2311514165, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -171, y: 279, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -317,7 +257,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 5b4c5dd461e417d4383839390cad07cb, type: 2}
+  - {fileID: 7400000, guid: 2ff8541399cac3a4e83c269efc575ba3, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -276, y: 84, z: 0}
   m_IKOnFeet: 0
@@ -339,10 +279,6 @@ StateMachine:
   - {fileID: 110289512}
   - {fileID: 110295849}
   - {fileID: 110259905}
-  - {fileID: 110249691}
-  - {fileID: 110282667}
-  - {fileID: 110227263}
-  - {fileID: 110238011}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
@@ -356,13 +292,13 @@ StateMachine:
       second:
       - {fileID: 110119430}
     data:
-      first: {fileID: 110226866}
-      second:
-      - {fileID: 110177775}
-    data:
       first: {fileID: 110222128}
       second:
       - {fileID: 110102362}
+    data:
+      first: {fileID: 110226866}
+      second:
+      - {fileID: 110177775}
     data:
       first: {fileID: 110260743}
       second: []
