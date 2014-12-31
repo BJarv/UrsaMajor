@@ -5,6 +5,7 @@ public class breakable : MonoBehaviour {
 
 	public bool glass = false;
 	public bool dropCash = false;
+	public Animator breakAnimator;
 
 	public float durability = 1f;
 	public Itemizer money; 
@@ -19,12 +20,22 @@ public class breakable : MonoBehaviour {
 	}
 
 	public void Damage(){
-		durability--;
+		durability--; //Subtract one point from durability on hit
+
+		//If durability is zero, play animation if it exists, drop cash, and destroy object
 		if (durability <= 0) {
-			if (dropCash){
-				money.At(transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
+			if (breakAnimator != null){ //Do this if animator exists
+				if (dropCash){ //Drop cash if true
+					money.At(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
+				}
+				breakAnimator.Play ("Bin_Opening");
+				dropCash = false;
+			} else {  //Do this if there is no animator to play
+				if (dropCash){ //Drop cash if true
+					money.At(transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
+				}
+				Destroy (gameObject);
 			}
-			Destroy (gameObject);
 		}
 	}
 
