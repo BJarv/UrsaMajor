@@ -19,19 +19,25 @@ public class Shop : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj){
-		if(colObj.tag == "Player" && buy.purchased){
-			Debug.Log ("player entered shop box");
-			if(skin){
-				player.GetComponent<Animator>().runtimeAnimatorController = skin;
-			} else if (HYPEcolor != "") {
-				HYPEController.HYPEMode = HYPEcolor;
-			} else {
-				Debug.Log ("shop item with no attachment!");
+		try {
+			if(!gameObject.transform.Find("restricted").GetComponent<SpriteRenderer>().enabled) {
+				if(colObj.tag == "Player"){
+					Debug.Log ("player entered shop box");
+					if(skin){
+						player.GetComponent<Animator>().runtimeAnimatorController = skin;
+					} else if (HYPEcolor != "") {
+						HYPEController.HYPEMode = HYPEcolor;
+					} else {
+						Debug.Log ("shop item with no attachment!");
+					}
+					//gameObject.GetComponent<ParticleSystem>().Play();
+					//player.GetComponent<CharControl>().skinChange (skin);
+				} else {
+					Debug.Log ("NOT-player entered shop box");
+				}
 			}
-			gameObject.GetComponent<ParticleSystem>().Play();
-			//player.GetComponent<CharControl>().skinChange (skin);
+		} catch {
+
 		}
-		else
-			Debug.Log ("NOT-player entered shop box");
 	}
 }
