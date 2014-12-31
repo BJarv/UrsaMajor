@@ -17,6 +17,7 @@ GameObject:
   - 61: {fileID: 6100002}
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
+  - 114: {fileID: 11400002}
   m_Layer: 8
   m_Name: coin
   m_TagString: bonus
@@ -30,8 +31,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.80006266, y: 35.9320946, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: -1.80006266, y: 35.9320946, z: -.100000001}
   m_LocalScale: {x: 1.06501818, y: 1.06501698, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,6 +116,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kaChing: {fileID: 8300000, guid: 3b19b622cffbcc54cbc343d179862033, type: 3}
   value: 100
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7106c1e5806d749ad620cce54f9ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -165,7 +177,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: -5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -292,7 +304,7 @@ ParticleSystem:
         rgba: 4278252799
       minMaxState: 0
     startSize:
-      scalar: 100
+      scalar: .300000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -365,7 +377,7 @@ ParticleSystem:
     enabled: 1
     type: 4
     radius: .200000003
-    angle: 90
+    angle: 10
     length: 5
     boxX: 1
     boxY: 1
@@ -1218,7 +1230,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 257457845
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: e42710eb6c44328489a384e1721ab0a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

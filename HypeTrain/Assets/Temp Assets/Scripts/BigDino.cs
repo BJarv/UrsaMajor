@@ -1,17 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public enum EnemyState //enemy states dictate what mode enemies are in
+public enum DinoState //enemy states dictate what mode enemies are in
 {
 	IDLE,
 	ATTACK,
 	CHASE,
-	DASH,
-	JUMP
+	DASH
 }
 
-public class Enemy : MonoBehaviour {
-
+public class BigDino : MonoBehaviour {
+	/*
 	public float health = 20f;
 	public EnemyState State = EnemyState.IDLE; //basic state
 	public float EnemySpeed = 2f;
@@ -20,13 +19,15 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
+	[HideInInspector] public Vector3 posOfTrans1; 
+	[HideInInspector] public Vector3 posOfTrans2;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
 	private bool strolling = false;
-
+	
 	private float startTime;
-
+	
 	//raycast info
 	public float dashCast = 20f; //wall distance
 	public float jumpCast = 5f; //jump distance
@@ -42,9 +43,9 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public float groundCast = 1f;
 	[HideInInspector] public Itemizer money;
 	[HideInInspector] public ScoreKeeper HYPECounter;
-
+	
 	// Use this for initialization
-	virtual protected void Start () {
+	void Start () {
 		health *= Multiplier.enemyHealth;
 		EnemySpeed *= Multiplier.enemySpeed;
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
@@ -53,9 +54,11 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	virtual protected void Update () {
+	void Update () {
 		if(transform.position.y < -5f) Destroy (gameObject);
 		//grounde = isGrounded ();
+		posOfTrans1 = transform.position;
+		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 
@@ -76,7 +79,7 @@ public class Enemy : MonoBehaviour {
 		}
 		Act();
 	}
-
+	
 	void FixedUpdate () {
 		Flip (transform.rigidbody2D.velocity.x); //Uses velocity to determine when to flip
 	}
@@ -88,21 +91,21 @@ public class Enemy : MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
 		}
 	}
-
+	
 	public void Act()
 	{
 		switch(State)
 		{
-			case EnemyState.ATTACK: Attack(); break;
-			case EnemyState.IDLE: Idle(); break;
-			case EnemyState.CHASE: Chase(); break;
-			case EnemyState.DASH: Dash (); break;
-			case EnemyState.JUMP: Jump (); break;
-			default: Idle();break;
+		case EnemyState.ATTACK: Attack(); break;
+		case EnemyState.IDLE: Idle(); break;
+		case EnemyState.CHASE: Chase(); break;
+		case EnemyState.DASH: Dash (); break;
+		case EnemyState.JUMP: Jump (); break;
+		default: Idle();break;
 			
 		}
 	}
-
+	
 	virtual protected void Attack()
 	{
 		if (isJump ()) return; //prevents enemy from moving when he should be jumping
@@ -115,9 +118,9 @@ public class Enemy : MonoBehaviour {
 		{
 			rigidbody2D.velocity = new Vector2 (EnemySpeed *-1, rigidbody2D.velocity.y); 
 		}
-
+		
 	}
-
+	
 	virtual public void Idle()
 	{
 		if (!strolling)
@@ -135,7 +138,7 @@ public class Enemy : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2 (EnemySpeed *direction, rigidbody2D.velocity.y); 
 		
 	}
-
+	
 	void Dash()
 	{
 		rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
@@ -146,13 +149,13 @@ public class Enemy : MonoBehaviour {
 		rigidbody2D.AddForce (new Vector2(jumpVec.x*direction, jumpVec.y));
 		State = EnemyState.IDLE;
 	}
-
+	
 	void Chase()
 	{
 		//move until reach edge or near enough to player
 		
 	}
-
+	
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
@@ -167,7 +170,7 @@ public class Enemy : MonoBehaviour {
 			Player.GetComponent<CharControl>().hitAnim();
 		}
 	}
-
+	
 	virtual public void Hurt(float damage){
 		State = EnemyState.ATTACK;
 		health -= damage;
@@ -177,7 +180,7 @@ public class Enemy : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-
+	
 	public bool isDash() //raycast in front of enemy, if it hits the player, true
 	{
 		return Physics2D.Raycast (transform.position, transform.right, dashCast, dashMask) && dashRdy;
@@ -190,7 +193,7 @@ public class Enemy : MonoBehaviour {
 		//}
 		return Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask) && jumpRdy && isGrounded ();
 	}
-
+	
 	public void dashOn() 
 	{
 		dashRdy = true;
@@ -199,20 +202,20 @@ public class Enemy : MonoBehaviour {
 	{
 		jumpRdy = true;
 	}
-
+	
 	public bool isGrounded()
 	{
 		return Physics2D.Raycast (transform.position, -Vector2.up, groundCast, enemyGroundMask);
 	}
-
+	
 	public void aggro()
 	{
 		State = EnemyState.ATTACK;
 	}
-
+	
 	public void shortenAttack()
 	{
 		AttackDist = AttackDist/2;
-	}
-
+	}*/
+	
 }
