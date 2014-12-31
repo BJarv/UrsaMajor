@@ -32,13 +32,9 @@ public class TrainEnterB : MonoBehaviour {
 	{
 		EnteredTrain (hit);
 	}
-	void OnTriggerExit2D(Collider2D hit) 
-	{
-
-	}
 	
 	void EnteredTrain(Collider2D hit){
-		if(!soundPlayed){
+		if(!soundPlayed && enterSound != null){
 			AudioSource.PlayClipAtPoint(enterSound, transform.position);
 			soundPlayed = true;
 		}
