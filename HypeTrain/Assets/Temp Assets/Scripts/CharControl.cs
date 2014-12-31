@@ -75,8 +75,8 @@ public class CharControl : MonoBehaviour {
 		case JumpState.GROUNDED: 
 			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
 				Jump = JumpState.JUMPING;
-				animator.SetBool ("Jump",true); //Switch to jump animation
-				animator.SetBool ("Hit",false);
+				animator.SetBool ("Jump", true); //Switch to jump animation
+				animator.SetBool ("Hit", false);
 			}
 			break;
 

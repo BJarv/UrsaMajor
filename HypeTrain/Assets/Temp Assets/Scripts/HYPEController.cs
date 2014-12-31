@@ -33,7 +33,7 @@ public class HYPEController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
-		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == "HYPE") {
+		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 3) {
 			Debug.Log ("HYPE MODE");
 
 			if (HYPEMode == "red"){ //Enable rapid fire
