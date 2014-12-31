@@ -20,8 +20,6 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
-	[HideInInspector] public Vector3 posOfTrans1; 
-	[HideInInspector] public Vector3 posOfTrans2;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
@@ -58,8 +56,6 @@ public class Enemy : MonoBehaviour {
 	virtual protected void Update () {
 		if(transform.position.y < -5f) Destroy (gameObject);
 		//grounde = isGrounded ();
-		posOfTrans1 = transform.position;
-		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 

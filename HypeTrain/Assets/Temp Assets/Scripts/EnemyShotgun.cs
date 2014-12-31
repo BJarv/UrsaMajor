@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,7 +23,7 @@ public class EnemyShotgun : MonoBehaviour {
 		if (bullets < 2){
 			bullets = 2;
 		}
-		bullets += Multiplier.shotgunBullets;
+		bullets += Multiplier.shotgunBulletsPlus;
 		bulletRotsToPlayer = new List<Quaternion> ();
 		player = GameObject.Find ("character").transform;
 	}
