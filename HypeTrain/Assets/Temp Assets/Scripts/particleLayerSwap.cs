@@ -5,8 +5,8 @@ public class particleLayerSwap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		particleSystem.renderer.sortingLayerName = "UI";
-		particleSystem.renderer.sortingOrder = 2;
+		particleSystem.renderer.sortingLayerName = "Particles";
+		particleSystem.renderer.sortingOrder = 1;
 	}
 
 	

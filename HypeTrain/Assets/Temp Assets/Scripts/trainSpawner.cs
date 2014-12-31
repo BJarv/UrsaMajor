@@ -25,13 +25,20 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject tutCar1;
 	public GameObject tutCar2;
 	public GameObject shopCar;
+	public GameObject testCar;
+	private bool testCarOn = false;
 	
 	void Start () {
 		//begTim = Time.time;
 		trains = new Queue<GameObject>();
 		player = GameObject.Find ("character");
 		cameraObj = GameObject.Find ("Main Camera");
-		if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
+		//if testCar is set, spawn only testCars
+		if (testCar) {
+			testCarOn = true;
+			QueueAndMove(testCar);
+			QueueAndMove(testCar);
+		} else if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
 			QueueAndMove(tutCar1);
 			QueueAndMove(tutCar2);
 			GameObject tutorialCar = (GameObject)trains.Peek();
@@ -50,12 +57,16 @@ public class trainSpawner : MonoBehaviour {
 
 	//loads a random car from a list of posible cars, spawn car right justified of this objects position, then moves transform by car width
 	void QueueAndMove(){ 
-		tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
-		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
-		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
-		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
-		trains.Enqueue(tempTrain); //put train game object into trains queue
-		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
+		if(testCarOn){
+			QueueAndMove (testCar);
+		} else {
+			tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+			theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
+			float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
+			tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
+			trains.Enqueue(tempTrain); //put train game object into trains queue
+			gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
+		}
 	}
 
 	void QueueAndMove(GameObject traincar){ //loads specific car passed in rather than random car

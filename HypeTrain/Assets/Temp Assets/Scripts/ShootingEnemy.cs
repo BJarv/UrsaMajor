@@ -48,8 +48,6 @@ public class ShootingEnemy : Enemy {
 
 	override protected void Update () {
 		if(transform.position.y < -5f) Destroy (gameObject);
-		posOfTrans1 = transform.position;
-		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		if (distToPlayer < AttackDist) 
