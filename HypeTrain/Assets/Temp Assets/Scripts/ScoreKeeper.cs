@@ -22,6 +22,7 @@ public class ScoreKeeper : MonoBehaviour {
 	{
 		GUI.color = Color.black;
 		GUI.Label (new Rect (260, 60, 1000, 500), "$" + Score, scoreStyle);
+		GUI.Label (new Rect (260, 180, 1000, 500), "Completed:" + carsCompleted, scoreStyle);
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode

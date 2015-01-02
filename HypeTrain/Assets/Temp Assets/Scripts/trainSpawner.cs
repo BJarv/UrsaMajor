@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class trainSpawner : MonoBehaviour {
-
-
+	
 	//variables
 	private int carsCompleted;
 	public GameObject[] possTrains;
+	public string[] exemptCars; //Array  of car names with (Clone) appended, where traintop enemies shouldn't spawn
 	public Queue<GameObject> trains;
 	private GameObject tempTrain;
 	public GameObject player;
@@ -27,6 +28,8 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject shopCar;
 	public GameObject testCar;
 	private bool testCarOn = false;
+
+	public static int exPoint = 1; //Trains on the end of the list are exlcluded, when number is lowered more included
 	
 	void Start () {
 		//begTim = Time.time;
@@ -60,7 +63,7 @@ public class trainSpawner : MonoBehaviour {
 		if(testCarOn){
 			QueueAndMove (testCar);
 		} else {
-			tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.GetLength(0))], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+			tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.Length - trainSpawner.exPoint)], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
 			theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
 			float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
 			tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
@@ -90,9 +93,8 @@ public class trainSpawner : MonoBehaviour {
 			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
 			string c = trains.Peek ().name;
-			//if car is named any of these names, DONT spawn any enemies of top of it
-			if(c == "TutorialCar_1(Clone)" || c == "TutorialCar_2(Clone)" || c == "CoalCar(Clone)" || c == "LumberCar(Clone)" || c == "LumberCar_alt(Clone)" || c == "ShopCar(Clone)" || c == "PassengerCarB(Clone)" || c == "VaultCarW(Clone)") {} 
-			else {
+			//If upcoming car is NOT in the exemptCars array, try to spawn enemies of top of it
+			if(!exemptCars.Contains (c)) {
 				gameObject.GetComponent<topTrainEnemies>().spawnEnemies();
 			}
 		}
@@ -158,5 +160,8 @@ public class trainSpawner : MonoBehaviour {
 		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
 	}
 
-
+	public void appendTrain(GameObject train){
+		possTrains[possTrains.Length] = train;
+	}
+	
 } 

@@ -4,6 +4,7 @@ using System.Collections;
 public class topTrainEnemies : MonoBehaviour {
 
 	public GameObject[] possEnemies;
+
 	private GameObject trainSpawner;
 	private Vector2 spawn1;
 	private Vector2 spawn2;

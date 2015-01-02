@@ -215,6 +215,7 @@ GameObject:
   - 199: {fileID: 111295953}
   - 120: {fileID: 111295956}
   - 114: {fileID: 111295955}
+  - 114: {fileID: 111295957}
   m_Layer: 10
   m_Name: barrelTip
   m_TagString: Untagged
@@ -1373,6 +1374,20 @@ LineRenderer:
       serializedVersion: 2
       rgba: 4278190275
   m_UseWorldSpace: 1
+--- !u!114 &111295957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: a7debc4cf85476c48976ecbcf5d321d0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2028497744}
+  m_GameObject: {fileID: 111295951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7106c1e5806d749ad620cce54f9ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortLayer: 2
+  renderForward: 1
 --- !u!1 &420809765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,6 +2409,7 @@ GameObject:
   - 4: {fileID: 1554076582}
   - 114: {fileID: 1554076581}
   - 114: {fileID: 1554076583}
+  - 114: {fileID: 1554076584}
   m_Layer: 1
   m_Name: trainSpawner
   m_TagString: Untagged
@@ -2414,9 +2430,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possTrains:
-  - {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+  - {fileID: 100012, guid: c8eba999a350a414586eba94316a28e5, type: 2}
   - {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
+  - {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
+  - {fileID: 100018, guid: 50b65995cde53a34db623032bd4be867, type: 2}
+  - {fileID: 100028, guid: 0606915746e1c50438ce5099a7773ab6, type: 2}
+  - {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
+  - {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
   - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
+  - {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
+  - {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  exemptCars:
+  - TutorialCar_1(Clone)
+  - TutorialCar_2(Clone)
+  - ShopCar(Clone)
+  - CoalCar(Clone)
+  - DinoCar(Clone)
+  - LumberCar(Clone)
+  - LumberCar_alt(Clone)
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
@@ -2428,7 +2460,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
-  testCar: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+  testCar: {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -2456,6 +2488,17 @@ MonoBehaviour:
   possEnemies:
   - {fileID: 100000, guid: 351a2c2dfb97cd141b7088de87cb96d2, type: 2}
   - {fileID: 100000, guid: f9c6bdde832930b4b948b57db82190e6, type: 2}
+--- !u!114 &1554076584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554076580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bb5aa05159d134cb80b53860261b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1601425287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,7 +2514,6 @@ GameObject:
   - 60: {fileID: 1601425289}
   - 114: {fileID: 1601425294}
   - 114: {fileID: 1601425295}
-  - 114: {fileID: 1601425296}
   m_Layer: 10
   m_Name: character
   m_TagString: Player
@@ -2528,7 +2570,7 @@ Animator:
   m_GameObject: {fileID: 1601425287}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
+  m_Controller: {fileID: 9100000, guid: b9579ec849f95804ea23002ecf93a51e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2599,7 +2641,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1601425294
 MonoBehaviour:
@@ -2696,18 +2738,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &1601425296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400008, guid: a7debc4cf85476c48976ecbcf5d321d0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2028497744}
-  m_GameObject: {fileID: 1601425287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb8252f47b02402abfcb7647724d63f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1862193020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2901,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.size
-      value: 3
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2924,15 +2962,15 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[0]
       value: 
-      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[1]
       value: 
-      objectReference: {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
+      objectReference: {fileID: 100012, guid: c8eba999a350a414586eba94316a28e5, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[2]
       value: 
-      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
+      objectReference: {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -2940,31 +2978,71 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[3]
       value: 
-      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+      objectReference: {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[4]
       value: 
-      objectReference: {fileID: 100012, guid: c8eba999a350a414586eba94316a28e5, type: 2}
+      objectReference: {fileID: 100018, guid: 50b65995cde53a34db623032bd4be867, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[5]
       value: 
-      objectReference: {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
+      objectReference: {fileID: 100028, guid: 0606915746e1c50438ce5099a7773ab6, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[6]
       value: 
-      objectReference: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+      objectReference: {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[7]
       value: 
-      objectReference: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
+      objectReference: {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[8]
       value: 
-      objectReference: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+      objectReference: {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
+    - target: {fileID: 11400002, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[0]
+      value: 
+      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[0]
+      value: TutorialCar_1(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[1]
+      value: TutorialCar_2(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[2]
+      value: ShopCar(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[3]
+      value: CoalCar(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[4]
+      value: DinoCar(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[5]
+      value: LumberCar(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: exemptCars.Array.data[6]
+      value: LumberCar_alt(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[9]
+      value: 
+      objectReference: {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
+    - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
+      propertyPath: possTrains.Array.data[10]
+      value: 
+      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
   m_RootGameObject: {fileID: 1554076580}
@@ -3108,12 +3186,18 @@ Prefab:
     - target: {fileID: 9500000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c7c6792a20879b049bf19a2b275d3cf4, type: 2}
+      objectReference: {fileID: 9100000, guid: b9579ec849f95804ea23002ecf93a51e, type: 2}
     - target: {fileID: 11400006, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: scoreStyle.m_FontSize
       value: 32
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 21200002, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 862c3fede42ed124895ae28149b1d3ef,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 11400008, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_RootGameObject: {fileID: 1601425287}
   m_IsPrefabParent: 0

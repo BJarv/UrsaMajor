@@ -29,6 +29,7 @@ public class breakable : MonoBehaviour {
 					money.At(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
 				}
 				breakAnimator.Play ("Bin_Opening");
+				gameObject.collider2D.enabled = false;
 				dropCash = false;
 			} else {  //Do this if there is no animator to play
 				if (dropCash){ //Drop cash if true
