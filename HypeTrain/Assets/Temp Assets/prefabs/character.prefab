@@ -27,6 +27,7 @@ GameObject:
   - 199: {fileID: 19900000}
   - 120: {fileID: 12000000}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400012}
   m_Layer: 10
   m_Name: barrelTip
   m_TagString: Untagged
@@ -215,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.3467255, y: 28.3111973, z: 0}
+  m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -283,7 +284,7 @@ Animator:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 529071626d6e9f549a418232a317cc97, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -327,8 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6255a83150d841da8f4b47a90c3b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 0}
-  tutorialCar: {fileID: 0}
   maxSpeed: 6
   addSpeed: 100
   midGroundCheck: {fileID: 400004}
@@ -467,6 +466,19 @@ MonoBehaviour:
   interShotDelay: .100000001
   rTimerOn: 0
   reloadTime: 1
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7106c1e5806d749ad620cce54f9ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortLayer: 2
+  renderForward: 1
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -517,7 +529,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .5
+      scalar: .600000024
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -879,13 +891,13 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4285636323
+          rgba: 4285653981
         key1:
           serializedVersion: 2
-          rgba: 2838915252
+          rgba: 7446243
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 2105526
         key3:
           serializedVersion: 2
           rgba: 0
@@ -901,12 +913,12 @@ ParticleSystem:
         key7:
           serializedVersion: 2
           rgba: 0
-        ctime0: 0
-        ctime1: 31033
-        ctime2: 65535
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
+        ctime0: 1157
+        ctime1: 2699
+        ctime2: 7517
+        ctime3: 15420
+        ctime4: 25058
+        ctime5: 25058
         ctime6: 0
         ctime7: 0
         atime0: 0
@@ -917,7 +929,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 4
         m_NumAlphaKeys: 2
       minGradient:
         key0:
