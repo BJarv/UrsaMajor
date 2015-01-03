@@ -3,13 +3,9 @@ using System.Collections;
 
 public class HYPEAnimator : MonoBehaviour {
 
-	public Sprite HYPE_0;
-	public Sprite HYPE_1;
-	public Sprite HYPE_2;
-
 	private SpriteRenderer HYPE_sprite;
 
-	public Animator animator;
+	private Animator animator;
 
 	void Awake() {
 		animator = GetComponent<Animator>();

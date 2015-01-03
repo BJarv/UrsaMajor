@@ -1651,6 +1651,7 @@ GameObject:
   - 212: {fileID: 741258941}
   - 95: {fileID: 741258940}
   - 114: {fileID: 741258942}
+  - 114: {fileID: 741258943}
   m_Layer: 5
   m_Name: HYPECounter
   m_TagString: Untagged
@@ -1718,10 +1719,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48338f976837a244bf1b5084ccdd48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HYPE_0: {fileID: 21300018, guid: e41e5f7f89878944ab4e8fe2bab194a7, type: 3}
-  HYPE_1: {fileID: 21300020, guid: e41e5f7f89878944ab4e8fe2bab194a7, type: 3}
-  HYPE_2: {fileID: 21300022, guid: e41e5f7f89878944ab4e8fe2bab194a7, type: 3}
-  animator: {fileID: 0}
+--- !u!114 &741258943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741258938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6940eea18fe00764986b4033cff1a66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1 &793041356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2527,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
-  testCar: {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
+  testCar: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -2670,9 +2737,8 @@ MonoBehaviour:
 --- !u!114 &1601425295
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: a7debc4cf85476c48976ecbcf5d321d0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2028497744}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601425287}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3002,7 +3068,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
+      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
     - target: {fileID: 11400002, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[0]
       value: 
@@ -3196,8 +3262,13 @@ Prefab:
       value: 
       objectReference: {fileID: 21300002, guid: 862c3fede42ed124895ae28149b1d3ef,
         type: 3}
+    - target: {fileID: 11400006, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400008, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+    - {fileID: 11400006, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_RootGameObject: {fileID: 1601425287}
   m_IsPrefabParent: 0
