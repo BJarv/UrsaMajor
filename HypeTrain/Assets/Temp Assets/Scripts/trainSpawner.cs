@@ -41,17 +41,17 @@ public class trainSpawner : MonoBehaviour {
 			testCarOn = true;
 			QueueAndMove(testCar);
 			QueueAndMove(testCar);
-		} else if (MainMenu.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
+		} else if (TutShopController.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
 			QueueAndMove(tutCar1);
 			QueueAndMove(tutCar2);
 			GameObject tutorialCar = (GameObject)trains.Peek();
 			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
 
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
-		} else if (MainMenu.shop) {
+		} else if (TutShopController.shop) {
 			QueueAndMove(shopCar);
-			MainMenu.shop = false;
-			QueueAndMove();
+		TutShopController.shop = false;
+				QueueAndMove();
 		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();

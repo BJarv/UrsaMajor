@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class buySkin2 : MonoBehaviour {
 	
 	public int price;
-	bool guiOn = false;
-	public GUIStyle style;
+	Text text;
+	ParticleSystem particles;
 
-	public bool buyable = false;
-	
 	// Use this for initialization
 	void Start () {
-		
+		particles = transform.Find ("glow").GetComponent<ParticleSystem> ();
+		text = transform.Find ("Canvas/Text").GetComponent <Text> ();
+		text.text = "$" + price;
 	}
 	
 	// Update is called once per frame
@@ -22,35 +23,29 @@ public class buySkin2 : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			if(Game.skin2 == false){
-				guiOn = true;
-				gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+				text.enabled = true;
+				particles.Play();
 			}
 		}
 	}
 	void OnTriggerExit2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
 			if(Game.skin2 == false){
-				guiOn = false;
-				gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+				text.enabled = false;
+				particles.Stop();
 			}
 		}
 	}
 	void OnTriggerStay2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Input.GetKey (KeyCode.E) && Game.skin1 == false && (Game.lifetimeLoot > price || Game.lifetimeLoot == price)) {
-				guiOn = false;
+			if(Input.GetKey (KeyCode.E) && Game.skin2 == false) {
+				text.enabled = false;
 				Game.skin2 = true;
-				buyable = true;
-				gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+				particles.Stop ();
 				Game.lifetimeLoot -= price;
 				gameObject.GetComponentInParent<Shop>().player.GetComponent<Animator>().runtimeAnimatorController = gameObject.GetComponentInParent<Shop>().skin;
 			}
 		}
 	}
-	void OnGUI() {
-		if(guiOn){
-			GUI.color = Color.black;
-			//GUI.Label (new Rect (transform.position.x, transform.position.y - 25, 200, 25), "Price: $" + price, style);
-		}
-	}
+	
 }

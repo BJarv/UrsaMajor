@@ -64,15 +64,20 @@ public class Popup : MonoBehaviour {
 				Application.LoadLevel ("MainMenu");
 			}
 			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Shop")) {
-				MainMenu.shop = true;
+				TutShopController.tutorial = false;
+				TutShopController.shop = true;
 				Application.LoadLevel (Application.loadedLevelName);
 			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 50), "Quit")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 50), "Tutorial")) {
+				TutShopController.tutorial = true;
+				Application.LoadLevel (Application.loadedLevelName);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 100, 250, 50), "Quit")) {
 				Application.Quit ();
 			}
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 100, 250, 25), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 125, 250, 25), "Total Cars Completed: " + Game.carsCleared); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 25), "Total Loot: " + Game.currLoot); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 25), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 175, 250, 25), "Total Cars Completed: " + Game.carsCleared); //loot counter
+			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 200, 250, 25), "Total Loot: " + Game.currLoot); //loot counter
 			if(Input.anyKeyDown && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				//PlayerHealth.endOfLife = false;
 				Time.timeScale = 1;

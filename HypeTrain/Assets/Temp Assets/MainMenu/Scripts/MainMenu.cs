@@ -7,8 +7,6 @@ public class MainMenu : MonoBehaviour {
 	public Texture playButton;
 	public GUISkin playSkin;
 
-	public static bool tutorial;
-	public static bool shop = false;
 
 	void OnGUI(){
 		//Display Background Texture
@@ -22,7 +20,7 @@ public class MainMenu : MonoBehaviour {
 
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .21f, Screen.width * .3f, Screen.height * .12f), "Start w/ Tutorial")) {
 			Debug.Log ("Start with Tutorial");
-			tutorial = true;
+			TutShopController.tutorial = true;
 			Application.LoadLevel("haydenZone");
 		}
 
