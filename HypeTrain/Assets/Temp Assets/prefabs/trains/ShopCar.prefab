@@ -1762,9 +1762,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_Color: {r: .897058845, g: .897058845, b: .897058845, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 035bffdb6ae1581409bd7afd33f1673e, type: 3}
     m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
@@ -1826,9 +1826,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_Color: {r: .897058845, g: .897058845, b: .897058845, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 035bffdb6ae1581409bd7afd33f1673e, type: 3}
     m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
@@ -1839,7 +1839,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: loooooot
+  m_Text: asdfasdf
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -7819,13 +7819,13 @@ RectTransform:
   m_GameObject: {fileID: 100074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .000699999975, y: .00100000005, z: 1}
+  m_LocalScale: {x: .00100000005, y: .0013, z: 1}
   m_Children: []
   m_Father: {fileID: 22400010}
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -.0500000007, y: .879999995}
+  m_AnchoredPosition: {x: .0729999989, y: .925000012}
   m_SizeDelta: {x: 942.940002, y: 246.470001}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400010
@@ -7856,14 +7856,14 @@ RectTransform:
   m_GameObject: {fileID: 100080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00219999999, y: .00300000003, z: 1}
+  m_LocalScale: {x: .00289999996, y: .00499999989, z: 1}
   m_Children: []
   m_Father: {fileID: 22400010}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1.153, y: .656000018}
-  m_SizeDelta: {x: 778.419006, y: 233.639999}
+  m_AnchoredPosition: {x: 1.07799995, y: .640999973}
+  m_SizeDelta: {x: 675.254028, y: 233.639999}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
