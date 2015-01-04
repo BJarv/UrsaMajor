@@ -16,6 +16,9 @@ public class Game {
 	public float accuracy;
 	public static bool skin1;
 	public static bool skin2;
+	public static bool hype1;
+	public static bool hype2;
+	public static bool firstTime = true;
 
 	public Game () { //constructor
 

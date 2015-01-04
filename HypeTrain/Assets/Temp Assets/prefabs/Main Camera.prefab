@@ -201,8 +201,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .24186635, y: -.308998108, z: 0}
-  m_LocalScale: {x: 3.74245906, y: 3.74245691, z: 1}
+  m_LocalPosition: {x: .170000002, y: -.370000005, z: 0}
+  m_LocalScale: {x: 2.63976574, y: 2.63976407, z: .705355883}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 0
@@ -268,8 +268,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .870000005, y: -.308998108, z: 0}
-  m_LocalScale: {x: 3.74245906, y: 3.74245691, z: 1}
+  m_LocalPosition: {x: .829999983, y: -.370000005, z: 0}
+  m_LocalScale: {x: 2.63976574, y: 2.63976407, z: .705355883}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 2
@@ -294,8 +294,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.19000006, y: -.308997869, z: 0}
-  m_LocalScale: {x: 3.7424593, y: 3.74245691, z: 1}
+  m_LocalPosition: {x: 1.16999996, y: -.370000005, z: 0}
+  m_LocalScale: {x: 2.63976574, y: 2.63976407, z: .705355883}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 3
@@ -306,8 +306,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .540000021, y: -.308998108, z: 0}
-  m_LocalScale: {x: 3.74245858, y: 3.74245691, z: 1}
+  m_LocalPosition: {x: .5, y: -.370000005, z: 0}
+  m_LocalScale: {x: 2.63976574, y: 2.63976407, z: .705355883}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 1
@@ -457,6 +457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: {fileID: 100000, guid: bbdcf719058af394a9462dde485082d6, type: 2}
   safeKey: {fileID: 100000, guid: ab3e0580adbab1d4ea71a82d1df0792a, type: 2}
+  gold: {fileID: 100000, guid: 15b10c73b518e2b40851013d20030d88, type: 2}
+  gem: {fileID: 100000, guid: 604b931b77522dc4b8fc0704e2bb9834, type: 2}
   xMin: -400
   xMax: 400
   yMin: 1300
@@ -469,7 +471,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ae3530f879c664d8a77cff03b6e1bf, type: 3}
+  m_Script: {fileID: 11500000, guid: dcd4930b8ea99441f99427685ba7aeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0

@@ -22,6 +22,7 @@ public class getBonus : MonoBehaviour {
 			//Debug.Log ("entered");
 			AudioSource.PlayClipAtPoint(kaChing, transform.position);
 			ScoreKeeper.Score += value;
+			Game.addLoot (value);
 			Destroy (gameObject);
 		}
 	}

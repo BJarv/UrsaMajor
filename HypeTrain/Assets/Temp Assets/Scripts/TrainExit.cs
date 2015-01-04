@@ -54,6 +54,9 @@ public class TrainExit : MonoBehaviour {
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
+		if(transform.parent.transform.parent.transform.parent.name.Contains("TutorialCar_2")){ //if this car is the 2nd Tutorial Car, turn off tutorial when you leave it.
+			TutShopController.tutorial = false;
+		}
 		check = false;
 		Invoke ("ignoreExitCollide", .5f);
 	}
