@@ -215,6 +215,7 @@ GameObject:
   - 199: {fileID: 111295953}
   - 120: {fileID: 111295956}
   - 114: {fileID: 111295955}
+  - 114: {fileID: 111295957}
   m_Layer: 10
   m_Name: barrelTip
   m_TagString: Untagged
@@ -285,7 +286,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .5
+      scalar: .600000024
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -647,13 +648,13 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4285636323
+          rgba: 4285653981
         key1:
           serializedVersion: 2
-          rgba: 2838915252
+          rgba: 7446243
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 2105526
         key3:
           serializedVersion: 2
           rgba: 0
@@ -669,12 +670,12 @@ ParticleSystem:
         key7:
           serializedVersion: 2
           rgba: 0
-        ctime0: 0
-        ctime1: 31033
-        ctime2: 65535
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
+        ctime0: 1157
+        ctime1: 2699
+        ctime2: 7517
+        ctime3: 15420
+        ctime4: 25058
+        ctime5: 25058
         ctime6: 0
         ctime7: 0
         atime0: 0
@@ -685,7 +686,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 4
         m_NumAlphaKeys: 2
       minGradient:
         key0:
@@ -1373,6 +1374,20 @@ LineRenderer:
       serializedVersion: 2
       rgba: 4278190275
   m_UseWorldSpace: 1
+--- !u!114 &111295957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: a7debc4cf85476c48976ecbcf5d321d0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416130582}
+  m_GameObject: {fileID: 111295951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7106c1e5806d749ad620cce54f9ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortLayer: 2
+  renderForward: 1
 --- !u!1001 &254103277
 Prefab:
   m_ObjectHideFlags: 0
@@ -2215,6 +2230,7 @@ GameObject:
   - 114: {fileID: 1409445596}
   - 114: {fileID: 1409445589}
   - 114: {fileID: 1409445597}
+  - 114: {fileID: 1409445598}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2305,7 +2321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desert: {fileID: 100000, guid: a3a6fb9c741d3284aa6e6a6b1d974fd1, type: 2}
   zPos: 1
-  yPos: -9
+  yPos: -9.25
   buffer: 1.75
 --- !u!114 &1409445590
 MonoBehaviour:
@@ -2471,6 +2487,21 @@ MonoBehaviour:
   interval: 0
   cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
   inverseFrequency: 5
+--- !u!114 &1409445598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409445583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desert: {fileID: 100000, guid: 8d8d1e0c36541924c83a4f4a13de0349, type: 2}
+  zPos: 0
+  yPos: -7
+  buffer: 0
 --- !u!1001 &1416130582
 Prefab:
   m_ObjectHideFlags: 0
@@ -2653,6 +2684,7 @@ MonoBehaviour:
   - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
   - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
   - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
+  exemptCars: []
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
