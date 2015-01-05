@@ -5,6 +5,10 @@ TextureImporter:
     21300000: trex walking_0
     21300002: trex walking_1
     21300004: trex walking_2
+    21300006: trex walking_3
+    21300008: trex walking_4
+    21300010: trex walking_5
+    21300012: trex walking_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,9 +54,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1200
-        width: 800
-        height: 400
+        y: 2700
+        width: 900
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -60,9 +64,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 800
-        width: 800
-        height: 400
+        y: 2250
+        width: 900
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -70,9 +74,49 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 800
-        height: 400
+        y: 1800
+        width: 900
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: trex walking_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 900
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: trex walking_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 900
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: trex walking_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 900
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: trex walking_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 900
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

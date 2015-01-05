@@ -5,7 +5,7 @@ public class Shop : MonoBehaviour {
 
 	[HideInInspector] public GameObject player;
 	public RuntimeAnimatorController skin;
-	public string HYPEcolor;
+	public string HYPEColor;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,8 @@ public class Shop : MonoBehaviour {
 					Debug.Log ("player entered shop box");
 					if(skin){
 						player.GetComponent<Animator>().runtimeAnimatorController = skin;
-					} else if (HYPEcolor != "") {
-						HYPEController.HYPEMode = HYPEcolor;
+					} else if (HYPEColor != "") {
+						HYPEController.HYPEMode = HYPEColor;
 					} else {
 						Debug.Log ("shop item with no attachment!");
 					}

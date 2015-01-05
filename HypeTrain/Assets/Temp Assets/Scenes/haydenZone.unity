@@ -2509,13 +2509,14 @@ MonoBehaviour:
   - {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
   - {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
   exemptCars:
-  - TutorialCar_1(Clone)
-  - TutorialCar_2(Clone)
-  - ShopCar(Clone)
-  - CoalCar(Clone)
-  - DinoCar(Clone)
-  - LumberCar(Clone)
-  - LumberCar_alt(Clone)
+  - {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  exemptNames: []
   player: {fileID: 1601425287}
   widthBetween: 5
   railHeight: 0
@@ -2527,7 +2528,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
-  testCar: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  testCar: {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -3068,38 +3069,38 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      objectReference: {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
     - target: {fileID: 11400002, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[0]
       value: 
       objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[0]
-      value: TutorialCar_1(Clone)
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[1]
-      value: TutorialCar_2(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[2]
-      value: ShopCar(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[3]
-      value: CoalCar(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[4]
-      value: DinoCar(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[5]
-      value: LumberCar(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: exemptCars.Array.data[6]
-      value: LumberCar_alt(Clone)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[9]

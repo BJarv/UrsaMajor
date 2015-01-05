@@ -18,13 +18,6 @@ public class ScoreKeeper : MonoBehaviour {
 		HYPE = 0; //CHANGE BACK TO CHILL
 	}
 
-	void OnGUI()
-	{
-		GUI.color = Color.black;
-		GUI.Label (new Rect (260, 60, 1000, 500), "$" + Score, scoreStyle);
-		GUI.Label (new Rect (260, 180, 1000, 500), "Completed:" + carsCompleted, scoreStyle);
-	}
-
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
 	public int incrementHype(bool increment){ 
 		if 		(HYPE == 0 && !HYPED) HYPE = 1;

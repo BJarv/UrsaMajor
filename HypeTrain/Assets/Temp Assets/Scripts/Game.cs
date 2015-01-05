@@ -14,10 +14,12 @@ public class Game {
 	public int shotsFired;
 	public int deaths;
 	public float accuracy;
-	public static bool skin1;
-	public static bool skin2;
-	public static bool hype1;
-	public static bool hype2;
+	public static bool skin1 = false;
+	public static bool skin2 = false;
+	public static bool skin3 = false;
+	public static bool skin4 = false;
+	public static bool hype1 = true;
+	public static bool hype2 = false;
 	public static bool firstTime = true;
 
 	public Game () { //constructor

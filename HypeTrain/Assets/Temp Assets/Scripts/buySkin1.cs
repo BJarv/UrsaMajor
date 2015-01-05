@@ -39,11 +39,14 @@ public class buySkin1 : MonoBehaviour {
 	}
 	void OnTriggerStay2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Input.GetKey (KeyCode.E) && Game.skin1 == false) {
+			if(Input.GetKey (KeyCode.E) && Game.skin1 == false && (Game.lifetimeLoot - price) >= 0) {
 				text.enabled = false;
 				Game.skin1 = true;
 				particles.Stop ();
 				Game.lifetimeLoot -= price;
+				gameObject.GetComponentInParent<Shop>().player.GetComponent<Animator>().runtimeAnimatorController = gameObject.GetComponentInParent<Shop>().skin;
+			}
+			if(Input.GetKey (KeyCode.E) && Game.skin1 == true) {
 				gameObject.GetComponentInParent<Shop>().player.GetComponent<Animator>().runtimeAnimatorController = gameObject.GetComponentInParent<Shop>().skin;
 			}
 		}

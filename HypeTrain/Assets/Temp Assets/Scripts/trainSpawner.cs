@@ -8,7 +8,8 @@ public class trainSpawner : MonoBehaviour {
 	//variables
 	private int carsCompleted;
 	public GameObject[] possTrains;
-	public string[] exemptCars; //Array  of car names with (Clone) appended, where traintop enemies shouldn't spawn
+	public GameObject[] exemptCars; //Array  of car names with (Clone) appended, where traintop enemies shouldn't spawn
+	private string[] exemptNames;
 	public Queue<GameObject> trains;
 	private GameObject tempTrain;
 	public GameObject player;
@@ -56,6 +57,12 @@ public class trainSpawner : MonoBehaviour {
 			QueueAndMove();
 			QueueAndMove();
 		}
+		int i = 0;
+		exemptNames = new string[exemptCars.Length];
+		while(i < exemptCars.Length){
+			exemptNames[i] = exemptCars[i].name + "(Clone)";
+			i++;
+		}
 	}
 
 	//loads a random car from a list of posible cars, spawn car right justified of this objects position, then moves transform by car width
@@ -94,7 +101,7 @@ public class trainSpawner : MonoBehaviour {
 			QueueAndMove();
 			string c = trains.Peek ().name;
 			//If upcoming car is NOT in the exemptCars array, try to spawn enemies of top of it
-			if(!exemptCars.Contains (c)) {
+			if(!exemptNames.Contains (c)) {
 				gameObject.GetComponent<topTrainEnemies>().spawnEnemies();
 			}
 		}

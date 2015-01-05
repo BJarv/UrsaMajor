@@ -39,7 +39,8 @@ public class Camera2D : MonoBehaviour {
 		Vector2 newPos2D = Vector2.zero;
 		if (centerLock == 1f) { //1 means it's a long car, so shift down the y value and keep the x scrolling
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
-			newPos2D.y = 6.5f; //default for now
+			//newPos2D.y = 6.5f; //default for now
+			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate);
 		}
 		else if (lockCamera) {	//Lock on second car (for now)
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, centerLock, ref velocity.x, smoothrate);//trainleft + trainright / 2
@@ -66,7 +67,7 @@ public class Camera2D : MonoBehaviour {
 		targetCameraPosition = target;
 		zoomTime = time;
 	}
-	//Toggles the locking/unlocking of the camera
+	//Toggles the locking/unlocking of the camera, if train's tag is bigCar, handles differently
 	public void setLock(bool x) {
 		lockCamera = x;  //Disables regular car camera lock
 		if(!x){  //Disables big car camera lock
