@@ -10,6 +10,8 @@ public class HYPEController : MonoBehaviour {
 	[HideInInspector] public GameObject revolver;
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
+	private Transform trail;
+	private string trailName;
 
 	//Timer variables
 	private float HYPETimer;
@@ -24,6 +26,7 @@ public class HYPEController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");
+		trail = player.transform.Find ("HYPEtrail");
 		revolver = GameObject.Find ("character/gun");
 		gunScript = revolver.GetComponent<gun> ();
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
@@ -32,9 +35,13 @@ public class HYPEController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
 		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 3) {
 			Debug.Log ("HYPE MODE");
+
+			trailName = HYPEController.HYPEMode + "Trail";
+			trail.Find (trailName).GetComponent<trailToggle>().On ();
 
 			if (HYPEMode == "red"){ //Enable rapid fire
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
@@ -63,6 +70,9 @@ public class HYPEController : MonoBehaviour {
 			HYPETimer -= Time.deltaTime;
 			if (HYPETimer <= 0) {
 				Debug.Log ("hype over...");
+
+				trailName = HYPEController.HYPEMode + "Trail";
+				trail.Find (trailName).GetComponent<trailToggle>().Off ();
 
 				if(HYPEMode == "red"){	//Reset gun values
 					revolver.GetComponent<gun> ().magSize = 4;

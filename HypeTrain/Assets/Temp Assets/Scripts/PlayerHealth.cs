@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour {
 	public float maxHealth = 30f;
 	[HideInInspector] public float playerHealth;
-	public float deathDelay = 2f;
+	public float deathDelay = 1.5f;
 	public GameObject heart1;
 	public GameObject heart2;
 	public GameObject heart3;
