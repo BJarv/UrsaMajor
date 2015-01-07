@@ -5,6 +5,7 @@ using System.Collections;
 public class buySkin0 : MonoBehaviour {
 	
 	public int price;
+	public Sprite gunArm;
 	Text text;
 	ParticleSystem particles;
 	

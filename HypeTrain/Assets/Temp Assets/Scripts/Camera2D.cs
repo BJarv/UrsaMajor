@@ -12,6 +12,7 @@ public class Camera2D : MonoBehaviour {
 	private float centerLock;
 	public float zoomInSpeed = 0.4f;
 	public float timeBeforeZoomIn = .5f;
+	public float lockCameraSize = 12.79f;
 	
 	private Transform thisTransform;
 	private Vector2 velocity;
@@ -80,7 +81,7 @@ public class Camera2D : MonoBehaviour {
 	}
 
 	private void zoomIn () {
-		setCameraTarget(12.79f, zoomInSpeed);
+		setCameraTarget(lockCameraSize, zoomInSpeed);
 	}
 
 	public void scheduleZoomIn() {

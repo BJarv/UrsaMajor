@@ -6,6 +6,7 @@ public class breakable : MonoBehaviour {
 	public bool glass = false;
 	public bool dropCash = false;
 	public Animator breakAnimator;
+	public AudioClip breakSound;
 
 	public float durability = 1f;
 	public Itemizer money; 
@@ -25,6 +26,9 @@ public class breakable : MonoBehaviour {
 		//If durability is zero, play animation if it exists, drop cash, and destroy object
 		if (durability <= 0) {
 			if (breakAnimator != null){ //Do this if animator exists
+				if (breakSound != null){ 
+					AudioSource.PlayClipAtPoint(breakSound, transform.position);
+				}
 				if (dropCash){ //Drop cash if true
 					money.At(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));
 				}

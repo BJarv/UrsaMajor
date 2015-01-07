@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,8 +1981,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0325381532, y: .553135335, z: -4.64820147}
-  m_LocalScale: {x: 1.39446044, y: .896255195, z: .464820147}
+  m_LocalPosition: {x: -.0199999996, y: .0299999993, z: -4.6500001}
+  m_LocalScale: {x: 1.38300002, y: .99000001, z: .464820147}
   m_Children: []
   m_Father: {fileID: 400036}
   m_RootOrder: 0
@@ -3482,6 +3482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
+  gunArm: {fileID: 0}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4149,6 +4150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
+  gunArm: {fileID: 21300038, guid: 29177c31f5051714a95c89938c280c6a, type: 3}
+  arm: {fileID: 0}
 --- !u!114 &11400100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4239,6 +4242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
+  gunArm: {fileID: 21300036, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
+  arm: {fileID: 0}
 --- !u!114 &11400110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4355,6 +4360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
+  gunArm: {fileID: 21300032, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
+  arm: {fileID: 0}
 --- !u!114 &11400124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4497,6 +4504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
+  gunArm: {fileID: 21300032, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
+  arm: {fileID: 0}
 --- !u!114 &11400140
 MonoBehaviour:
   m_ObjectHideFlags: 1

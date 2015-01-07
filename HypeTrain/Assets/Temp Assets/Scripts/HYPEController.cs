@@ -16,6 +16,8 @@ public class HYPEController : MonoBehaviour {
 	private bool hTimerOn = false;
 	public float HYPEDuration = 7f; 
 
+	public AudioClip HYPEsound;
+
 	//Default HYPE value
 	public static string HYPEMode = "red";
 
@@ -56,6 +58,7 @@ public class HYPEController : MonoBehaviour {
 			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
+			AudioSource.PlayClipAtPoint(HYPEsound, transform.position);
 		}
 
 		//Timer for how long HYPE lasts, resets gun modifications once time runs out

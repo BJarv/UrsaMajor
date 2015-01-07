@@ -1695,6 +1695,34 @@ Prefab:
       propertyPath: gem
       value: 
       objectReference: {fileID: 100000, guid: 604b931b77522dc4b8fc0704e2bb9834, type: 2}
+    - target: {fileID: 11400002, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: lockCameraSize
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: orthographic size
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.0999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -24.8799992
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.9000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: HYPEsound
+      value: 
+      objectReference: {fileID: 8300000, guid: cdf461a4e4e1b484e9beea9c975c3825, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
   m_RootGameObject: {fileID: 1409445583}
@@ -2084,7 +2112,7 @@ Transform:
   m_PrefabInternal: {fileID: 717773977}
   m_GameObject: {fileID: 1383608871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.8400002, y: 6.92999983, z: 100}
+  m_LocalPosition: {x: -24.8799992, y: 6.9000001, z: 100}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1392622148}
@@ -2185,7 +2213,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0acc17ceb6a7aa343a5cdb01018c491e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &1383608876
@@ -2233,7 +2261,7 @@ Transform:
   m_PrefabInternal: {fileID: 717773977}
   m_GameObject: {fileID: 1392622147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.29999995, z: 0}
+  m_LocalPosition: {x: 0, y: 5.0999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 704444356}
@@ -2315,7 +2343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.79
+  orthographic size: 14.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2372,6 +2400,7 @@ MonoBehaviour:
   lockCamera: 0
   zoomInSpeed: .400000006
   timeBeforeZoomIn: .5
+  lockCameraSize: 14.5
   maxCamHeight: 20
 --- !u!82 &1409445591
 AudioSource:
@@ -2543,6 +2572,7 @@ MonoBehaviour:
   gunScript: {fileID: 0}
   HYPECounter: {fileID: 0}
   HYPEDuration: 7
+  HYPEsound: {fileID: 8300000, guid: cdf461a4e4e1b484e9beea9c975c3825, type: 3}
 --- !u!1001 &1416130582
 Prefab:
   m_ObjectHideFlags: 0
@@ -2617,7 +2647,7 @@ Prefab:
     - target: {fileID: 21200002, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300016, guid: 8c3c547d507a8ae4e83306f2abf4e2f6,
+      objectReference: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef,
         type: 3}
     - target: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_IsActive
@@ -2754,7 +2784,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
-  testCar: {fileID: 0}
+  testCar: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -2935,7 +2965,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1601425294
 MonoBehaviour:
@@ -3215,7 +3245,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[3]
       value: 
