@@ -1510,7 +1510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: cameraObj
@@ -1677,7 +1677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: player
@@ -1878,7 +1878,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!114 &1160417351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2368,7 +2368,7 @@ Transform:
   m_Children:
   - {fileID: 1392622148}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!114 &1409445589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,6 +2401,7 @@ MonoBehaviour:
   lockCamera: 0
   zoomInSpeed: .400000006
   timeBeforeZoomIn: .5
+  lockCameraSize: 12.79
   maxCamHeight: 20
 --- !u!82 &1409445591
 AudioSource:
@@ -2572,6 +2573,7 @@ MonoBehaviour:
   gunScript: {fileID: 0}
   HYPECounter: {fileID: 0}
   HYPEDuration: 7
+  HYPEsound: {fileID: 0}
 --- !u!1 &1518455098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,7 +2698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &1554076583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2825,7 +2827,7 @@ Transform:
   m_GameObject: {fileID: 1601425287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 545465687}
   - {fileID: 420809766}
@@ -2834,7 +2836,7 @@ Transform:
   - {fileID: 1333875118}
   - {fileID: 889763450}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!60 &1601425289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2938,7 +2940,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1601425294
 MonoBehaviour:
@@ -3344,7 +3346,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1808987551}
   - 96: {fileID: 1808987554}
-  - 114: {fileID: 1808987553}
   - 114: {fileID: 1808987552}
   m_Layer: 10
   m_Name: purpleTrail
@@ -3378,20 +3379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailLength: 2
---- !u!114 &1808987553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400008, guid: a7debc4cf85476c48976ecbcf5d321d0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1594715485}
-  m_GameObject: {fileID: 1808987550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortLayer: 2
-  renderForward: 1
 --- !u!96 &1808987554
 TrailRenderer:
   m_ObjectHideFlags: 0
