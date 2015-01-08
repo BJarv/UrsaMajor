@@ -144,7 +144,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 96: {fileID: 9600000}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400014}
   m_Layer: 10
   m_Name: purpleTrail
@@ -267,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 400006}
   - {fileID: 400004}
@@ -608,19 +607,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortLayer: 2
-  renderForward: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1848,7 +1834,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200004
 SpriteRenderer:
