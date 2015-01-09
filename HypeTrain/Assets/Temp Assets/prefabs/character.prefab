@@ -145,6 +145,7 @@ GameObject:
   - 4: {fileID: 400016}
   - 96: {fileID: 9600000}
   - 114: {fileID: 11400014}
+  - 114: {fileID: 11400008}
   m_Layer: 10
   m_Name: purpleTrail
   m_TagString: Untagged
@@ -390,7 +391,7 @@ TrailRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0144a8f9e0ca53643943c93254e15e69, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -399,8 +400,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0
-  m_StartWidth: 2
-  m_EndWidth: 2
+  m_StartWidth: 1.5
+  m_EndWidth: 1.5
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -431,7 +432,7 @@ TrailRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0144a8f9e0ca53643943c93254e15e69, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -440,8 +441,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0
-  m_StartWidth: 2
-  m_EndWidth: 2
+  m_StartWidth: 1.5
+  m_EndWidth: 1.5
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -607,6 +608,19 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortLayer: 2
+  renderForward: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -622,6 +636,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 96823
   lazerLength: 40
+  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .100000001
   rTimerOn: 0
   reloadTime: 1

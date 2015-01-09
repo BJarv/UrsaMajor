@@ -11,6 +11,9 @@ public class lazerFire : MonoBehaviour {
 	LineRenderer lazer;
 	public float lazerLength;
 
+	private GameObject player;
+	private GameObject shootFrom;
+	public Rigidbody2D bullet;
 
 	private float lazerTimer;
 	private bool lTimerOn = false;
@@ -25,9 +28,11 @@ public class lazerFire : MonoBehaviour {
 		lazer = gameObject.GetComponent<LineRenderer>();
 		lazer.enabled = false;
 		lazer.sortingLayerName = "Player";
-		lazer.sortingOrder = 2;
+		lazer.sortingOrder = 1;
 		lazerTimer = interShotDelay;
 		reloadTimer = reloadTime;
+		player = GameObject.Find("character");
+		shootFrom = GameObject.Find("barrelTip");
 	}
 
 	void Update () {
@@ -66,6 +71,15 @@ public class lazerFire : MonoBehaviour {
 			Ray2D ray = new Ray2D(transform.position, transform.right);
 			lazer.SetPosition(0, ray.origin);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, lazerLength, lazerStoppers);
+
+			/* Attempt at laser force
+			if(!player.GetComponent<CharControl>().isGrounded()){
+				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
+				var pos = Input.mousePosition;
+				var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
+				Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
+				player.rigidbody2D.AddForce (new Vector2(go.transform.up.x * -500, go.transform.up.y * -500));
+			} */
 
 			//If the ray collides with something in the lazerStoppers, set the lazer's endpoint to the point of the collision
 			if(hit){

@@ -44,7 +44,7 @@ public class buyHype2 : MonoBehaviour {
 				particles.Stop ();
 				Game.lifetimeLoot -= price;
 				HYPEController.HYPEMode = gameObject.GetComponentInParent<Shop>().HYPEColor;
-				ScoreKeeper.HYPE = 3;
+				ScoreKeeper.HYPE = 6;
 			}
 			if(Input.GetKey (KeyCode.E) && Game.hype2 == false) {
 				HYPEController.HYPEMode = gameObject.GetComponentInParent<Shop>().HYPEColor;

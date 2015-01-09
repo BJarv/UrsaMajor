@@ -73,7 +73,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 68: {fileID: 6800000}
   - 114: {fileID: 11400000}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: oneWayPlat_wood
   m_TagString: bonus
   m_Icon: {fileID: 0}
@@ -1878,6 +1878,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glass: 0
   dropCash: 1
+  breakAnimator: {fileID: 0}
+  breakSound: {fileID: 0}
   durability: 1
   money: {fileID: 0}
 --- !u!114 &11400004
@@ -1899,8 +1901,6 @@ MonoBehaviour:
   Player: {fileID: 0}
   direction: 1
   distToPlayer: 0
-  posOfTrans1: {x: 0, y: 0, z: 0}
-  posOfTrans2: {x: 0, y: 0, z: 0}
   dashCast: 4
   jumpCast: 4
   dashMask:

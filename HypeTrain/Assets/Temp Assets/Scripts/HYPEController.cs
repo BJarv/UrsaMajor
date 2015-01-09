@@ -39,7 +39,7 @@ public class HYPEController : MonoBehaviour {
 	void Update () {
 
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
-		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 3) {
+		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 6) {
 			Debug.Log ("HYPE MODE");
 
 			trailName = HYPEController.HYPEMode + "Trail";
