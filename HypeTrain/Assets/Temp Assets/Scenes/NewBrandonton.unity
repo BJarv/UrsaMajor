@@ -1963,7 +1963,7 @@ Transform:
   m_LocalScale: {x: 4.11456728, y: 4.11455774, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!95 &1308236591
 Animator:
   serializedVersion: 3
@@ -2401,6 +2401,7 @@ MonoBehaviour:
   lockCamera: 0
   zoomInSpeed: .400000006
   timeBeforeZoomIn: .5
+  lockCameraSize: 12.79
   maxCamHeight: 20
 --- !u!82 &1409445591
 AudioSource:
@@ -2572,6 +2573,7 @@ MonoBehaviour:
   gunScript: {fileID: 0}
   HYPECounter: {fileID: 0}
   HYPEDuration: 7
+  HYPEsound: {fileID: 0}
 --- !u!1 &1518455098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2686,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
-  testCar: {fileID: 0}
+  testCar: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
 --- !u!4 &1554076582
 Transform:
   m_ObjectHideFlags: 0
@@ -2696,7 +2698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1554076583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3080,7 +3082,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: player
@@ -3218,7 +3220,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: possTrains.Array.data[3]
       value: 

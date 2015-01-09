@@ -43,6 +43,10 @@ public class bullet : MonoBehaviour {
 			//Invoke("returnColor", .3f); HELP: need a way/place to return color after a short delay, even though bullet is gone. Maybe call in enemyScripts?
 			Destroy (gameObject);
 		}
+		if(colObj.tag == "dino") {
+			colObj.gameObject.GetComponent<BigDino>().Hurt (10f);
+			Destroy (gameObject);
+		}
 		//If it hits a breakable object
 		if (colObj.collider2D.tag == "breakable" || colObj.collider2D.tag == "meat") {
 			colObj.gameObject.GetComponent<breakable>().Damage();

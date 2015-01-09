@@ -5,49 +5,49 @@ public enum DinoState //enemy states dictate what mode enemies are in
 {
 	IDLE,
 	ATTACK,
-	CHASE,
-	DASH
+	DASH,
+	STUN
 }
 
 public class BigDino : MonoBehaviour {
-	/*
-	public float health = 20f;
-	public EnemyState State = EnemyState.IDLE; //basic state
-	public float EnemySpeed = 2f;
-	public float AttackDist = 10f;  //distance at which enemy will switch to attacking
+
+	public float health = 100f;
+	public DinoState State = DinoState.IDLE; //basic state
+	public float DinoSpeed = 6f;
+	public float AttackDist = 12f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
-	[HideInInspector] public Vector3 posOfTrans1; 
-	[HideInInspector] public Vector3 posOfTrans2;
-	
-	private Vector2 StrollStart = new Vector2(0, 0);
-	
-	private bool strolling = false;
-	
+
+	public float stunTime = 2f;
+	public Vector2 recoil;
+	private bool stunned = false;
+	private bool predash = true;
+	private bool predashOnce = true;
+	private float predashTime = 1f;
+	private bool postDash = false;
+	private float dashTime = .3f;
+	private Transform dashCastTransform;
+
 	private float startTime;
 	
 	//raycast info
-	public float dashCast = 20f; //wall distance
-	public float jumpCast = 5f; //jump distance
+	public float dashCast = 20f;
 	public LayerMask dashMask;  
-	public LayerMask jumpMask; 
 	public Vector2 dashVec; //force vector applied during dash
-	public Vector2 jumpVec; //force vector applied during jump
-	public float dashCD = 2f; //time between dashes
-	public float jumpCD = 2f; //time between dashes
+	public float dashCD = 3f; //time between dashes
 	public LayerMask enemyGroundMask;
 	[HideInInspector] public bool dashRdy = true;
-	[HideInInspector] public bool jumpRdy = true;
-	[HideInInspector] public float groundCast = 1f;
+	public float groundCast = 1f;
 	[HideInInspector] public Itemizer money;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 	
 	// Use this for initialization
 	void Start () {
 		health *= Multiplier.enemyHealth;
-		EnemySpeed *= Multiplier.enemySpeed;
+		DinoSpeed *= Multiplier.enemySpeed;
+		dashCastTransform = gameObject.transform.Find ("dashCast");
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
@@ -57,25 +57,19 @@ public class BigDino : MonoBehaviour {
 	void Update () {
 		if(transform.position.y < -5f) Destroy (gameObject);
 		//grounde = isGrounded ();
-		posOfTrans1 = transform.position;
-		posOfTrans1 = Player.transform.position;
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
-		if (distToPlayer < AttackDist) 
+		Debug.Log (State);
+		if ((distToPlayer < AttackDist) && (State == DinoState.IDLE)) 
 		{
-			State = EnemyState.ATTACK;
+			State = DinoState.ATTACK;
 		} 
-		if (State == EnemyState.ATTACK && isJump ()) //enemy is about to jump!
-		{
-			jumpRdy = false;           //turn off jumping
-			Invoke ("jumpOn", jumpCD); //turn it back on again after a cooldown
-			State = EnemyState.JUMP;
-		}
-		if (State == EnemyState.ATTACK && isDash ()) //enemy is about to dash!
+
+		if (State == DinoState.ATTACK && isDash ()) //enemy is about to dash!
 		{
 			dashRdy = false;           //turn off dashing
 			Invoke ("dashOn", dashCD); //turn it back on again after a cooldown
-			State = EnemyState.DASH; 
+			State = DinoState.DASH; 
 		}
 		Act();
 	}
@@ -96,64 +90,81 @@ public class BigDino : MonoBehaviour {
 	{
 		switch(State)
 		{
-		case EnemyState.ATTACK: Attack(); break;
-		case EnemyState.IDLE: Idle(); break;
-		case EnemyState.CHASE: Chase(); break;
-		case EnemyState.DASH: Dash (); break;
-		case EnemyState.JUMP: Jump (); break;
+		case DinoState.ATTACK: Attack(); break;
+		case DinoState.IDLE: Idle(); break;
+		case DinoState.DASH: Dash (); break;
+		case DinoState.STUN: Stun (); break;
 		default: Idle();break;
 			
 		}
 	}
 	
-	virtual protected void Attack()
+	private void Attack()
 	{
-		if (isJump ()) return; //prevents enemy from moving when he should be jumping
-		if (isDash ()) return;
+		if (isDash ()) return; //prevents enemy from moving when he should be jumping
 		if (transform.position.x < Player.transform.position.x) 
 		{
-			rigidbody2D.velocity = new Vector2 (EnemySpeed, rigidbody2D.velocity.y); 
+			rigidbody2D.velocity = new Vector2 (DinoSpeed, rigidbody2D.velocity.y); 
 		} 
 		else 
 		{
-			rigidbody2D.velocity = new Vector2 (EnemySpeed *-1, rigidbody2D.velocity.y); 
+			rigidbody2D.velocity = new Vector2 (DinoSpeed *-1, rigidbody2D.velocity.y); 
 		}
 		
 	}
 	
-	virtual public void Idle()
+	private void Idle()
 	{
-		if (!strolling)
-		{
-			StrollStart = transform.position;
-			strolling = true;
+		
+	}
+
+	private void Stun()
+	{
+		//play stunned animation?
+		if(!stunned){
+			stunned = true;
+			rigidbody2D.AddForce (new Vector2(recoil.x * -direction, recoil.y)); // stun recoil, does the direction need to be there?
+			Invoke ("endStun", stunTime);
 		}
-		
-		if (Vector2.Distance (transform.position, StrollStart) > StrollDist) 
-		{
-			direction *= -1;
-			strolling = false;
+	}
+
+	private void endStun() {
+		State = DinoState.ATTACK;
+		stunned = false;
+	}
+
+	private void pause() { //pre dash pause to give player time to dodge
+		//animation if we have one
+		Invoke ("unpause", predashTime);
+
+	}
+	private void unpause() {
+		predash = false;
+	}
+	private void Dash()
+	{
+		if(postDash){ 
+			return;
 		}
-		
-		rigidbody2D.velocity = new Vector2 (EnemySpeed *direction, rigidbody2D.velocity.y); 
-		
-	}
-	
-	void Dash()
-	{
-		rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
-		State = EnemyState.ATTACK;
-	}
-	void Jump()
-	{
-		rigidbody2D.AddForce (new Vector2(jumpVec.x*direction, jumpVec.y));
-		State = EnemyState.IDLE;
-	}
-	
-	void Chase()
-	{
-		//move until reach edge or near enough to player
-		
+		if(predashOnce) {
+			predashOnce = false;
+			pause ();
+		}
+		if(!predash) {
+			predash = true;
+			predashOnce = true;
+			if(transform.position.x > Player.transform.position.x)
+			{
+				rigidbody2D.AddForce (new Vector2(dashVec.x*-direction, dashVec.y));
+			}
+			else if(transform.position.x <= Player.transform.position.x)
+			{
+				rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
+			}
+
+			postDash = true;
+			Invoke ("aggro", dashTime);
+		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D colObj){
@@ -169,13 +180,18 @@ public class BigDino : MonoBehaviour {
 			}
 			Player.GetComponent<CharControl>().hitAnim();
 		}
+		if(State == DinoState.DASH && colObj.collider.tag == "wall") {
+			State = DinoState.STUN;
+		}
 	}
 	
 	virtual public void Hurt(float damage){
-		State = EnemyState.ATTACK;
+		if(State == DinoState.IDLE) {
+			State = DinoState.ATTACK;
+		}
 		health -= damage;
 		if (health <= 0) {
-			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
+			money.At (transform.position, Random.Range ((int)(10 * Multiplier.moneyDrop),(int)(50 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);
 		}
@@ -183,24 +199,12 @@ public class BigDino : MonoBehaviour {
 	
 	public bool isDash() //raycast in front of enemy, if it hits the player, true
 	{
-		return Physics2D.Raycast (transform.position, transform.right, dashCast, dashMask) && dashRdy;
+		return Physics2D.Raycast (dashCastTransform.position, transform.right, dashCast, dashMask) && dashRdy;
 	}
-	public bool isJump() //raycast in front of enemy, if it hits a wall, and it looks small enough to jump over, true
-	{
-		//return Physics2D.Raycast (transform.position, (transform.up + transform.right).normalized, jumpCast, jumpMask) && 
-		//if (Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask)) {
-		//	return true;
-		//}
-		return Physics2D.Raycast (transform.position, transform.right, jumpCast, jumpMask) && jumpRdy && isGrounded ();
-	}
-	
+
 	public void dashOn() 
 	{
 		dashRdy = true;
-	}
-	public void jumpOn() 
-	{
-		jumpRdy = true;
 	}
 	
 	public bool isGrounded()
@@ -210,12 +214,10 @@ public class BigDino : MonoBehaviour {
 	
 	public void aggro()
 	{
-		State = EnemyState.ATTACK;
+		if(State != DinoState.STUN) {
+			postDash = false;
+			State = DinoState.ATTACK;
+		}
 	}
-	
-	public void shortenAttack()
-	{
-		AttackDist = AttackDist/2;
-	}*/
-	
+
 }

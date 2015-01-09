@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour {
 		//grounde = isGrounded ();
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
-		if (distToPlayer < AttackDist) 
+		if ((distToPlayer < AttackDist) && (State != EnemyState.ATTACK) && (State != EnemyState.DASH) && (State != EnemyState.JUMP)) 
 		{
 			State = EnemyState.ATTACK;
 		} 
