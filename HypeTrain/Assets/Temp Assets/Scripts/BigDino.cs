@@ -14,13 +14,14 @@ public class BigDino : MonoBehaviour {
 	public float health = 100f;
 	public DinoState State = DinoState.IDLE; //basic state
 	public float DinoSpeed = 6f;
-	public float AttackDist = 12f;  //distance at which enemy will switch to attacking
+	public float AttackDist = 35f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
+	public Animator Animator;
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
 
-	public float stunTime = 2f;
+	public float stunTime = 3f;
 	public Vector2 recoil;
 	private bool stunned = false;
 	private bool predash = true;
@@ -120,7 +121,8 @@ public class BigDino : MonoBehaviour {
 
 	private void Stun()
 	{
-		//play stunned animation?
+		Animator.Play ("dino_bite");
+		gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		if(!stunned){
 			stunned = true;
 			rigidbody2D.AddForce (new Vector2(recoil.x * -direction, recoil.y)); // stun recoil, does the direction need to be there?
@@ -129,12 +131,15 @@ public class BigDino : MonoBehaviour {
 	}
 
 	private void endStun() {
+		Animator.Play ("dino_walk");
+		gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+		postDash = false;
 		State = DinoState.ATTACK;
 		stunned = false;
 	}
 
 	private void pause() { //pre dash pause to give player time to dodge
-		//animation if we have one
+		Animator.Play ("dino_run");
 		Invoke ("unpause", predashTime);
 
 	}
@@ -144,6 +149,7 @@ public class BigDino : MonoBehaviour {
 	private void Dash()
 	{
 		if(postDash){ 
+			Animator.Play ("dino_walk");
 			return;
 		}
 		if(predashOnce) {
