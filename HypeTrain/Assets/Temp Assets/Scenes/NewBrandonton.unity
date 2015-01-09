@@ -1337,6 +1337,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 96823
   lazerLength: 40
+  bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
   interShotDelay: .100000001
   rTimerOn: 0
   reloadTime: 1
@@ -1510,7 +1511,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: cameraObj
@@ -2827,7 +2828,7 @@ Transform:
   m_GameObject: {fileID: 1601425287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 545465687}
   - {fileID: 420809766}
@@ -2940,7 +2941,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3629822683
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 862c3fede42ed124895ae28149b1d3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1601425294
 MonoBehaviour:
@@ -3281,7 +3282,7 @@ TrailRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0144a8f9e0ca53643943c93254e15e69, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3290,8 +3291,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0
-  m_StartWidth: 2
-  m_EndWidth: 2
+  m_StartWidth: 1.5
+  m_EndWidth: 1.5
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -3346,8 +3347,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1808987551}
   - 96: {fileID: 1808987554}
-  - 114: {fileID: 1808987553}
   - 114: {fileID: 1808987552}
+  - 114: {fileID: 1808987553}
   m_Layer: 10
   m_Name: purpleTrail
   m_TagString: Untagged
@@ -3407,7 +3408,7 @@ TrailRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0144a8f9e0ca53643943c93254e15e69, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3416,8 +3417,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0
-  m_StartWidth: 2
-  m_EndWidth: 2
+  m_StartWidth: 1.5
+  m_EndWidth: 1.5
   m_Colors:
     m_Color[0]:
       serializedVersion: 2

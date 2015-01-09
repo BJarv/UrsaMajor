@@ -1481,14 +1481,14 @@ MonoBehaviour:
   Player: {fileID: 0}
   direction: 1
   distToPlayer: 0
-  stunTime: 0
+  stunTime: 2
   recoil: {x: 500, y: 500}
-  dashCast: 10
+  dashCast: 7
   dashMask:
     serializedVersion: 2
     m_Bits: 1024
-  dashVec: {x: 1000, y: 600}
-  dashCD: 2
+  dashVec: {x: 800, y: 600}
+  dashCD: 3
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
