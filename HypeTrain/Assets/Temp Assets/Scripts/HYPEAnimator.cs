@@ -20,9 +20,9 @@ public class HYPEAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(ScoreKeeper.HYPE == 0) animator.Play ("HYPE_0");
-		if(ScoreKeeper.HYPE == 1) animator.Play ("HYPE_1");
-		if(ScoreKeeper.HYPE == 2) animator.Play ("HYPE_2");
-		if(ScoreKeeper.HYPE == 3 && !ScoreKeeper.HYPED) animator.Play ("HYPE_Full");
-		if(ScoreKeeper.HYPE == 3 && ScoreKeeper.HYPED) animator.Play ("HYPE_Active");
+		if(ScoreKeeper.HYPE == 2) animator.Play ("HYPE_1");
+		if(ScoreKeeper.HYPE == 4) animator.Play ("HYPE_2");
+		if(ScoreKeeper.HYPE == 6 && !ScoreKeeper.HYPED) animator.Play ("HYPE_Full");
+		if(ScoreKeeper.HYPE == 6 && ScoreKeeper.HYPED) animator.Play ("HYPE_Active");
 	}
 }

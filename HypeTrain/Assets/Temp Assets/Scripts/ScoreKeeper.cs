@@ -20,10 +20,8 @@ public class ScoreKeeper : MonoBehaviour {
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
 	public int incrementHype(bool increment){ 
-		if 		(HYPE == 0 && !HYPED) HYPE = 1;
-		else if (HYPE == 1 && !HYPED) HYPE = 2;
-		else if (HYPE == 2 && !HYPED) HYPE = 3;
-		else if (HYPE == 3 && !increment) HYPE = 0;
+		if 		(HYPE < 6 && !HYPED) HYPE++;
+		else if (HYPE == 6 && !increment) HYPE = 0;
 
 		return HYPE;
 	}
