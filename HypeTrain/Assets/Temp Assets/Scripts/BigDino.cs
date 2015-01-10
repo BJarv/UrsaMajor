@@ -148,8 +148,7 @@ public class BigDino : MonoBehaviour {
 	private void pause() { //pre dash pause to give player time to dodge
 		Animator.Play ("dino_run");
 		//Store the dash direction upon pausing
-		if(transform.position.x > Player.transform.position.x)dashVec.x = -dashVec.x;
-		else if(transform.position.x <= Player.transform.position.x)dashVec.x = dashVec.x;
+		if(transform.position.x > Player.transform.position.x) dashVec.x = -dashVec.x;
 		Invoke ("unpause", predashTime);
 
 	}
