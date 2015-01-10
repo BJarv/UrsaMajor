@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour {
 	[HideInInspector] public bool deathCheckCheck = false; //checks to see if you can deathcheck lol
 	[HideInInspector] public GameObject camObj;
 	[HideInInspector] public GameObject player;
-	[HideInInspector] public bool alreadyDying = false;
+	public static bool alreadyDying = false;
 	private bool healed = false;
 
 
@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
 		player = GameObject.Find ("character");
 		camObj = GameObject.Find ("Main Camera");
 		playerHealth = maxHealth;
+		alreadyDying = false;
 	}
 	
 	// Update is called once per frame
@@ -34,16 +35,6 @@ public class PlayerHealth : MonoBehaviour {
 			Invoke ("safetyKill", 2*deathDelay);
 			player.GetComponent<CharControl>().StartDeath (); 
 			Invoke("deathCheck", deathDelay);
-			/*if(!dying){
-				resetTimer = 0.0f;
-				dying = true;
-			} else { 
-				bool timer = (Time.time > resetTimer + deathDelay);
-				if(timer){
-					Game.addLoot(ScoreKeeper.Score);
-					endOfLife = true;
-				}
-			}*/
 		}
 		//Restore health upon entering HYPEMode
 		if (ScoreKeeper.HYPED && !healed) {

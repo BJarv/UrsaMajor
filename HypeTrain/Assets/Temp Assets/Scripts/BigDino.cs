@@ -10,7 +10,7 @@ public enum DinoState //enemy states dictate what mode enemies are in
 }
 
 public class BigDino : MonoBehaviour {
-
+	
 	public float health = 100f;
 	public DinoState State = DinoState.IDLE; //basic state
 	public float DinoSpeed = 6f;
@@ -20,7 +20,7 @@ public class BigDino : MonoBehaviour {
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
-
+	
 	public float stunTime = 3f;
 	public Vector2 recoil;
 	private bool stunned = false;
@@ -36,7 +36,7 @@ public class BigDino : MonoBehaviour {
 	public bool inThrowRange = false;
 	public bool throwing = false;
 	public float throwCD = 1f;
-
+	
 	private float startTime;
 	
 	//raycast info
@@ -96,7 +96,7 @@ public class BigDino : MonoBehaviour {
 				transform.localEulerAngles = new Vector3 (0, 180, 0);
 			}
 		}
-
+		
 	}
 	
 	public void Act()
@@ -135,7 +135,7 @@ public class BigDino : MonoBehaviour {
 	{
 		
 	}
-
+	
 	private void Stun()
 	{
 		Animator.Play ("dino_bite");
@@ -150,7 +150,7 @@ public class BigDino : MonoBehaviour {
 			Invoke ("endStun", stunTime);
 		}
 	}
-
+	
 	private void endStun() {
 		Animator.Play ("dino_walk");
 		gameObject.GetComponent<SpriteRenderer>().color = Color.white;
@@ -158,7 +158,7 @@ public class BigDino : MonoBehaviour {
 		State = DinoState.ATTACK;
 		stunned = false;
 	}
-
+	
 	private void pause() { //pre dash pause to give player time to dodge
 		Animator.Play ("dino_run");
 		if(transform.position.x > Player.transform.position.x) {
@@ -167,7 +167,6 @@ public class BigDino : MonoBehaviour {
 		} else {
 			rigidbody2D.velocity = new Vector2 (1f, rigidbody2D.velocity.y);
 		}
-
 		Invoke ("unpause", predashTime);
 	}
 	private void unpause() {
@@ -189,16 +188,16 @@ public class BigDino : MonoBehaviour {
 			
 			rigidbody2D.AddForce (new Vector2(dashVec.x, dashVec.y)); //Execute dash
 			dashVec.x = Mathf.Abs (dashVec.x);						  //Reset sign (+/-) of dashVec.x
-
+			
 			postDash = true;
 			Invoke ("aggro", dashTime);
 		}
 	}
-
+	
 	private void playerCollideOn() {
 		Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, false);
 	}
-
+	
 	public void playerThrow() {
 		Player.GetComponent<PlayerHealth>().Hurt(10);
 		Invoke ("playerCollideOn", 1.5f);
@@ -209,7 +208,7 @@ public class BigDino : MonoBehaviour {
 			Player.rigidbody2D.AddForce (new Vector2 (-throwPlayer.x, throwPlayer.y)); 
 		}
 	}
-
+	
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
@@ -227,7 +226,7 @@ public class BigDino : MonoBehaviour {
 			wallPos = colObj.gameObject;
 			State = DinoState.STUN;
 		}
-
+		
 	}
 	
 	virtual public void Hurt(float damage){
@@ -252,16 +251,16 @@ public class BigDino : MonoBehaviour {
 		}
 		//return Physics2D.Raycast (dashCastTransform.position, transform.right, dashCast, dashMask) && dashRdy;
 	}
-
+	
 	public void dashOn() 
 	{
 		dashRdy = true;
 	}
-
+	
 	private void throwingDone() {
 		throwing = false;
 	}
-
+	
 	public bool isGrounded()
 	{
 		return Physics2D.Raycast (transform.position, -Vector2.up, groundCast, enemyGroundMask);
@@ -274,5 +273,5 @@ public class BigDino : MonoBehaviour {
 			State = DinoState.ATTACK;
 		}
 	}
-
+	
 }

@@ -68,7 +68,6 @@ public class DesertHandler : MonoBehaviour {
 				deserts.Peek().transform.localScale = Vector3.Scale (deserts.Peek ().transform.localScale , new Vector3(-1,1,1));
 			}
 			flipper = flipper * -1;
-			Debug.Log (flipper);
 				}
 	}
 }

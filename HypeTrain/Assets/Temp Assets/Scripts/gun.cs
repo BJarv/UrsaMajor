@@ -61,7 +61,7 @@ public class gun : MonoBehaviour {
 				else
 						transform.localScale = new Vector3(1,-1,1);
 		
-		if (Input.GetButton ("Fire1") && Firable () && !HYPEController.lazers) {
+		if (Input.GetButton ("Fire1") && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 

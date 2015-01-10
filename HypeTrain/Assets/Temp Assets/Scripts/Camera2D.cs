@@ -17,8 +17,8 @@ public class Camera2D : MonoBehaviour {
 	private Transform thisTransform;
 	private Vector2 velocity;
 
-	public float maxCamHeight = 20f;
-	private float heightTest;
+	public float trainTopLower = 15f; //Locks camera on top of cars when player's
+	public float trainTopUpper = 30f; // y position is between these values
 
 	//Zoom variables
 	private float cameraPosition = 0;
@@ -38,6 +38,10 @@ public class Camera2D : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector2 newPos2D = Vector2.zero;
+		if (PlayerHealth.alreadyDying) {
+			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
+			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
+		}
 		if (centerLock == 1f) { //1 means it's a long car, so shift down the y value and keep the x scrolling
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
 			//newPos2D.y = 6.5f; //default for now
@@ -45,17 +49,16 @@ public class Camera2D : MonoBehaviour {
 		}
 		else if (lockCamera) {	//Lock on second car (for now)
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, centerLock, ref velocity.x, smoothrate);//trainleft + trainright / 2
-			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate); //default for now
-		} else { 								//Left-right tracking an train-top level
+			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate);      //default y for now
+		} else { 								//Left-right tracking at train-top level
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
-			heightTest = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
-			if (heightTest > maxCamHeight){
-				newPos2D.y = 20f;
+			if (trainTopUpper > player.position.y &&  player.position.y > trainTopLower){ 								  //If near the top of traincars, lock y camera
+				newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 20f, ref velocity.y, smoothrate);
+			} else if (player.position.y < 3f) {
+				newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 3f, ref velocity.y, smoothrate);
 			} else {
-				newPos2D.y = heightTest;   //default for now
+				newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);  //If way higher or lower than the top, unlock y camera
 			}
-			//*****Replace 20 with the line below for omnidirectional tracking
-			//Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
 		}
 		//Update the camera
 		Vector3 newPos = new Vector3 (newPos2D.x, newPos2D.y, transform.position.z);
