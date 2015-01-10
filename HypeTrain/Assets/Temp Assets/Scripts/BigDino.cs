@@ -163,18 +163,12 @@ public class BigDino : MonoBehaviour {
 		Animator.Play ("dino_run");
 		if(transform.position.x > Player.transform.position.x) {
 			rigidbody2D.velocity = new Vector2 (-1f, rigidbody2D.velocity.y);
-			dashVec.x = -dashVec.x;
+			dashVec.x = -dashVec.x;//Store the dash direction upon pausing
 		} else {
 			rigidbody2D.velocity = new Vector2 (1f, rigidbody2D.velocity.y);
 		}
-		//Store the dash direction upon pausing
-<<<<<<< HEAD
-		if(transform.position.x > Player.transform.position.x) dashVec.x = -dashVec.x;
-=======
-		//else if(transform.position.x <= Player.transform.position.x) dashVec.x = dashVec.x;
->>>>>>> 088ccec44e777eee6e75d7566d94b893c184037a
-		Invoke ("unpause", predashTime);
 
+		Invoke ("unpause", predashTime);
 	}
 	private void unpause() {
 		predash = false;

@@ -13,7 +13,6 @@ public class notStunTrig : MonoBehaviour {
 		
 	}
 	void OnTriggerEnter2D(Collider2D hit) {
-		Debug.Log (hit.tag);
 		if(hit.tag == "Player") {
 			transform.parent.GetComponent<BigDino>().inNotStunRange = true;
 		}
