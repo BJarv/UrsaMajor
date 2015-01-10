@@ -38,6 +38,8 @@ public class CharControl : MonoBehaviour {
 	
 	public int horizDirection = 1;
 
+	public static bool dead;
+
 	int IDofTrigs = 8;
 	int IDofProjs = 13;
 	int IDofEnes = 11;
@@ -149,7 +151,8 @@ public class CharControl : MonoBehaviour {
 		animator.SetBool ("Hit",true);
 		animator.SetBool ("Jump", false);
 		gameObject.collider2D.enabled = false;
-		Destroy (gameObject, 5f);
+		dead = true;
+		Destroy (gameObject, 3f);
 	}
 
 	void Flip(float moveH)
