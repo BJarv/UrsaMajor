@@ -362,7 +362,24 @@ GameObject:
   - 4: {fileID: 400042}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400014}
-  m_Layer: 11
+  m_Layer: 8
+  m_Name: notStun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100044
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400044}
+  - 114: {fileID: 11400016}
+  - 61: {fileID: 6100002}
+  m_Layer: 8
   m_Name: throwArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,11 +893,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .310000002, y: -.970000029, z: 0}
+  m_LocalPosition: {x: 1.05999994, y: -.970000029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 487456}
   m_RootOrder: 1
+--- !u!4 &400044
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .800000012, y: -1.03999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487456}
+  m_RootOrder: 2
 --- !u!4 &428804
 Transform:
   m_ObjectHideFlags: 1
@@ -930,6 +959,7 @@ Transform:
   m_Children:
   - {fileID: 400040}
   - {fileID: 400042}
+  - {fileID: 400044}
   m_Father: {fileID: 487464}
   m_RootOrder: 0
 --- !u!4 &487462
@@ -1162,7 +1192,18 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 6.42999983, y: 2.55999994}
+  m_Size: {x: 9.52999973, y: 3.58999991}
+  m_Center: {x: 0, y: 0}
+--- !u!61 &6100002
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 8.02000046, y: 3.16000009}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6128804
 BoxCollider2D:
@@ -1185,7 +1226,7 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
-  - {x: -16.4942894, y: -.80459547}
+  - {x: 4.56881046, y: 32.9808502}
   - {x: 4.48090553, y: -.771121502}
 --- !u!68 &6828804
 EdgeCollider2D:
@@ -1489,6 +1530,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100042}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d558996328a8145868afa918104f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301b704e04d31448dd0c3e362cddad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1525,9 +1577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39de07c01d7127a43be5725b2fb3302a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   State: 0
-  DinoSpeed: 6
+  DinoSpeed: 9
   AttackDist: 20
   StrollDist: 10
   Animator: {fileID: 9587440}
@@ -1536,14 +1588,17 @@ MonoBehaviour:
   distToPlayer: 0
   stunTime: 3
   recoil: {x: 250, y: 250}
-  throwPlayer: {x: 1900, y: 2300}
+  throwPlayer: {x: 0, y: 2000}
+  inNotStunRange: 0
   inThrowRange: 0
-  dashCast: 7
+  throwing: 0
+  throwCD: 1
+  dashCast: 4
   dashMask:
     serializedVersion: 2
     m_Bits: 1024
   dashVec: {x: 3000, y: 200}
-  dashCD: 3
+  dashCD: 6
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
