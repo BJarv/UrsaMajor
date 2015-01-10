@@ -982,7 +982,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.8179998, y: -2.94300008, z: -10}
+  m_LocalPosition: {x: 15.4099998, y: -2.94000006, z: -10}
   m_LocalScale: {x: .860000014, y: 106.747368, z: 1}
   m_Children: []
   m_Father: {fileID: 487480}
@@ -994,7 +994,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.20420837, y: -3.35255814, z: -10}
+  m_LocalPosition: {x: -15.3500004, y: -3.3499999, z: -10}
   m_LocalScale: {x: .625, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 487480}
@@ -1192,10 +1192,10 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
-  - {x: -.277206004, y: -.0418505929}
-  - {x: 1.24914742, y: .0509376265}
-  - {x: 1.99864066, y: .0508691147}
-  - {x: .27305913, y: -.0419640169}
+  - {x: -.959516108, y: -.0417737141}
+  - {x: .560477674, y: .0512400791}
+  - {x: 1.27284467, y: .051272355}
+  - {x: -.338658601, y: -.0420972072}
 --- !u!68 &6887434
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1206,10 +1206,10 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
-  - {x: -15.6585312, y: -7.9155221}
-  - {x: -18.0228767, y: 11.32691}
-  - {x: -17.0513916, y: 11.3657742}
-  - {x: -14.9796467, y: -7.9504118}
+  - {x: .445748895, y: -7.78047276}
+  - {x: -1.86287236, y: 11.4303465}
+  - {x: -.833961487, y: 11.4312391}
+  - {x: 1.34752655, y: -7.74783802}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   direction: 1
   distToPlayer: 0
   stunTime: 3
-  recoil: {x: 500, y: 500}
+  recoil: {x: 250, y: 250}
   dashCast: 7
   dashMask:
     serializedVersion: 2

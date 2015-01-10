@@ -30,6 +30,7 @@ public class BigDino : MonoBehaviour {
 	private bool postDash = false;
 	private float dashTime = .3f;
 	private Transform dashCastTransform;
+	private GameObject wallPos;
 
 	private float startTime;
 	
@@ -65,7 +66,6 @@ public class BigDino : MonoBehaviour {
 		{
 			State = DinoState.ATTACK;
 		} 
-
 		if (State == DinoState.ATTACK && isDash ()) //enemy is about to dash!
 		{
 			dashRdy = false;           //turn off dashing
@@ -80,11 +80,14 @@ public class BigDino : MonoBehaviour {
 	}
 	//Code to flip sprite
 	void Flip(float moveH){
-		if (moveH > 0) {
-			transform.localEulerAngles = new Vector3 (0, 0, 0);
-		} else if (moveH < 0) {
-			transform.localEulerAngles = new Vector3 (0, 180, 0);
+		if (!stunned || !predashOnce) {
+			if (moveH > 0) {
+				transform.localEulerAngles = new Vector3 (0, 0, 0);
+			} else if (moveH < 0) {
+				transform.localEulerAngles = new Vector3 (0, 180, 0);
+			}
 		}
+
 	}
 	
 	public void Act()
@@ -125,7 +128,11 @@ public class BigDino : MonoBehaviour {
 		gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		if(!stunned){
 			stunned = true;
-			rigidbody2D.AddForce (new Vector2(recoil.x * -direction, recoil.y)); // stun recoil, does the direction need to be there?
+			if(transform.position.x > wallPos.transform.position.x){
+				rigidbody2D.AddForce (new Vector2(recoil.x, recoil.y)); // Recoil off left wall
+			} else if(transform.position.x < wallPos.transform.position.x){
+				rigidbody2D.AddForce (new Vector2(-recoil.x, recoil.y)); // Recoil off rightt wall
+			}
 			Invoke ("endStun", stunTime);
 		}
 	}
@@ -133,13 +140,16 @@ public class BigDino : MonoBehaviour {
 	private void endStun() {
 		Animator.Play ("dino_walk");
 		gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-		postDash = false;
+		postDash = false;	//resets dashCD
 		State = DinoState.ATTACK;
 		stunned = false;
 	}
 
 	private void pause() { //pre dash pause to give player time to dodge
 		Animator.Play ("dino_run");
+		//Store the dash direction upon pausing
+		if(transform.position.x > Player.transform.position.x)dashVec.x = -dashVec.x;
+		else if(transform.position.x <= Player.transform.position.x)dashVec.x = dashVec.x;
 		Invoke ("unpause", predashTime);
 
 	}
@@ -159,14 +169,9 @@ public class BigDino : MonoBehaviour {
 		if(!predash) {
 			predash = true;
 			predashOnce = true;
-			if(transform.position.x > Player.transform.position.x)
-			{
-				rigidbody2D.AddForce (new Vector2(dashVec.x*-direction, dashVec.y));
-			}
-			else if(transform.position.x <= Player.transform.position.x)
-			{
-				rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
-			}
+
+			rigidbody2D.AddForce (new Vector2(dashVec.x, dashVec.y)); //Execute dash
+			dashVec.x = Mathf.Abs (dashVec.x);						  //Reset sign (+/-) of dashVec.x
 
 			postDash = true;
 			Invoke ("aggro", dashTime);
@@ -176,17 +181,18 @@ public class BigDino : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			if(transform.position.x - colObj.transform.position.x > 0)
+			if(transform.position.x > colObj.transform.position.x)
 			{
 				Player.rigidbody2D.AddForce(new Vector2(-200, 375));
 			}
-			else if(transform.position.x - colObj.transform.position.x < 0)
+			else if(transform.position.x < colObj.transform.position.x)
 			{
 				Player.rigidbody2D.AddForce(new Vector2(200, 375));
 			}
 			Player.GetComponent<CharControl>().hitAnim();
 		}
 		if(State == DinoState.DASH && colObj.collider.tag == "wall") {
+			wallPos = colObj.gameObject;
 			State = DinoState.STUN;
 		}
 	}
@@ -198,7 +204,8 @@ public class BigDino : MonoBehaviour {
 		health -= damage;
 		if (health <= 0) {
 			money.At (transform.position, Random.Range ((int)(10 * Multiplier.moneyDrop),(int)(50 * Multiplier.moneyDrop)));
-			HYPECounter.incrementHype(true); //Increment HYPE on kill
+			HYPECounter.incrementHype(true); //Increment HYPE twice for big kill
+			HYPECounter.incrementHype(true);
 			Destroy (gameObject);
 		}
 	}
