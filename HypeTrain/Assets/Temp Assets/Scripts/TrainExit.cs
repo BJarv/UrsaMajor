@@ -58,7 +58,9 @@ public class TrainExit : MonoBehaviour {
 			TutShopController.tutorial = false;
 		}
 		check = false;
-		Invoke ("ignoreExitCollide", .5f);
+		if(!transform.parent.transform.parent.transform.parent.name.Contains("DinoCar")){ //if this car is the 2nd Tutorial Car, turn off tutorial when you leave it.
+			Invoke ("ignoreExitCollide", .5f);
+		}
 	}
 
 	void ignoreExitCollide()
