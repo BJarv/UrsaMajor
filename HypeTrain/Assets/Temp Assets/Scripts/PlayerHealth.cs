@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour {
 		if ((playerHealth <= 0f || transform.position.y < -5f) && !alreadyDying) {
 			//Causes game end in Popup script
 			alreadyDying = true;
+			Invoke ("safetyKill", 2*deathDelay);
 			player.GetComponent<CharControl>().StartDeath (); 
 			Invoke("deathCheck", deathDelay);
 			/*if(!dying){
@@ -54,7 +55,9 @@ public class PlayerHealth : MonoBehaviour {
 		}
 		if (!ScoreKeeper.HYPED) healed = false;
 	}
-
+	public void safetyKill() {
+		camObj.GetComponent<Popup> ().dead = true;
+	}
 	public void deathCheck() {
 		Game.addLoot(ScoreKeeper.Score);
 		Game.addCarsCleared (ScoreKeeper.carsCompleted);

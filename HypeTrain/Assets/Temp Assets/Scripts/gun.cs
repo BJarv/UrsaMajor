@@ -37,6 +37,7 @@ public class gun : MonoBehaviour {
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+
 	}
 	
 	// Update is called once per frame
@@ -71,7 +72,7 @@ public class gun : MonoBehaviour {
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
-			var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
+			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
 			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
 			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
 
