@@ -352,6 +352,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400042}
+  - 61: {fileID: 6100000}
+  - 114: {fileID: 11400014}
+  m_Layer: 11
+  m_Name: throwArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &128804
 GameObject:
   m_ObjectHideFlags: 1
@@ -852,6 +869,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487456}
   m_RootOrder: 0
+--- !u!4 &400042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .310000002, y: -.970000029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487456}
+  m_RootOrder: 1
 --- !u!4 &428804
 Transform:
   m_ObjectHideFlags: 1
@@ -896,10 +925,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.76999998, y: -5.17000008, z: 0}
+  m_LocalPosition: {x: 1.86000001, y: -5.17000008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400040}
+  - {fileID: 400042}
   m_Father: {fileID: 487464}
   m_RootOrder: 0
 --- !u!4 &487462
@@ -1123,6 +1153,17 @@ PolygonCollider2D:
       - {x: .0769043043, y: -2.11596847}
       - {x: -.292236358, y: -1.86987472}
       - {x: -.199951187, y: -1.43921065}
+--- !u!61 &6100000
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 6.42999983, y: 2.55999994}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6128804
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1440,6 +1481,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortLayer: 3
   renderForward: 0
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301b704e04d31448dd0c3e362cddad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11428804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1476,7 +1528,7 @@ MonoBehaviour:
   health: 100
   State: 0
   DinoSpeed: 6
-  AttackDist: 35
+  AttackDist: 20
   StrollDist: 10
   Animator: {fileID: 9587440}
   Player: {fileID: 0}
@@ -1484,6 +1536,8 @@ MonoBehaviour:
   distToPlayer: 0
   stunTime: 3
   recoil: {x: 250, y: 250}
+  throwPlayer: {x: 1900, y: 2300}
+  inThrowRange: 0
   dashCast: 7
   dashMask:
     serializedVersion: 2
