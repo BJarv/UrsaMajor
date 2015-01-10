@@ -7,6 +7,7 @@ public class Popup : MonoBehaviour {
 	public float vol = .35f;
 	public float volOffset = .3f; //offset amount volume gets decreased during pause
 	[HideInInspector] public GameObject player;
+	[HideInInspector] public bool dead;
 
 	void Start () {
 		player = GameObject.Find ("character");
@@ -56,7 +57,7 @@ public class Popup : MonoBehaviour {
 			}
 			vol = GUI.HorizontalSlider (new Rect(Screen.width/2 - 100, Screen.height/2 + 75, 250, 50), vol, 0, 1); //set vol based on slider
 		}
-		if(player.transform.position.y < -15f) {
+		if(player.transform.position.y < -15f || dead) {
 
 			Time.timeScale = 0;
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 300), "Press Any Key to Retry"); //main background box

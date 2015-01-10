@@ -32,7 +32,10 @@ public class BigDino : MonoBehaviour {
 	private Transform dashCastTransform;
 	private GameObject wallPos;
 	public Vector2 throwPlayer;
+	public bool inNotStunRange = false;
 	public bool inThrowRange = false;
+	public bool throwing = false;
+	public float throwCD = 1f;
 	
 	private float startTime;
 	
@@ -40,7 +43,7 @@ public class BigDino : MonoBehaviour {
 	public float dashCast = 20f;
 	public LayerMask dashMask;  
 	public Vector2 dashVec; //force vector applied during dash
-	public float dashCD = 4f; //time between dashes
+	public float dashCD = 6f; //time between dashes
 	public LayerMask enemyGroundMask;
 	[HideInInspector] public bool dashRdy = true;
 	public float groundCast = 1f;
@@ -64,10 +67,10 @@ public class BigDino : MonoBehaviour {
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
 		Debug.Log (State);
-		if (postDash && inThrowRange) {
-			postDash = false;
-			playerThrow();
-		}
+		//if (postDash && inThrowRange) { //for throw during dash
+		//	postDash = false;
+		//	playerThrow();
+		//}
 		if ((distToPlayer < AttackDist) && (State == DinoState.IDLE)) 
 		{
 			State = DinoState.ATTACK;
@@ -112,6 +115,11 @@ public class BigDino : MonoBehaviour {
 	private void Attack()
 	{
 		if (isDash ()) return; //prevents enemy from moving when he should be jumping
+		if (inThrowRange && !throwing) {
+			throwing = true;
+			Invoke ("throwingDone", throwCD);
+			playerThrow ();
+		}
 		if (transform.position.x < Player.transform.position.x) 
 		{
 			rigidbody2D.velocity = new Vector2 (DinoSpeed, rigidbody2D.velocity.y); 
@@ -155,12 +163,10 @@ public class BigDino : MonoBehaviour {
 		Animator.Play ("dino_run");
 		if(transform.position.x > Player.transform.position.x) {
 			rigidbody2D.velocity = new Vector2 (-1f, rigidbody2D.velocity.y);
-			dashVec.x = -dashVec.x;
+			dashVec.x = -dashVec.x; //Store the dash direction upon pausing
 		} else {
 			rigidbody2D.velocity = new Vector2 (1f, rigidbody2D.velocity.y);
 		}
-		//Store the dash direction upon pausing
-		//else if(transform.position.x <= Player.transform.position.x) dashVec.x = dashVec.x;
 		Invoke ("unpause", predashTime);
 		
 	}
@@ -194,13 +200,12 @@ public class BigDino : MonoBehaviour {
 	}
 	
 	public void playerThrow() {
+		Player.GetComponent<PlayerHealth>().Hurt(10);
+		Invoke ("playerCollideOn", 1.5f);
+		Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, true);
 		if(Player.transform.position.x < transform.position.x) { //player is left of dino, throw right
-			Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, true);
-			Invoke ("playerCollideOn", 1.5f);
 			Player.rigidbody2D.AddForce (new Vector2 (throwPlayer.x, throwPlayer.y)); 
-		} else if (Player.transform.position.x > transform.position.x) { //player is right of dino, throw left
-			Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, true);
-			Invoke ("playerCollideOn", 1.5f);
+		} else if (Player.transform.position.x >= transform.position.x) { //player is right of dino, throw left
 			Player.rigidbody2D.AddForce (new Vector2 (-throwPlayer.x, throwPlayer.y)); 
 		}
 	}
@@ -218,7 +223,7 @@ public class BigDino : MonoBehaviour {
 			}
 			Player.GetComponent<CharControl>().hitAnim();
 		}
-		if(State == DinoState.DASH && colObj.collider.tag == "wall") {
+		if(State == DinoState.DASH && colObj.collider.tag == "wall" && !inNotStunRange) {
 			wallPos = colObj.gameObject;
 			State = DinoState.STUN;
 		}
@@ -251,6 +256,10 @@ public class BigDino : MonoBehaviour {
 	public void dashOn() 
 	{
 		dashRdy = true;
+	}
+	
+	private void throwingDone() {
+		throwing = false;
 	}
 	
 	public bool isGrounded()
