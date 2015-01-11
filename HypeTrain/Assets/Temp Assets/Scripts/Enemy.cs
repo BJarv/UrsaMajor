@@ -43,6 +43,9 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public Itemizer money;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 
+	public float initialDelay = Random.Range (.1f, .5f);
+	public bool delayDone = false;
+
 	// Use this for initialization
 	virtual protected void Start () {
 		health *= Multiplier.enemyHealth;
@@ -50,31 +53,35 @@ public class Enemy : MonoBehaviour {
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		Invoke ("endDelay", initialDelay);
+
 	}
 	
 	// Update is called once per frame
 	virtual protected void Update () {
-		if(transform.position.y < -5f) Destroy (gameObject);
-		//grounde = isGrounded ();
-		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
-		//Debug.Log (distToPlayer);
-		if ((distToPlayer < AttackDist) && (State != EnemyState.ATTACK) && (State != EnemyState.DASH) && (State != EnemyState.JUMP)) 
-		{
-			State = EnemyState.ATTACK;
-		} 
-		if (State == EnemyState.ATTACK && isJump ()) //enemy is about to jump!
-		{
-			jumpRdy = false;           //turn off jumping
-			Invoke ("jumpOn", jumpCD); //turn it back on again after a cooldown
-			State = EnemyState.JUMP;
+		if(delayDone) {
+			if(transform.position.y < -5f) Destroy (gameObject);
+			//grounde = isGrounded ();
+			distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
+			//Debug.Log (distToPlayer);
+			if ((distToPlayer < AttackDist) && (State != EnemyState.ATTACK) && (State != EnemyState.DASH) && (State != EnemyState.JUMP)) 
+			{
+				State = EnemyState.ATTACK;
+			} 
+			if (State == EnemyState.ATTACK && isJump ()) //enemy is about to jump!
+			{
+				jumpRdy = false;           //turn off jumping
+				Invoke ("jumpOn", jumpCD); //turn it back on again after a cooldown
+				State = EnemyState.JUMP;
+			}
+			if (State == EnemyState.ATTACK && isDash ()) //enemy is about to dash!
+			{
+				dashRdy = false;           //turn off dashing
+				Invoke ("dashOn", dashCD); //turn it back on again after a cooldown
+				State = EnemyState.DASH; 
+			}
+			Act();
 		}
-		if (State == EnemyState.ATTACK && isDash ()) //enemy is about to dash!
-		{
-			dashRdy = false;           //turn off dashing
-			Invoke ("dashOn", dashCD); //turn it back on again after a cooldown
-			State = EnemyState.DASH; 
-		}
-		Act();
 	}
 
 	void FixedUpdate () {
@@ -213,6 +220,9 @@ public class Enemy : MonoBehaviour {
 	public void shortenAttack()
 	{
 		AttackDist = AttackDist/2;
+	}
+	public void endDelay() {
+		delayDone = true;
 	}
 
 }
