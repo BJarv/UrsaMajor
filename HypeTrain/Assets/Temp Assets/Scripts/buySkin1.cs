@@ -16,7 +16,7 @@ public class buySkin1 : MonoBehaviour {
 	void Start () {
 		particles = transform.Find ("glow").GetComponent<ParticleSystem> ();
 		text = transform.Find ("Canvas/Text").GetComponent <Text> ();
-		text.text = "$" + price;
+		text.text = "[E] $" + price;
 		arm = GameObject.Find("character/gun");
 	}
 	
@@ -30,15 +30,16 @@ public class buySkin1 : MonoBehaviour {
 			if(Game.skin1 == false){
 				text.enabled = true;
 				particles.Play();
-			}
+			} else {
+				text.enabled = true;
+				text.text = "OWNED";
+			} 
 		}
 	}
 	void OnTriggerExit2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Game.skin1 == false){
 				text.enabled = false;
 				particles.Stop();
-			}
 		}
 	}
 	void OnTriggerStay2D(Collider2D colObj){

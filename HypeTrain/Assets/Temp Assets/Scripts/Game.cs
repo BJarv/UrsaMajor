@@ -14,7 +14,7 @@ public class Game {
 	public int shotsFired;
 	public int deaths;
 	public float accuracy;
-	public static bool skin1 = false;
+	public static bool skin1 = true;
 	public static bool skin2 = false;
 	public static bool skin3 = false;
 	public static bool skin4 = false;

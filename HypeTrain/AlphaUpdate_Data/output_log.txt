@@ -1,29 +1,42 @@
-Initialize engine version: 4.5.2f1 (9abb1b59b47c)
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
-    Vendor:   Intel
-    VRAM:     64 MB
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6818)
+    Vendor:   ATI
+    VRAM:     2029 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.151 seconds
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.042 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Platt\Desktop\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\System.dll (this message is harmless)
 Pressed Play!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 1.013110 ms
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+UnloadTime: 0.305714 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1959.
-Total: 2.294159 ms (FindLiveObjects: 0.135985 ms CreateObjectMapping: 0.059745 ms MarkObjects: 0.659034 ms  DeleteObjects: 0.039952 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 3382.
+Total: 1.139820 ms (FindLiveObjects: 0.059401 ms CreateObjectMapping: 0.029856 ms MarkObjects: 0.630399 ms  DeleteObjects: 0.015550 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at trailToggle.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at trailToggle.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
 Default clip could not be found in attached animations list.
  
@@ -45,11 +58,147 @@ Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
 
-No 'enemyGun' found, looking for shotgun
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+no enemies spawned
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-No 'enemyGun' found, looking for shotgun
+HYPE MODE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -77,221 +226,67 @@ Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
 
-UnloadTime: 1.078354 ms
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+hype over...
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 1.246804 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1965.
-Total: 1.427664 ms (FindLiveObjects: 0.106662 ms CreateObjectMapping: 0.036653 ms MarkObjects: 0.461104 ms  DeleteObjects: 0.013195 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3397.
+Total: 1.146351 ms (FindLiveObjects: 0.058779 ms CreateObjectMapping: 0.038564 ms MarkObjects: 0.668342 ms  DeleteObjects: 0.017416 ms)
 
-Default clip could not be found in attached animations list.
+NullReferenceException: Object reference not set to an instance of an object
+  at trailToggle.Start () [0x00000] in <filename unknown>:0 
  
-(Filename:  Line: 395)
+(Filename:  Line: -1)
 
-Default clip could not be found in attached animations list.
+NullReferenceException: Object reference not set to an instance of an object
+  at trailToggle.Start () [0x00000] in <filename unknown>:0 
  
-(Filename:  Line: 395)
+(Filename:  Line: -1)
 
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-UnloadTime: 2.633573 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1774 unused Assets to reduce memory usage. Loaded Objects now: 121.
-Total: 8.229872 ms (FindLiveObjects: 0.202695 ms CreateObjectMapping: 0.096399 ms MarkObjects: 0.311190 ms  DeleteObjects: 5.764172 ms)
-
-Pressed Play!
+HYPE MODE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 0.646206 ms
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1964.
-Total: 2.519946 ms (FindLiveObjects: 0.136718 ms CreateObjectMapping: 0.081371 ms MarkObjects: 0.835706 ms  DeleteObjects: 0.032988 ms)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-No 'enemyGun' found, looking for shotgun
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-No 'enemyGun' found, looking for shotgun
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
 

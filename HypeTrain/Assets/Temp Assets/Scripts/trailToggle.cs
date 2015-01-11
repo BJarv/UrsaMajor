@@ -15,11 +15,11 @@ public class trailToggle : MonoBehaviour {
 	}
 
 	public void On() {
-		gameObject.GetComponent<TrailRenderer> ().enabled = true;
-		gameObject.GetComponent<TrailRenderer> ().time = trailLength;
+		trail.enabled = true;
+		trail.time = trailLength;
 	}
 	public void Off() {
-		gameObject.GetComponent<TrailRenderer> ().enabled = false;
-		gameObject.GetComponent<TrailRenderer> ().time = 0;
+		trail.enabled = false;
+		trail.time = 0;
 	}
 }

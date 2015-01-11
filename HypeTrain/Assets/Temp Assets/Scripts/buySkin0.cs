@@ -13,7 +13,7 @@ public class buySkin0 : MonoBehaviour {
 	void Start () {
 		particles = transform.Find ("glow").GetComponent<ParticleSystem> ();
 		text = transform.Find ("Canvas/Text").GetComponent <Text> ();
-		text.text = "$" + price;
+		text.text = "[E] $" + price;
 	}
 	
 	// Update is called once per frame
