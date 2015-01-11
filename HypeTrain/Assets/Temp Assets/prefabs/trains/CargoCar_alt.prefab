@@ -2242,6 +2242,8 @@ MonoBehaviour:
   groundCast: 1.02499998
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
+  initialDelay: .45008865
+  delayDone: 0
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2281,6 +2283,8 @@ MonoBehaviour:
   groundCast: 1.02499998
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
+  initialDelay: .311060369
+  delayDone: 0
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9415,7 +9419,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 3785575401
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 186659e27183c0247b4f4e62b9614343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9437,7 +9441,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 3785575401
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 186659e27183c0247b4f4e62b9614343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
