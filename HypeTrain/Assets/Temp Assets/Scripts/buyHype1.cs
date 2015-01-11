@@ -12,7 +12,7 @@ public class buyHype1 : MonoBehaviour {
 	void Start () {
 		particles = transform.Find ("glow").GetComponent<ParticleSystem> ();
 		text = transform.Find ("Canvas/Text").GetComponent <Text> ();
-		text.text = "$" + price;
+		text.text = "[E] $" + price;
 	}
 	
 	// Update is called once per frame
@@ -25,20 +25,21 @@ public class buyHype1 : MonoBehaviour {
 			if(Game.hype1 == false){
 				text.enabled = true;
 				particles.Play();
+			} else {
+				text.enabled = true;
+				text.text = "OWNED";
 			}
 		}
 	}
 	void OnTriggerExit2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Game.hype1 == false){
 				text.enabled = false;
 				particles.Stop();
-			}
 		}
 	}
 	void OnTriggerStay2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Input.GetKey (KeyCode.E) && Game.hype1 == false) {
+			if(Input.GetKey (KeyCode.E) && Game.hype1 == false && (Game.lifetimeLoot - price) >= 0) {
 				text.enabled = false;
 				Game.hype1 = true;
 				particles.Stop ();

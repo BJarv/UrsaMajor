@@ -4,22 +4,22 @@ using System.Collections;
 public class trailToggle : MonoBehaviour {
 
 	public float trailLength = 2;
-	LineRenderer trail;
+	TrailRenderer trail;
 
 	void Start () {
 		//Grab the linerenderer from the object and default it to disabled
-		trail = gameObject.GetComponent<LineRenderer>();
+		trail = gameObject.GetComponent<TrailRenderer>();
 		trail.enabled = false;
 		trail.sortingLayerName = "Player";
 		trail.sortingOrder = 1;
 	}
 
 	public void On() {
-		gameObject.GetComponent<TrailRenderer> ().enabled = true;
-		gameObject.GetComponent<TrailRenderer> ().time = trailLength;
+		trail.enabled = true;
+		trail.time = trailLength;
 	}
 	public void Off() {
-		gameObject.GetComponent<TrailRenderer> ().enabled = false;
-		gameObject.GetComponent<TrailRenderer> ().time = 0;
+		trail.enabled = false;
+		trail.time = 0;
 	}
 }
