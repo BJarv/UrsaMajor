@@ -3,7 +3,7 @@ using System.Collections;
 
 public class bullet : MonoBehaviour {
 	
-	public int bulletDeath = 3;
+	public float bulletDeath = .1f;
 	[HideInInspector]
 	public int layerOfTrigs = 8; //8 is the triggers layer
 	[HideInInspector]

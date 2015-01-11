@@ -68,12 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961755e3d10f041ceaf5a54f32fb0649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDeath: 3
+  bulletDeath: 1.5
   layerOfTrigs: 8
   layerOfLoot: 14
   layerOfProj: 13
   meatObj: {fileID: 0}
-  test: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
