@@ -38,19 +38,13 @@ public class Camera2D : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector2 newPos2D = Vector2.zero;
-		if (PlayerHealth.alreadyDying) {
-			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
-			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, player.position.y, ref velocity.y, smoothrate);
-		}
 		if (centerLock == 1f) { //1 means it's a long car, so shift down the y value and keep the x scrolling
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
-			//newPos2D.y = 6.5f; //default for now
 			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate);
-		}
-		else if (lockCamera) {	//Lock on second car (for now)
-			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, centerLock, ref velocity.x, smoothrate);//trainleft + trainright / 2
-			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate);      //default y for now
-		} else { 								//Left-right tracking at train-top level
+		} else if (lockCamera) {	//Lock on second car (for now)
+			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, centerLock, ref velocity.x, smoothrate);			  //trainleft + trainright / 2
+			newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 6.5f, ref velocity.y, smoothrate);      			  //default y for now
+		} else { 																									      //Tracking at train-top level
 			newPos2D.x = Mathf.SmoothDamp (thisTransform.position.x, player.position.x, ref velocity.x, smoothrate);
 			if (trainTopUpper > player.position.y &&  player.position.y > trainTopLower){ 								  //If near the top of traincars, lock y camera
 				newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, 20f, ref velocity.y, smoothrate);
