@@ -17,7 +17,7 @@ public class particleLayerSwap : MonoBehaviour {
 		} else if (sortLayer == 2) {
 			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Obstacles";
 		} else if (sortLayer == 3){
-			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Default";
+			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Background Obj";
 		} else {
 			Debug.Log ("bad input for sortLayer");
 		}
