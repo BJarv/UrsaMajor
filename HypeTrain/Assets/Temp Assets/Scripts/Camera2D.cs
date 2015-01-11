@@ -18,7 +18,7 @@ public class Camera2D : MonoBehaviour {
 	private Vector2 velocity;
 
 	public float trainTopLower = 15f; //Locks camera on top of cars when player's
-	public float trainTopUpper = 30f; // y position is between these values
+	public float trainTopUpper = 35f; // y position is between these values
 
 	//Zoom variables
 	private float cameraPosition = 0;

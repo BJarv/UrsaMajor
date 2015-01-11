@@ -237,7 +237,7 @@ public class BigDino : MonoBehaviour {
 		if (health <= 0) {
 			money.At (transform.position, Random.Range ((int)(10 * Multiplier.moneyDrop),(int)(50 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE twice for big kill
-			//HYPECounter.incrementHype(true);
+			HYPECounter.incrementHype(true);
 			Destroy (gameObject);
 		}
 	}
