@@ -51,8 +51,8 @@ public class trainSpawner : MonoBehaviour {
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
 		} else if (TutShopController.shop) {
 			QueueAndMove(shopCar);
-		TutShopController.shop = false;
-				QueueAndMove();
+			TutShopController.shop = false;
+			QueueAndMove();
 		} else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
