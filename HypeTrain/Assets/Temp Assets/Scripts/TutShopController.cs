@@ -8,7 +8,7 @@ public class TutShopController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (Game.firstTime) {
+		if (Game.firstTime == true) {
 			Game.firstTime = false;
 			TutShopController.tutorial = true;
 		} 
