@@ -10,7 +10,7 @@ Platform assembly: C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Dat
 Loading C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Stella\Documents\UrsaMajor\HypeTrain\AlphaUpdate_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.151 seconds
+- Completed reload, in  0.595 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -19,35 +19,11 @@ Pressed Play!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 1.013110 ms
+UnloadTime: 0.403559 ms
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1959.
-Total: 2.294159 ms (FindLiveObjects: 0.135985 ms CreateObjectMapping: 0.059745 ms MarkObjects: 0.659034 ms  DeleteObjects: 0.039952 ms)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-No 'enemyGun' found, looking for shotgun
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Total: 0.814449 ms (FindLiveObjects: 0.043984 ms CreateObjectMapping: 0.021625 ms MarkObjects: 0.270872 ms  DeleteObjects: 0.014661 ms)
 
 No 'enemyGun' found, looking for shotgun
  
@@ -77,12 +53,6 @@ Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
 
-UnloadTime: 1.078354 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1965.
-Total: 1.427664 ms (FindLiveObjects: 0.106662 ms CreateObjectMapping: 0.036653 ms MarkObjects: 0.461104 ms  DeleteObjects: 0.013195 ms)
-
 Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
@@ -103,69 +73,75 @@ Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
 
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-UnloadTime: 2.633573 ms
+UnloadTime: 2.231856 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 1774 unused Assets to reduce memory usage. Loaded Objects now: 121.
-Total: 8.229872 ms (FindLiveObjects: 0.202695 ms CreateObjectMapping: 0.096399 ms MarkObjects: 0.311190 ms  DeleteObjects: 5.764172 ms)
+Total: 7.095463 ms (FindLiveObjects: 0.285533 ms CreateObjectMapping: 0.083937 ms MarkObjects: 0.307159 ms  DeleteObjects: 4.339456 ms)
+
+Start with Tutorial
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 0.362140 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1965.
+Total: 0.804186 ms (FindLiveObjects: 0.036287 ms CreateObjectMapping: 0.022358 ms MarkObjects: 0.274537 ms  DeleteObjects: 0.011362 ms)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 395)
+
+UnloadTime: 2.224525 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1968.
+Total: 3.093223 ms (FindLiveObjects: 0.218823 ms CreateObjectMapping: 0.075140 ms MarkObjects: 1.058198 ms  DeleteObjects: 0.031155 ms)
+
+UnloadTime: 2.236621 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1774 unused Assets to reduce memory usage. Loaded Objects now: 121.
+Total: 8.268022 ms (FindLiveObjects: 0.217724 ms CreateObjectMapping: 0.076606 ms MarkObjects: 0.283701 ms  DeleteObjects: 6.683473 ms)
 
 Pressed Play!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.646206 ms
+UnloadTime: 0.393296 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1964.
-Total: 2.519946 ms (FindLiveObjects: 0.136718 ms CreateObjectMapping: 0.081371 ms MarkObjects: 0.835706 ms  DeleteObjects: 0.032988 ms)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-No 'enemyGun' found, looking for shotgun
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Total: 0.802720 ms (FindLiveObjects: 0.036653 ms CreateObjectMapping: 0.019793 ms MarkObjects: 0.294697 ms  DeleteObjects: 0.010996 ms)
 
 No 'enemyGun' found, looking for shotgun
  
@@ -187,111 +163,13 @@ Default clip could not be found in attached animations list.
  
 (Filename:  Line: 395)
 
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
+UnloadTime: 2.855339 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
+Unloading 1774 unused Assets to reduce memory usage. Loaded Objects now: 121.
+Total: 9.255112 ms (FindLiveObjects: 0.241915 ms CreateObjectMapping: 0.200496 ms MarkObjects: 0.339415 ms  DeleteObjects: 7.270302 ms)
 
-Default clip could not be found in attached animations list.
+Pressed Quit!
  
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
-
-Default clip could not be found in attached animations list.
- 
-(Filename:  Line: 395)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
