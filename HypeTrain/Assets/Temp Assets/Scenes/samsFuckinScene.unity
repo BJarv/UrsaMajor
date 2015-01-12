@@ -1561,6 +1561,14 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1601425288}
+    - target: {fileID: 11400002, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: trainTopUpper
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408230, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -82
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
   m_RootGameObject: {fileID: 1409445583}
@@ -3784,7 +3792,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -365, y: -85.1100006}
+  m_AnchoredPosition: {x: -365, y: -82}
   m_SizeDelta: {x: 519.800049, y: 222.100006}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1677654756
