@@ -2010,7 +2010,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.0499992, y: 52.4700012, z: 0}
+  m_LocalPosition: {x: 430, y: 159.600006, z: 0}
   m_LocalScale: {x: 2.15136981, y: 2.15136981, z: 2.15136981}
   m_Children:
   - {fileID: 400034}
@@ -3455,7 +3455,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -3590,7 +3590,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3736,7 +3735,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3800,7 +3798,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3838,7 +3835,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3985,7 +3981,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4044,7 +4039,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4088,7 +4082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3098dbc68b5076d4d81c5d5f2fdad737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
+  price: 25000
 --- !u!114 &11400090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4111,7 +4105,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -4147,7 +4141,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4178,7 +4171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a38874a97d85b42b666b2d75b89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
+  price: 1000
   gunArm: {fileID: 21300038, guid: 29177c31f5051714a95c89938c280c6a, type: 3}
   arm: {fileID: 0}
 --- !u!114 &11400100
@@ -4216,7 +4209,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -4242,7 +4235,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -4270,7 +4263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e288b87b0dc187a48aa78cc3d9b8781a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
+  price: 5000
   gunArm: {fileID: 21300036, guid: 57c6a78af26e64a41aa2d7cbdb2260ab, type: 3}
   arm: {fileID: 0}
 --- !u!114 &11400110
@@ -4298,7 +4291,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4357,7 +4349,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4388,7 +4379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6e02e8b6d0fe147b8aca913def0929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
+  price: 50000
   gunArm: {fileID: 21300032, guid: 8c3c547d507a8ae4e83306f2abf4e2f6, type: 3}
   arm: {fileID: 0}
 --- !u!114 &11400124
@@ -4426,7 +4417,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -4479,7 +4470,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!114 &11400132
@@ -4573,7 +4564,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4611,7 +4601,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4688,7 +4677,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4819,8 +4808,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4829,8 +4818,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5179,7 +5168,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5281,7 +5270,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5387,7 +5376,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5735,7 +5724,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5866,8 +5855,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5876,8 +5865,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6226,7 +6215,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6328,7 +6317,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6434,7 +6423,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7839,7 +7828,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7970,8 +7959,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7980,8 +7969,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -8330,7 +8319,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8432,7 +8421,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8538,7 +8527,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8886,7 +8875,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9017,8 +9006,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -9027,8 +9016,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -9377,7 +9366,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9479,7 +9468,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9585,7 +9574,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10990,7 +10979,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11121,8 +11110,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11131,8 +11120,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11481,7 +11470,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11583,7 +11572,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11689,7 +11678,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12037,7 +12026,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -20.6399994
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12168,8 +12157,8 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .997422695
-          value: 1
+        - time: .314371258
+          value: .45045045
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -12178,8 +12167,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: .639175236
-          value: .481481582
+        - time: .339774042
+          value: .337337434
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -12528,7 +12517,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 36.6899986
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12630,7 +12619,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 207.229996
+      scalar: 2.31999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12736,7 +12725,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 7.34000015
+      scalar: 4.26999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -22306,7 +22295,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 3785575401
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 186659e27183c0247b4f4e62b9614343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22372,7 +22361,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 3785575401
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 186659e27183c0247b4f4e62b9614343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -35,7 +35,7 @@ public class DesertHandler : MonoBehaviour {
 
 		//firstDesert spawns at the camera position
 		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, yPos, zPos),Quaternion.identity);
-
+		firstDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		//firstDesert is added to the queue
 		deserts.Enqueue(firstDesert);
 
@@ -44,7 +44,7 @@ public class DesertHandler : MonoBehaviour {
 
 		//
 		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, yPos, zPos),Quaternion.identity);
-
+		secondDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		deserts.Enqueue (secondDesert);
 
 		//Horizontally mirror the first desert.
