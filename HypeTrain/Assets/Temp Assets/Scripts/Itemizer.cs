@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections; 
 
 public class Itemizer : MonoBehaviour {
 	
@@ -21,19 +21,31 @@ public class Itemizer : MonoBehaviour {
 		golds = amount % 25;
 		coins = golds % 5;
 		golds = golds / 5;
-		while(gems > 0) {
-			spawn(here, gem);
-			gems--;
-		}
-		while(golds > 0) {
-			spawn(here, gold);
-			golds--;
-		}
+		StartCoroutine(makeGems(here, gems));
+		StartCoroutine(makeGolds(here, golds));
+		StartCoroutine(makeCoins(here, coins));
+	}
+
+	IEnumerator makeCoins(Vector3 here, int coins) {
 		while(coins > 0) {
 			spawn(here, coin);
 			coins--;
+			yield return new WaitForEndOfFrame();
 		}
-			
+	}
+	IEnumerator makeGolds(Vector3 here, int golds) {
+		while(golds > 0) {
+			spawn(here, gold);
+			golds--;
+			yield return new WaitForEndOfFrame();
+		}
+	}
+	IEnumerator makeGems(Vector3 here, int gems) {
+		while(gems > 0) {
+			spawn(here, gem);
+			gems--;
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 	public void keyAt(Vector3 here)
