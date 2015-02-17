@@ -1903,6 +1903,10 @@ Prefab:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 325922645}
+    - target: {fileID: 5000000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_RootGameObject: {fileID: 1601425287}
@@ -2783,8 +2787,8 @@ MonoBehaviour:
   player: {fileID: 1601425288}
   smoothrate: .5
   lockCamera: 0
-  zoomInSpeed: .400000006
-  timeBeforeZoomIn: .5
+  zoomInSpeed: .800000012
+  timeBeforeZoomIn: 1.29999995
   lockCameraSize: 14.5
   trainTopLower: 15
   trainTopUpper: 35

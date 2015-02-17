@@ -10,8 +10,8 @@ public class Camera2D : MonoBehaviour {
 	[HideInInspector] public bool lockCamera = false;
 
 	private float centerLock;
-	public float zoomInSpeed = 0.4f;
-	public float timeBeforeZoomIn = .5f;
+	public float zoomInSpeed = 1.15f;
+	public float timeBeforeZoomIn = 1.05f;
 	public float lockCameraSize = 12.79f;
 	
 	private Transform thisTransform;
@@ -22,7 +22,7 @@ public class Camera2D : MonoBehaviour {
 
 	//Zoom variables
 	private float cameraPosition = 0;
-	private static float zoomTime = 1f;
+	private static float zoomTime = 2f;
 	private static float targetCameraPosition;
 	private Vector2 cameraVelocity = new Vector2 (0.5f, 0.5f);
 
@@ -78,6 +78,7 @@ public class Camera2D : MonoBehaviour {
 	}
 
 	private void zoomIn () {
+		player.rigidbody2D.gravityScale = 4; //Revert gravity's effect
 		setCameraTarget(lockCameraSize, zoomInSpeed);
 	}
 

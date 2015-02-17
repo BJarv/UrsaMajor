@@ -13,7 +13,7 @@ public class TrainExit : MonoBehaviour {
 	private Vector2 exitPos;
 	private Collider2D playerColl;
 	public float vertForce = 7500f;
-	public float zoomOutSpeed = .5f;
+	public float zoomOutSpeed = 2.75f;
 	public bool check;
 	private Animator hatchAnimator;
 	
@@ -98,7 +98,8 @@ public class TrainExit : MonoBehaviour {
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
-			Camera2D.setCameraTarget (25.0f, zoomOutSpeed);
+			Player.rigidbody2D.gravityScale = 1.75f; //Temporarily lower gravity's effect
+			Camera2D.setCameraTarget (40f, zoomOutSpeed);
 			cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 
 		}
