@@ -115,14 +115,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   State: 0
-  EnemySpeed: 2
-  Player: {fileID: 0}
-  AttackDist: 10
-  direction: 1
+  EnemySpeed: 3.5
+  AttackDist: 15
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
-  posOfTrans1: {x: 0, y: 0, z: 0}
-  posOfTrans2: {x: 0, y: 0, z: 0}
   dashCast: 1
   jumpCast: 2
   dashMask:
@@ -134,15 +132,17 @@ MonoBehaviour:
   dashVec: {x: 0, y: 0}
   jumpVec: {x: 0, y: 0}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 0
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
+  initialDelay: .155829147
+  delayDone: 0
   spawnKey: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c902c53689188494198aea266bf3ab6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 500
+  bulletSpeed: 650
   bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
   shootCD: 1
   woff: 0

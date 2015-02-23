@@ -109,7 +109,7 @@ public class CharControl : MonoBehaviour {
 	public void hitAnim () {
 		animator.SetBool ("Hit",true); //LOOK HERE HAYDEN Switch character to hit animation
 		animator.SetBool ("Jump", false);
-		Invoke ("hitToIdle", .35f);
+		Invoke ("hitToIdle", .25f);
 	}
 
 	void hitToIdle (){
@@ -148,7 +148,7 @@ public class CharControl : MonoBehaviour {
 
 	public void StartDeath() //turns on hit animation, and makes character drop through floor.
 	{
-		animator.SetBool ("Hit",true);
+		animator.SetBool ("Hit", true);
 		animator.SetBool ("Jump", false);
 		gameObject.collider2D.enabled = false;
 		dead = true;

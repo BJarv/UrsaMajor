@@ -16,6 +16,8 @@ public class TrainExit : MonoBehaviour {
 	public float zoomOutSpeed = 2.75f;
 	public bool check;
 	private Animator hatchAnimator;
+	private bool justExit = false;
+
 	
 	//Audio variables
 	private bool soundPlayed;
@@ -36,7 +38,9 @@ public class TrainExit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (justExit && Player.rigidbody2D.velocity.y < 0) {
+			cameraObj.GetComponent<Camera2D> ().zoomIn ();
+		}
 	}
 	//Check if E is pressed in trigger zone
 	void OnTriggerEnter2D(Collider2D hit) {
@@ -98,9 +102,10 @@ public class TrainExit : MonoBehaviour {
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
-			Player.rigidbody2D.gravityScale = 1.75f; //Temporarily lower gravity's effect
+			Player.rigidbody2D.gravityScale = 2f; //Temporarily lower gravity's effect
 			Camera2D.setCameraTarget (40f, zoomOutSpeed);
-			cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
+			//cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
+			justExit = true; //Calls zoom in once player starts falling
 
 		}
 	}	

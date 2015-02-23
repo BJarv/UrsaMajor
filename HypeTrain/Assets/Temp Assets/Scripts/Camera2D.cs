@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// AUTHORS
+// Hayden Platt     (platt@ursamajorgames.com)
+
+using UnityEngine;
 using System.Collections;
 
 public class Camera2D : MonoBehaviour {
@@ -10,9 +13,9 @@ public class Camera2D : MonoBehaviour {
 	[HideInInspector] public bool lockCamera = false;
 
 	private float centerLock;
-	public float zoomInSpeed = 1.15f;
-	public float timeBeforeZoomIn = 1.05f;
-	public float lockCameraSize = 12.79f;
+	public float zoomInSpeed = .7f;
+	public float timeBeforeZoomIn = 1.25f;
+	public float lockCameraSize = 14.5f;
 	
 	private Transform thisTransform;
 	private Vector2 velocity;
@@ -77,12 +80,13 @@ public class Camera2D : MonoBehaviour {
 		centerLock = x;
 	}
 
-	private void zoomIn () {
+	public void zoomIn () {
 		player.rigidbody2D.gravityScale = 4; //Revert gravity's effect
 		setCameraTarget(lockCameraSize, zoomInSpeed);
 	}
 
+	/* No longer necessary due to velocity based zoom
 	public void scheduleZoomIn() {
 		Invoke ("zoomIn", timeBeforeZoomIn);
-	}
+	}*/
 }

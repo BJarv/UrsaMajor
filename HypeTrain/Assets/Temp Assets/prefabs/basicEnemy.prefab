@@ -72,6 +72,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,16 +84,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4086d790168b50a49b5b5f0e98f5e3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 30
   State: 0
-  EnemySpeed: 6
-  Player: {fileID: 0}
-  AttackDist: 10
-  direction: 1
+  EnemySpeed: 4.5
+  AttackDist: 12
   StrollDist: 3
+  Player: {fileID: 0}
+  direction: 1
   distToPlayer: 0
-  posOfTrans1: {x: 0, y: 0, z: 0}
-  posOfTrans2: {x: 0, y: 0, z: 0}
   dashCast: 4
   jumpCast: 4
   dashMask:
@@ -104,14 +103,17 @@ MonoBehaviour:
   dashVec: {x: 1000, y: 600}
   jumpVec: {x: 100, y: 1000}
   dashCD: 2
-  dashRdy: 1
   jumpCD: 2
-  jumpRdy: 1
-  groundCast: 1.02499998
   enemyGroundMask:
     serializedVersion: 2
     m_Bits: 70145
+  dashRdy: 1
+  jumpRdy: 1
+  groundCast: 1.02499998
   money: {fileID: 0}
+  HYPECounter: {fileID: 0}
+  initialDelay: .491666704
+  delayDone: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

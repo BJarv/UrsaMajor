@@ -33,11 +33,11 @@ public class enemyBullet : MonoBehaviour {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
-				player.rigidbody2D.AddForce(new Vector2(-200, 375));
+				player.rigidbody2D.AddForce(new Vector2(-150, 375));
 			}
 			else if(transform.position.x - colObj.transform.position.x < 0)
 			{
-				player.rigidbody2D.AddForce(new Vector2(200, 375));
+				player.rigidbody2D.AddForce(new Vector2(150, 375));
 			}
 			player.GetComponent<CharControl>().hitAnim();
 			Destroy (gameObject);
