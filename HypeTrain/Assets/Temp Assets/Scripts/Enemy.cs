@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
 	public float health = 20f;
 	public EnemyState State = EnemyState.IDLE; //basic state
 	public float EnemySpeed = 2f;
-	public float AttackDist = 10f;  //distance at which enemy will switch to attacking
+	public float AttackDist = 45f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left

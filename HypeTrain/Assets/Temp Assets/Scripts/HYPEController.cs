@@ -10,6 +10,9 @@ public class HYPEController : MonoBehaviour {
 	[HideInInspector] public GameObject revolver;
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
+	public GameObject HYPEPlane;
+	GameObject plane;
+
 	private Transform trail;
 	private string trailName;
 
@@ -24,6 +27,7 @@ public class HYPEController : MonoBehaviour {
 	public static string HYPEMode = "red";
 
 	public static bool lazers = false;
+	private bool planeSpawn = true;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +41,12 @@ public class HYPEController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//If HYPE is full and player is on top of a train, spawn a HYPE Plane
+		if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
+			plane = (GameObject)Instantiate(HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
+			planeSpawn = false;
+		}
+
 
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
 		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 6) {
@@ -81,8 +91,8 @@ public class HYPEController : MonoBehaviour {
 					revolver.GetComponent<gun> ().magSize = 4;
 					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
 					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-					revolver.GetComponent<gun> ().interShotDelay = .5f;
-					revolver.GetComponent<gun> ().kickForce = 1000f;
+					revolver.GetComponent<gun> ().interShotDelay = .25f;
+					revolver.GetComponent<gun> ().kickForce = 600f;
 				}
 
 				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets

@@ -11,8 +11,7 @@ public class ScoreKeeper : MonoBehaviour {
 	//public GameObject HYPEBAR;
 	public static bool HYPED;
 
-	void Awake () 
-	{
+	void Awake () {
 		carsCompleted = 0;
 		Score = 0;
 		HYPE = 0;
