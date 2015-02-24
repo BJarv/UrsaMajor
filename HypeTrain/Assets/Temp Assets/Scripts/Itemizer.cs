@@ -13,7 +13,7 @@ public class Itemizer : MonoBehaviour {
 	public float xMax = 400;
 	public float yMin = 1300;
 	public float yMax = 1600;
-	
+
 	public void At(Vector3 here, int amount)
 	{
 		int coins, golds, gems;
@@ -27,24 +27,21 @@ public class Itemizer : MonoBehaviour {
 	}
 
 	IEnumerator makeCoins(Vector3 here, int coins) {
-		while(coins > 0) {
+		for(;coins > 0; coins--) {
 			spawn(here, coin);
-			coins--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.5f);
 		}
 	}
 	IEnumerator makeGolds(Vector3 here, int golds) {
-		while(golds > 0) {
+		for(;golds > 0; golds--) {
 			spawn(here, gold);
-			golds--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.5f);
 		}
 	}
 	IEnumerator makeGems(Vector3 here, int gems) {
-		while(gems > 0) {
+		for(;gems > 0; gems--) {
 			spawn(here, gem);
-			gems--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.5f);
 		}
 	}
 

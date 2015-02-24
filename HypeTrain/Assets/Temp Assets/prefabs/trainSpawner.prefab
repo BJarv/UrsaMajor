@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11431120}
   m_Layer: 1
   m_Name: trainSpawner
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.2999992, y: 6.72908211, z: 0}
+  m_LocalPosition: {x: -51.8899994, y: 6.72908211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,23 +42,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possTrains:
-  - {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
-  - {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
-  - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
-  - {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
-  - {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
-  - {fileID: 100018, guid: 50b65995cde53a34db623032bd4be867, type: 2}
-  - {fileID: 100028, guid: 0606915746e1c50438ce5099a7773ab6, type: 2}
-  - {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
-  - {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
   - {fileID: 100048, guid: 65ff0dfcc2fa93148a56e81d2dd09ead, type: 2}
   - {fileID: 100012, guid: c8eba999a350a414586eba94316a28e5, type: 2}
+  - {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
+  - {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
+  - {fileID: 100018, guid: 50b65995cde53a34db623032bd4be867, type: 2}
+  - {fileID: 100028, guid: 0606915746e1c50438ce5099a7773ab6, type: 2}
+  - {fileID: 100044, guid: aed3bafaf3ad69743924958e49cdf9f2, type: 2}
+  - {fileID: 100060, guid: f4a98b4b5a29d7a4e9554539e4b9e79a, type: 2}
+  - {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
   - {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
-  - {fileID: 100068, guid: 8e9c0ebbef2fd3444b31fa539bd2a59e, type: 2}
+  - {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  exemptCars:
+  - {fileID: 100012, guid: c7c14533ca33d5c4ca018ca1b281e405, type: 2}
+  - {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  - {fileID: 100018, guid: 50b65995cde53a34db623032bd4be867, type: 2}
+  - {fileID: 100028, guid: 0606915746e1c50438ce5099a7773ab6, type: 2}
+  - {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+  - {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
+  - {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   player: {fileID: 0}
   widthBetween: 5
   railHeight: 0
-  despawnBuffer: 8
+  despawnBuffer: 5
   trainFallSpeed: .0700000003
   deadTrain: {fileID: 0}
   deathDelay: 8
@@ -65,6 +72,7 @@ MonoBehaviour:
   tutCar1: {fileID: 100056, guid: 4e1d96ac25fbb5b47923285b95c7dc5a, type: 2}
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
+  testCar: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,6 +87,17 @@ MonoBehaviour:
   possEnemies:
   - {fileID: 100000, guid: 351a2c2dfb97cd141b7088de87cb96d2, type: 2}
   - {fileID: 100000, guid: f9c6bdde832930b4b948b57db82190e6, type: 2}
+--- !u!114 &11431120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bb5aa05159d134cb80b53860261b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
