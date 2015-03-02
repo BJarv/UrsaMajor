@@ -34,19 +34,19 @@ public class Itemizer : MonoBehaviour {
 	IEnumerator makeCoins(Vector3 here, int coins) {
 		for(;coins > 0; coins--) {
 			spawn(here, coin);
-			yield return new WaitForSeconds(.5f);
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 	IEnumerator makeGolds(Vector3 here, int golds) {
 		for(;golds > 0; golds--) {
 			spawn(here, gold);
-			yield return new WaitForSeconds(.5f);
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 	IEnumerator makeGems(Vector3 here, int gems) {
 		for(;gems > 0; gems--) {
 			spawn(here, gem);
-			yield return new WaitForSeconds(.5f);
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 
