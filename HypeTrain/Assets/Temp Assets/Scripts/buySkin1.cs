@@ -44,7 +44,7 @@ public class buySkin1 : MonoBehaviour {
 	}
 	void OnTriggerStay2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Input.GetKey (KeyCode.E) && !PlayerPrefsBool.GetBool ("skin1") && (PlayerPrefs.GetInt ("lifetimeLoot") - price) >= 0) {
+			if(Input.GetButton ("Interact") && !PlayerPrefsBool.GetBool ("skin1") && (PlayerPrefs.GetInt ("lifetimeLoot") - price) >= 0) {
 				text.enabled = false;
 				PlayerPrefsBool.GetBool ("skin1", true);
 				particles.Stop ();
@@ -52,7 +52,7 @@ public class buySkin1 : MonoBehaviour {
 				arm.GetComponentInParent<SpriteRenderer>().sprite = gunArm;
 				gameObject.GetComponentInParent<Shop>().player.GetComponent<Animator>().runtimeAnimatorController = gameObject.GetComponentInParent<Shop>().skin;
 			}
-			if(Input.GetKey (KeyCode.E) && !PlayerPrefsBool.GetBool ("skin1")) {
+			if(Input.GetButton ("Interact") && !PlayerPrefsBool.GetBool ("skin1")) {
 				arm.GetComponentInParent<SpriteRenderer>().sprite = gunArm;
 				gameObject.GetComponentInParent<Shop>().player.GetComponent<Animator>().runtimeAnimatorController = gameObject.GetComponentInParent<Shop>().skin;
 			}

@@ -29,12 +29,12 @@ public class TrainEnter : MonoBehaviour {
 	}
 	//Check if E is pressed in trigger zone
 	void OnTriggerEnter2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
+		if(Input.GetButton ("Interact")){
 			EnteredTrain(hit);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
+		if(Input.GetButton ("Interact")){
 			EnteredTrain (hit);
 		}
 	}

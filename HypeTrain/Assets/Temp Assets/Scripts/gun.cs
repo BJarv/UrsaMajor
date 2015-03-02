@@ -45,7 +45,7 @@ public class gun : MonoBehaviour {
 
 
 		//rotation
-		Vector3 mousePos = Input.mousePosition;
+		Vector3 mousePos = retical.recPos;
 		mousePos.z = 5.23f;
 		
 		Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
@@ -61,14 +61,14 @@ public class gun : MonoBehaviour {
 				else
 						transform.localScale = new Vector3(1,-1,1);
 		
-		if (Input.GetButton ("Fire1") && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
+		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
 			sTimerOn = true;
 			inMag -= 1;
 			adjustCounter(inMag);
-			var pos = Input.mousePosition;
+			var pos = retical.recPos;
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
 

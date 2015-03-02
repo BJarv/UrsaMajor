@@ -45,13 +45,13 @@ public class TrainExit : MonoBehaviour {
 	//Check if E is pressed in trigger zone
 	void OnTriggerEnter2D(Collider2D hit) {
 		playerColl = hit;
-		if (Input.GetKey (KeyCode.E) && hit.tag == "Player")
+		if (Input.GetButton ("Interact") && hit.tag == "Player")
 		{
 			ExitTrain (hit);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
-		if (Input.GetKey (KeyCode.E) && hit.tag == "Player")
+		if (Input.GetButton ("Interact") && hit.tag == "Player")
 		{
 			ExitTrain (hit);
 		}

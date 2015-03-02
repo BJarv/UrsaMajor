@@ -2427,7 +2427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticalSize: 32
-  currPlace: {x: 0, y: 0, z: 0}
+  joystickPosition: {x: 0, y: 0, z: 0}
   cameraObj: {fileID: 1409445583}
 --- !u!4 &1308236590
 Transform:
@@ -2640,8 +2640,8 @@ GameObject:
   - 114: {fileID: 1409445595}
   - 114: {fileID: 1409445596}
   - 114: {fileID: 1409445589}
-  - 114: {fileID: 1409445597}
   - 114: {fileID: 1409445598}
+  - 114: {fileID: 1409445597}
   - 114: {fileID: 1409445603}
   m_Layer: 0
   m_Name: Main Camera
@@ -3271,6 +3271,7 @@ GameObject:
   - 4: {fileID: 1554076582}
   - 114: {fileID: 1554076581}
   - 114: {fileID: 1554076583}
+  - 114: {fileID: 1554076585}
   - 114: {fileID: 1554076584}
   m_Layer: 1
   m_Name: trainSpawner
@@ -3355,6 +3356,18 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554076580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bb5aa05159d134cb80b53860261b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1554076585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11431120, guid: ea4703f05acd84180a2a18f2363a0c0a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1686544785}
   m_GameObject: {fileID: 1554076580}
   m_Enabled: 1
   m_EditorHideFlags: 0
