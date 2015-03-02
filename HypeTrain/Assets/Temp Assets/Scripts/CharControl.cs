@@ -44,12 +44,14 @@ public class CharControl : MonoBehaviour {
 	int IDofProjs = 13;
 	int IDofEnes = 11;
 
+
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
 
 	void Start() {
-		SaveLoad.Load (); //LOADS SAVE GAME
+		//SaveLoad.Load (); //LOADS SAVE GAME
+		//SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:
 		//  //default char skin, do nothing
@@ -75,7 +77,7 @@ public class CharControl : MonoBehaviour {
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
-			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
+			if((Input.GetKey(KeyCode.Space) || Input.GetAxis ("LTrig") > 0.1) && isGrounded()) {
 				Jump = JumpState.JUMPING;
 				animator.SetBool ("Jump", true); //Switch to jump animation
 				animator.SetBool ("Hit", false);
@@ -83,7 +85,7 @@ public class CharControl : MonoBehaviour {
 			break;
 
 		case JumpState.JUMPING: 
-			if(Input.GetKey(KeyCode.Space) && CurrJumpForce < MaxJumpForce) {
+			if((Input.GetKey(KeyCode.Space) || Input.GetAxis ("LTrig") > 0.1) && CurrJumpForce < MaxJumpForce) {
 				var timeDiff = Time.deltaTime * 100;
 				var forceToAdd = PlusJumpForce*timeDiff;
 				CurrJumpForce += forceToAdd;

@@ -7,6 +7,7 @@ public class Itemizer : MonoBehaviour {
 	public GameObject safeKey;   
 	public GameObject gold;		 
 	public GameObject gem;
+	GameObject player;
 
 	GameObject nuObj;
 	public float xMin = -400;
@@ -14,6 +15,10 @@ public class Itemizer : MonoBehaviour {
 	public float yMin = 1300;
 	public float yMax = 1600;
 	
+	void Awake() {
+		player = GameObject.Find("character");
+	}
+
 	public void At(Vector3 here, int amount)
 	{
 		int coins, golds, gems;
@@ -27,24 +32,21 @@ public class Itemizer : MonoBehaviour {
 	}
 
 	IEnumerator makeCoins(Vector3 here, int coins) {
-		while(coins > 0) {
+		for(;coins > 0; coins--) {
 			spawn(here, coin);
-			coins--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 	IEnumerator makeGolds(Vector3 here, int golds) {
-		while(golds > 0) {
+		for(;golds > 0; golds--) {
 			spawn(here, gold);
-			golds--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 	IEnumerator makeGems(Vector3 here, int gems) {
-		while(gems > 0) {
+		for(;gems > 0; gems--) {
 			spawn(here, gem);
-			gems--;
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(.2f);
 		}
 	}
 
@@ -55,6 +57,9 @@ public class Itemizer : MonoBehaviour {
 
 	void spawn(Vector3 at, GameObject what) {
 		nuObj = (GameObject)Instantiate (what, at, Quaternion.identity); //spawn item
+		if(nuObj.GetComponent<magnetic>()) {
+			nuObj.GetComponent<magnetic>().player = player;
+		}
 		nuObj.rigidbody2D.AddForce (new Vector2 (Random.Range (xMin, xMax), Random.Range (yMin, yMax)));//pop it up
 	}
 }
