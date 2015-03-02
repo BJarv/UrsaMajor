@@ -51,6 +51,7 @@ public class CharControl : MonoBehaviour {
 
 	void Start() {
 		SaveLoad.Load (); //LOADS SAVE GAME
+		//SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:
 		//  //default char skin, do nothing

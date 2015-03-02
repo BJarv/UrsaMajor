@@ -15,5 +15,6 @@ public class LifeLootDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		total.text = "$" + Game.lifetimeLoot;
+		total.text = "$" + PlayerPrefs.GetInt ("lifetimeLoot");
 	}
 }

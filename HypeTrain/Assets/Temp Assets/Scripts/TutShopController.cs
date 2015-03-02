@@ -10,6 +10,8 @@ public class TutShopController : MonoBehaviour {
 	void Start () {
 		if (Game.firstTime == true) {
 			Game.firstTime = false;
+		if (PlayerPrefsBool.GetBool ("firstTime")) {
+			PlayerPrefsBool.SetBool ("firstTime", false);
 			TutShopController.tutorial = true;
 		} 
 	}

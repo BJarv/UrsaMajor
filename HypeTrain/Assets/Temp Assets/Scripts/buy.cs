@@ -20,6 +20,7 @@ public class buy : MonoBehaviour {
 		if (colObj.tag == "Player") {
 			//DISPLAY PRICE AND E to buy
 			if (Input.GetKey (KeyCode.E) && Game.currLoot >= price){
+			if (Input.GetKey (KeyCode.E) && PlayerPrefs.GetInt ("currLoot") >= price){
 				purchased = true;
 			}	
 		}
@@ -29,6 +30,7 @@ public class buy : MonoBehaviour {
 		if (colObj.tag == "Player") {
 			//DISPLAY PRICE AND E to buy
 			if (Input.GetKey (KeyCode.E) && Game.currLoot >= price){
+			if (Input.GetKey (KeyCode.E) && PlayerPrefs.GetInt ("currLoot") >= price){
 				purchased = true;
 			}	
 		}
