@@ -15,6 +15,7 @@ GameObject:
   - 111: {fileID: 11100000}
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100002}
+  - 114: {fileID: 11415256}
   m_Layer: 8
   m_Name: coin
   m_TagString: bonus
@@ -157,6 +158,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortLayer: 2
   renderForward: 0
+--- !u!114 &11415256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a57252e871b24f3a9088f2ed0086e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  magnetized: 0
+  speed: .5
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -13,6 +13,7 @@ public class retical : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		cameraObj = GameObject.Find ("Main Camera");
 		retX = reticalSize;
 		retY = reticalSize;
 		retOffset = reticalSize/2;
