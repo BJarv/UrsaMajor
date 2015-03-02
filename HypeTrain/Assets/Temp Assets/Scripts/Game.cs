@@ -51,17 +51,12 @@ public class Game {
 	}
 
 	public static void addLoot(int amount) {
-		currLoot += amount;
-		lifetimeLoot += amount;
-		SaveLoad.Save ();
 		PlayerPrefs.SetInt ("currLoot", (PlayerPrefs.GetInt ("currLoot") + amount));
 		PlayerPrefs.SetInt ("lifetimeLoot", (PlayerPrefs.GetInt ("lifetimeLoot") + amount));
 		PlayerPrefs.Save ();
 	}
 
 	public static void addCarsCleared(int amount) {
-		carsCleared += amount;
-		SaveLoad.Save ();
 		PlayerPrefs.SetInt ("carsCleared", (PlayerPrefs.GetInt ("carsCleared") + amount));
 		PlayerPrefs.Save ();
 	}
