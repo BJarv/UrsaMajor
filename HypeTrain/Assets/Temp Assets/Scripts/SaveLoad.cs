@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+	
 public static class SaveLoad { //OLD CODE
 	/*
 	public static List<Game> savedGames = new List<Game>();
@@ -25,6 +26,7 @@ public static class SaveLoad { //OLD CODE
 			SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
 			file.Close();
 		}
+	}
 	}*/
 
 }

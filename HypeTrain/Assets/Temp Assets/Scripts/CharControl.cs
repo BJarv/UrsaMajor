@@ -44,11 +44,13 @@ public class CharControl : MonoBehaviour {
 	int IDofProjs = 13;
 	int IDofEnes = 11;
 
+
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
 
 	void Start() {
+		//SaveLoad.Load (); //LOADS SAVE GAME
 		//SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:
