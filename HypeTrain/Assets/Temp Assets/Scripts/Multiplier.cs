@@ -10,10 +10,16 @@ public class Multiplier : MonoBehaviour {
 
 	public static float moneyDrop = 1f;
 	public static float safeDrop = 1f;
+	
+	public GameObject forest;
+	public GameObject camObj;
+
+	//public GameObject mountains;
+	//public GameObject HYPEcity;
 
 	// Use this for initialization
 	void Start () {
-
+		camObj = GameObject.Find ("Main Camera");
 	}
 	
 	// Update is called once per frame
@@ -25,6 +31,7 @@ public class Multiplier : MonoBehaviour {
 			
 			moneyDrop = 1.1f;
 			safeDrop = 1.1f;
+			camObj.GetComponent<DesertHandler>().changeTile(forest);
 
 			trainSpawner.exPoint = 0; //Includes DinoCar in PossTrains
 		} 
