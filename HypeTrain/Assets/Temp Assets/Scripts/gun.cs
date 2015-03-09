@@ -45,7 +45,7 @@ public class gun : MonoBehaviour {
 
 
 		//rotation
-		Vector3 mousePos = Input.mousePosition;
+		Vector3 mousePos = retical.recPos;
 		mousePos.z = 5.23f;
 		
 		Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
@@ -61,20 +61,20 @@ public class gun : MonoBehaviour {
 				else
 						transform.localScale = new Vector3(1,-1,1);
 		
-		if (Input.GetButton ("Fire1") && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
+		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
 			sTimerOn = true;
 			inMag -= 1;
 			adjustCounter(inMag);
-			var pos = Input.mousePosition;
+			var pos = retical.recPos;
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
 			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
 			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
-			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
+			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
 
 			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 			particles.GetComponent<ParticleSystem>().Play ();
@@ -88,7 +88,7 @@ public class gun : MonoBehaviour {
 			//if(player.GetComponent<)
 			if(!player.GetComponent<CharControl>().isGrounded()){
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-				player.rigidbody2D.AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
+				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
 		}
 

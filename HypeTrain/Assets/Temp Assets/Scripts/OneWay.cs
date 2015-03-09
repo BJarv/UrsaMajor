@@ -16,10 +16,10 @@ public class OneWay : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hit) 
 	{
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
 	}
 	void OnTriggerExit2D(Collider2D hit) 
 	{
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), false);
 	}
 }

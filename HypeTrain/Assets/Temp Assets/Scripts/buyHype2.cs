@@ -39,7 +39,7 @@ public class buyHype2 : MonoBehaviour {
 	}
 	void OnTriggerStay2D(Collider2D colObj){
 		if(colObj.tag == "Player"){
-			if(Input.GetKey (KeyCode.E) && !PlayerPrefsBool.GetBool ("hype2") && (PlayerPrefs.GetInt ("lifetimeLoot") - price) >= 0) {
+			if(Input.GetButton ("Interact") && !PlayerPrefsBool.GetBool ("hype2") && (PlayerPrefs.GetInt ("lifetimeLoot") - price) >= 0) {
 				text.enabled = false;
 				PlayerPrefsBool.SetBool ("hype2", true);
 				particles.Stop ();
@@ -47,7 +47,7 @@ public class buyHype2 : MonoBehaviour {
 				HYPEController.HYPEMode = gameObject.GetComponentInParent<Shop>().HYPEColor;
 				ScoreKeeper.HYPE = 6;
 			}
-			if(Input.GetKey (KeyCode.E) && !PlayerPrefsBool.GetBool ("hype2")) {
+			if(Input.GetButton ("Interact") && !PlayerPrefsBool.GetBool ("hype2")) {
 				HYPEController.HYPEMode = gameObject.GetComponentInParent<Shop>().HYPEColor;
 			}
 		}

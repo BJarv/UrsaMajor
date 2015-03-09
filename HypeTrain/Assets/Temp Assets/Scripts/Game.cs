@@ -3,6 +3,7 @@ using System.Collections;
 
 [System.Serializable]
 public class Game {
+	public static Game current;
 	/*public static Game current;
 	public static int lifetimeLoot;
 	public static int currLoot;
@@ -20,6 +21,7 @@ public class Game {
 	public static bool skin4 = false;
 	public static bool hype1 = true;
 	public static bool hype2 = false;
+	public static bool firstTime = true;
 	public static bool firstTime = true;*/
 
 	void Start() {

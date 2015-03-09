@@ -29,18 +29,18 @@ public class TrainEnter : MonoBehaviour {
 	}
 	//Check if E is pressed in trigger zone
 	void OnTriggerEnter2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
+		if(Input.GetButton ("Interact")){
 			EnteredTrain(hit);
 		}
 	}
 	void OnTriggerStay2D(Collider2D hit) {
-		if(Input.GetKey(KeyCode.E)){
+		if(Input.GetButton ("Interact")){
 			EnteredTrain (hit);
 		}
 	}
 	//What to do once trigger zone is left
 	void OnTriggerExit2D(Collider2D hit) {
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, false);
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), false);
 	}
 
 	//What to do if E is pressed in trigger
@@ -51,7 +51,7 @@ public class TrainEnter : MonoBehaviour {
 		}
 		hatchAnimator.Play ("Entry"); //Play entry animation once
 		//Pass through
-		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
 		//Remove previous train
 		trainSpawn.GetComponent<trainSpawner>().KillTrain();
 		//Lock camera on the current car

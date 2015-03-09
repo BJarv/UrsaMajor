@@ -19,7 +19,7 @@ public class buy : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj) {
 		if (colObj.tag == "Player") {
 			//DISPLAY PRICE AND E to buy
-			if (Input.GetKey (KeyCode.E) && PlayerPrefs.GetInt ("currLoot") >= price){
+			if (Input.GetButton ("Interact") && PlayerPrefs.GetInt ("currLoot") >= price){
 				purchased = true;
 			}	
 		}
@@ -28,7 +28,7 @@ public class buy : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D colObj) {
 		if (colObj.tag == "Player") {
 			//DISPLAY PRICE AND E to buy
-			if (Input.GetKey (KeyCode.E) && PlayerPrefs.GetInt ("currLoot") >= price){
+			if (Input.GetButton ("Interact") && PlayerPrefs.GetInt ("currLoot") >= price){
 				purchased = true;
 			}	
 		}

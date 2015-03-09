@@ -4,7 +4,15 @@ using System.Collections.Generic;
 
 public class DesertHandler : MonoBehaviour {
 
-	public GameObject desert;
+	//This is the first background we want to access.
+	public GameObject tile;
+
+
+	//public GameObject desert;
+	//public GameObject forest;
+	//public GameObject mountains;
+	//public GameObject HYPEcity;
+
 
 	//The following variable is to be set to avoid z fighting
 	public float zPos = 1;
@@ -12,11 +20,13 @@ public class DesertHandler : MonoBehaviour {
 	//The following variable controls where your objects are going to spawn
 	public float yPos = -2;
 
-	private Queue<GameObject> deserts;
+	private Queue<GameObject> tileQ;
+
+	//if(ScoreKeeper.carsCompleted){}
 	
-	GameObject firstDesert;
-	GameObject secondDesert;
-	float desertSize;
+	GameObject firstTile;
+	GameObject secondTile;
+	float tileSize;
 	int flipper= -1;
 	float dimension;
 	public float buffer = 0;
@@ -30,25 +40,41 @@ public class DesertHandler : MonoBehaviour {
 		//This is now a reference to the character.
 		player = GameObject.Find("character");
 
-		//New queue for all the deserts
-		deserts = new Queue<GameObject>();
+		//New queue for all the tiles
+		tileQ = new Queue<GameObject>();
 
+<<<<<<< HEAD
 		//firstDesert spawns at the camera position
 		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, yPos, zPos),Quaternion.identity);
-		firstDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
+		firstDesert.GetComponent<Renderer>().sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		//firstDesert is added to the queue
 		deserts.Enqueue(firstDesert);
 
 		//Record x dimension of desert
-		dimension = deserts.Dequeue().renderer.bounds.size.x;
+		dimension = deserts.Dequeue().GetComponent<Renderer>().bounds.size.x;
 
 		//
 		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, yPos, zPos),Quaternion.identity);
-		secondDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
+		secondDesert.GetComponent<Renderer>().sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		deserts.Enqueue (secondDesert);
+=======
+		//firstTile spawns at the camera position
+		firstTile = (GameObject)Instantiate(tile, new Vector3(player.transform.position.x + 1, yPos, zPos),Quaternion.identity);
+		firstTile.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of tile
+		//firstTile is added to the queue
+		tileQ.Enqueue(firstTile);
 
-		//Horizontally mirror the first desert.
-		//firstDesert.transform.localScale = new Vector3(-dimension,dimension,1);
+		//Record x dimension of tile
+		dimension = tileQ.Dequeue().renderer.bounds.size.x;
+
+		//Second tile is made at approp position and added to tileQ
+		secondTile = (GameObject)Instantiate(tile, new Vector3(player.transform.position.x + dimension, yPos, zPos),Quaternion.identity);
+		secondTile.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of tile
+		tileQ.Enqueue (secondTile);
+>>>>>>> 57cffa47fa7406f701f0d9ed68c16edb70ee90ed
+
+		//Horizontally mirror the first tile
+		//firstTile.transform.localScale = new Vector3(-dimension,dimension,1);
 	}
 	
 	// Update is called once per frame
@@ -59,15 +85,29 @@ public class DesertHandler : MonoBehaviour {
 	void FixedUpdate()
 	{	
 		//Peek at the size of the next thing in the queue
-		desertSize = deserts.Peek ().renderer.bounds.size.x;
+<<<<<<< HEAD
+		desertSize = deserts.Peek ().GetComponent<Renderer>().bounds.size.x;
+=======
+		tileSize = tileQ.Peek ().renderer.bounds.size.x;
 
-		//
-		if (deserts.Peek ().transform.position.x < player.transform.position.x + desertSize) {
-			deserts.Enqueue ((GameObject)Instantiate (desert, new Vector3(deserts.Peek ().transform.position.x + desertSize - buffer,yPos,deserts.Dequeue().transform.position.z), Quaternion.identity));
+		//If the last thing in the queue is approaching the player, make a new thing adjacent to it.
+		if (tileQ.Peek ().transform.position.x < player.transform.position.x + tileSize) {
+			makeNewTile (tileSize, tile, tileQ);
+				}
+		}
+
+	public void changeTile(GameObject bg){
+		tile = bg;
+	}
+>>>>>>> 57cffa47fa7406f701f0d9ed68c16edb70ee90ed
+
+	//Instantiates a game object that you choose and places it in the given game Object queue.
+	//Assumes that the queue already has something in it.
+	void makeNewTile(float tileSize, GameObject tile, Queue<GameObject> tileQ) {
+			tileQ.Enqueue ((GameObject)Instantiate (tile, new Vector3(tileQ.Peek ().transform.position.x + tileSize - buffer,yPos,tileQ.Dequeue().transform.position.z), Quaternion.identity));
 			if (flipper == -1) {
-				deserts.Peek().transform.localScale = Vector3.Scale (deserts.Peek ().transform.localScale , new Vector3(-1,1,1));
+				tileQ.Peek().transform.localScale = Vector3.Scale (tileQ.Peek ().transform.localScale , new Vector3(-1,1,1));
 			}
 			flipper = flipper * -1;
-				}
-	}
+		}
 }

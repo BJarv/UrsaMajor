@@ -19,28 +19,28 @@ public class hotShit : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "character") {
 			col.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			col.gameObject.rigidbody2D.AddForce(new Vector2(0, knockUpForce));	
+			col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, knockUpForce));	
 			player.GetComponent<CharControl>().hitAnim();
 		}
 	}
 	void OnCollisionStay2D(Collision2D col) {
 		if (col.gameObject.name == "character") {
 			col.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			col.gameObject.rigidbody2D.AddForce(new Vector2(0, knockUpForce));	
+			col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, knockUpForce));	
 			player.GetComponent<CharControl>().hitAnim();	
 		}
 	}
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.name == "character") {
 			col.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			col.gameObject.rigidbody2D.AddForce(new Vector2(0, knockUpForce));	
+			col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, knockUpForce));	
 			player.GetComponent<CharControl>().hitAnim();
 		}
 	}
 	void OnTriggerStay2D(Collider2D col) {
 		if (col.gameObject.name == "character") {
 			col.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			col.gameObject.rigidbody2D.AddForce(new Vector2(0, knockUpForce));	
+			col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, knockUpForce));	
 			player.GetComponent<CharControl>().hitAnim();	
 		}
 	}

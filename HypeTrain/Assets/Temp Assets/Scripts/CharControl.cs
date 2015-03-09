@@ -44,11 +44,13 @@ public class CharControl : MonoBehaviour {
 	int IDofProjs = 13;
 	int IDofEnes = 11;
 
+
 	void Awake() {
-		animator = GetComponent<Animator>();
+		//animator = GetComponent<Animator>();
 	}
 
 	void Start() {
+		//SaveLoad.Load (); //LOADS SAVE GAME
 		//SaveLoad.Load (); //LOADS SAVE GAME
 		//switch(Game.skin) {
 		//case 0:
@@ -58,6 +60,7 @@ public class CharControl : MonoBehaviour {
 		//  GetComponent<SpriteRenderer>().sprite = skin2; //or whatever itll be called
 		// 	break;
 		//}
+		animator = GetComponent<Animator>();
 		midGroundCheck = GameObject.Find("character/midGroundCheck").transform;
 		leftGroundCheck = GameObject.Find("character/leftGroundCheck").transform;
 		rightGroundCheck = GameObject.Find("character/rightGroundCheck").transform;
@@ -75,7 +78,7 @@ public class CharControl : MonoBehaviour {
 		switch (Jump) {
 
 		case JumpState.GROUNDED: 
-			if(Input.GetKey(KeyCode.Space) && isGrounded()) {
+			if((Input.GetKey(KeyCode.Space) || Input.GetAxis ("LTrig") > 0.1) && isGrounded()) {
 				Jump = JumpState.JUMPING;
 				animator.SetBool ("Jump", true); //Switch to jump animation
 				animator.SetBool ("Hit", false);
@@ -83,11 +86,11 @@ public class CharControl : MonoBehaviour {
 			break;
 
 		case JumpState.JUMPING: 
-			if(Input.GetKey(KeyCode.Space) && CurrJumpForce < MaxJumpForce) {
+			if((Input.GetKey(KeyCode.Space) || Input.GetAxis ("LTrig") > 0.1) && CurrJumpForce < MaxJumpForce) {
 				var timeDiff = Time.deltaTime * 100;
 				var forceToAdd = PlusJumpForce*timeDiff;
 				CurrJumpForce += forceToAdd;
-				rigidbody2D.AddForce(new Vector2(0, forceToAdd));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, forceToAdd));
 			}
 			else {
 				Jump = JumpState.FALLING;
@@ -96,7 +99,7 @@ public class CharControl : MonoBehaviour {
 			break;
 
 		case JumpState.FALLING: 
-			if (isGrounded() && rigidbody2D.velocity.y <= 0) {
+			if (isGrounded() && GetComponent<Rigidbody2D>().velocity.y <= 0) {
 				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
@@ -134,15 +137,15 @@ public class CharControl : MonoBehaviour {
 		if(moveH > 0 && !rightWalled) //Add && !rightWalled
 		{
 			animator.SetBool ("Run",true); //Begin run animation
-			if(rigidbody2D.velocity.x <= maxSpeed)
-				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
+			if(GetComponent<Rigidbody2D>().velocity.x <= maxSpeed)
+				GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
 		else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
 		else if(moveH < 0 && !leftWalled)  //Add if(!leftWalled)
 		{
 			animator.SetBool ("Run",true); //Begin run animation
-			if(rigidbody2D.velocity.x > -maxSpeed)
-				rigidbody2D.AddForce(new Vector2 (moveH * addSpeed, 0));
+			if(GetComponent<Rigidbody2D>().velocity.x > -maxSpeed)
+				GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
 		}
 	}
 
@@ -150,7 +153,7 @@ public class CharControl : MonoBehaviour {
 	{
 		animator.SetBool ("Hit", true);
 		animator.SetBool ("Jump", false);
-		gameObject.collider2D.enabled = false;
+		gameObject.GetComponent<Collider2D>().enabled = false;
 		dead = true;
 		Destroy (gameObject, 3f);
 	}

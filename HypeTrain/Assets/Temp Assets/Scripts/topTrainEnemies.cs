@@ -70,26 +70,26 @@ public class topTrainEnemies : MonoBehaviour {
 
 	private void spawn1left() {
 		enemy1 = (GameObject)Instantiate(possEnemies[Random.Range(0, possEnemies.GetLength(0))], spawn1, Quaternion.identity); //spawn enemy behind train on left spawn point
-		enemy1.collider2D.enabled = false;					//make it not collide with train
+		enemy1.GetComponent<Collider2D>().enabled = false;					//make it not collide with train
 		Invoke ("collisionOn", .5f);						//turn collision back on in a bit
-		enemy1.rigidbody2D.AddForce (new Vector2 (0, 900f)); //pop him up from behind train
+		enemy1.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 900f)); //pop him up from behind train
 	}
 
 	private void spawn1right() {
 		enemy2 = (GameObject)Instantiate(possEnemies[Random.Range(0, possEnemies.GetLength(0))], spawn2, Quaternion.identity); //spawn enemy behind train on right spawn point
-		enemy2.collider2D.enabled = false;
+		enemy2.GetComponent<Collider2D>().enabled = false;
 		Invoke ("collisionOn", .5f);
-		enemy2.rigidbody2D.AddForce (new Vector2 (0, 900f));
+		enemy2.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 900f));
 	}
 
 
 	void collisionOn() {
 		//Physics2D.IgnoreCollision (trains[1].gameObject.collider2D, enemy1.collider2D, false);
 		try {
-			enemy1.collider2D.enabled = true;
+			enemy1.GetComponent<Collider2D>().enabled = true;
 		} catch {}
 		try {
-			enemy2.collider2D.enabled = true;
+			enemy2.GetComponent<Collider2D>().enabled = true;
 		} catch {}
 	}
 }

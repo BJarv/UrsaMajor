@@ -81,7 +81,7 @@ public class Camera2D : MonoBehaviour {
 	}
 
 	public void zoomIn () {
-		player.rigidbody2D.gravityScale = 4; //Revert gravity's effect
+		player.GetComponent<Rigidbody2D>().gravityScale = 4; //Revert gravity's effect
 		setCameraTarget(lockCameraSize, zoomInSpeed);
 	}
 
