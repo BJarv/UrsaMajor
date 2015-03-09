@@ -8,16 +8,16 @@ public class trailLayerSwap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (renderForward) {
-			gameObject.GetComponent<TrailRenderer>().renderer.sortingOrder = 1;
+			gameObject.GetComponent<TrailRenderer>().GetComponent<Renderer>().sortingOrder = 1;
 		} else {
-			gameObject.GetComponent<TrailRenderer>().renderer.sortingOrder = -1;
+			gameObject.GetComponent<TrailRenderer>().GetComponent<Renderer>().sortingOrder = -1;
 		}
 		if (sortLayer == 1){
-			gameObject.GetComponent<TrailRenderer>().renderer.sortingLayerName = "Particles";
+			gameObject.GetComponent<TrailRenderer>().GetComponent<Renderer>().sortingLayerName = "Particles";
 		} else if (sortLayer == 2) {
-			gameObject.GetComponent<TrailRenderer>().renderer.sortingLayerName = "Obstacles";
+			gameObject.GetComponent<TrailRenderer>().GetComponent<Renderer>().sortingLayerName = "Obstacles";
 		} else if (sortLayer == 3){
-			gameObject.GetComponent<TrailRenderer>().renderer.sortingLayerName = "Default";
+			gameObject.GetComponent<TrailRenderer>().GetComponent<Renderer>().sortingLayerName = "Default";
 		} else {
 			Debug.Log ("bad input for sortLayer");
 		}

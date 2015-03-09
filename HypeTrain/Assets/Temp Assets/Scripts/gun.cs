@@ -74,7 +74,7 @@ public class gun : MonoBehaviour {
 
 			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
 			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
-			go.rigidbody2D.AddForce(go.transform.up * bulletSpeed);
+			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
 
 			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 			particles.GetComponent<ParticleSystem>().Play ();
@@ -88,7 +88,7 @@ public class gun : MonoBehaviour {
 			//if(player.GetComponent<)
 			if(!player.GetComponent<CharControl>().isGrounded()){
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-				player.rigidbody2D.AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
+				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
 		}
 

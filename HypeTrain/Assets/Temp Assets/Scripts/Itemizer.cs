@@ -60,6 +60,6 @@ public class Itemizer : MonoBehaviour {
 		if(nuObj.GetComponent<magnetic>()) {
 			nuObj.GetComponent<magnetic>().player = player;
 		}
-		nuObj.rigidbody2D.AddForce (new Vector2 (Random.Range (xMin, xMax), Random.Range (yMin, yMax)));//pop it up
+		nuObj.GetComponent<Rigidbody2D>().AddForce (new Vector2 (Random.Range (xMin, xMax), Random.Range (yMin, yMax)));//pop it up
 	}
 }

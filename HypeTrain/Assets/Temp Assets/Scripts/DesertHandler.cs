@@ -35,16 +35,16 @@ public class DesertHandler : MonoBehaviour {
 
 		//firstDesert spawns at the camera position
 		firstDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + 1, yPos, zPos),Quaternion.identity);
-		firstDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
+		firstDesert.GetComponent<Renderer>().sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		//firstDesert is added to the queue
 		deserts.Enqueue(firstDesert);
 
 		//Record x dimension of desert
-		dimension = deserts.Dequeue().renderer.bounds.size.x;
+		dimension = deserts.Dequeue().GetComponent<Renderer>().bounds.size.x;
 
 		//
 		secondDesert = (GameObject)Instantiate(desert, new Vector3(player.transform.position.x + dimension, yPos, zPos),Quaternion.identity);
-		secondDesert.renderer.sortingOrder = -1; //quick fix to make dust particles visible in front of desert
+		secondDesert.GetComponent<Renderer>().sortingOrder = -1; //quick fix to make dust particles visible in front of desert
 		deserts.Enqueue (secondDesert);
 
 		//Horizontally mirror the first desert.
@@ -59,7 +59,7 @@ public class DesertHandler : MonoBehaviour {
 	void FixedUpdate()
 	{	
 		//Peek at the size of the next thing in the queue
-		desertSize = deserts.Peek ().renderer.bounds.size.x;
+		desertSize = deserts.Peek ().GetComponent<Renderer>().bounds.size.x;
 
 		//
 		if (deserts.Peek ().transform.position.x < player.transform.position.x + desertSize) {

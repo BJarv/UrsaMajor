@@ -33,11 +33,11 @@ public class bullet : MonoBehaviour {
 			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
-				colObj.gameObject.rigidbody2D.AddForce(new Vector2(-200, 375));
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
 			}
 			else if(transform.position.x - colObj.transform.position.x < 0)
 			{
-				colObj.gameObject.rigidbody2D.AddForce(new Vector2(200, 375));
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
 			}
 			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 			//Invoke("returnColor", .3f); HELP: need a way/place to return color after a short delay, even though bullet is gone. Maybe call in enemyScripts?
@@ -48,12 +48,12 @@ public class bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		//If it hits a breakable object
-		if (colObj.collider2D.tag == "breakable" || colObj.collider2D.tag == "meat") {
+		if (colObj.GetComponent<Collider2D>().tag == "breakable" || colObj.GetComponent<Collider2D>().tag == "meat") {
 			colObj.gameObject.GetComponent<breakable>().Damage();
 			Destroy (gameObject);
 		}
 
-		if (colObj.collider2D.tag == "meat") {
+		if (colObj.GetComponent<Collider2D>().tag == "meat") {
 			meatObj = colObj.gameObject;
 			Destroy (meatObj.GetComponent<HingeJoint2D>());
 			Destroy (gameObject);

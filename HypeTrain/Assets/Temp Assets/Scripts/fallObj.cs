@@ -18,10 +18,10 @@ public class fallObj : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj) {
-		if(colObj.tag == "player" && rigidbody2D.velocity.y <= -damageSpeed) {
+		if(colObj.tag == "player" && GetComponent<Rigidbody2D>().velocity.y <= -damageSpeed) {
 			colObj.gameObject.GetComponent<Enemy>().Hurt(playerDamage);
 		}
-		if(colObj.tag == "enemy" && rigidbody2D.velocity.y <= -damageSpeed) {
+		if(colObj.tag == "enemy" && GetComponent<Rigidbody2D>().velocity.y <= -damageSpeed) {
 			Debug.Log ("BONK!");
 			colObj.gameObject.GetComponent<Enemy>().Hurt(enemyDamage);
 		}

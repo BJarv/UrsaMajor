@@ -8,16 +8,16 @@ public class particleLayerSwap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (renderForward) {
-			particleSystem.renderer.sortingOrder = 1;
+			GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingOrder = 1;
 		} else {
-			particleSystem.renderer.sortingOrder = -1;
+			GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingOrder = -1;
 		}
 		if (sortLayer == 1){
-			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Particles";
+			gameObject.GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingLayerName = "Particles";
 		} else if (sortLayer == 2) {
-			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Obstacles";
+			gameObject.GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingLayerName = "Obstacles";
 		} else if (sortLayer == 3){
-			gameObject.GetComponent<ParticleSystem>().renderer.sortingLayerName = "Background Obj";
+			gameObject.GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingLayerName = "Background Obj";
 		} else {
 			Debug.Log ("bad input for sortLayer");
 		}

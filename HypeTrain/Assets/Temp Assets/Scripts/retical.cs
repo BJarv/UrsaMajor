@@ -17,7 +17,7 @@ public class retical : MonoBehaviour {
 		retX = reticalSize;
 		retY = reticalSize;
 		retOffset = reticalSize/2;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 	}
 
 	// Update is called once per frame
@@ -25,6 +25,6 @@ public class retical : MonoBehaviour {
 		joystickPosition = new Vector3(Input.GetAxis ("Mouse X") * 1000, Input.GetAxis ("Mouse Y") * 1000, 0); //Use for controller aim
 		recPos = Input.mousePosition;
 		recPos.z = 100;
-		transform.position = cameraObj.GetComponent<Camera2D> ().camera.ScreenToWorldPoint(recPos);
+		transform.position = cameraObj.GetComponent<Camera2D> ().GetComponent<Camera>().ScreenToWorldPoint(recPos);
 	}
 }

@@ -14,7 +14,7 @@ public class Popup : MonoBehaviour {
 		paused = false;
 		Time.timeScale = 1;
 		AudioListener.volume = vol;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 	}
 
 	void Update () {
@@ -29,7 +29,7 @@ public class Popup : MonoBehaviour {
 				} else {
 					vol += volOffset;
 				}
-				Screen.showCursor = false;
+				Cursor.visible = false;
 
 			} else if (!paused) { //pause game if not pause
 				paused = true;
@@ -40,7 +40,7 @@ public class Popup : MonoBehaviour {
 					vol -= volOffset;
 				}
 
-				Screen.showCursor = true;
+				Cursor.visible = true;
 			}
 		}
 		AudioListener.volume = vol; //VOLUME THAT IS SET EVERY FRAME HERE, could cause problems if edit sound in another place!!!!
@@ -79,7 +79,7 @@ public class Popup : MonoBehaviour {
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 25), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 175, 250, 25), "Total Cars Completed: " + PlayerPrefs.GetInt ("carsCleared")); //loot counter
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 200, 250, 25), "Total Loot: " + PlayerPrefs.GetInt ("currLoot")); //loot counter
-			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("Triggers") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
+			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				//PlayerHealth.endOfLife = false;
 				Time.timeScale = 1;
 				Application.LoadLevel (Application.loadedLevelName);

@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		Flip (transform.rigidbody2D.velocity.x); //Uses velocity to determine when to flip
+		Flip (transform.GetComponent<Rigidbody2D>().velocity.x); //Uses velocity to determine when to flip
 	}
 	//Code to flip sprite
 	void Flip(float moveH){
@@ -116,11 +116,11 @@ public class Enemy : MonoBehaviour {
 		if (isDash ()) return;
 		if (transform.position.x < Player.transform.position.x) 
 		{
-			rigidbody2D.velocity = new Vector2 (EnemySpeed, rigidbody2D.velocity.y); 
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D>().velocity.y); 
 		} 
 		else 
 		{
-			rigidbody2D.velocity = new Vector2 (EnemySpeed *-1, rigidbody2D.velocity.y); 
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed *-1, GetComponent<Rigidbody2D>().velocity.y); 
 		}
 
 	}
@@ -139,18 +139,18 @@ public class Enemy : MonoBehaviour {
 			strolling = false;
 		}
 		
-		rigidbody2D.velocity = new Vector2 (EnemySpeed *direction, rigidbody2D.velocity.y); 
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed *direction, GetComponent<Rigidbody2D>().velocity.y); 
 		
 	}
 
 	void Dash()
 	{
-		rigidbody2D.AddForce (new Vector2(dashVec.x*direction, dashVec.y));
+		GetComponent<Rigidbody2D>().AddForce (new Vector2(dashVec.x*direction, dashVec.y));
 		State = EnemyState.ATTACK;
 	}
 	void Jump()
 	{
-		rigidbody2D.AddForce (new Vector2(jumpVec.x*direction, jumpVec.y));
+		GetComponent<Rigidbody2D>().AddForce (new Vector2(jumpVec.x*direction, jumpVec.y));
 		State = EnemyState.IDLE;
 	}
 
@@ -165,11 +165,11 @@ public class Enemy : MonoBehaviour {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
-				Player.rigidbody2D.AddForce(new Vector2(-200, 375));
+				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
 			}
 			else if(transform.position.x - colObj.transform.position.x < 0)
 			{
-				Player.rigidbody2D.AddForce(new Vector2(200, 375));
+				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
 			}
 			Player.GetComponent<CharControl>().hitAnim();
 		}

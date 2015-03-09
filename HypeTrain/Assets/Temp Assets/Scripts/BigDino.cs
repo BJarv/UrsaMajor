@@ -66,7 +66,7 @@ public class BigDino : MonoBehaviour {
 		//grounde = isGrounded ();
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
 		//Debug.Log (distToPlayer);
-		Debug.Log (State);
+		//Debug.Log (State);
 		//if (postDash && inThrowRange) { //for throw during dash
 		//	postDash = false;
 		//	playerThrow();
@@ -85,7 +85,7 @@ public class BigDino : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		Flip (transform.rigidbody2D.velocity.x); //Uses velocity to determine when to flip
+		Flip (transform.GetComponent<Rigidbody2D>().velocity.x); //Uses velocity to determine when to flip
 	}
 	//Code to flip sprite
 	void Flip(float moveH){
@@ -122,11 +122,11 @@ public class BigDino : MonoBehaviour {
 		}
 		if (transform.position.x < Player.transform.position.x) 
 		{
-			rigidbody2D.velocity = new Vector2 (DinoSpeed, rigidbody2D.velocity.y); 
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (DinoSpeed, GetComponent<Rigidbody2D>().velocity.y); 
 		} 
 		else 
 		{
-			rigidbody2D.velocity = new Vector2 (DinoSpeed *-1, rigidbody2D.velocity.y); 
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (DinoSpeed *-1, GetComponent<Rigidbody2D>().velocity.y); 
 		}
 		
 	}
@@ -143,9 +143,9 @@ public class BigDino : MonoBehaviour {
 		if(!stunned){
 			stunned = true;
 			if(transform.position.x > wallPos.transform.position.x){
-				rigidbody2D.AddForce (new Vector2(recoil.x, recoil.y)); // Recoil off left wall
+				GetComponent<Rigidbody2D>().AddForce (new Vector2(recoil.x, recoil.y)); // Recoil off left wall
 			} else if(transform.position.x < wallPos.transform.position.x){
-				rigidbody2D.AddForce (new Vector2(-recoil.x, recoil.y)); // Recoil off rightt wall
+				GetComponent<Rigidbody2D>().AddForce (new Vector2(-recoil.x, recoil.y)); // Recoil off rightt wall
 			}
 			Invoke ("endStun", stunTime);
 		}
@@ -162,10 +162,10 @@ public class BigDino : MonoBehaviour {
 	private void pause() { //pre dash pause to give player time to dodge
 		Animator.Play ("dino_run");
 		if(transform.position.x > Player.transform.position.x) {
-			rigidbody2D.velocity = new Vector2 (-1f, rigidbody2D.velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (-1f, GetComponent<Rigidbody2D>().velocity.y);
 			dashVec.x = -dashVec.x;//Store the dash direction upon pausing
 		} else {
-			rigidbody2D.velocity = new Vector2 (1f, rigidbody2D.velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (1f, GetComponent<Rigidbody2D>().velocity.y);
 		}
 		Invoke ("unpause", predashTime);
 	}
@@ -186,7 +186,7 @@ public class BigDino : MonoBehaviour {
 			predash = true;
 			predashOnce = true;
 			
-			rigidbody2D.AddForce (new Vector2(dashVec.x, dashVec.y)); //Execute dash
+			GetComponent<Rigidbody2D>().AddForce (new Vector2(dashVec.x, dashVec.y)); //Execute dash
 			dashVec.x = Mathf.Abs (dashVec.x);						  //Reset sign (+/-) of dashVec.x
 			
 			postDash = true;
@@ -195,17 +195,17 @@ public class BigDino : MonoBehaviour {
 	}
 	
 	private void playerCollideOn() {
-		Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, false);
+		Physics2D.IgnoreCollision (Player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), false);
 	}
 	
 	public void playerThrow() {
 		Player.GetComponent<PlayerHealth>().Hurt(10);
 		Invoke ("playerCollideOn", 1.5f);
-		Physics2D.IgnoreCollision (Player.collider2D, gameObject.collider2D, true);
+		Physics2D.IgnoreCollision (Player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
 		if(Player.transform.position.x < transform.position.x) { //player is left of dino, throw right
-			Player.rigidbody2D.AddForce (new Vector2 (throwPlayer.x, throwPlayer.y)); 
+			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (throwPlayer.x, throwPlayer.y)); 
 		} else if (Player.transform.position.x >= transform.position.x) { //player is right of dino, throw left
-			Player.rigidbody2D.AddForce (new Vector2 (-throwPlayer.x, throwPlayer.y)); 
+			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (-throwPlayer.x, throwPlayer.y)); 
 		}
 	}
 	
@@ -214,11 +214,11 @@ public class BigDino : MonoBehaviour {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			if(transform.position.x > colObj.transform.position.x)
 			{
-				Player.rigidbody2D.AddForce(new Vector2(-200, 375));
+				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
 			}
 			else if(transform.position.x < colObj.transform.position.x)
 			{
-				Player.rigidbody2D.AddForce(new Vector2(200, 375));
+				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
 			}
 			Player.GetComponent<CharControl>().hitAnim();
 		}

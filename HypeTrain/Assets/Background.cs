@@ -47,7 +47,7 @@ public class Background : MonoBehaviour {
 
 		lerpedColor = Color.Lerp(nightynight,dayday, t);
 
-		guiTexture.color = lerpedColor;
+		GetComponent<GUITexture>().color = lerpedColor;
 		delay = delay + 1;
 
 		//Debug

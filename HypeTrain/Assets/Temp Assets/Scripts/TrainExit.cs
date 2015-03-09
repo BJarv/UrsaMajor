@@ -38,7 +38,7 @@ public class TrainExit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (justExit && Player.rigidbody2D.velocity.y < 0) {
+		if (justExit && Player.GetComponent<Rigidbody2D>().velocity.y < 0) {
 			cameraObj.GetComponent<Camera2D> ().zoomIn ();
 		}
 	}
@@ -69,7 +69,7 @@ public class TrainExit : MonoBehaviour {
 
 	void ignoreExitCollide()
 	{
-		Physics2D.IgnoreCollision (playerColl, transform.parent.gameObject.collider2D, false);
+		Physics2D.IgnoreCollision (playerColl, transform.parent.gameObject.GetComponent<Collider2D>(), false);
 	}
 
 	void soundPlayedOff()
@@ -89,20 +89,20 @@ public class TrainExit : MonoBehaviour {
 		
 			ScoreKeeper.carsCompleted += 1;
 
-			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.collider2D, true);
+			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
 
-			Player.rigidbody2D.velocity = Vector3.zero;
+			Player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 			exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele ();
 			exitPos.y -= .4f;
-			Player.rigidbody2D.position = exitPos;
+			Player.GetComponent<Rigidbody2D>().position = exitPos;
 			
-			Player.rigidbody2D.AddForce (new Vector2 (0, 2500f));
+			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 2500f));
 			//Make sidePanel visible again
 			sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
-			Player.rigidbody2D.gravityScale = 2f; //Temporarily lower gravity's effect
+			Player.GetComponent<Rigidbody2D>().gravityScale = 2f; //Temporarily lower gravity's effect
 			Camera2D.setCameraTarget (40f, zoomOutSpeed);
 			//cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 			justExit = true; //Calls zoom in once player starts falling
