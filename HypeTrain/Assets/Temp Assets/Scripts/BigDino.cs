@@ -162,10 +162,10 @@ public class BigDino : MonoBehaviour {
 	private void pause() { //pre dash pause to give player time to dodge
 		Animator.Play ("dino_run");
 		if(transform.position.x > Player.transform.position.x) {
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (-1f, GetComponent<Rigidbody2D>().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (1f, GetComponent<Rigidbody2D>().velocity.y);
 			dashVec.x = -dashVec.x;//Store the dash direction upon pausing
 		} else {
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (1f, GetComponent<Rigidbody2D>().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (-1f, GetComponent<Rigidbody2D>().velocity.y);
 		}
 		Invoke ("unpause", predashTime);
 	}

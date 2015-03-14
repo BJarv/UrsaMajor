@@ -139,8 +139,7 @@ public class Enemy : MonoBehaviour {
 			strolling = false;
 		}
 		
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed *direction, GetComponent<Rigidbody2D>().velocity.y); 
-		
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed *direction, GetComponent<Rigidbody2D>().velocity.y); 	
 	}
 
 	void Dash()
