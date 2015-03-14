@@ -44,7 +44,6 @@ public class CharControl : MonoBehaviour {
 	int IDofProjs = 13;
 	int IDofEnes = 11;
 
-
 	void Awake() {
 		//animator = GetComponent<Animator>();
 	}
