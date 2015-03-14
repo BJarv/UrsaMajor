@@ -167,6 +167,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d8d1e0c36541924c83a4f4a13de0349, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &138007958
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 81.2933655
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 223.099167
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b7bd91cec15433a46832e43261a63169, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &325922645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: a3a6fb9c741d3284aa6e6a6b1d974fd1, type: 2}
+  tile: {fileID: 0}
   zPos: 1
   yPos: -9.25
   buffer: 1.75
@@ -1217,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: 8d8d1e0c36541924c83a4f4a13de0349, type: 2}
+  tile: {fileID: 0}
   zPos: 0
   yPos: -7
   buffer: 1.75
@@ -1233,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: fa7e2a144dbcc584380dd221b5d5e428, type: 2}
+  tile: {fileID: 0}
   zPos: 2
   yPos: -2.32999992
   buffer: .100000001
@@ -1264,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: 8d8d1e0c36541924c83a4f4a13de0349, type: 2}
+  tile: {fileID: 0}
   zPos: 0
   yPos: -7.26000023
   buffer: 1.75
@@ -1314,7 +1356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: a3a6fb9c741d3284aa6e6a6b1d974fd1, type: 2}
+  tile: {fileID: 0}
   zPos: 1
   yPos: -9.25
   buffer: 1.75
@@ -1330,7 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567fee9930e154ddaa72a0b73f4e8174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desert: {fileID: 100000, guid: fa7e2a144dbcc584380dd221b5d5e428, type: 2}
+  tile: {fileID: 0}
   zPos: 2
   yPos: -2.32999992
   buffer: .100000001
@@ -1556,6 +1598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bb5aa05159d134cb80b53860261b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forest: {fileID: 0}
+  camObj: {fileID: 0}
 --- !u!1 &1601425287
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
@@ -1841,7 +1885,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 100034, guid: f8866af32d07fc54f8d4bd34900df514, type: 2}
+      objectReference: {fileID: 187480, guid: b7bd91cec15433a46832e43261a63169, type: 2}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: despawnBuffer
       value: 5
