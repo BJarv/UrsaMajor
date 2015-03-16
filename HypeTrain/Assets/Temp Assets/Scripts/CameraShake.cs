@@ -3,6 +3,9 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour {
 
+	//Currently makes use of having 2 objects above the camera. 1 to keep a stationary position to return to, and 1 to transform the
+	//localposition of. The camera can then be moved freely without any worry of the camera bump affecting it.
+
 	bool shake = false;
 	public float shakeTime = 0.2f;
 
