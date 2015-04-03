@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 426686}
   - 212: {fileID: 21213948}
   - 95: {fileID: 9500488}
+  - 114: {fileID: 11479586}
   m_Layer: 0
   m_Name: bg_horse
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.7999992, y: 26.3999996, z: 0}
+  m_LocalPosition: {x: -50.2299995, y: 25.9099998, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,6 +47,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11479586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bf151844adb384da82c65e5d67fef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21213948
 SpriteRenderer:
   m_ObjectHideFlags: 1

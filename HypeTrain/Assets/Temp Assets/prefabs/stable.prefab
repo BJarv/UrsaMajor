@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 437876}
   - 212: {fileID: 21278402}
   - 95: {fileID: 9538856}
+  - 114: {fileID: 11457308}
   m_Layer: 0
   m_Name: bg_horse 1
   m_TagString: Untagged
@@ -43,6 +44,7 @@ GameObject:
   - 4: {fileID: 499630}
   - 212: {fileID: 21238028}
   - 95: {fileID: 9594866}
+  - 114: {fileID: 11425728}
   m_Layer: 0
   m_Name: bg_horse 2
   m_TagString: Untagged
@@ -76,6 +78,7 @@ GameObject:
   - 4: {fileID: 418978}
   - 212: {fileID: 21285434}
   - 95: {fileID: 9538532}
+  - 114: {fileID: 11491984}
   m_Layer: 0
   m_Name: bg_horse
   m_TagString: Untagged
@@ -114,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.8042068, y: 16.1923542, z: 0}
+  m_LocalPosition: {x: -50.1243629, y: 26.4606647, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 483788}
@@ -198,6 +201,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11425728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bf151844adb384da82c65e5d67fef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11457308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bf151844adb384da82c65e5d67fef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11491984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bf151844adb384da82c65e5d67fef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21201088
 SpriteRenderer:
   m_ObjectHideFlags: 1

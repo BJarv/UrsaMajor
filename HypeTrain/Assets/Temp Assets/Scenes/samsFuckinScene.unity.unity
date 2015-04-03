@@ -972,9 +972,9 @@ GameObject:
   - 114: {fileID: 1409445599}
   - 114: {fileID: 1409445602}
   - 114: {fileID: 1409445601}
-  - 114: {fileID: 1409445600}
   - 114: {fileID: 1409445595}
   - 114: {fileID: 1409445603}
+  - 114: {fileID: 1409445589}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1052,6 +1052,22 @@ Transform:
   - {fileID: 1447351551}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1409445589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409445583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd4930b8ea99441f99427685ba7aeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0
+  cloud: {fileID: 115524, guid: 46f2bbf2a319c2947bf2b24a7370fc1f, type: 2}
+  inverseFrequency: 100
+  yMin: 0
+  yMax: 5
 --- !u!114 &1409445590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,6 +1193,8 @@ MonoBehaviour:
   interval: 0
   cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
   inverseFrequency: 5
+  yMin: 10
+  yMax: 30
 --- !u!114 &1409445594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,21 +1246,6 @@ MonoBehaviour:
   HYPEPlane: {fileID: 0}
   HYPEDuration: 7
   HYPEsound: {fileID: 8300000, guid: cdf461a4e4e1b484e9beea9c975c3825, type: 3}
---- !u!114 &1409445600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11408242, guid: 31ff6c41e4e992e4081007275f504a75,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409445583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd4930b8ea99441f99427685ba7aeca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: 0
-  cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
-  inverseFrequency: 100
 --- !u!114 &1409445601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,7 +1637,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: player

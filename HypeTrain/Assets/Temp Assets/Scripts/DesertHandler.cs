@@ -8,10 +8,7 @@ public class DesertHandler : MonoBehaviour {
 	public GameObject tile;
 
 
-	//public GameObject desert;
-	//public GameObject forest;
-	//public GameObject mountains;
-	//public GameObject HYPEcity;
+	//THERE IS SOME IMPORTANT STUFF IN MULTIPLIER.CS
 
 
 	//The following variable is to be set to avoid z fighting
@@ -21,8 +18,6 @@ public class DesertHandler : MonoBehaviour {
 	public float yPos = -2;
 
 	private Queue<GameObject> tileQ;
-
-	//if(ScoreKeeper.carsCompleted){}
 	
 	GameObject firstTile;
 	GameObject secondTile;
