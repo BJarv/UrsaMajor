@@ -22,7 +22,13 @@ public class Scroller : MonoBehaviour
 	//We will make this into a reference to the character.
 	private GameObject player = null;
 
+	//This will be a reference to the object's renderer
+	public Renderer rend;
+
 	void Start() {
+		//Now a ref to object's renderer
+		rend = GetComponent<Renderer>();
+
 		//This is now a reference to the character.
 		player = GameObject.Find("character");
 
@@ -51,7 +57,7 @@ public class Scroller : MonoBehaviour
 				else 
 						transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
 
-		if (transform.position.x + 100 < player.transform.position.x)
-			Destroy (gameObject);
-		}
-		}
+				if (transform.position.x + rend.bounds.size.x < player.transform.position.x - 100)
+						Destroy (gameObject);
+	}
+}
