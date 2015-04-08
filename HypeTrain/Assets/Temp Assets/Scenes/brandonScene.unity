@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeTime: .100000001
   shakeAmount: .150000006
+  altShakeAmount: 2
   test: 0
 --- !u!1 &79059145
 GameObject:
@@ -335,7 +336,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: cameraObj
       value: 
-      objectReference: {fileID: 1409445583}
+      objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_Sprite
       value: 
@@ -594,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: bull1
@@ -1248,6 +1249,8 @@ MonoBehaviour:
   interval: 0
   cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
   inverseFrequency: 5
+  yMin: 0
+  yMax: 0
 --- !u!114 &1409445594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,6 +1317,8 @@ MonoBehaviour:
   interval: 0
   cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
   inverseFrequency: 100
+  yMin: 0
+  yMax: 0
 --- !u!114 &1409445601
 MonoBehaviour:
   m_ObjectHideFlags: 0
