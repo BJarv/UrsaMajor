@@ -6,6 +6,8 @@ public class BgObjectControlScript : MonoBehaviour {
 	public float interval = 0f;
 	public GameObject cloud;
 	public int inverseFrequency = 5;
+	public int yMin = 0;
+	public int yMax = 0;
 
 	//We will make this into a reference to the character.
 	private GameObject player = null;
@@ -30,7 +32,7 @@ public class BgObjectControlScript : MonoBehaviour {
 
 		if (willStuffAppear % inverseFrequency == 0)
 
-			Instantiate (cloud, new Vector3( player.transform.position.x + 50 , Random.Range (10,30) , 1 ),Quaternion.identity);
+			Instantiate (cloud, new Vector3( player.transform.position.x + 50 , Random.Range (yMin,yMax) , 1 ),Quaternion.identity);
 
 	}
 }
