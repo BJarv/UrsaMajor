@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HYPEAnimator : MonoBehaviour {
 
-	private SpriteRenderer HYPE_sprite;
+	//private SpriteRenderer HYPE_sprite;
+	private Image HYPE_sprite;
 
 	private Animator animator;
 
 	void Awake() {
 		animator = GetComponent<Animator>();
-		HYPE_sprite = GetComponent<SpriteRenderer>();
+		//HYPE_sprite = GetComponent<SpriteRenderer>();
+		HYPE_sprite = GetComponent<Image>();
 	}
 
 	// Use this for initialization

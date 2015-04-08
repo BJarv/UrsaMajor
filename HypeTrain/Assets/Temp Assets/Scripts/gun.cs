@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class gun : MonoBehaviour {
 	//Bullet variables
@@ -158,16 +159,16 @@ public class gun : MonoBehaviour {
 			bull2.SetActive (true);
 			bull3.SetActive (true);
 			bull4.SetActive (true);
-			bull1.GetComponent<SpriteRenderer>().color = Color.red;
-			bull2.GetComponent<SpriteRenderer>().color = Color.red;
-			bull3.GetComponent<SpriteRenderer>().color = Color.red;
-			bull4.GetComponent<SpriteRenderer>().color = Color.red;
+			bull1.GetComponent<RawImage>().color = Color.red;
+			bull2.GetComponent<RawImage>().color = Color.red;
+			bull3.GetComponent<RawImage>().color = Color.red;
+			bull4.GetComponent<RawImage>().color = Color.red;
 		}
 		if (!ScoreKeeper.HYPED) {
-			bull1.GetComponent<SpriteRenderer>().color = Color.white;
-			bull2.GetComponent<SpriteRenderer>().color = Color.white;
-			bull3.GetComponent<SpriteRenderer>().color = Color.white;
-			bull4.GetComponent<SpriteRenderer>().color = Color.white;
+			bull1.GetComponent<RawImage>().color = Color.white;
+			bull2.GetComponent<RawImage>().color = Color.white;
+			bull3.GetComponent<RawImage>().color = Color.white;
+			bull4.GetComponent<RawImage>().color = Color.white;
 		}
 	}
 
