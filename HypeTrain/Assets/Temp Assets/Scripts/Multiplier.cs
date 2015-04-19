@@ -12,6 +12,7 @@ public class Multiplier : MonoBehaviour {
 	public static float safeDrop = 1f;
 	
 	public GameObject forest;
+	public GameObject desert_forest;
 	public GameObject camObj;
 
 	//public GameObject mountains;
@@ -31,6 +32,10 @@ public class Multiplier : MonoBehaviour {
 			
 			moneyDrop = 1.1f;
 			safeDrop = 1.1f;
+
+			//BACKGROUND STUFF:
+			//Add a transition tile. Then switch to forest.
+			camObj.GetComponent<DesertHandler>().addTransition(desert_forest);
 			camObj.GetComponent<DesertHandler>().changeTile(forest);
 
 			trainSpawner.exPoint = 0; //Includes DinoCar in PossTrains

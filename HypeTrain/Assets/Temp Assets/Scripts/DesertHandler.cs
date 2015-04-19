@@ -73,8 +73,14 @@ public class DesertHandler : MonoBehaviour {
 				}
 		}
 
+	//This is called from Multiplier and changes the var "tile", which lives in this file, to whatever you specify for "bg"
 	public void changeTile(GameObject bg){
 		tile = bg;
+	}
+
+	//Also called from Multiplier.cs, simply appends a transition tile "bg" that you choose in Multiplier
+	public void addTransition(GameObject bg) {
+		makeNewTile (tileSize, tile, tileQ);
 	}
 
 	//Instantiates a game object that you choose and places it in the given game Object queue.
