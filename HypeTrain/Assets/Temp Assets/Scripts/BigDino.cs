@@ -29,7 +29,7 @@ public class BigDino : MonoBehaviour {
 	private float predashTime = 1f;
 	private bool postDash = false;
 	private float dashTime = .3f;
-	private Transform dashCastTransform;
+	private Transform dashCastTransform; //Not currently used?
 	private GameObject wallPos;
 	public Vector2 throwPlayer;
 	public bool inNotStunRange = false;
