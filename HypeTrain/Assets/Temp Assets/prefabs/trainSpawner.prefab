@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11431120}
+  - 114: {fileID: 11422688}
   m_Layer: 1
   m_Name: trainSpawner
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MonoBehaviour:
   possEnemies:
   - {fileID: 100000, guid: 351a2c2dfb97cd141b7088de87cb96d2, type: 2}
   - {fileID: 100000, guid: f9c6bdde832930b4b948b57db82190e6, type: 2}
---- !u!114 &11431120
+--- !u!114 &11422688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bb5aa05159d134cb80b53860261b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forest: {fileID: 193168, guid: 5fc9dc015d2d1954cbcfba7e5fe487fe, type: 2}
+  camObj: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -109,4 +111,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

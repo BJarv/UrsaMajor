@@ -13,6 +13,8 @@ public class CharControl : MonoBehaviour {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
 
+	public bool controllable = true;
+
 	//Movement variables
 	public float maxSpeed = 2f;
 	public float addSpeed = 25f;
@@ -132,19 +134,20 @@ public class CharControl : MonoBehaviour {
 		float moveH = Input.GetAxis ("Horizontal");
 		//Debug.Log (moveH);
 		Flip (moveH);
-	
-		if(moveH > 0 && !rightWalled) //Add && !rightWalled
-		{
-			animator.SetBool ("Run",true); //Begin run animation
-			if(GetComponent<Rigidbody2D>().velocity.x <= maxSpeed)
-				GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
-		}
-		else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-		else if(moveH < 0 && !leftWalled)  //Add if(!leftWalled)
-		{
-			animator.SetBool ("Run",true); //Begin run animation
-			if(GetComponent<Rigidbody2D>().velocity.x > -maxSpeed)
-				GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
+		if(controllable){
+			if(moveH > 0 && !rightWalled) //Add && !rightWalled
+			{
+				animator.SetBool ("Run",true); //Begin run animation
+				if(GetComponent<Rigidbody2D>().velocity.x <= maxSpeed)
+					GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
+			}
+			else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
+			else if(moveH < 0 && !leftWalled)  //Add if(!leftWalled)
+			{
+				animator.SetBool ("Run",true); //Begin run animation
+				if(GetComponent<Rigidbody2D>().velocity.x > -maxSpeed)
+					GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
+			}
 		}
 	}
 
@@ -153,6 +156,7 @@ public class CharControl : MonoBehaviour {
 		animator.SetBool ("Hit", true);
 		animator.SetBool ("Jump", false);
 		gameObject.GetComponent<Collider2D>().enabled = false;
+		Game.incDeaths();
 		dead = true;
 		Destroy (gameObject, 3f);
 	}

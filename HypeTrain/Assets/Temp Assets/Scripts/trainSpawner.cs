@@ -30,6 +30,8 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject testCar;
 	private bool testCarOn = false;
 
+	private GameObject theShopCar;
+
 	public static int exPoint = 1; //Trains on the end of the list are exlcluded, when number is lowered more included
 	
 	void Start () {
@@ -38,6 +40,7 @@ public class trainSpawner : MonoBehaviour {
 		player = GameObject.Find ("character");
 		cameraObj = GameObject.Find ("/Main Camera");
 		//if testCar is set, spawn only testCars
+		spawnShop();
 		if (testCar) {
 			testCarOn = true;
 			QueueAndMove(testCar);
@@ -49,11 +52,12 @@ public class trainSpawner : MonoBehaviour {
 			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
 
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
-		} else if (TutShopController.shop) {
-			QueueAndMove(shopCar);
-			TutShopController.shop = false;
-			QueueAndMove();
-		} else {  				 //otherwise load 2 random cars
+		} //else if (TutShopController.shop) {
+			//QueueAndMove(shopCar);
+			//TutShopController.shop = false;
+			//QueueAndMove();
+		//} 
+		else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
 		}
@@ -87,11 +91,19 @@ public class trainSpawner : MonoBehaviour {
 		trains.Enqueue(tempTrain); //put train game object into trains queue
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
+
+	void spawnShop() {
+		theShopCar = (GameObject)Instantiate(shopCar, transform.position, Quaternion.identity);
+		float railToCenter = railHeight - theShopCar.transform.Find ("base").transform.localPosition.y;
+		theShopCar.transform.position = new Vector2(theShopCar.transform.position.x - theShopCar.GetComponent<getWidthCar>().carWidth()/2 - 1.5f, railToCenter + 3f);
+	}
 	
 
 	public void KillTrain() { 
-		//NOTE: if trains are despawning improperly, may need to make this function on its own instantiated object
 		if(!playerWithinFirst ()){
+			if(theShopCar) { //if you go past first car, make sure to kill shopcar as well
+				Destroy(theShopCar);
+			}
 			Destroy (deadTrain);
 			CancelInvoke();
 			deadTrain = (GameObject)trains.Dequeue();

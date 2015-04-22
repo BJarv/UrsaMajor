@@ -178,6 +178,7 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
+			Game.incEnemiesKilled();
 			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			Destroy (gameObject);

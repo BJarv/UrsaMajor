@@ -449,7 +449,7 @@ Animator:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9579ec849f95804ea23002ecf93a51e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -602,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6255a83150d841da8f4b47a90c3b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllable: 1
   maxSpeed: 10
   addSpeed: 190
   midGroundCheck: {fileID: 400004}
@@ -610,7 +611,7 @@ MonoBehaviour:
   wallCheck: {fileID: 400000}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294966015
+    m_Bits: 4294875849
   whatIsWall:
     serializedVersion: 2
     m_Bits: 70199
