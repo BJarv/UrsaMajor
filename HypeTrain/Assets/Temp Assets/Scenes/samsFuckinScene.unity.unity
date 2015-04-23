@@ -501,6 +501,10 @@ Prefab:
       propertyPath: m_Colors.m_PressedColor.b
       value: .325490206
       objectReference: {fileID: 0}
+    - target: {fileID: 22385488, guid: 48ad03dd77460874a9f216fb5c9dd28e, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1409445587}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48ad03dd77460874a9f216fb5c9dd28e, type: 2}
   m_IsPrefabParent: 0
