@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1776,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &108156
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402246}
+  - 61: {fileID: 6153140}
+  - 114: {fileID: 11498502}
+  m_Layer: 8
+  m_Name: entryRange
+  m_TagString: bonus
+  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &111038
 GameObject:
   m_ObjectHideFlags: 1
@@ -2324,7 +2341,7 @@ Transform:
   m_LocalScale: {x: .610128939, y: 2.08739972, z: .710791051}
   m_Children: []
   m_Father: {fileID: 400004}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -2335,6 +2352,7 @@ Transform:
   m_LocalPosition: {x: 18.4799995, y: 1.29999995, z: 0}
   m_LocalScale: {x: .699999988, y: 1, z: 1.4068836}
   m_Children:
+  - {fileID: 400008}
   - {fileID: 400002}
   m_Father: {fileID: 400032}
   m_RootOrder: 3
@@ -2356,11 +2374,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28727399e-05, y: -1.5, z: -7.10790873}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalPosition: {x: -.0700000003, y: -1.36000001, z: -7.11000013}
   m_LocalScale: {x: .189999998, y: 2.79999995, z: .710790873}
   m_Children: []
-  m_Father: {fileID: 400012}
+  m_Father: {fileID: 400004}
   m_RootOrder: 0
 --- !u!4 &400010
 Transform:
@@ -2384,7 +2402,7 @@ Transform:
   m_LocalPosition: {x: -10.8999996, y: -1.55999994, z: 0}
   m_LocalScale: {x: .699999988, y: 1, z: 1.4068836}
   m_Children:
-  - {fileID: 400008}
+  - {fileID: 402246}
   m_Father: {fileID: 400032}
   m_RootOrder: 1
 --- !u!4 &400014
@@ -3379,6 +3397,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400018}
   m_RootOrder: 4
+--- !u!4 &402246
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.28727399e-05, y: -1.5, z: -7.10790873}
+  m_LocalScale: {x: .189999998, y: 2.79999995, z: .710790873}
+  m_Children: []
+  m_Father: {fileID: 400012}
+  m_RootOrder: 0
 --- !u!4 &438520
 Transform:
   m_ObjectHideFlags: 1
@@ -3748,6 +3778,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5.05999994, y: 6.80000019}
+--- !u!61 &6153140
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108156}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.32935369, y: -.212467447}
+  serializedVersion: 2
+  m_Size: {x: 35.9726181, y: .437215894}
 --- !u!61 &6153986
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -6434,6 +6477,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BIG TEXT
+--- !u!114 &11498502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7400cb33f85716429bbe6cedd6f190c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObj: {fileID: 0}
+  sidePanel: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: 2a56e075898712d4d8490288dd339e62, type: 3}
 --- !u!114 &11498706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24098,7 +24155,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1644679271
+  m_SortingLayerID: -1853532537
   m_SortingOrder: 54
   m_Sprite: {fileID: 21300000, guid: cc3668a6039fe5e48bc7073b48111e39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

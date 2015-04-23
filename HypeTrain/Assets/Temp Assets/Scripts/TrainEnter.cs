@@ -49,16 +49,26 @@ public class TrainEnter : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(enterSound, transform.position);
 			soundPlayed = true;
 		}
+		//Special case for entering the Shop Car
+		if (transform.parent.transform.parent.transform.parent.name == "ShopCar(Clone)") {
+			//Lock camera on the shop car
+			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter(trainSpawn.GetComponent<trainSpawner>().theShopCar));
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel(trainSpawn.GetComponent<trainSpawner>().theShopCar);
+		} 
+		//Default case
+		else {
+			//Remove previous train
+			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			//Lock camera on the current car
+			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
+			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
+		}
 		hatchAnimator.Play ("Entry"); //Play entry animation once
 		//Pass through
 		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
-		//Remove previous train
-		trainSpawn.GetComponent<trainSpawner>().KillTrain();
-		//Lock camera on the current car
-		cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
 		cameraObj.GetComponent<Camera2D>().setLock(true);
 		//Remove side panel
-		sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
+
 		sidePanel.SetActive(false);
 	}
 }

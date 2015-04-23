@@ -67,9 +67,13 @@ public class TrainExit : MonoBehaviour {
 		}
 	}
 
-	void ignoreExitCollide()
-	{
+	void ignoreExitCollide(){
 		Physics2D.IgnoreCollision (playerColl, transform.parent.gameObject.GetComponent<Collider2D>(), false);
+	}
+
+	//Corner case functions for 2 way hatches
+	void enableEnterCollide(){
+		transform.parent.transform.Find("entryRange").gameObject.GetComponent<Collider2D>().enabled = true;
 	}
 
 	void soundPlayedOff()
@@ -92,13 +96,25 @@ public class TrainExit : MonoBehaviour {
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
 
 			Player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele ();
+			//Specific case to launch player from Shop Car
+			if (transform.parent.transform.parent.transform.parent.name == "ShopCar(Clone)") {
+				exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele (trainSpawn.GetComponent<trainSpawner>().theShopCar);
+				sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel (trainSpawn.GetComponent<trainSpawner>().theShopCar);
+				transform.parent.transform.Find("entryRange").gameObject.GetComponent<Collider2D>().enabled = false;
+				Debug.Log ("HAYDEN START IN TRAIN EXIT, LINE 105");
+				Debug.Log ("Disabled " + transform.parent.transform.FindChild("entryRange").name);
+				Invoke ("enableEnterCollide", 1f);
+			} 
+			//Default case for finding where to launch player from
+			else {
+				exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele ();
+				sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
+			}
 			exitPos.y -= .4f;
+			//Launch player from exit hatch
 			Player.GetComponent<Rigidbody2D>().position = exitPos;
-			
 			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 2500f));
 			//Make sidePanel visible again
-			sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
