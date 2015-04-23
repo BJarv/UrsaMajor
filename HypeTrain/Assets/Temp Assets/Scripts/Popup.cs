@@ -4,6 +4,7 @@ using System.Collections;
 public class Popup : MonoBehaviour {
 
 	private bool paused = false;
+	CameraShake shaker;
 
 
 	[HideInInspector] public GameObject player;
@@ -12,6 +13,7 @@ public class Popup : MonoBehaviour {
 	[HideInInspector] public bool dead;
 
 	void Start () {
+		shaker = transform.parent.GetComponent<CameraShake>();
 		player = GameObject.Find ("character");
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
@@ -33,6 +35,7 @@ public class Popup : MonoBehaviour {
 				Cursor.visible = false;
 
 			} else if (!paused) { //pause game if not pause
+				shaker.stopAllShake();
 				paused = true;
 				Time.timeScale = 0;
 				pauseMenu.SetActive(true);
@@ -41,6 +44,7 @@ public class Popup : MonoBehaviour {
 			}
 		}
 		if(player.transform.position.y < -15f || dead) {
+			shaker.stopAllShake();
 			Time.timeScale = 0;
 
 			deathMenu.SetActive(true);
