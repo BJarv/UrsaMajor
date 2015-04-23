@@ -10,7 +10,7 @@ public class CameraShake : MonoBehaviour {
 	bool altShake = false;
 	public float shakeTime = 0.2f;
 	
-	public float shakeAmount = 0.15f;
+	public float shakeAmount = 0.13f;
 	public float altShakeAmount = 2f;
 	
 	public bool test = false;
@@ -58,9 +58,15 @@ public class CameraShake : MonoBehaviour {
 	}
 	
 	IEnumerator trainShake(){
-		InvokeRepeating("trainBumpIt", 0f, 1.2f);
+		InvokeRepeating("trainBumpIt", 0f, 1.4f);
 		yield return new WaitForSeconds(0.2f);
-		InvokeRepeating ("trainBumpIt", 0f, 1.2f);
+		InvokeRepeating ("trainBumpIt", 0f, 1.4f);
+	}
+
+	public void stopAllShake() { //stop any shake that is currently happening
+		shake = false;
+		altShake = false;
+		transform.localPosition = Vector3.zero;
 	}
 	
 }
