@@ -10,6 +10,11 @@ public class Multiplier : MonoBehaviour {
 
 	public static float moneyDrop = 1f;
 	public static float safeDrop = 1f;
+
+	public static AudioClip regTrack;
+	public static AudioClip spedTrack;
+	public static AudioClip HYPETrack;
+
 	
 	public GameObject forest;
 	public GameObject desert_forest;
@@ -20,6 +25,7 @@ public class Multiplier : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		camObj = GameObject.Find ("Main Camera");
 	}
 	

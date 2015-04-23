@@ -3,12 +3,27 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-	public Texture backgroundTexture;
+	/*public Texture backgroundTexture;
 	public Texture playButton;
-	public GUISkin playSkin;
+	public GUISkin playSkin;*/
 
+	void Start () {
 
-	void OnGUI(){
+	}
+
+	public void startGame(){
+		Application.LoadLevel ("haydensBetaAF");
+	}
+
+	public void quitGame(){
+		Application.Quit ();
+	}
+
+	public void setVolume(float newVol){
+		AudioListener.volume = newVol;
+	}
+
+	/*void OnGUI(){
 		//Display Background Texture
 		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), backgroundTexture);
 
@@ -22,5 +37,5 @@ public class MainMenu : MonoBehaviour {
 			Debug.Log ("Pressed Quit!");	
 			Application.Quit ();
 		}
-	}
+	}*/
 }
