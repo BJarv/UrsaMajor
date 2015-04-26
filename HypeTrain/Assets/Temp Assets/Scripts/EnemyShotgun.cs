@@ -51,42 +51,17 @@ public class EnemyShotgun : MonoBehaviour {
 	
 	void shootBullets() //90 for straight forward
 	{
-		spread = 15f;//temp fix, take out to set spreads in inspector
-		int BR = bullets; //bullets remaining
-		if (BR < 3) {
-			Debug.LogError("Shotguns must shoot atleast 3 bullets");
-		}
-		bulletRotsToPlayer.Clear ();
+		spread = 20f;
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rot = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position); //point to player
 		Quaternion rotToPlayer = rot;
-		if (bullets % 2 == 1) { // if odd number of bullets, aim 1 at player, then do the rest as if you had even number of bullets
-			bulletRotsToPlayer.Add (rotToPlayer);
-			BR--;
-		}
-		rot.Set (rot.x, rot.y, rot.z, rot.w - (spread/2));
-		rot = Quaternion.AngleAxis(-(spread/2), transform.TransformDirection(Vector3.forward));
-		bulletRotsToPlayer.Add (rot);
-		float adjust = spread / BR; // used move cursor (spread/BR) degrees
-		BR--;
-		while (BR > 0) {
-			rot.Set (rot.x, rot.y, rot.z, rot.w + adjust);
-			bulletRotsToPlayer.Add (rot);
-			BR--;
-		}
-		/*int checkList = 0;
-		while (checkList < bulletRotsToPlayer.Count) {
-			Debug.Log (bulletRotsToPlayer[checkList]);
-			checkList++;
-		}
-		*/
-		int i = 0;
+
 		GameObject bulletInstance;
-		while(i < bulletRotsToPlayer.Count){
-			bulletInstance = Instantiate(bullet, transform.position, bulletRotsToPlayer[i]) as GameObject;
+		for(int i = 0; i < bullets; i++){
+			bulletInstance = Instantiate(bullet, transform.position, rotToPlayer) as GameObject;
+			bulletInstance.transform.Rotate(0f, 0f, Random.Range (-spread, spread));
 			bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * bulletSpeed);
-			i++;
 		}
 
 		rotToPlayer *= Quaternion.Euler (0, 0, 90);

@@ -4,17 +4,22 @@ using System.Collections;
 public class Popup : MonoBehaviour {
 
 	private bool paused = false;
+	CameraShake shaker;
 
 
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject pauseMenu;
+	[HideInInspector] public GameObject deathMenu;
 	[HideInInspector] public bool dead;
 
 	void Start () {
+		shaker = transform.parent.GetComponent<CameraShake>();
 		player = GameObject.Find ("character");
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
 		paused = false;
+		deathMenu = GameObject.Find ("Death");
+		deathMenu.SetActive(false);
 		Time.timeScale = 1;
 		//AudioListener.volume = vol;  //VOLUME SET ON NEW UI
 		Cursor.visible = false;
@@ -30,11 +35,24 @@ public class Popup : MonoBehaviour {
 				Cursor.visible = false;
 
 			} else if (!paused) { //pause game if not pause
+				shaker.stopAllShake();
 				paused = true;
 				Time.timeScale = 0;
 				pauseMenu.SetActive(true);
  
 				Cursor.visible = true;
+			}
+		}
+		if(player.transform.position.y < -15f || dead) {
+			shaker.stopAllShake();
+			Time.timeScale = 0;
+
+			deathMenu.SetActive(true);
+
+			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
+				deathMenu.SetActive(false);
+				Time.timeScale = 1;
+				Application.LoadLevel (Application.loadedLevelName);
 			}
 		}
 	}
@@ -56,8 +74,10 @@ public class Popup : MonoBehaviour {
 		Application.LoadLevel ("MainMenu");
 	}
 
-	void OnGUI() {
-		/*if(paused) {
+
+
+	/*void OnGUI() {
+		if(paused) {
 			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 200), "Paused"); //main background box
 			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 250, 50), "Main Menu")) {
 				Application.LoadLevel ("MainMenu");
@@ -65,7 +85,7 @@ public class Popup : MonoBehaviour {
 			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Quit")) {
 				Application.Quit ();
 			}
-		}*/
+		}
 		if(player.transform.position.y < -15f || dead) {
 
 			Time.timeScale = 0;
@@ -95,6 +115,6 @@ public class Popup : MonoBehaviour {
 			}
 		}
 
-	}
+	}*/
 	
 }

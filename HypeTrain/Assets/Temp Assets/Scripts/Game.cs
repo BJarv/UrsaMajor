@@ -24,6 +24,7 @@ public class Game {
 	public static bool firstTime = true;
 	public static bool firstTime = true;*/
 
+
 	void Start() {
 		if(!PlayerPrefs.HasKey ("lifetimeLoot")) {
 			PlayerPrefs.SetInt ("lifetimeLoot", 0);
@@ -32,6 +33,7 @@ public class Game {
 			PlayerPrefs.SetInt ("hype", 0);
 			PlayerPrefs.SetInt ("carsCleared", 0);
 			PlayerPrefs.SetInt ("enemiesKilled", 0);
+			PlayerPrefs.SetInt ("bossesKilled", 0);
 			PlayerPrefs.SetInt ("hypeModesActivated", 0);
 			PlayerPrefs.SetInt ("shotsFired", 0);
 			PlayerPrefs.SetInt ("deaths", 0);
@@ -60,5 +62,18 @@ public class Game {
 		PlayerPrefs.SetInt ("carsCleared", (PlayerPrefs.GetInt ("carsCleared") + amount));
 		PlayerPrefs.Save ();
 	}
+	public static void incEnemiesKilled() {
+		PlayerPrefs.SetInt ("enemiesKilled", (PlayerPrefs.GetInt ("enemiesKilled") + 1));
+		PlayerPrefs.Save ();
+	}
 
+	public static void incDeaths() {
+		PlayerPrefs.SetInt ("deaths", (PlayerPrefs.GetInt ("deaths") + 1));
+		PlayerPrefs.Save ();
+	}
+
+	public static void incBossesKilled() {
+		PlayerPrefs.SetInt ("bossesKilled", (PlayerPrefs.GetInt ("bossesKilled") + 1));
+		PlayerPrefs.Save ();
+	}
 }

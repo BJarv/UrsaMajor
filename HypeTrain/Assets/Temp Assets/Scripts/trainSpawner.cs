@@ -30,6 +30,8 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject testCar;
 	private bool testCarOn = false;
 
+	public GameObject theShopCar;
+
 	public static int exPoint = 1; //Trains on the end of the list are exlcluded, when number is lowered more included
 	
 	void Start () {
@@ -38,6 +40,7 @@ public class trainSpawner : MonoBehaviour {
 		player = GameObject.Find ("character");
 		cameraObj = GameObject.Find ("/Main Camera");
 		//if testCar is set, spawn only testCars
+		spawnShop();
 		if (testCar) {
 			testCarOn = true;
 			QueueAndMove(testCar);
@@ -49,11 +52,12 @@ public class trainSpawner : MonoBehaviour {
 			cameraObj.transform.position = new Vector3(tutorialCar.transform.Find ("tutorial_Spawn").transform.position.x, tutorialCar.transform.Find ("tutorial_Spawn").transform.position.y, -30);
 
 			player.transform.position = tutorialCar.transform.Find ("tutorial_Spawn").transform.position;
-		} else if (TutShopController.shop) {
-			QueueAndMove(shopCar);
-			TutShopController.shop = false;
-			QueueAndMove();
-		} else {  				 //otherwise load 2 random cars
+		} //else if (TutShopController.shop) {
+			//QueueAndMove(shopCar);
+			//TutShopController.shop = false;
+			//QueueAndMove();
+		//} 
+		else {  				 //otherwise load 2 random cars
 			QueueAndMove();
 			QueueAndMove();
 		}
@@ -87,11 +91,19 @@ public class trainSpawner : MonoBehaviour {
 		trains.Enqueue(tempTrain); //put train game object into trains queue
 		gameObject.transform.position = new Vector2(transform.position.x + theWidth + widthBetween, transform.position.y); //move transform width forward
 	}
+
+	void spawnShop() {
+		theShopCar = (GameObject)Instantiate(shopCar, transform.position, Quaternion.identity);
+		float railToCenter = railHeight - theShopCar.transform.Find ("base").transform.localPosition.y;
+		theShopCar.transform.position = new Vector2(theShopCar.transform.position.x - theShopCar.GetComponent<getWidthCar>().carWidth()/2 - 1.5f, railToCenter + 3f);
+	}
 	
 
 	public void KillTrain() { 
-		//NOTE: if trains are despawning improperly, may need to make this function on its own instantiated object
 		if(!playerWithinFirst ()){
+			if(theShopCar) { //if you go past first car, make sure to kill shopcar as well
+				Destroy(theShopCar);
+			}
 			Destroy (deadTrain);
 			CancelInvoke();
 			deadTrain = (GameObject)trains.Dequeue();
@@ -121,6 +133,7 @@ public class trainSpawner : MonoBehaviour {
 		return (leftPos - despawnBuffer < player.transform.position.x && player.transform.position.x < rightPos + despawnBuffer);
 	}
 
+	//Default call from TrainEnter, returns the center of the current car
 	public float headCenter() 
 	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
@@ -131,9 +144,26 @@ public class trainSpawner : MonoBehaviour {
 		}
 	}
 
+	//Overloaded call from TrainEnter, returns the center of the specified car
+	public float headCenter(GameObject trainCheck) 
+	{
+		if (trainCheck.tag == "bigCar") {
+			return 1f; //Camera2D knows that 1 means it's a long car
+		} else {
+			return trainCheck.transform.Find ("center").transform.position.x;
+		}
+	}
+
+	//Default call from TrainEnter, returns the sidepanel of the current car
 	public GameObject headPanel()
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
+		return trainCheck.transform.FindChild ("sidepanel").gameObject;
+	}
+
+	//Overloaded call from TrainEnter, returns the sidepanel of the specified car
+	public GameObject headPanel(GameObject trainCheck)
+	{
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
 	}
 
@@ -160,10 +190,14 @@ public class trainSpawner : MonoBehaviour {
 		}
 	}
 
-	public Vector3 exitTele() 
-	{
+	//Default call from TrainExit, returns the exit launch position of the current car
+	public Vector3 exitTele() {
 		GameObject trainCheck = (GameObject)trains.Peek();
+		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
+	}
 
+	//Overloaded call from TrainExit, returns the exit launch position of the specified car
+	public Vector3 exitTele(GameObject trainCheck) {
 		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
 	}
 
