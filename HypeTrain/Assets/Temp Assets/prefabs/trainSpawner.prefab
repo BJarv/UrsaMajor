@@ -73,6 +73,7 @@ MonoBehaviour:
   tutCar2: {fileID: 100026, guid: ba119c4bec3fc334ba7e2ee5fe08503f, type: 2}
   shopCar: {fileID: 100036, guid: 420f8831c46db4a9cabff99d1aa85905, type: 2}
   testCar: {fileID: 0}
+  theShopCar: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forest: {fileID: 193168, guid: 5fc9dc015d2d1954cbcfba7e5fe487fe, type: 2}
+  desert_forest: {fileID: 153696, guid: 2fbfcb23faa7f7043ba9ef8dd4bd39a1, type: 2}
   camObj: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

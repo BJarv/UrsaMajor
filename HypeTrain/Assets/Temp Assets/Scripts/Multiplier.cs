@@ -20,6 +20,8 @@ public class Multiplier : MonoBehaviour {
 	public GameObject desert_forest;
 	public GameObject camObj;
 
+	private bool switchedToForest = false; 
+
 	//public GameObject mountains;
 	//public GameObject HYPEcity;
 
@@ -41,7 +43,10 @@ public class Multiplier : MonoBehaviour {
 
 			//BACKGROUND STUFF:
 			//Add a transition tile. Then switch to forest.
-			camObj.GetComponent<DesertHandler>().addTransition(desert_forest);
+			if (switchedToForest == false) {
+				camObj.GetComponent<DesertHandler>().addTransition(desert_forest);
+				switchedToForest = true;
+			}
 			camObj.GetComponent<DesertHandler>().changeTile(forest);
 
 			trainSpawner.exPoint = 0; //Includes DinoCar in PossTrains
