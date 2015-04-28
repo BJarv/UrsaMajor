@@ -80,7 +80,7 @@ public class DesertHandler : MonoBehaviour {
 
 	//Also called from Multiplier.cs, simply appends a transition tile "bg" that you choose in Multiplier
 	public void addTransition(GameObject bg) {
-		makeNewTile (tileSize, tile, tileQ);
+		makeNewTile (tileSize, bg, tileQ);
 	}
 
 	//Instantiates a game object that you choose and places it in the given game Object queue.
