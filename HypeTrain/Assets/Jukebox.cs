@@ -6,6 +6,7 @@ public class Jukebox : MonoBehaviour {
 	//0 = Cowboy
 	//1 = 8-Bit
 	public int trackNo;
+	public static string trackName;
 
 	public AudioClip title;
 	public AudioClip gameReg;
@@ -22,7 +23,11 @@ public class Jukebox : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		jukebox = gameObject.GetComponent<AudioSource> ();
-		trackNo = 1;//PlayerPrefs.GetInt ("track");
+		trackNo = 0;//PlayerPrefs.GetInt ("track");
+
+		if(trackNo == 0) trackName = "Cowboy";
+		else if(trackNo == 1) trackName = "8-Bit";
+
 		diff = jukebox.clip;
 		player = GameObject.Find("character");
 	}
@@ -33,6 +38,8 @@ public class Jukebox : MonoBehaviour {
 			Debug.Log ("CHANGED");
 			jukebox.Play();
 			diff = jukebox.clip;
+			if(trackNo == 0) trackName = "Cowboy";
+			else if(trackNo == 1) trackName = "8-Bit";
 		}
 		//Change clips to the correct track
 		//Cowboy
@@ -65,5 +72,15 @@ public class Jukebox : MonoBehaviour {
 		else {
 			jukebox.clip = gameReg;
 		}
+	}
+
+	public void prevTrack(){
+		if (trackNo == 0) trackNo = 1;
+		else trackNo--;
+	}
+	
+	public void nextTrack(){
+		if (trackNo == 1) trackNo = 0;
+		else trackNo++;
 	}
 }
