@@ -23,7 +23,7 @@ public class Jukebox : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		jukebox = gameObject.GetComponent<AudioSource> ();
-		trackNo = 0;//PlayerPrefs.GetInt ("track");
+		trackNo = PlayerPrefs.GetInt ("track");
 
 		if(trackNo == 0) trackName = "Cowboy";
 		else if(trackNo == 1) trackName = "8-Bit";
@@ -75,12 +75,14 @@ public class Jukebox : MonoBehaviour {
 	}
 
 	public void prevTrack(){
-		if (trackNo == 0) trackNo = 1;
-		else trackNo--;
+		if (trackNo == 0) PlayerPrefs.SetInt ("track", 1);
+		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") - 1));
+		trackNo = PlayerPrefs.GetInt ("track");
 	}
 	
 	public void nextTrack(){
-		if (trackNo == 1) trackNo = 0;
-		else trackNo++;
+		if (trackNo == 1) PlayerPrefs.SetInt ("track", 0);
+		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") + 1));
+		trackNo = PlayerPrefs.GetInt ("track");
 	}
 }
