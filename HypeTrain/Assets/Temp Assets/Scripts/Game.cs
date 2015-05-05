@@ -38,6 +38,7 @@ public class Game {
 			PlayerPrefs.SetInt ("shotsFired", 0);
 			PlayerPrefs.SetInt ("deaths", 0);
 			PlayerPrefs.SetInt ("track", 1);
+			PlayerPrefs.SetFloat ("volume", 1);
 			PlayerPrefs.SetFloat ("accuracy", 0);
 			PlayerPrefsBool.SetBool ("skin1", true);
 			PlayerPrefsBool.SetBool ("skin2", false);

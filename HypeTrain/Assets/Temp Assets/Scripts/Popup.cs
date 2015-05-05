@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Popup : MonoBehaviour {
 
 	private bool paused = false;
+	public Slider volSlide;
 	CameraShake shaker;
 
 
@@ -14,6 +16,7 @@ public class Popup : MonoBehaviour {
 
 	void Start () {
 		shaker = transform.parent.GetComponent<CameraShake>();
+		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
 		player = GameObject.Find ("character");
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
@@ -44,6 +47,7 @@ public class Popup : MonoBehaviour {
 			}
 		}
 		if(player.transform.position.y < -15f || dead) {
+			paused = true;
 			shaker.stopAllShake();
 			Time.timeScale = 0;
 
@@ -59,6 +63,7 @@ public class Popup : MonoBehaviour {
 
 	public void setVolume(float newVol){
 		AudioListener.volume = newVol;
+		PlayerPrefs.SetFloat ("volume", newVol);
 	}
 
 	public void pauseButton(){
