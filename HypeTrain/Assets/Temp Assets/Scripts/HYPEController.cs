@@ -75,7 +75,7 @@ public class HYPEController : MonoBehaviour {
 			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
-			AudioSource.PlayClipAtPoint(HYPEsound, transform.position);
+			//AudioSource.PlayClipAtPoint(HYPEsound, transform.position);
 		}
 
 		//Timer for how long HYPE lasts, resets gun modifications once time runs out

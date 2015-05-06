@@ -30,7 +30,7 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject testCar;
 	private bool testCarOn = false;
 
-	private GameObject theShopCar;
+	public GameObject theShopCar;
 
 	public static int exPoint = 1; //Trains on the end of the list are exlcluded, when number is lowered more included
 	
@@ -133,6 +133,7 @@ public class trainSpawner : MonoBehaviour {
 		return (leftPos - despawnBuffer < player.transform.position.x && player.transform.position.x < rightPos + despawnBuffer);
 	}
 
+	//Default call from TrainEnter, returns the center of the current car
 	public float headCenter() 
 	{
 		GameObject trainCheck = (GameObject)trains.Peek ();
@@ -143,9 +144,26 @@ public class trainSpawner : MonoBehaviour {
 		}
 	}
 
+	//Overloaded call from TrainEnter, returns the center of the specified car
+	public float headCenter(GameObject trainCheck) 
+	{
+		if (trainCheck.tag == "bigCar") {
+			return 1f; //Camera2D knows that 1 means it's a long car
+		} else {
+			return trainCheck.transform.Find ("center").transform.position.x;
+		}
+	}
+
+	//Default call from TrainEnter, returns the sidepanel of the current car
 	public GameObject headPanel()
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
+		return trainCheck.transform.FindChild ("sidepanel").gameObject;
+	}
+
+	//Overloaded call from TrainEnter, returns the sidepanel of the specified car
+	public GameObject headPanel(GameObject trainCheck)
+	{
 		return trainCheck.transform.FindChild ("sidepanel").gameObject;
 	}
 
@@ -172,10 +190,14 @@ public class trainSpawner : MonoBehaviour {
 		}
 	}
 
-	public Vector3 exitTele() 
-	{
+	//Default call from TrainExit, returns the exit launch position of the current car
+	public Vector3 exitTele() {
 		GameObject trainCheck = (GameObject)trains.Peek();
+		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
+	}
 
+	//Overloaded call from TrainExit, returns the exit launch position of the specified car
+	public Vector3 exitTele(GameObject trainCheck) {
 		return  trainCheck.transform.Find("train_car_roof").transform.Find ("exitHatch").gameObject.transform.position;
 	}
 

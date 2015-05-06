@@ -181,6 +181,7 @@ public class Enemy : MonoBehaviour {
 			Game.incEnemiesKilled();
 			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
+			ScoreKeeper.enemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);
 		}
 	}
