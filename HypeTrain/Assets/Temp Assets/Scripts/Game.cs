@@ -47,6 +47,22 @@ public class Game {
 			PlayerPrefsBool.SetBool ("hype1", true);
 			PlayerPrefsBool.SetBool ("hype2", false);
 			PlayerPrefsBool.SetBool ("firstTime", true);
+			PlayerPrefsBool.SetBool ("bounty1", false);
+			PlayerPrefsBool.SetBool ("bounty2", false);
+			PlayerPrefsBool.SetBool ("bounty3", false);
+			PlayerPrefsBool.SetBool ("bounty4", false);
+			PlayerPrefsBool.SetBool ("bounty5", false);
+			PlayerPrefsBool.SetBool ("bounty6", false);
+			PlayerPrefsBool.SetBool ("bounty7", false);
+			PlayerPrefsBool.SetBool ("bounty8", false);
+			PlayerPrefsBool.SetBool ("bounty9", false);
+			PlayerPrefsBool.SetBool ("bounty10", false);
+			PlayerPrefsBool.SetBool ("bounty11", false);
+			PlayerPrefsBool.SetBool ("bounty12", false);
+			PlayerPrefsBool.SetBool ("bounty13", false);
+			PlayerPrefsBool.SetBool ("bounty14", false);
+			PlayerPrefsBool.SetBool ("bounty15", false);
+			PlayerPrefsBool.SetBool ("bounty16", false);
 		}
 	}
 
@@ -78,4 +94,5 @@ public class Game {
 		PlayerPrefs.SetInt ("bossesKilled", (PlayerPrefs.GetInt ("bossesKilled") + 1));
 		PlayerPrefs.Save ();
 	}
+	
 }

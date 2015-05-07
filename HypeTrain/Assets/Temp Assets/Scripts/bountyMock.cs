@@ -7,7 +7,7 @@ public class bountyMock : MonoBehaviour {
 
 	public bool Cumulative = false;
 	public int total = 0;
-	public string varToTrack = "DinoKills";
+	public string varToTrack = "enemiesKilled";
 	private int counter = 0;
 
 	private Text display;
