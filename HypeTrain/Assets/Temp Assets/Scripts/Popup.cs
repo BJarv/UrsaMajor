@@ -5,19 +5,27 @@ using UnityEngine.UI;
 public class Popup : MonoBehaviour {
 
 	private bool paused = false;
-	public Slider volSlide;
 	CameraShake shaker;
 
 
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject pauseMenu;
 	[HideInInspector] public GameObject deathMenu;
+	[HideInInspector] public GameObject pSlide;
+	[HideInInspector] public GameObject dSlide; 
 	[HideInInspector] public bool dead;
+
 
 	void Start () {
 		shaker = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
 		player = GameObject.Find ("character");
+		//Set volume sliders to saved Pref
+		pSlide = GameObject.Find ("pSlider");
+		pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		dSlide = GameObject.Find ("dSlider");
+		dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		//Find references to the pause and death menus, then disable them
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
 		paused = false;
@@ -42,6 +50,8 @@ public class Popup : MonoBehaviour {
 				paused = true;
 				Time.timeScale = 0;
 				pauseMenu.SetActive(true);
+				//Update slider position
+				pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
  
 				Cursor.visible = true;
 			}
@@ -52,9 +62,13 @@ public class Popup : MonoBehaviour {
 			Time.timeScale = 0;
 
 			deathMenu.SetActive(true);
+			Cursor.visible = true;
+			//Update slider position
+			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 
 			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				deathMenu.SetActive(false);
+				Cursor.visible = false;
 				Time.timeScale = 1;
 				Application.LoadLevel (Application.loadedLevelName);
 			}
@@ -62,6 +76,7 @@ public class Popup : MonoBehaviour {
 	}
 
 	public void setVolume(float newVol){
+		//Update the local volume and pref
 		AudioListener.volume = newVol;
 		PlayerPrefs.SetFloat ("volume", newVol);
 	}
@@ -71,7 +86,7 @@ public class Popup : MonoBehaviour {
 		paused = false;
 		Time.timeScale = 1;
 		pauseMenu.SetActive(false);
-			
+
 		Cursor.visible = false;
 	}
 

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
-	/*public Texture backgroundTexture;
-	public Texture playButton;
-	public GUISkin playSkin;*/
+	public GameObject volSlide;
 
 	void Start () {
-
+		volSlide = GameObject.Find ("Slider");
+		volSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 	}
 
 	public void startGame(){
@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void setVolume(float newVol){
 		AudioListener.volume = newVol;
+		PlayerPrefs.SetFloat ("volume", newVol);
 	}
 
 	/*void OnGUI(){
