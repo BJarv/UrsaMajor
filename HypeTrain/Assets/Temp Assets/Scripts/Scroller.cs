@@ -41,23 +41,22 @@ public class Scroller : MonoBehaviour
 			gameObject.transform.localScale = new Vector3 (-dimension, dimension, 1);
 		else
 			gameObject.transform.localScale = new Vector3 (dimension, dimension, 1);
-		}
+	}
 	
-	void Update() 
-	{
+	void Update() {
 	}
 	
 	void FixedUpdate()
 	{
-				if (handleSpeed == true) {
-						speed = (Mathf.Log (Mathf.Abs (transform.localScale.x)) + e) * .5f;
-				}
-				if (true4Left == true)
-						transform.position = new Vector3 (transform.position.x - speed, transform.position.y, transform.position.z);
-				else 
-						transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
-
-				if (transform.position.x + rend.bounds.size.x < player.transform.position.x - 100)
-						Destroy (gameObject);
+		if (handleSpeed == true) {
+			speed = (Mathf.Log (Mathf.Abs (transform.localScale.x)) + e) * .5f;
+		}
+		if (true4Left == true)
+			transform.position = new Vector3 (transform.position.x - speed, transform.position.y, transform.position.z);
+		else 
+			transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
+	
+		if (transform.position.x + rend.bounds.size.x < player.transform.position.x - 100)
+			Destroy (gameObject);
 	}
 }

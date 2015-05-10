@@ -57,6 +57,10 @@ public class TrainEnter : MonoBehaviour {
 		} 
 		//Default case
 		else {
+			//Special case for entering the Spike Car
+			if (transform.parent.transform.parent.transform.parent.name == "SpikeCar(Clone)") {
+				SpikeWall.spikeTimerOn = true;
+			} 
 			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();
 			//Lock camera on the current car
