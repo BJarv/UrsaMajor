@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc131675f3e6bc248a4c3c7920a97789, type: 3}
+  m_Script: {fileID: 11500000, guid: cf67d965c6ebf4448994238891393c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
@@ -47,6 +47,7 @@ MonoBehaviour:
   flipHoriz: 0
   dimension: 1
   e: 2.71828175
+  rend: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -56,16 +57,20 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 2984410635
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1310556661
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 076711e0bc31fb6418f934e5434b6fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -80,4 +85,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
