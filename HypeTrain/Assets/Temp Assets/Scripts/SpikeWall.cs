@@ -21,10 +21,18 @@ public class SpikeWall : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D colObj){
+		//Hurt the player on hit
 		if (colObj.collider.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
 			Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(1000, 575));
 			Player.GetComponent<CharControl>().hitAnim();
+		}
+		if (colObj.collider.tag == "breakable" || colObj.collider.tag == "bonus") {
+			Destroy(colObj.gameObject);
+		}
+		if (colObj.collider.tag == "wall") {
+			Debug.Log ("Hit a wall!");
+			spikeTimerEnd = false;
 		}
 	}
 
