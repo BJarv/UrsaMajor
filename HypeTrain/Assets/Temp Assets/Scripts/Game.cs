@@ -47,6 +47,7 @@ public class Game {
 			PlayerPrefsBool.SetBool ("hype1", true);
 			PlayerPrefsBool.SetBool ("hype2", false);
 			PlayerPrefsBool.SetBool ("firstTime", true);
+			//these need to be commented with names
 			PlayerPrefsBool.SetBool ("bounty1", false);
 			PlayerPrefsBool.SetBool ("bounty2", false);
 			PlayerPrefsBool.SetBool ("bounty3", false);
@@ -63,6 +64,26 @@ public class Game {
 			PlayerPrefsBool.SetBool ("bounty14", false);
 			PlayerPrefsBool.SetBool ("bounty15", false);
 			PlayerPrefsBool.SetBool ("bounty16", false);
+			//-1 for not being tracked yet. also need to be name commented
+			PlayerPrefs.SetInt ("savedBounty1", -1);
+			PlayerPrefs.SetInt ("savedBounty2", -1);
+			PlayerPrefs.SetInt ("savedBounty3", -1);
+			PlayerPrefs.SetInt ("savedBounty4", -1);
+			PlayerPrefs.SetInt ("savedBounty5", -1);
+			PlayerPrefs.SetInt ("savedBounty6", -1);
+			PlayerPrefs.SetInt ("savedBounty7", -1);
+			PlayerPrefs.SetInt ("savedBounty8", -1);
+			PlayerPrefs.SetInt ("savedBounty9", -1);
+			PlayerPrefs.SetInt ("savedBounty10", -1);
+			PlayerPrefs.SetInt ("savedBounty11", -1);
+			PlayerPrefs.SetInt ("savedBounty12", -1);
+			PlayerPrefs.SetInt ("savedBounty13", -1);
+			PlayerPrefs.SetInt ("savedBounty14", -1);
+			PlayerPrefs.SetInt ("savedBounty15", -1);
+			PlayerPrefs.SetInt ("savedBounty16", -1);
+			//currently active bounties
+			PlayerPrefs.SetInt ("activeBounty1", -1);
+			PlayerPrefs.SetInt ("activeBounty2", -1);
 		}
 	}
 
