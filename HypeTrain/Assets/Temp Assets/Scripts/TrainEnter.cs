@@ -5,6 +5,7 @@ public class TrainEnter : MonoBehaviour {
 	
 	[HideInInspector] public GameObject cameraObj;
 	[HideInInspector] public GameObject sidePanel;
+	[HideInInspector] public GameObject wall;
 	private GameObject trainSpawn;
 	private Animator hatchAnimator;
 
@@ -59,7 +60,8 @@ public class TrainEnter : MonoBehaviour {
 		else {
 			//Special case for entering the Spike Car
 			if (transform.parent.transform.parent.transform.parent.name == "SpikeCar(Clone)") {
-				SpikeWall.spikeTimerOn = true;
+				wall = GameObject.Find ("spikeWall");
+				wall.GetComponent<SpikeWall>().activateSpikeTimer();
 			} 
 			//Remove previous train
 			trainSpawn.GetComponent<trainSpawner>().KillTrain();

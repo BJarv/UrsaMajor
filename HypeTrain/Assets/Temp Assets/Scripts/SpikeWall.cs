@@ -6,8 +6,8 @@ public class SpikeWall : MonoBehaviour {
 	public float speed = 4f;
 	public float delay = 1f;
 
-	[HideInInspector] public static bool spikeTimerOn = false;
-	[HideInInspector] public static bool spikeTimerEnd = false;
+	[HideInInspector] public bool spikeTimerOn = false;
+	[HideInInspector] public bool spikeTimerEnd = false;
 	[HideInInspector] public GameObject Player;
 	
 	// Use this for initialization
@@ -15,9 +15,13 @@ public class SpikeWall : MonoBehaviour {
 		Player = GameObject.Find("character");
 	}
 
+	//Start moving the spike wall once the timer has ended
 	void FixedUpdate () {
 		if(spikeTimerOn) Invoke ("SpikeTimer", delay);
-		if(spikeTimerEnd) transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
+		if (spikeTimerEnd) {
+			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); //Prevent the spike wall from being affected by outside forces
+			transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z); //Move wall at given speed
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D colObj){
@@ -36,10 +40,15 @@ public class SpikeWall : MonoBehaviour {
 		}
 	}
 
+	//For destroying oneway platforms and money, which have a trigger box collider
 	void OnTriggerEnter2D(Collider2D hit){
 		if (hit.tag == "bonus") {
 			Destroy(hit.gameObject);
 		}
+	}
+
+	public void activateSpikeTimer() {
+		spikeTimerOn = true;
 	}
 
 	void SpikeTimer () {
