@@ -2,6 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
+  serializedVersion: 2
   tags:
   - enemy
   - bonus
@@ -11,73 +12,65 @@ TagManager:
   - meat
   - wall
   - dino
+  - path node
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
   - 
-  Builtin Layer 0: Default
-  Builtin Layer 1: TransparentFX
-  Builtin Layer 2: Ignore Raycast
-  Builtin Layer 3: 
-  Builtin Layer 4: Water
-  Builtin Layer 5: UI
-  Builtin Layer 6: 
-  Builtin Layer 7: 
-  User Layer 8: Triggers
-  User Layer 9: Collidables
-  User Layer 10: Player
-  User Layer 11: Enemies
-  User Layer 12: Train
-  User Layer 13: Projectiles
-  User Layer 14: Loot
-  User Layer 15: ConditionalCol
-  User Layer 16: Background Image
-  User Layer 17: 
-  User Layer 18: 
-  User Layer 19: 
-  User Layer 20: 
-  User Layer 21: 
-  User Layer 22: 
-  User Layer 23: 
-  User Layer 24: 
-  User Layer 25: 
-  User Layer 26: 
-  User Layer 27: 
-  User Layer 28: 
-  User Layer 29: 
-  User Layer 30: 
-  User Layer 31: 
+  - Water
+  - UI
+  - 
+  - 
+  - Triggers
+  - Collidables
+  - Player
+  - Enemies
+  - Train
+  - Projectiles
+  - Loot
+  - ConditionalCol
+  - Background Image
+  - path node
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
-    userID: 0
     uniqueID: 0
     locked: 0
   - name: Background Obj
-    userID: 6
     uniqueID: 2984410635
     locked: 0
   - name: Train
-    userID: 1
     uniqueID: 3785575401
     locked: 0
   - name: Obstacles
-    userID: 3
     uniqueID: 257457845
     locked: 0
   - name: Enemies
-    userID: 4
     uniqueID: 121282003
     locked: 0
   - name: Gun Arm
-    userID: 5
     uniqueID: 2441434759
     locked: 0
   - name: Player
-    userID: 2
     uniqueID: 3629822683
     locked: 0
   - name: Particles
-    userID: 7
     uniqueID: 1644679271
     locked: 0
   - name: UI
-    userID: 5
     uniqueID: 2086468211
     locked: 0

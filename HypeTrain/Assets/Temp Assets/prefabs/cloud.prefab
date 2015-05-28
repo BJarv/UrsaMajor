@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: cloud
   m_TagString: Untagged
@@ -29,25 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf67d965c6ebf4448994238891393c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: .0500000007
-  true4Left: 1
-  handleSpeed: 1
-  randomDimension: 1
-  flipHoriz: 1
-  dimension: 1
-  e: 2.71828175
-  rend: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
