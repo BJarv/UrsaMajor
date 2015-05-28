@@ -5,13 +5,16 @@ using UnityEngine.UI;
 public class bounty : MonoBehaviour {
 
 	public string bountyName = "";
+	public string description = "";
 	public bool cumulative = false;
 	int valAtStart = 0;
 	public int completeAmount = 0;
 	public int valToTrack = -1; //constructs key for playerprefs from this number
-	private Text display;
+	public Text title;
+	public Text info;
+	public Text counter;
+
 	//private Image picture;
-	public string description = "";
 	private Text mouseOverText;
 	public bool active = false;
 	public GameObject grayOut;
@@ -19,13 +22,17 @@ public class bounty : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Set inspector defined text
+		title.text = bountyName;
+		info.text = description;
 		if(name == "" || completeAmount == 0 || valToTrack == -1 || description == "") {
 			Debug.LogError(gameObject.name + " has missing values.");
 		} else {
-			display = transform.Find ("counter").GetComponent<Text>(); //should be replaced for inspector references
-			mouseOverText = transform.Find ("description").GetComponent<Text>(); //should be replaced for inspector references
-			mouseOverText.enabled = false;
-			if(PlayerPrefs.GetInt ("activeBounty1") == valToTrack || PlayerPrefs.GetInt ("activeBounty2") == valToTrack){
+			//display = transform.Find ("counter").GetComponent<Text>(); //should be replaced for inspector references
+			//mouseOverText = transform.Find ("description").GetComponent<Text>(); //should be replaced for inspector references
+
+			//mouseOverText.enabled = false;
+			if(PlayerPrefs.GetInt ("activeBounty1") == valToTrack || PlayerPrefs.GetInt ("activeBounty2") == valToTrack) { //if active bounty is this bounty, call choose(based on bounty number)
 				active = true;
 				choose ();
 			}
@@ -47,7 +54,7 @@ public class bounty : MonoBehaviour {
 
 
 	public void updateVal() {
-		display.text = (PlayerPrefs.GetInt("bounty" + valToTrack) - valAtStart) + "/" + completeAmount;
+		counter.text = (PlayerPrefs.GetInt("savedBounty" + valToTrack) - valAtStart) + "/" + (completeAmount); //derived current amount out of complete amount ie 12/25
 	}
 	
 	// Update is called once per frame
