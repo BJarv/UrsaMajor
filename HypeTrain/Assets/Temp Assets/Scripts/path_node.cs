@@ -5,15 +5,18 @@ using System.Collections.Generic;
 public class path_node : MonoBehaviour {
 	//MAKE SURE TO TURN OFF PLAYER COLLISION WITH THE NODES
 
-
 	Collider2D myNodeCollider;
 	public float checkRadius; 
 	public LayerMask nodeLayer;
 
+	public Vector2 getPos() {
+		return transform.position;
+	}
+
 	public List<Collider2D> neighbors() {
 		List<Collider2D> hits = new List<Collider2D>(Physics2D.OverlapCircleAll (transform.position, checkRadius, nodeLayer));
 		//One of the things returned is myself. We have the trimHits function to remedy this if we need to.
-		//hits = trimHits (hits);
+		hits = trimHits (hits);
 		return hits;
 	}
 
