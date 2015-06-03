@@ -34,6 +34,7 @@ public class NodeSearch : MonoBehaviour {
 		q.Enqueue (sn.GetComponent<path_node>());
 
 		while (q.Count > 0) { //while there are still nodes to search
+			//in the case of coroutine, yield if taking too long
 			Debug.Log ("in main while");
 			path_node temp = q.Dequeue();
 			List<Collider2D> neighbors = temp.transform.GetComponent<path_node>().neighbors();
