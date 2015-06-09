@@ -65,6 +65,7 @@ public class NodeSearch : MonoBehaviour {
 						//Destroy(dn);
 						sn.transform.position = new Vector2(0, 1000f);
 						dn.transform.position = new Vector2(0, 1000f);
+						path.Reverse ();
 						return path;
 					}
 				}
@@ -88,6 +89,8 @@ public class NodeSearch : MonoBehaviour {
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
+		// highlight thePath[1] in red
+		Gizmos.DrawWireSphere (thePath [0], 1f);
 		for(int i = 0; i < thePath.Count - 1 && thePath.Count != 0; i++) {
 			Gizmos.DrawLine(thePath[i], thePath[i+1]);
 		}
@@ -95,6 +98,7 @@ public class NodeSearch : MonoBehaviour {
 
 	void doSearch() {
 		thePath = search (a.position, b.position);
+		//Debug.Log ("First node: " + thePath[1]);
 		if(thePath.Count == 0) {
 			CancelInvoke();
 		}
