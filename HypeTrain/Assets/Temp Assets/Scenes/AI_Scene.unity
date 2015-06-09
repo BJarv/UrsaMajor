@@ -3560,6 +3560,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1150967573}
   - 114: {fileID: 1150967572}
+  - 114: {fileID: 1150967575}
+  - 50: {fileID: 1150967574}
   m_Layer: 0
   m_Name: search
   m_TagString: Untagged
@@ -3593,6 +3595,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!50 &1150967574
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150967571}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: .699999988
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!114 &1150967575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150967571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b393118a2f333614db138cd3ce711b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchFreq: 1
 --- !u!1 &1160417348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,6 +3681,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b1e1df131f8954bbd9f635c57ec5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  t: 0
+  nightynight: {r: .00999999978, g: .00999999978, b: .5, a: 1}
+  dayday: {r: 1, g: 1, b: 1, a: 0}
+  lerpedColor: {r: .5, g: .5, b: 0, a: 1}
+  countSwitch: 0
+  delay: 0
 --- !u!1 &1197874157
 GameObject:
   m_ObjectHideFlags: 0
