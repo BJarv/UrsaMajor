@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class NodeSearch : MonoBehaviour {
 	public GameObject node;
+	private GameObject sn;
+	private GameObject dn;
 
 
 	// Use this for initialization
@@ -20,8 +22,13 @@ public class NodeSearch : MonoBehaviour {
 		//path list
 		List<Vector2> path = new List<Vector2>(); 
 		//instantiate nodes at source and dest to make complete path
-		GameObject sn = (GameObject)Instantiate (node, s, Quaternion.identity); 
-		GameObject dn = (GameObject)Instantiate (node, d, Quaternion.identity);
+		if(!sn) {
+			sn = (GameObject)Instantiate (node, s, Quaternion.identity); 
+			dn = (GameObject)Instantiate (node, d, Quaternion.identity);
+		} else {
+			sn.transform.position = s;
+			dn.transform.position = d;
+		}
 		//dist and previous dictionaries
 		Dictionary<path_node, float> dist = new Dictionary<path_node, float>();
 		Dictionary<path_node, path_node> prev = new Dictionary<path_node, path_node>();
@@ -30,7 +37,7 @@ public class NodeSearch : MonoBehaviour {
 		Queue<path_node> visited = new Queue<path_node> ();
 		//setup initial values for search
 		dist [sn.GetComponent<path_node>()] = 0;
-		prev [dn.GetComponent<path_node>()] = null;
+		prev [sn.GetComponent<path_node>()] = null;
 		q.Enqueue (sn.GetComponent<path_node>());
 
 		while (q.Count > 0) { //while there are still nodes to search
@@ -40,9 +47,9 @@ public class NodeSearch : MonoBehaviour {
 			List<Collider2D> neighbors = temp.transform.GetComponent<path_node>().neighbors();
 			visited.Enqueue(temp);
 			foreach (Collider2D neighbor in neighbors) {
-				Debug.Log ("neighbor: " + neighbor.name);
+				//Debug.Log ("neighbor: " + neighbor.name);
 				if(!visited.Contains (neighbor.transform.GetComponent<path_node>())){
-					Debug.Log ("in contains if");
+					//Debug.Log ("in contains if");
 					q.Enqueue(neighbor.transform.GetComponent<path_node>());
 					prev[neighbor.transform.GetComponent<path_node>()] = temp;
 					if(neighbor.transform.GetComponent<path_node>() == dn.GetComponent<path_node>()) {
@@ -50,15 +57,14 @@ public class NodeSearch : MonoBehaviour {
 						//return shortest path
 						path_node tracer = neighbor.transform.GetComponent<path_node>();
 						while(prev[tracer] != null) { //construct shortest path by going up prev list
-							Debug.Log ("in traceback");
+							//Debug.Log ("adding to path: " + tracer.getPos ());
 							path.Add(tracer.getPos());
 							tracer = prev[tracer];
 						}
-						Destroy(sn); //destroy temp source and dest nodes
-						Destroy(dn);
-						foreach(Vector2 pos in path) {
-							Debug.Log ("node position: " + pos);
-						}
+						//Destroy(sn); //destroy temp source and dest nodes
+						//Destroy(dn);
+						sn.transform.position = new Vector2(0, 1000f);
+						dn.transform.position = new Vector2(0, 1000f);
 						return path;
 					}
 				}
@@ -67,8 +73,10 @@ public class NodeSearch : MonoBehaviour {
 		}
 		Debug.LogError ("NO PATH FOUND, OH LORD");
 
-		Destroy(sn); //destroy temp source and dest nodes
-		Destroy(dn);
+		//Destroy(sn); //destroy temp source and dest nodes
+		//Destroy(dn);
+		sn.transform.position = new Vector2(0, 1000f);
+		dn.transform.position = new Vector2(0, 1000f);
 		return path;
 	}
 
@@ -79,7 +87,8 @@ public class NodeSearch : MonoBehaviour {
 	public Transform b;
 
 	void OnDrawGizmos() {
-		for(int i = 0; i < thePath.Count - 1; i++) {
+		Gizmos.color = Color.cyan;
+		for(int i = 0; i < thePath.Count - 1 && thePath.Count != 0; i++) {
 			Gizmos.DrawLine(thePath[i], thePath[i+1]);
 		}
 	}
