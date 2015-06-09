@@ -10,7 +10,7 @@ public class NodeSearch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("doSearch", 1f, 5f);
+		//InvokeRepeating ("doSearch", 1f, 5f);
 	}
 	
 	// Update is called once per frame
@@ -18,7 +18,7 @@ public class NodeSearch : MonoBehaviour {
 	
 	}
 
-	List<Vector2> search(Vector2 s, Vector2 d) { //takes in a source and a destination and returns a list of path points
+	public List<Vector2> search(Vector2 s, Vector2 d) { //takes in a source and a destination and returns a list of path points
 		//path list
 		List<Vector2> path = new List<Vector2>(); 
 		//instantiate nodes at source and dest to make complete path

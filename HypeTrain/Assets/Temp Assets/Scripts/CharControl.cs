@@ -45,6 +45,8 @@ public class CharControl : MonoBehaviour {
 	int IDofTrigs = 8;
 	int IDofProjs = 13;
 	int IDofEnes = 11;
+	int IDofNodes = 17;
+	int IDofPlayer = 10;
 
 	void Start() {
 		//SaveLoad.Load (); //LOADS SAVE GAME
@@ -64,6 +66,9 @@ public class CharControl : MonoBehaviour {
 		wallCheck = GameObject.Find("character/wallCheck").transform;
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
+		Physics2D.IgnoreLayerCollision (IDofNodes, IDofEnes, true); //make nodes and everything else play nice
+		Physics2D.IgnoreLayerCollision (IDofNodes, IDofPlayer, true);
+		Physics2D.IgnoreLayerCollision (IDofNodes, IDofProjs, true);
 	}
 
 	void Update () {
