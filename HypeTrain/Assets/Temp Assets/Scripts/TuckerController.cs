@@ -131,11 +131,11 @@ public class TuckerController: MonoBehaviour {
 	void bark(){
 		if(!barkOnCD){
 			float random = Random.Range (0,101);
-			Debug.Log (random);
-			if (random < 33)  {audio.PlayOneShot (bark1); Debug.Log ("bark1");}
-			else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2); Debug.Log ("bark2");}
-			else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3); Debug.Log ("bark3");}
-			else {audio.PlayOneShot (bark4, 1.5f); Debug.Log ("bark3");}
+			//Debug.Log (random);
+			if (random < 33)  {audio.PlayOneShot (bark1);}
+			else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2);}
+			else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3);}
+			else {audio.PlayOneShot (bark4, 1.5f);}
 		}
 	}
 
@@ -144,24 +144,24 @@ public class TuckerController: MonoBehaviour {
 		if(path.Count > 2){ //since no priority queue in C#, must check 3 nodes deep to ensure that search doesnt get stuck by searching one node back first.
 			if(nodeBetweenTarget(path[0])) {
 				to = path[0];
-				Debug.Log ("path0");
+				//Debug.Log ("path0");
 			} else if (nodeBetweenTarget(path[1])) {
 				to = path[1];
 				updatePathOnce();
-				Debug.Log ("path1");
+				//Debug.Log ("path1");
 			} else {
 				to = path[2];
 				updatePathOnce();
-				Debug.Log ("path2");
+				//Debug.Log ("path2");
 			}
 		} else if(path.Count > 1){
 			if(nodeBetweenTarget(path[0])) {
 				to = path[0];
-				Debug.Log ("path0");
+				//Debug.Log ("path0");
 			} else {
 				to = path[1];
 				updatePathOnce();
-				Debug.Log ("path1");
+				//Debug.Log ("path1");
 			} 
 		} else if(path.Count == 1) {
 			to = path[0];
@@ -169,7 +169,7 @@ public class TuckerController: MonoBehaviour {
 			//no path found
 		}
 		if((to != Vector2.zero) && (to.x < transform.position.x)) { 		//move left
-			Debug.Log ("moveleft");
+			//Debug.Log ("moveleft");
 			if(rigbod.velocity.x > -maxSpeedX) {
 				rigbod.AddForce(new Vector2(-addSpeedX, 0));
 			}
@@ -177,7 +177,7 @@ public class TuckerController: MonoBehaviour {
 				rigbod.AddForce (new Vector2(0, 200f));
 			}
 		} else if((to != Vector2.zero) && (to.x > transform.position.x)) { //move right
-			Debug.Log ("moveright");
+			//Debug.Log ("moveright");
 			if(rigbod.velocity.x <= maxSpeedX) {
 				rigbod.AddForce(new Vector2(addSpeedX, 0));
 			}
