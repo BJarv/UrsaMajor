@@ -41,7 +41,9 @@ public class TuckerController: MonoBehaviour {
 						follow ();
 					}
 				} else if (target.tag == "enemy") {
-					
+					if(Vector2.Distance(transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
+						follow ();
+					}
 				}
 				break;
 
@@ -95,7 +97,7 @@ public class TuckerController: MonoBehaviour {
 			return;
 		else
 			target = t;
-		Debug.Log ("Tucker target is" + target.tag);
+		Debug.Log ("Tucker target is " + target.tag);
 	}
 
 	void updatePathOnce() { //used to update path when initially changing targets
