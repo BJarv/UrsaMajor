@@ -12,7 +12,7 @@ public enum TuckerState {
 public class TuckerController: MonoBehaviour {
 	private TuckerState state = TuckerState.FOLLOW;
 	NodeSearch nodeSearch;
-	private GameObject target;
+	public GameObject target;
 	public float searchFreq = 1f;
 
 	List<Vector2> path;
@@ -38,6 +38,7 @@ public class TuckerController: MonoBehaviour {
 				break;
 
 			case TuckerState.ATTACK:
+				
 				break;
 
 			case TuckerState.FLY:
@@ -53,6 +54,15 @@ public class TuckerController: MonoBehaviour {
 		path = nodeSearch.search (transform.position, target.transform.position);
 		yield return new WaitForSeconds (searchFreq);
 		StartCoroutine (updatePath());
+	}
+
+	//This will change the target so long as the target isn't an enemy
+	public void changeTarget(GameObject t) {
+		if (target.tag.Equals ("enemy"))
+			return;
+		else
+			target = t;
+		Debug.Log ("Target is" + target.tag);
 	}
 
 	void updatePathOnce() { //used to update path when initially changing targets
