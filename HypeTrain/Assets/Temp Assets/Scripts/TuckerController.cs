@@ -27,6 +27,9 @@ public class TuckerController: MonoBehaviour {
 	public LayerMask wallMask;
 	public float wallCheckLength;
 
+	bool attackOnCD = false;
+	float attackCD = .5f;
+
 	List<Vector2> path;
 	// Use this for initialization
 	void Start () {
@@ -45,8 +48,8 @@ public class TuckerController: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		switch (state) {
+		if (target) {
+			switch (state) {
 			case TuckerState.FOLLOW:
 				if(target.tag == "Player") {
 					if(Vector2.Distance(transform.position, target.transform.position) > 2f && notWithin ()) { //if not right next to player, follow
@@ -55,12 +58,14 @@ public class TuckerController: MonoBehaviour {
 						Debug.Log ("in else of follow player");
 					}
 				} else if (target.tag == "enemy") {
-					if(Vector2.Distance(transform.position, target.transform.position) > 2f || notWithin ()) { 
-						if(path.Count > 1) {
-							follow ();
-						}
+					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
+						follow ();
 					} else {
-						//attack();
+						if (!attackOnCD) {
+							attack ();
+							attackOnCD = true;
+							StartCoroutine (attackOffCD ());
+						}
 					}
 				}
 				break;
@@ -74,14 +79,16 @@ public class TuckerController: MonoBehaviour {
 
 			case TuckerState.JUMP:
 				break;
-		}
-		if(target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
-			updatePathOnce();
-			towardTarget = -1;
-		} else if(target.transform.position.x > transform.position.x && towardTarget != 1) {
-			updatePathOnce();
-			towardTarget = 1;
-		}
+			}
+			if (target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
+				updatePathOnce ();
+				towardTarget = -1;
+			} else if (target.transform.position.x > transform.position.x && towardTarget != 1) {
+				updatePathOnce ();
+				towardTarget = 1;
+			}
+		} else
+			target = GameObject.Find ("character");
 	}
 
 	void FixedUpdate () {
@@ -167,6 +174,20 @@ public class TuckerController: MonoBehaviour {
 		return Physics2D.Raycast (transform.position, transform.right, wallCheckLength, wallMask);
 	}
 
+	void attack() {
+		//If the target still exists...
+		if (target) {
+			//Move toward the target. Collision constitutes attacking.
+			transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
+			//If you somehow get too far away, follow again.
+			if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
+				state = TuckerState.FOLLOW;
+			}
+		} else {
+			changeTarget(GameObject.Find ("character"));
+		}
+	}
+
 	bool nodeBetweenTarget(Vector2 node) { //returns true if node given is between dog and target
 		if((target.transform.position.x < node.x && node.x < transform.position.x) || (target.transform.position.x > node.x && node.x > transform.position.x)){
 			return true;
@@ -189,7 +210,7 @@ public class TuckerController: MonoBehaviour {
 			return;
 		else
 			target = t;
-		Debug.Log ("Tucker target is" + target.tag);
+		Debug.Log ("Tucker target is " + target.tag);
 	}
 
 	void updatePathOnce() { //used to update path when initially changing targets
@@ -202,6 +223,31 @@ public class TuckerController: MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		else if (moveH < 0)
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		Collider2D colObj = col.collider;
+		Debug.Log ("NEVER GOES HERE");
+		if(colObj.tag == "enemy") {
+			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			if(transform.position.x - colObj.transform.position.x > 0)
+			{
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
+				rigbod.AddForce (new Vector2(200, 375));
+			}
+			else if(transform.position.x - colObj.transform.position.x < 0)
+			{
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
+				rigbod.AddForce (new Vector2(-200, 375));
+			}
+			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+		}
+		state = TuckerState.FOLLOW;
+	}
+
+	IEnumerator attackOffCD() {
+		yield return new WaitForSeconds (attackCD);
+		attackOnCD = false;
 	}
 
 	void OnDrawGizmos() {
