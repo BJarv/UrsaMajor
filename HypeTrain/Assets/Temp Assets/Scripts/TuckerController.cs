@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public enum TuckerState {
 	FOLLOW,
 	ATTACK,
-	FLY,
-	JUMP
+	FLY
 }
 
 public class TuckerController: MonoBehaviour {
-	private TuckerState state = TuckerState.FOLLOW;
+	GameObject player;
+	public TuckerState state = TuckerState.FOLLOW;
 	NodeSearch nodeSearch;
 	public GameObject target;
 	public float searchFreq = 1f;
@@ -19,8 +19,8 @@ public class TuckerController: MonoBehaviour {
 
 	int towardTarget = 0;
 
-	public float addSpeedX = 25f;
-	public float maxSpeedX = 8f;
+	public float addSpeedX = 35f;
+	public float maxSpeedX = 18f;
 	public float addSpeedY = 200f;
 	public float maxSpeedY = 30f;
 
@@ -33,6 +33,7 @@ public class TuckerController: MonoBehaviour {
 	List<Vector2> path;
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find ("character");
 		rigbod = GetComponent<Rigidbody2D> ();
 		nodeSearch = GetComponent<NodeSearch>();
 		target = GameObject.Find ("character");
@@ -48,29 +49,35 @@ public class TuckerController: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float distToPlayer = Vector2.Distance (player.transform.position, transform.position);
+		if(distToPlayer > 25f && distToPlayer < 100f) {
+			state = TuckerState.FLY;
+		} else if(distToPlayer > 100f) {
+			transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 25f);
+		}
 		if (target) {
 			switch (state) {
-			case TuckerState.FOLLOW:
-				if(target.tag == "Player") {
-					if(Vector2.Distance(transform.position, target.transform.position) > 2f && notWithin ()) { //if not right next to player, follow
-						follow ();
-					} else {
-						Debug.Log ("in else of follow player");
-					}
-				} else if (target.tag == "enemy") {
-					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
-						follow ();
-					} else {
-						if (!attackOnCD) {
-							state = TuckerState.ATTACK;
-							attackOnCD = true;
-							StartCoroutine (attackOffCD ());
+				case TuckerState.FOLLOW:
+					if(target.tag == "Player") {
+						if(Vector2.Distance(transform.position, target.transform.position) > 2f && notWithin ()) { //if not right next to player, follow
+							follow ();
+						} else {
+							Debug.Log ("in else of follow player");
+						}
+					} else if (target.tag == "enemy") {
+						if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
+							follow ();
+						} else {
+							if (!attackOnCD) {
+								state = TuckerState.ATTACK;
+								attackOnCD = true;
+								StartCoroutine (attackOffCD ());
+							}
 						}
 					}
-				}
-				break;
+					break;
 
-			case TuckerState.ATTACK:
+				case TuckerState.ATTACK:
 					//If the target still exists...
 					//Move toward the target. Collision constitutes attacking.
 					transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
@@ -80,21 +87,33 @@ public class TuckerController: MonoBehaviour {
 					}
 				break;
 
-			case TuckerState.FLY:
+				case TuckerState.FLY:
+					Physics2D.IgnoreLayerCollision (18, 12, true); //ignore tucker collision with trains
+					Physics2D.IgnoreLayerCollision (18, 9, true); //ignore tucker collision with trains
+					Physics2D.IgnoreLayerCollision (18, 0, true);
+					rigbod.gravityScale = 0;	
+					transform.position = Vector2.MoveTowards (transform.position, player.transform.position, .6f);
+					if (Vector2.Distance (transform.position, target.transform.position) < 2f) {
+						Physics2D.IgnoreLayerCollision (18, 12, false); //unignore tucker collision with trains
+						Physics2D.IgnoreLayerCollision (18, 9, false);
+						Physics2D.IgnoreLayerCollision (18, 0, false);
+						rigbod.gravityScale = 3;
+						state = TuckerState.FOLLOW;
+					}
 				break;
 
-			case TuckerState.JUMP:
-				break;
+			
 			}
-			if (target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
-				updatePathOnce ();
-				towardTarget = -1;
-			} else if (target.transform.position.x > transform.position.x && towardTarget != 1) {
-				updatePathOnce ();
-				towardTarget = 1;
-			}
-		} else
-			target = GameObject.Find ("character");
+		} else {
+			target = player;
+		}
+		if (target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
+			updatePathOnce ();
+			towardTarget = -1;
+		} else if (target.transform.position.x > transform.position.x && towardTarget != 1) {
+			updatePathOnce ();
+			towardTarget = 1;
+		}
 	}
 
 	void FixedUpdate () {
@@ -109,7 +128,7 @@ public class TuckerController: MonoBehaviour {
 	}
 
 	void follow() {
-		Vector2 to = Vector2.zero;
+		Vector2 to = Vector2.zero; //target node
 		if(path.Count > 2){ //since no priority queue in C#, must check 3 nodes deep to ensure that search doesnt get stuck by searching one node back first.
 			if(nodeBetweenTarget(path[0])) {
 				to = path[0];
@@ -164,7 +183,11 @@ public class TuckerController: MonoBehaviour {
 				}
 			}
 		}
-		if((to != Vector2.zero) && (target.transform.position.y > transform.position.y) && nearWall()) {
+		if((to != Vector2.zero) && (target.transform.position.y > transform.position.y) && nearWall()) { //jump if wall
+			if(rigbod.velocity.y <= maxSpeedY) {
+				rigbod.AddForce(new Vector2(0, addSpeedY));
+			}
+		} else if ((to != Vector2.zero) && to.y > transform.position.y + 2f) { //if target node is above current position, jump
 			if(rigbod.velocity.y <= maxSpeedY) {
 				rigbod.AddForce(new Vector2(0, addSpeedY));
 			}
