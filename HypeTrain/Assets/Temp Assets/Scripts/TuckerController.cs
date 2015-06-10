@@ -27,6 +27,12 @@ public class TuckerController: MonoBehaviour {
 	public LayerMask wallMask;
 	public float wallCheckLength;
 
+	public AudioClip bark1;
+	public AudioClip bark2;
+	public AudioClip bark3;
+	public AudioClip bark4;
+	AudioSource audio;
+
 	bool attackOnCD = false;
 	float attackCD = .5f;
 
@@ -34,6 +40,7 @@ public class TuckerController: MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");
+		audio = GetComponent<AudioSource> ();
 		rigbod = GetComponent<Rigidbody2D> ();
 		nodeSearch = GetComponent<NodeSearch>();
 		target = GameObject.Find ("character");
@@ -70,6 +77,11 @@ public class TuckerController: MonoBehaviour {
 						} else {
 							if (!attackOnCD) {
 								state = TuckerState.ATTACK;
+								int random = Random.Range (0,101);
+								if (random < 33) audio.PlayOneShot (bark1);
+								else if (random >= 33 && random < 66) audio.PlayOneShot(bark2);
+								else if (random >= 66 && random < 99) audio.PlayOneShot (bark3);
+								else audio.PlayOneShot (bark4);
 								attackOnCD = true;
 								StartCoroutine (attackOffCD ());
 							}
@@ -100,7 +112,7 @@ public class TuckerController: MonoBehaviour {
 						rigbod.gravityScale = 3;
 						state = TuckerState.FOLLOW;
 					}
-				break;
+					break;
 
 			
 			}
