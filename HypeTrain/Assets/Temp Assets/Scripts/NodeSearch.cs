@@ -21,6 +21,9 @@ public class NodeSearch : MonoBehaviour {
 	public List<Vector2> search(Vector2 s, Vector2 d) { //takes in a source and a destination and returns a list of path points
 		//path list
 		List<Vector2> path = new List<Vector2>(); 
+		if (Vector2.Distance (transform.position, GetComponent<TuckerController> ().target.transform.position) < .3f) {
+			return path;
+		}
 		//instantiate nodes at source and dest to make complete path
 		if(!sn) {
 			sn = (GameObject)Instantiate (node, s, Quaternion.identity); 
@@ -42,7 +45,6 @@ public class NodeSearch : MonoBehaviour {
 
 		while (q.Count > 0) { //while there are still nodes to search
 			//in the case of coroutine, yield if taking too long
-			Debug.Log ("in main while");
 			path_node temp = q.Dequeue();
 			List<Collider2D> neighbors = temp.transform.GetComponent<path_node>().neighbors();
 			visited.Enqueue(temp);
@@ -63,8 +65,8 @@ public class NodeSearch : MonoBehaviour {
 						}
 						//Destroy(sn); //destroy temp source and dest nodes
 						//Destroy(dn);
-						sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
-						dn.transform.position = new Vector2(0, 1000f);
+						//sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
+						//dn.transform.position = new Vector2(0, 1000f);
 						path.Reverse ();
 						return path;
 					}
@@ -72,17 +74,17 @@ public class NodeSearch : MonoBehaviour {
 			}
 
 		}
-		Debug.LogError ("NO PATH FOUND, OH LORD");
+		Debug.Log ("NO PATH FOUND, OH LORD");
 
 		//Destroy(sn); //destroy temp source and dest nodes
 		//Destroy(dn);
-		sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
-		dn.transform.position = new Vector2(0, 1000f);
+		//sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
+		//dn.transform.position = new Vector2(0, 1000f);
 		return path;
 	}
 
 	void OnDrawGizmos() {
-		Gizmos.color = Color.cyan;
+		//Gizmos.color = Color.cyan;
 		// highlight thePath[1] in red
 		//if (thePath.Count > 0) {
 		//	Gizmos.DrawWireSphere (thePath [0], 1f);
