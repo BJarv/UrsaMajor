@@ -22,6 +22,9 @@ public class TuckerController: MonoBehaviour {
 	public float addSpeed = 25f;
 	public float maxSpeed = 4f;
 
+	bool attackOnCD = false;
+	float attackCD = .5f;
+
 	List<Vector2> path;
 	// Use this for initialization
 	void Start () {
@@ -55,7 +58,16 @@ public class TuckerController: MonoBehaviour {
 					if(Vector2.Distance(transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
 						follow ();
 					}
-				}
+					else {
+						if(!attackOnCD){
+							attack();
+							attackOnCD = true;
+							StartCoroutine(attackOffCD());
+						}
+					}
+				} else if (!target) {
+					target = GameObject.Find ("character");
+			}
 				break;
 
 			case TuckerState.ATTACK:
@@ -125,6 +137,19 @@ public class TuckerController: MonoBehaviour {
 		//if(target.
 	}
 
+	void attack() {
+		//If the target still exists...
+		if (target) {
+			//Move toward the target. Collision constitutes attacking.
+			transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
+			//If you somehow get too far away, follow again.
+			if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
+				state = TuckerState.FOLLOW;
+			}
+		} else
+			target = GameObject.Find ("character");
+	}
+
 	bool nodeBetweenTarget(Vector2 node) { //returns true if node given is between dog and target
 		if((target.transform.position.x < node.x && node.x < transform.position.x) || (target.transform.position.x > node.x && node.x > transform.position.x)){
 			return true;
@@ -160,6 +185,31 @@ public class TuckerController: MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		else if (moveH < 0)
 			transform.localEulerAngles = new Vector3 (0, 180, 0);
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		Collider2D colObj = col.collider;
+		Debug.Log ("NEVER GOES HERE");
+		if(colObj.tag == "enemy") {
+			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			if(transform.position.x - colObj.transform.position.x > 0)
+			{
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
+				rigbod.AddForce (new Vector2(200, 375));
+			}
+			else if(transform.position.x - colObj.transform.position.x < 0)
+			{
+				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
+				rigbod.AddForce (new Vector2(-200, 375));
+			}
+			colObj.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+		}
+		state = TuckerState.FOLLOW;
+	}
+
+	IEnumerator attackOffCD() {
+		yield return new WaitForSeconds (attackCD);
+		attackOnCD = false;
 	}
 
 	void OnDrawGizmos() {
