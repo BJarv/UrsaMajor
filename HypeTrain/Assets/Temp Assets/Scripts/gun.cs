@@ -28,6 +28,12 @@ public class gun : MonoBehaviour {
 
 	public GameObject shotParticles;
 
+	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
+	private Vector3 pointingDirection; 
+	private RaycastHit pointingAt = new RaycastHit();
+	private GameObject tucker;
+	Vector3 mouseWorldPosition;*/
+
 	[HideInInspector] public ScoreKeeper HYPECounter;
 
 	// Use this for initialization
@@ -38,12 +44,10 @@ public class gun : MonoBehaviour {
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 
 		//rotation
 		Vector3 mousePos = retical.recPos;
@@ -120,6 +124,30 @@ public class gun : MonoBehaviour {
 		}
 
 	}
+
+	/*void FixedUpdate() {
+
+		mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		//Cast a ray from the player thru the gun
+		//pointingDirection = (retical.recPos - transform.position);
+		pointingDirection = (mouseWorldPosition - transform.position);
+		//If this returns true it hit something
+		Debug.DrawRay (transform.position, pointingDirection, Color.red);
+		Physics.Raycast (transform.position, pointingDirection, out pointingAt, 20f);
+		//Debug.Log (pointingAt);
+		if (Physics.Raycast (transform.position, pointingDirection, out pointingAt)) {
+		//if (Physics.Raycast()) {
+			Debug.Log ("GUN: I'm pointing at something.");
+			if (pointingAt.collider.tag.Equals ("enemy")) {
+				Debug.Log ("GUN: It's an enemy.");
+				if (tucker = GameObject.Find ("Tucker")) {
+					tucker.GetComponent<TuckerController> ().changeTarget (pointingAt.collider.gameObject);
+				}
+			}
+		} else {
+			Debug.Log ("false");
+		}
+	}*/
 
 	public void adjustCounter(int currBulls)
 	{
