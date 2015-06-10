@@ -2194,7 +2194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: heart1
@@ -2727,11 +2727,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 424436, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -34.7799988
+      value: -37.4000015
       objectReference: {fileID: 0}
     - target: {fileID: 424436, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 36.7900009
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 424436, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2756,6 +2756,10 @@ Prefab:
     - target: {fileID: 424436, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073344, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
