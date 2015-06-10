@@ -59,7 +59,7 @@ public class TuckerController: MonoBehaviour {
 						follow ();
 					} else {
 						if (!attackOnCD) {
-							attack ();
+							state = TuckerState.ATTACK;
 							attackOnCD = true;
 							StartCoroutine (attackOffCD ());
 						}
@@ -68,7 +68,13 @@ public class TuckerController: MonoBehaviour {
 				break;
 
 			case TuckerState.ATTACK:
-				
+					//If the target still exists...
+					//Move toward the target. Collision constitutes attacking.
+					transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
+					//If you somehow get too far away, follow again.
+					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
+						state = TuckerState.FOLLOW;
+					}
 				break;
 
 			case TuckerState.FLY:
@@ -134,20 +140,6 @@ public class TuckerController: MonoBehaviour {
 			}
 		}
 		//if(target.
-	}
-
-	void attack() {
-		//If the target still exists...
-		if (target) {
-			//Move toward the target. Collision constitutes attacking.
-			transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
-			//If you somehow get too far away, follow again.
-			if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
-				state = TuckerState.FOLLOW;
-			}
-		} else {
-			changeTarget(GameObject.Find ("character"));
-		}
 	}
 
 	bool nodeBetweenTarget(Vector2 node) { //returns true if node given is between dog and target
