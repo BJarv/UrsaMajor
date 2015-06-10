@@ -79,6 +79,7 @@ public class CharControl : MonoBehaviour {
 		//Physics2D.IgnoreLayerCollision (IDofRet, IDofEnes, true);
 		Physics2D.IgnoreLayerCollision (IDofRet, IDofProjs, true);
 		Physics2D.IgnoreLayerCollision (IDofRet, IDofNodes, true);
+		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofNodes, true);
 
 
 	}
