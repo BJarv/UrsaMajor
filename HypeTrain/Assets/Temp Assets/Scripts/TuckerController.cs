@@ -104,7 +104,8 @@ public class TuckerController: MonoBehaviour {
 					Physics2D.IgnoreLayerCollision (18, 9, true); //ignore tucker collision with trains
 					Physics2D.IgnoreLayerCollision (18, 0, true);
 					rigbod.gravityScale = 0;	
-					transform.position = Vector2.MoveTowards (transform.position, player.transform.position, .6f);
+					transform.position = Vector2.MoveTowards (transform.position, player.transform.position, 1.3f);
+					target = player;
 					if (Vector2.Distance (transform.position, target.transform.position) < 2f) {
 						Physics2D.IgnoreLayerCollision (18, 12, false); //unignore tucker collision with trains
 						Physics2D.IgnoreLayerCollision (18, 9, false);
