@@ -4210,7 +4210,6 @@ GameObject:
   - 114: {fileID: 1409445599}
   - 114: {fileID: 1409445602}
   - 114: {fileID: 1409445601}
-  - 114: {fileID: 1409445600}
   - 114: {fileID: 1409445595}
   - 114: {fileID: 1409445603}
   - 114: {fileID: 1409445589}
@@ -4441,7 +4440,7 @@ MonoBehaviour:
   cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
   inverseFrequency: 5
   yMin: 0
-  yMax: 0
+  yMax: 30
 --- !u!114 &1409445594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4475,7 +4474,7 @@ MonoBehaviour:
   tile: {fileID: 100000, guid: 8d8d1e0c36541924c83a4f4a13de0349, type: 2}
   zPos: 0
   yPos: -7
-  buffer: 1.75
+  buffer: 0
 --- !u!114 &1409445599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4495,23 +4494,6 @@ MonoBehaviour:
   HYPEPlane: {fileID: 169608, guid: 2d0f404aaeb4d414f948b009af404d07, type: 2}
   HYPEDuration: 7
   HYPEsound: {fileID: 8300000, guid: cdf461a4e4e1b484e9beea9c975c3825, type: 3}
---- !u!114 &1409445600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11408242, guid: 31ff6c41e4e992e4081007275f504a75,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409445583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd4930b8ea99441f99427685ba7aeca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: 0
-  cloud: {fileID: 100000, guid: 720e0ad28e3dd324184b0778a837c370, type: 2}
-  inverseFrequency: 100
-  yMin: 0
-  yMax: 0
 --- !u!114 &1409445601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,7 +4509,7 @@ MonoBehaviour:
   tile: {fileID: 100000, guid: a3a6fb9c741d3284aa6e6a6b1d974fd1, type: 2}
   zPos: 1
   yPos: -11.5
-  buffer: 1.75
+  buffer: 0
 --- !u!114 &1409445602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4542,7 +4524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 100000, guid: fa7e2a144dbcc584380dd221b5d5e428, type: 2}
   zPos: 2
-  yPos: -2.32999992
+  yPos: 2.75
   buffer: .100000001
 --- !u!114 &1409445603
 MonoBehaviour:
