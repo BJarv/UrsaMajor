@@ -47,6 +47,7 @@ public class CharControl : MonoBehaviour {
 	int IDofEnes = 11;
 	int IDofNodes = 17;
 	int IDofPlayer = 10;
+	int IDofTucker = 18;
 
 	void Start() {
 		//SaveLoad.Load (); //LOADS SAVE GAME
@@ -69,6 +70,10 @@ public class CharControl : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (IDofNodes, IDofEnes, true); //make nodes and everything else play nice
 		Physics2D.IgnoreLayerCollision (IDofNodes, IDofPlayer, true);
 		Physics2D.IgnoreLayerCollision (IDofNodes, IDofProjs, true);
+		Physics2D.IgnoreLayerCollision (IDofTucker, IDofPlayer, true);
+		Physics2D.IgnoreLayerCollision (IDofTucker, IDofProjs, true);
+		Physics2D.IgnoreLayerCollision (IDofTucker, IDofNodes, true);
+
 	}
 
 	void Update () {

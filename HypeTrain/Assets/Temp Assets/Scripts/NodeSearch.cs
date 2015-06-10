@@ -63,7 +63,7 @@ public class NodeSearch : MonoBehaviour {
 						}
 						//Destroy(sn); //destroy temp source and dest nodes
 						//Destroy(dn);
-						sn.transform.position = new Vector2(0, 1000f);
+						sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
 						dn.transform.position = new Vector2(0, 1000f);
 						path.Reverse ();
 						return path;
@@ -76,25 +76,27 @@ public class NodeSearch : MonoBehaviour {
 
 		//Destroy(sn); //destroy temp source and dest nodes
 		//Destroy(dn);
-		sn.transform.position = new Vector2(0, 1000f);
+		sn.transform.position = new Vector2(0, 1000f); //move rather than destroy nodes
 		dn.transform.position = new Vector2(0, 1000f);
 		return path;
 	}
 
-
-
-	List<Vector2> thePath;
-	public Transform a;
-	public Transform b;
-
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
 		// highlight thePath[1] in red
-		Gizmos.DrawWireSphere (thePath [0], 1f);
-		for(int i = 0; i < thePath.Count - 1 && thePath.Count != 0; i++) {
-			Gizmos.DrawLine(thePath[i], thePath[i+1]);
-		}
+		//if (thePath.Count > 0) {
+		//	Gizmos.DrawWireSphere (thePath [0], 1f);
+		//}
+		//for(int i = 0; i < thePath.Count - 1 && thePath.Count != 0; i++) {
+		//	Gizmos.DrawLine(thePath[i], thePath[i+1]);
+		//}
 	}
+
+	/*List<Vector2> thePath;
+	public Transform a;
+	public Transform b;
+
+
 
 	void doSearch() {
 		thePath = search (a.position, b.position);
@@ -102,5 +104,5 @@ public class NodeSearch : MonoBehaviour {
 		if(thePath.Count == 0) {
 			CancelInvoke();
 		}
-	}
+	}*/
 }
