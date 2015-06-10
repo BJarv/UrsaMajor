@@ -28,10 +28,11 @@ public class gun : MonoBehaviour {
 
 	public GameObject shotParticles;
 
-	//WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
-	private Vector3 pointingDirection = new Vector3(); 
+	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
+	private Vector3 pointingDirection; 
 	private RaycastHit pointingAt = new RaycastHit();
 	private GameObject tucker;
+	Vector3 mouseWorldPosition;*/
 
 	[HideInInspector] public ScoreKeeper HYPECounter;
 
@@ -124,19 +125,29 @@ public class gun : MonoBehaviour {
 
 	}
 
-	void FixedUpdate() {
-		//My precious raycasting bogs the game down to a crawl
-		//Cast a ray from the position of the gun
-		pointingDirection = transform.position - transform.parent.gameObject.transform.position;
+	/*void FixedUpdate() {
+
+		mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		//Cast a ray from the player thru the gun
+		//pointingDirection = (retical.recPos - transform.position);
+		pointingDirection = (mouseWorldPosition - transform.position);
 		//If this returns true it hit something
-		if (Physics.Raycast (transform.position, pointingDirection, out pointingAt, 20f)) {
-			if (pointingAt.collider.gameObject.tag.Equals ("enemy")) {
-				if (tucker = GameObject.Find ("search")) {
-					tucker.GetComponent<TuckerController>().changeTarget(pointingAt.collider.gameObject);
+		Debug.DrawRay (transform.position, pointingDirection, Color.red);
+		Physics.Raycast (transform.position, pointingDirection, out pointingAt, 20f);
+		//Debug.Log (pointingAt);
+		if (Physics.Raycast (transform.position, pointingDirection, out pointingAt)) {
+		//if (Physics.Raycast()) {
+			Debug.Log ("GUN: I'm pointing at something.");
+			if (pointingAt.collider.tag.Equals ("enemy")) {
+				Debug.Log ("GUN: It's an enemy.");
+				if (tucker = GameObject.Find ("Tucker")) {
+					tucker.GetComponent<TuckerController> ().changeTarget (pointingAt.collider.gameObject);
 				}
 			}
+		} else {
+			Debug.Log ("false");
 		}
-	}
+	}*/
 
 	public void adjustCounter(int currBulls)
 	{

@@ -95,7 +95,7 @@ public class TuckerController: MonoBehaviour {
 			return;
 		else
 			target = t;
-		Debug.Log ("Target is" + target.tag);
+		Debug.Log ("Tucker target is" + target.tag);
 	}
 
 	void updatePathOnce() { //used to update path when initially changing targets
