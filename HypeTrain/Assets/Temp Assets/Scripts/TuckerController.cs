@@ -70,11 +70,12 @@ public class TuckerController: MonoBehaviour {
 					} else {
 						if (!attackOnCD) {
 							state = TuckerState.ATTACK;
+							Debug.Log ("play bark");
 							int random = Random.Range (0,101);
-							if (random < 33) audio.PlayOneShot (bark1);
-							else if (random >= 33 && random < 66) audio.PlayOneShot(bark2);
-							else if (random >= 66 && random < 99) audio.PlayOneShot (bark3);
-							else audio.PlayOneShot (bark4);
+							if (random < 33)  {audio.PlayOneShot (bark1); Debug.Log ("bark1");}
+							else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2); Debug.Log ("bark2");}
+							else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3); Debug.Log ("bark3");}
+							else {audio.PlayOneShot (bark4, 1.5f); Debug.Log ("bark3");}
 							attackOnCD = true;
 							StartCoroutine (attackOffCD ());
 						}
