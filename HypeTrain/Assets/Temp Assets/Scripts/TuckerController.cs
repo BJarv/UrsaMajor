@@ -43,31 +43,30 @@ public class TuckerController: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		switch (state) {
+		if (target) {
+			switch (state) {
 			case TuckerState.FOLLOW:
-				if(target.tag == "Player") {
-					if(Vector2.Distance(transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
-						if(path.Count > 1) {
+				if (target.tag == "Player") {
+					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
+						if (path.Count > 1) {
 							follow ();
 						}
 					} else {
 						Debug.Log ("in else of follow player");
 					}
 				} else if (target.tag == "enemy") {
-					if(Vector2.Distance(transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
+					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
 						follow ();
-					}
-					else {
-						if(!attackOnCD){
-							attack();
+					} else {
+						if (!attackOnCD) {
+							attack ();
 							attackOnCD = true;
-							StartCoroutine(attackOffCD());
+							StartCoroutine (attackOffCD ());
 						}
 					}
 				} else if (!target) {
-					target = GameObject.Find ("character");
-			}
+					changeTarget (GameObject.Find ("character"));
+				}
 				break;
 
 			case TuckerState.ATTACK:
@@ -79,14 +78,16 @@ public class TuckerController: MonoBehaviour {
 
 			case TuckerState.JUMP:
 				break;
-		}
-		if(target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
-			updatePathOnce();
-			towardTarget = -1;
-		} else if(target.transform.position.x > transform.position.x && towardTarget != 1) {
-			updatePathOnce();
-			towardTarget = 1;
-		}
+			}
+			if (target.transform.position.x < transform.position.x && towardTarget != -1) { //if target switches sides, update path
+				updatePathOnce ();
+				towardTarget = -1;
+			} else if (target.transform.position.x > transform.position.x && towardTarget != 1) {
+				updatePathOnce ();
+				towardTarget = 1;
+			}
+		} else
+			target = GameObject.Find ("character");
 	}
 
 	bool notWithin() { //returns true if player is too far vertically away from player
@@ -146,8 +147,9 @@ public class TuckerController: MonoBehaviour {
 			if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
 				state = TuckerState.FOLLOW;
 			}
-		} else
-			target = GameObject.Find ("character");
+		} else {
+			changeTarget(GameObject.Find ("character"));
+		}
 	}
 
 	bool nodeBetweenTarget(Vector2 node) { //returns true if node given is between dog and target
