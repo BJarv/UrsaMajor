@@ -19,8 +19,13 @@ public class TuckerController: MonoBehaviour {
 
 	int towardTarget = 0;
 
-	public float addSpeed = 25f;
-	public float maxSpeed = 4f;
+	public float addSpeedX = 25f;
+	public float maxSpeedX = 8f;
+	public float addSpeedY = 200f;
+	public float maxSpeedY = 30f;
+
+	public LayerMask wallMask;
+	public float wallCheckLength;
 
 	bool attackOnCD = false;
 	float attackCD = .5f;
@@ -46,11 +51,9 @@ public class TuckerController: MonoBehaviour {
 		if (target) {
 			switch (state) {
 			case TuckerState.FOLLOW:
-				if (target.tag == "Player") {
-					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
-						if (path.Count > 1) {
-							follow ();
-						}
+				if(target.tag == "Player") {
+					if(Vector2.Distance(transform.position, target.transform.position) > 2f && notWithin ()) { //if not right next to player, follow
+						follow ();
 					} else {
 						Debug.Log ("in else of follow player");
 					}
@@ -94,6 +97,10 @@ public class TuckerController: MonoBehaviour {
 			target = GameObject.Find ("character");
 	}
 
+	void FixedUpdate () {
+		Flip (rigbod.velocity.x);
+	}
+
 	bool notWithin() { //returns true if player is too far vertically away from player
 		if(transform.position.y <= target.transform.position.y - withinVertDist || transform.position.y >= target.transform.position.y + withinVertDist){
 			return true;
@@ -102,7 +109,7 @@ public class TuckerController: MonoBehaviour {
 	}
 
 	void follow() {
-		Vector2 to;
+		Vector2 to = Vector2.zero;
 		if(path.Count > 2){ //since no priority queue in C#, must check 3 nodes deep to ensure that search doesnt get stuck by searching one node back first.
 			if(nodeBetweenTarget(path[0])) {
 				to = path[0];
@@ -125,21 +132,52 @@ public class TuckerController: MonoBehaviour {
 				updatePathOnce();
 				Debug.Log ("path1");
 			} 
-		} else {
+		} else if(path.Count == 1) {
 			to = path[0];
+		} else {
+			//no path found
 		}
-		if(to.x < transform.position.x) { //move left
+		if((to != Vector2.zero) && (to.x < transform.position.x)) { 		//move left
 			Debug.Log ("moveleft");
-			if(rigbod.velocity.x > -maxSpeed) {
-				rigbod.AddForce(new Vector2(-addSpeed, 0));
+			if(rigbod.velocity.x > -maxSpeedX) {
+				rigbod.AddForce(new Vector2(-addSpeedX, 0));
 			}
-		} else if(to.x > transform.position.x) { //move right
+			if(target.tag == "Player" && isGrounded () && (Random.Range (0, 10) > 7)) {//random hops
+				rigbod.AddForce (new Vector2(0, 200f));
+			}
+		} else if((to != Vector2.zero) && (to.x > transform.position.x)) { //move right
 			Debug.Log ("moveright");
-			if(rigbod.velocity.x <= maxSpeed) {
-				rigbod.AddForce(new Vector2(addSpeed, 0));
+			if(rigbod.velocity.x <= maxSpeedX) {
+				rigbod.AddForce(new Vector2(addSpeedX, 0));
+			}
+			if(target.tag == "Player" && isGrounded () && (Random.Range (0, 10) > 7)) {//random hops
+				rigbod.AddForce (new Vector2(0, 200f));
+			}
+		} else { //no path found, just head toward target however you can
+			if(target.transform.position.x < transform.position.x) { //left
+				if(rigbod.velocity.x > -maxSpeedX) {
+					rigbod.AddForce(new Vector2(-addSpeedX, 0));
+				}
+			} else { 												//right
+				if(rigbod.velocity.x <= maxSpeedX) {
+					rigbod.AddForce(new Vector2(addSpeedX, 0));
+				}
 			}
 		}
-		//if(target.
+		if((to != Vector2.zero) && (target.transform.position.y > transform.position.y) && nearWall()) {
+			if(rigbod.velocity.y <= maxSpeedY) {
+				rigbod.AddForce(new Vector2(0, addSpeedY));
+			}
+		}
+	}
+
+	public bool isGrounded()
+	{
+		return Physics2D.Raycast (transform.position, -Vector2.up, 1f, wallMask);
+	}
+
+	bool nearWall() {
+		return Physics2D.Raycast (transform.position, transform.right, wallCheckLength, wallMask);
 	}
 
 	bool nodeBetweenTarget(Vector2 node) { //returns true if node given is between dog and target
@@ -207,9 +245,9 @@ public class TuckerController: MonoBehaviour {
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
 		//highlight thePath[1] in red
-		if (path.Count > 0) {
-			Gizmos.DrawWireSphere (path [1], 1f);
-		}
+		//if (path.Count > 0) {
+		//	Gizmos.DrawWireSphere (path [1], 1f);
+		//}
 		for(int i = 0; i < path.Count - 1 && path.Count != 0; i++) {
 			Gizmos.DrawLine(path[i], path[i+1]);
 		}
