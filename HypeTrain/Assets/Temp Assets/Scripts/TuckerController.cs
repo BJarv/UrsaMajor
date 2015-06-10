@@ -64,8 +64,6 @@ public class TuckerController: MonoBehaviour {
 							StartCoroutine (attackOffCD ());
 						}
 					}
-				} else if (!target) {
-					changeTarget (GameObject.Find ("character"));
 				}
 				break;
 
