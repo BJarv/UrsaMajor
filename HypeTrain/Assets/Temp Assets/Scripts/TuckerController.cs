@@ -219,7 +219,6 @@ public class TuckerController: MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col) {
 		Collider2D colObj = col.collider;
-		Debug.Log ("NEVER GOES HERE");
 		if(colObj.tag == "enemy") {
 			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
 			if(transform.position.x - colObj.transform.position.x > 0)

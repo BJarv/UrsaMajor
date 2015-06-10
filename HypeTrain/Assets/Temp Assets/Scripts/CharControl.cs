@@ -48,7 +48,7 @@ public class CharControl : MonoBehaviour {
 	int IDofNodes = 17;
 	int IDofPlayer = 10;
 	int IDofTucker = 18;
-	//int IDofUI = 5;
+	int IDofRet = 19;
 
 	void Start() {
 		//SaveLoad.Load (); //LOADS SAVE GAME
@@ -74,9 +74,12 @@ public class CharControl : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofPlayer, true); //ignore tucker collision
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofProjs, true);
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofNodes, true);
-		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofPlayer, true); //ignore collision on retical
-		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofTucker, true);
-		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofTrigs, true);
+		Physics2D.IgnoreLayerCollision (IDofRet, IDofPlayer, true); //ignore collision on retical
+		//Physics2D.IgnoreLayerCollision (IDofRet, IDofTucker, true);
+		//Physics2D.IgnoreLayerCollision (IDofRet, IDofEnes, true);
+		Physics2D.IgnoreLayerCollision (IDofRet, IDofProjs, true);
+		Physics2D.IgnoreLayerCollision (IDofRet, IDofNodes, true);
+
 
 	}
 

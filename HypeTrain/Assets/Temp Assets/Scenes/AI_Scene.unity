@@ -1289,7 +1289,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
@@ -2228,6 +2228,10 @@ Prefab:
       propertyPath: bull4
       value: 
       objectReference: {fileID: 1939969898}
+    - target: {fileID: 180678, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_IsPrefabParent: 0
