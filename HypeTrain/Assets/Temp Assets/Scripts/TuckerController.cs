@@ -36,6 +36,9 @@ public class TuckerController: MonoBehaviour {
 	bool attackOnCD = false;
 	float attackCD = .5f;
 
+	bool barkOnCD = false;
+	float barkCD = .6f;
+
 	List<Vector2> path;
 	// Use this for initialization
 	void Start () {
@@ -67,15 +70,14 @@ public class TuckerController: MonoBehaviour {
 				} else if (target.tag == "enemy") {
 					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) { //if not right next to player, follow
 						follow ();
+						if(!barkOnCD && Random.Range(0, 20) > 18) {
+							bark ();
+							barkOnCD = true;
+							StartCoroutine (barkOffCD ());
+						}
 					} else {
 						if (!attackOnCD) {
 							state = TuckerState.ATTACK;
-							Debug.Log ("play bark");
-							int random = Random.Range (0,101);
-							if (random < 33)  {audio.PlayOneShot (bark1); Debug.Log ("bark1");}
-							else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2); Debug.Log ("bark2");}
-							else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3); Debug.Log ("bark3");}
-							else {audio.PlayOneShot (bark4, 1.5f); Debug.Log ("bark3");}
 							attackOnCD = true;
 							StartCoroutine (attackOffCD ());
 						}
@@ -86,6 +88,11 @@ public class TuckerController: MonoBehaviour {
 			case TuckerState.ATTACK:
 					//If the target still exists...
 					//Move toward the target. Collision constitutes attacking.
+					if(!barkOnCD) {
+						bark ();
+						barkOnCD = true;
+						StartCoroutine (barkOffCD ());
+					}
 					transform.position = Vector3.MoveTowards (transform.position, target.transform.position, .3f);
 					//If you somehow get too far away, follow again.
 					if (Vector2.Distance (transform.position, target.transform.position) > 2f || notWithin ()) {
@@ -119,6 +126,17 @@ public class TuckerController: MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	void bark(){
+		if(!barkOnCD){
+			float random = Random.Range (0,101);
+			Debug.Log (random);
+			if (random < 33)  {audio.PlayOneShot (bark1); Debug.Log ("bark1");}
+			else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2); Debug.Log ("bark2");}
+			else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3); Debug.Log ("bark3");}
+			else {audio.PlayOneShot (bark4, 1.5f); Debug.Log ("bark3");}
+		}
 	}
 
 	void follow() {
@@ -252,6 +270,11 @@ public class TuckerController: MonoBehaviour {
 	IEnumerator attackOffCD() {
 		yield return new WaitForSeconds (attackCD);
 		attackOnCD = false;
+	}
+
+	IEnumerator barkOffCD() {
+		yield return new WaitForSeconds (barkCD);
+		barkOnCD = false;
 	}
 
 	void OnDrawGizmos() {

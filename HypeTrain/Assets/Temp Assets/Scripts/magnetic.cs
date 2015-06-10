@@ -5,9 +5,11 @@ public class magnetic : MonoBehaviour {
 
 	public GameObject player;
 	public bool magnetized = false;
+	public bool target;
 	public float speed;
 	// Use this for initialization
 	void Start () {
+		target = player;
 		speed = 20f;
 	}
 	

@@ -9,6 +9,10 @@ public class coinMagnet : MonoBehaviour {
 			//Debug.Log (col.gameObject.name);
 			col.GetComponent<Rigidbody2D>().gravityScale = 0f;
 			col.GetComponent<magnetic>().magnetized = true;
+			GameObject tucker = GameObject.Find ("Tucker");
+			if(tucker) {
+				col.GetComponent<magnetic>().target = tucker;
+			}
 		}
 	}
 }
