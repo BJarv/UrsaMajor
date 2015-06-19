@@ -37,6 +37,7 @@ public class SpikeWall : MonoBehaviour {
 		if (colObj.collider.tag == "wall") {
 			Debug.Log ("Hit a wall!");
 			spikeTimerEnd = false;
+			Destroy(gameObject);
 		}
 	}
 

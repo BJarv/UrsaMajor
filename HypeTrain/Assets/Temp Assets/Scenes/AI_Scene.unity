@@ -3621,6 +3621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b1e1df131f8954bbd9f635c57ec5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  t: 0
+  nightynight: {r: .00999999978, g: .00999999978, b: .5, a: 1}
+  dayday: {r: 1, g: 1, b: 1, a: 0}
+  lerpedColor: {r: .5, g: .5, b: 0, a: 1}
+  countSwitch: 0
+  delay: 0
 --- !u!1 &1197874157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,7 +4579,7 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1445280561}
---- !u!1 &1493715978 stripped
+--- !u!1 &1493715978
 GameObject:
   m_PrefabParentObject: {fileID: 114902, guid: a78c42b7333699e4f979415f2f14f090, type: 2}
   m_PrefabInternal: {fileID: 872909100}
@@ -4960,11 +4966,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!1 &1601425287 stripped
+--- !u!1 &1601425287
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_PrefabInternal: {fileID: 722068405}
---- !u!4 &1601425288 stripped
+--- !u!4 &1601425288
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_PrefabInternal: {fileID: 722068405}

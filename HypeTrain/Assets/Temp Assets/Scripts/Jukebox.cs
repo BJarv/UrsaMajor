@@ -52,7 +52,7 @@ public class Jukebox : MonoBehaviour {
 			Debug.Log ("CHANGED");
 			if(jukebox.clip == death && !menuSwap){
 				jukebox.PlayOneShot(toDeath, 1);
-				jukebox.PlayDelayed(2.5f);
+				jukebox.PlayDelayed(2.9f);
 			} else if(jukebox.clip == HYPE && !menuSwap){
 				jukebox.PlayOneShot(toHYPE, 1);
 				jukebox.PlayDelayed(1.5f);
