@@ -27,13 +27,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.7112312, y: 27.2629337, z: 0}
+  m_LocalPosition: {x: -38.1340408, y: 38.3576889, z: 0}
   m_LocalScale: {x: 3.11582184, y: 3.11582804, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -42,11 +43,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 5
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -85,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kaChing: {fileID: 8300000, guid: 3b19b622cffbcc54cbc343d179862033, type: 3}
+  gunKey: {fileID: 21300000, guid: c1e72d2eea3e85b49a58a4c3228e6a82, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -109,7 +111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 257457845
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 32b4bb47bfa1d554bad242468e14dfaf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f50816aee5ffddf4dae1045346d5dfd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
