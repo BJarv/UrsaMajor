@@ -27,6 +27,8 @@ public class gun : MonoBehaviour {
 	public AudioClip reload;
 
 	public GameObject shotParticles;
+	public GameObject airShotParticles;
+	public LayerMask airBlastMask;
 
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
@@ -65,8 +67,7 @@ public class gun : MonoBehaviour {
 						transform.localScale = new Vector3(1,1,1);
 				else
 						transform.localScale = new Vector3(1,-1,1);
-		
-		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !PlayerHealth.alreadyDying) {
+		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !PlayerHealth.alreadyDying) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
@@ -95,6 +96,35 @@ public class gun : MonoBehaviour {
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
 				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
+		}
+
+		//If the airblasts power is on
+		else if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && HYPEController.airblasts && !PlayerHealth.alreadyDying) {
+			sTimerOn = true;
+			//Get reticle position
+			var pos = retical.recPos;
+			pos.z = transform.position.z - Camera.main.transform.position.z;
+			pos = Camera.main.ScreenToWorldPoint(pos);
+
+			//Get direction between the gun and the reticle
+			Vector2 direction = (pos - shootFrom.transform.position);
+
+			//Declare RayCast and store info, draw RayCast
+			RaycastHit2D hit = Physics2D.Raycast(shootFrom.transform.position, direction, 5f, airBlastMask);
+			Debug.DrawRay (shootFrom.transform.position, direction);
+
+			//Create particles for shot
+			GameObject particles = (GameObject)Instantiate(airShotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
+			particles.GetComponent<ParticleSystem>().Play ();
+			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+
+			//Cast a ray from the shootFrom in the direction of the reticle
+			if(hit == true)
+			{
+				Debug.Log ("HIT");
+				hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 2500);
+			}
+
 		}
 
 		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {

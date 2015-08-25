@@ -34,7 +34,6 @@ public class retical : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		//Debug.Log ("Colliding with something.");
 		if (other.gameObject.tag.Equals ("enemy")) {
-			Debug.Log ("It's an enemy.");
 			if (tucker = GameObject.Find ("Tucker")) {
 				tucker.GetComponent<TuckerController> ().changeTarget(other.transform.gameObject);
 		}

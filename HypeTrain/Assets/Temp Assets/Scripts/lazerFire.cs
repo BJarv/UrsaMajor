@@ -1,4 +1,4 @@
-﻿// AUTHOR
+// AUTHOR
 // Hayden Platt     (platt@ursamajorgames.com)
 
 using UnityEngine;
