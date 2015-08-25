@@ -109,7 +109,7 @@ public class CharControl : MonoBehaviour {
 		               || Physics2D.Raycast (topWallCheck.position, Vector2.right, .75f, whatIsWall)
 					   || Physics2D.Raycast (botWallCheck.position, Vector2.right, .75f, whatIsWall));
 
-		Debug.Log ("WALLED: " + leftWalled + rightWalled);
+		//Debug.Log ("WALLED: " + leftWalled + rightWalled);
 
 		switch (Jump) {
 

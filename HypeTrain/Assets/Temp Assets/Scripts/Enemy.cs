@@ -74,6 +74,10 @@ public class Enemy : MonoBehaviour {
 		if (timeSecs - airBlastedTime >= 1) {
 			airBlasted = false;
 		}
+		if (airBlasted && GetComponent<Rigidbody2D> ().velocity.y == 0) {
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0,5));
+			Debug.Log ("VELOCITY ADJUSTED");
+		}
 		if(delayDone) {
 			if(transform.position.y < -5f) Destroy (gameObject);
 			//grounde = isGrounded ();
@@ -177,6 +181,14 @@ public class Enemy : MonoBehaviour {
 		if (colObj.collider.tag == "Player" && colObj.collider.transform.name != "Tucker") {
 			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 		}
+		//If enemy collides with something at a high speed, kill it
+		if (colObj.collider.tag != "Player" && colObj.collider.transform.name != "Tucker") {
+			if (airBlasted){
+				if (Mathf.Abs(GetComponent<Rigidbody2D> ().velocity.y) > 10 || Mathf.Abs (GetComponent<Rigidbody2D> ().velocity.x) > 10) {
+					Hurt (10f);
+				}
+			}
+		}
 	}
 
 	virtual public void Hurt(float damage){
@@ -232,6 +244,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void blastedByAir() {
+		Debug.Log ("BLASTED BY AIR CALLED");
 		airBlasted = true;
 		airBlastedTime = timeSecs;
 	}
