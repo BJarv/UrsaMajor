@@ -1400,6 +1400,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
   m_IsPrefabParent: 0
@@ -2341,6 +2345,10 @@ Prefab:
       propertyPath: airShotParticles
       value: 
       objectReference: {fileID: 100000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
+    - target: {fileID: 11400000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
+      propertyPath: airBlast
+      value: 
+      objectReference: {fileID: 132980, guid: 6812b3b5dc50c684abdce643cb187bca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_IsPrefabParent: 0
