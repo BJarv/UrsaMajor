@@ -161,16 +161,7 @@ public class Enemy : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player" && colObj.collider.transform.name != "Tucker") {
-			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			if(transform.position.x - colObj.transform.position.x > 0)
-			{
-				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
-			}
-			else if(transform.position.x - colObj.transform.position.x < 0)
-			{
-				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
-			}
-			Player.GetComponent<CharControl>().hitAnim();
+			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 		}
 	}
 

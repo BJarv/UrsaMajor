@@ -13,7 +13,16 @@ public class heist : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(valuables == null){
+			SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+			BoxCollider2D[] colls = gameObject.GetComponentsInChildren<BoxCollider2D>();
+			foreach(SpriteRenderer r in renderers){
+				r.color = Color.green;
+			}
+			foreach(BoxCollider2D bc in colls){
+				bc.enabled = false;
+			}
+		}
 	}
 	
 	void OnTriggerStay2D(Collider2D col){
@@ -22,16 +31,7 @@ public class heist : MonoBehaviour {
 		//If the player hits a laser, hurt them and destroy the loot
 		if (player.tag == "Player") {
 			//Hurt the player
-			player.GetComponent<PlayerHealth>().Hurt(10);
-			player.GetComponent<CharControl>().hitAnim();
-			if(transform.position.x - player.transform.position.x > 0)
-			{
-				player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
-			}
-			else if(transform.position.x - player.transform.position.x < 0)
-			{
-				player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
-			}
+			player.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 
 			//Destroy the loot
 			GameObject particles = (GameObject)Instantiate(explosionParticles, valuables.transform.position, valuables.transform.rotation);
@@ -41,7 +41,7 @@ public class heist : MonoBehaviour {
 
 			//Deactivate all lasers
 			gameObject.SetActive(false);
-			Debug.Log ("BUSTED");
+			//Debug.Log ("BUSTED");
 		}
 	}
 }

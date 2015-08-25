@@ -11,8 +11,9 @@ public class lazerFire : MonoBehaviour {
 	LineRenderer lazer;
 	public float lazerLength;
 
-	private GameObject player;
-	private GameObject shootFrom;
+	//private GameObject player;
+	//private GameObject shootFrom;
+
 	public Rigidbody2D bullet;
 
 	private float lazerTimer;
@@ -31,8 +32,8 @@ public class lazerFire : MonoBehaviour {
 		lazer.sortingOrder = 1;
 		lazerTimer = interShotDelay;
 		reloadTimer = reloadTime;
-		player = GameObject.Find("character");
-		shootFrom = GameObject.Find("barrelTip");
+		//player = GameObject.Find("character");
+		//shootFrom = GameObject.Find("barrelTip");
 	}
 
 	void Update () {

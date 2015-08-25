@@ -199,28 +199,14 @@ public class BigDino : MonoBehaviour {
 	}
 	
 	public void playerThrow() {
-		Player.GetComponent<PlayerHealth>().Hurt(10);
+		Player.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 		Invoke ("playerCollideOn", 1.5f);
 		Physics2D.IgnoreCollision (Player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
-		if(Player.transform.position.x < transform.position.x) { //player is left of dino, throw right
-			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (throwPlayer.x, throwPlayer.y)); 
-		} else if (Player.transform.position.x >= transform.position.x) { //player is right of dino, throw left
-			Player.GetComponent<Rigidbody2D>().AddForce (new Vector2 (-throwPlayer.x, throwPlayer.y)); 
-		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
-			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			if(transform.position.x > colObj.transform.position.x)
-			{
-				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
-			}
-			else if(transform.position.x < colObj.transform.position.x)
-			{
-				Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
-			}
-			Player.GetComponent<CharControl>().hitAnim();
+			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 		}
 		if(State == DinoState.DASH && colObj.collider.tag == "wall" && !inNotStunRange) {
 			wallPos = colObj.gameObject;

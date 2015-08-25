@@ -60,7 +60,7 @@ public class CameraShake : MonoBehaviour {
 	IEnumerator trainShake(){
 		InvokeRepeating("trainBumpIt", 0f, 1.4f);
 		yield return new WaitForSeconds(0.2f);
-		InvokeRepeating ("trainBumpIt", 0f, 1.4f);
+		InvokeRepeating("trainBumpIt", 0f, 1.4f);
 	}
 
 	public void stopAllShake() { //stop any shake that is currently happening

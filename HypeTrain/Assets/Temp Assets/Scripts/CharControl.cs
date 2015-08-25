@@ -24,7 +24,13 @@ public class CharControl : MonoBehaviour {
 	[HideInInspector] public Transform midGroundCheck;
 	[HideInInspector] public Transform leftGroundCheck;
 	[HideInInspector] public Transform rightGroundCheck;
-	[HideInInspector] public Transform wallCheck;
+
+	//Raycast points to make sure player doesn't get stuck on walls
+	[HideInInspector] public Transform topWallCheck;
+	[HideInInspector] public Transform midTopWallCheck;
+	[HideInInspector] public Transform midWallCheck;
+	[HideInInspector] public Transform midBotWallCheck;
+	[HideInInspector] public Transform botWallCheck;
 	float raycastLength = 0.15f;
 	public LayerMask whatIsGround;
 
@@ -66,7 +72,11 @@ public class CharControl : MonoBehaviour {
 		midGroundCheck = GameObject.Find("character/midGroundCheck").transform;
 		leftGroundCheck = GameObject.Find("character/leftGroundCheck").transform;
 		rightGroundCheck = GameObject.Find("character/rightGroundCheck").transform;
-		wallCheck = GameObject.Find("character/wallCheck").transform;
+		topWallCheck = GameObject.Find("character/topWallCheck").transform;
+		midTopWallCheck = GameObject.Find("character/midTopWallCheck").transform;
+		midWallCheck = GameObject.Find("character/midWallCheck").transform;
+		midBotWallCheck = GameObject.Find("character/midBotWallCheck").transform;
+		botWallCheck = GameObject.Find("character/botWallCheck").transform;
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
 		Physics2D.IgnoreLayerCollision (IDofNodes, IDofEnes, true); //make nodes and everything else play nice
@@ -87,9 +97,19 @@ public class CharControl : MonoBehaviour {
 
 	void Update () {
 
-		//Raycast to see if a wall is in front of the player
-		leftWalled = Physics2D.Raycast (wallCheck.position, -Vector2.right, .75f, whatIsWall);
-		rightWalled = Physics2D.Raycast (wallCheck.position, Vector2.right, .75f, whatIsWall);
+		//Raycast in front of the player from three different heights to see if a wall is in front of the player
+		leftWalled = (Physics2D.Raycast (midWallCheck.position, -Vector2.right, .75f, whatIsWall)
+		              || Physics2D.Raycast (midTopWallCheck.position, -Vector2.right, .75f, whatIsWall) 
+		              || Physics2D.Raycast (midBotWallCheck.position, -Vector2.right, .75f, whatIsWall)
+		              || Physics2D.Raycast (topWallCheck.position, -Vector2.right, .75f, whatIsWall)
+		              || Physics2D.Raycast (botWallCheck.position, -Vector2.right, .75f, whatIsWall));
+		rightWalled = (Physics2D.Raycast (midWallCheck.position, Vector2.right, .75f, whatIsWall)
+		               || Physics2D.Raycast (midTopWallCheck.position, Vector2.right, .75f, whatIsWall)
+		               || Physics2D.Raycast (midBotWallCheck.position, Vector2.right, .75f, whatIsWall)
+		               || Physics2D.Raycast (topWallCheck.position, Vector2.right, .75f, whatIsWall)
+					   || Physics2D.Raycast (botWallCheck.position, Vector2.right, .75f, whatIsWall));
+
+		Debug.Log ("WALLED: " + leftWalled + rightWalled);
 
 		switch (Jump) {
 

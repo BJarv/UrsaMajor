@@ -89,6 +89,27 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
+	//Along with applying damage to player, also plays hitanim and applies appropriate knockback
+	public void HurtPlus(float damage, GameObject dmgObj){
+		//If player's not invincible, apply damage
+		if (!invincibility) {
+			invincibility = true;
+			Invoke("invincOff", invincCD);
+			playerHealth -= damage;
+			adjustCounter (playerHealth);
+		}
+		//Play hit animation
+		player.GetComponent<CharControl>().hitAnim();
+
+		//Knock back player in a direction depending on their position relative to the damaging object
+		if(dmgObj.transform.position.x - player.transform.position.x > 0){
+			player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
+		}
+		else if(dmgObj.transform.position.x - player.transform.position.x < 0){
+			player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 375));
+		}
+	}
+
 	void invincOff(){
 		invincibility = false;
 	}
