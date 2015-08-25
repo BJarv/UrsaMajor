@@ -69,14 +69,14 @@ public class CharControl : MonoBehaviour {
 		// 	break;
 		//}
 		animator = GetComponent<Animator>();
-		midGroundCheck = GameObject.Find("character/midGroundCheck").transform;
-		leftGroundCheck = GameObject.Find("character/leftGroundCheck").transform;
-		rightGroundCheck = GameObject.Find("character/rightGroundCheck").transform;
-		topWallCheck = GameObject.Find("character/topWallCheck").transform;
-		midTopWallCheck = GameObject.Find("character/midTopWallCheck").transform;
-		midWallCheck = GameObject.Find("character/midWallCheck").transform;
-		midBotWallCheck = GameObject.Find("character/midBotWallCheck").transform;
-		botWallCheck = GameObject.Find("character/botWallCheck").transform;
+		midGroundCheck = GameObject.Find("character/raycasts/midGroundCheck").transform;
+		leftGroundCheck = GameObject.Find("character/raycasts/leftGroundCheck").transform;
+		rightGroundCheck = GameObject.Find("character/raycasts/rightGroundCheck").transform;
+		topWallCheck = GameObject.Find("character/raycasts/topWallCheck").transform;
+		midTopWallCheck = GameObject.Find("character/raycasts/midTopWallCheck").transform;
+		midWallCheck = GameObject.Find("character/raycasts/midWallCheck").transform;
+		midBotWallCheck = GameObject.Find("character/raycasts/midBotWallCheck").transform;
+		botWallCheck = GameObject.Find("character/raycasts/botWallCheck").transform;
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofProjs, true); //make triggers and projectiles play nice but causes bullets to not go through one-ways
 		Physics2D.IgnoreLayerCollision (IDofTrigs, IDofEnes, true); //make triggers and enemies play nice
 		Physics2D.IgnoreLayerCollision (IDofNodes, IDofEnes, true); //make nodes and everything else play nice
