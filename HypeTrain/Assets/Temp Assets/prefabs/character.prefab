@@ -391,6 +391,7 @@ Transform:
   m_RootOrder: 7
 --- !u!50 &5000000
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -399,11 +400,11 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 4
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5897508
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -584,11 +585,13 @@ MonoBehaviour:
   bull3: {fileID: 0}
   bull4: {fileID: 0}
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
+  key: {fileID: 5000000, guid: ab3e0580adbab1d4ea71a82d1df0792a, type: 2}
   rTimerOn: 0
   reloadTime: .699999988
   interShotDelay: .25999999
   gunshot: {fileID: 8300000, guid: 277777d0be8a4f245b78607eca5faa98, type: 3}
   reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
+  gunRegular: {fileID: 21300000, guid: 1ab60754a45b29e4ab2b40a24b91cb6d, type: 3}
   shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
   HYPECounter: {fileID: 0}
 --- !u!114 &11400002
@@ -631,7 +634,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
-  playerHealth: 30
   deathDelay: 1
   heart1: {fileID: 0}
   heart2: {fileID: 0}

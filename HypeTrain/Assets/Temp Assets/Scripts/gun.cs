@@ -13,6 +13,7 @@ public class gun : MonoBehaviour {
 	public GameObject bull3;
 	public GameObject bull4;
 	public Rigidbody2D bullet;
+	public Rigidbody2D key;
 	//Timing Variables
 	private float reloadTimer;
 	private float shotTimer;
@@ -25,6 +26,11 @@ public class gun : MonoBehaviour {
 	private GameObject shootFrom = null;
 	public AudioClip gunshot;
 	public AudioClip reload;
+
+	//For changing gun sprite back after firing key
+	public static bool keyLoaded = false;
+	public SpriteRenderer gunSprite;
+	public Sprite gunRegular;
 
 	public GameObject shotParticles;
 	public GameObject airShotParticles;
@@ -46,6 +52,7 @@ public class gun : MonoBehaviour {
 		player = GameObject.Find("character");
 		shootFrom = GameObject.Find("barrelTip");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		gunSprite = GameObject.Find ("actual gun").GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -63,10 +70,9 @@ public class gun : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	
 		//Gun image will flip depending on where the mouse is relative to the player
-		if (mousePos.x - 15 > player.transform.position.x)
-						transform.localScale = new Vector3(1,1,1);
-				else
-						transform.localScale = new Vector3(1,-1,1);
+		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
+		else transform.localScale = new Vector3(1,-1,1);
+
 		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !PlayerHealth.alreadyDying) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
@@ -79,13 +85,22 @@ public class gun : MonoBehaviour {
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
 			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
-			Rigidbody2D go = Instantiate(bullet, shootFrom.transform.position, q) as Rigidbody2D;
+
+			Rigidbody2D toShoot = bullet;
+			//Fire the key instead of a bullet if it's loaded
+			if(keyLoaded){
+				toShoot = key;
+				gunSprite.sprite = gunRegular;
+				keyLoaded = false;
+			}
+			Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
 			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
 
 			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 			particles.GetComponent<ParticleSystem>().Play ();
 			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
+			//If out of bullets after shooting, reload
 			if(inMag <= 0){
 				AudioSource.PlayClipAtPoint(reload, transform.position);
 				rTimerOn = true;
