@@ -30,16 +30,7 @@ public class enemyBullet : MonoBehaviour {
 			return;
 		}
 		if(colObj.tag == "Player") {
-			colObj.gameObject.GetComponent<PlayerHealth>().Hurt(10);
-			if(transform.position.x - colObj.transform.position.x > 0)
-			{
-				player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-150, 375));
-			}
-			else if(transform.position.x - colObj.transform.position.x < 0)
-			{
-				player.GetComponent<Rigidbody2D>().AddForce(new Vector2(150, 375));
-			}
-			player.GetComponent<CharControl>().hitAnim();
+			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 			Destroy (gameObject);
 		}
 		//If it hits a breakable object

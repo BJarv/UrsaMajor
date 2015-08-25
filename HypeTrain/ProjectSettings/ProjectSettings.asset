@@ -368,6 +368,10 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   intPropertyNames:
   - Metro::ScriptingBackend
+<<<<<<< HEAD
+=======
+  - Standalone::ScriptingBackend
+>>>>>>> 1224c0ba23ab8158e79b90b0d9d4b0a8a537231d
   - WP8::ScriptingBackend
   - WebGL::ScriptingBackend
   - WebGL::audioCompressionFormat
@@ -376,6 +380,10 @@ PlayerSettings:
   - iOS::Architecture
   - iOS::ScriptingBackend
   Metro::ScriptingBackend: 2
+<<<<<<< HEAD
+=======
+  Standalone::ScriptingBackend: 0
+>>>>>>> 1224c0ba23ab8158e79b90b0d9d4b0a8a537231d
   WP8::ScriptingBackend: 2
   WebGL::ScriptingBackend: 1
   WebGL::audioCompressionFormat: 4
@@ -395,8 +403,15 @@ PlayerSettings:
   stringPropertyNames:
   - WebGL::emscriptenArgs
   - WebGL::template
+<<<<<<< HEAD
   WebGL::emscriptenArgs: 
   WebGL::template: APPLICATION:Default
+=======
+  - additionalIl2CppArgs::additionalIl2CppArgs
+  WebGL::emscriptenArgs: 
+  WebGL::template: APPLICATION:Default
+  additionalIl2CppArgs::additionalIl2CppArgs: 
+>>>>>>> 1224c0ba23ab8158e79b90b0d9d4b0a8a537231d
   firstStreamedSceneWithResources: 0
   cloudProjectId: 
   projectId: 
