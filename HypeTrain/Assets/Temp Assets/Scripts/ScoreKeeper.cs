@@ -16,7 +16,7 @@ public class ScoreKeeper : MonoBehaviour {
 		carsCompleted = 0;
 		enemiesKilled = 0;
 		Score = 0;
-		HYPE = 0;
+		HYPE = 6;
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode

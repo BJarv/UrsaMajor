@@ -49,7 +49,6 @@ public class Jukebox : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (diff != jukebox.clip) {
-			Debug.Log ("CHANGED");
 			if(jukebox.clip == death && !menuSwap){
 				jukebox.PlayOneShot(toDeath, 1);
 				jukebox.PlayDelayed(2.9f);
