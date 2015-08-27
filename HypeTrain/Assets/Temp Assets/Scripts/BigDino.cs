@@ -93,7 +93,7 @@ public class BigDino : MonoBehaviour {
 	}
 	//Code to flip sprite
 	void Flip(float moveH){
-		if (!stunned || !predashOnce) {
+		if (!stunned || !predashOnce || State != DinoState.STUN) {
 			if (transform.position.x < Player.transform.position.x) {
 				transform.localEulerAngles = new Vector3 (0, 0, 0);
 			} else if (transform.position.x > Player.transform.position.x) {
@@ -230,8 +230,7 @@ public class BigDino : MonoBehaviour {
 			HYPECounter.incrementHype(true); //Increment HYPE twice for big kill
 			HYPECounter.incrementHype(true);
 			ScoreKeeper.enemiesKilled += 1; //Increment # of kills in current run
-			ledgeAnimator.Play ("dinoPlat_fall");
-			//ledgeAnimator.Play ("dinoPlat_fallen");
+			ledgeAnimator.SetBool ("fall", true);
 			Destroy (gameObject);
 		}
 	}
@@ -266,6 +265,11 @@ public class BigDino : MonoBehaviour {
 			postDash = false;
 			State = DinoState.ATTACK;
 		}
+	}
+
+	private void fallenState(){
+		ledgeAnimator.Play ("dinoPlat_fallen");
+		Destroy (gameObject);
 	}
 	
 }
