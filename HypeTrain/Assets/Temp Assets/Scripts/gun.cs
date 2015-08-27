@@ -32,6 +32,7 @@ public class gun : MonoBehaviour {
 	public SpriteRenderer gunSprite;
 	public Sprite gunRegular;
 
+	public GameObject airBlast;
 	public GameObject shotParticles;
 	public GameObject airShotParticles;
 	public LayerMask airBlastMask;
@@ -121,12 +122,30 @@ public class gun : MonoBehaviour {
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
+			//Appropriate rotation for trigger
+			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
+
 			//Get direction between the gun and the reticle
 			Vector2 direction = (pos - shootFrom.transform.position);
 
+			//If key is loaded, fire key.
+			if(keyLoaded){
+				gunSprite.sprite = gunRegular;
+				Rigidbody2D go = Instantiate(key, shootFrom.transform.position, q) as Rigidbody2D;
+				keyLoaded = false;
+			}
+
+			//Otherwise, fire an air blast
+			else{
+				GameObject toShoot = airBlast;
+				//Airblast is shot, direction is passed
+				GameObject go = Instantiate(toShoot, shootFrom.transform.position, q) as GameObject;
+				go.GetComponent<AirBlast>().direction = direction;
+			}
+
 			//Declare RayCast and store info, draw RayCast
-			RaycastHit2D hit = Physics2D.Raycast(shootFrom.transform.position, direction, 5f, airBlastMask);
-			Debug.DrawRay (shootFrom.transform.position, direction);
+			//RaycastHit2D hit = Physics2D.Raycast(shootFrom.transform.position, direction, 5f, airBlastMask);
+			//Debug.DrawRay (shootFrom.transform.position, direction);
 
 			//Create particles for shot
 			GameObject particles = (GameObject)Instantiate(airShotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
@@ -134,11 +153,12 @@ public class gun : MonoBehaviour {
 			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
 			//Cast a ray from the shootFrom in the direction of the reticle
-			if(hit == true)
+			/*if(hit == true)
 			{
 				Debug.Log ("HIT");
-				hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 2500);
-			}
+				hit.collider.gameObject.GetComponent<Enemy>().blastedByAir();
+				hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 167);
+			}*/
 
 		}
 

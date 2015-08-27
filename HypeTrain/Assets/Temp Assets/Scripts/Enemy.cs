@@ -17,6 +17,12 @@ public class Enemy : MonoBehaviour {
 	public float EnemySpeed = 2f;
 	public float AttackDist = 45f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
+
+	private bool airBlasted = false; //Am I being hit by an air blast??
+	private float airBlastedTime = 0;
+	private float timer = 0;
+	private float timeSecs = 0;
+
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
@@ -25,7 +31,6 @@ public class Enemy : MonoBehaviour {
 	
 	private bool strolling = false;
 
-	private float startTime;
 
 	//raycast info
 	public float dashCast = 20f; //wall distance
@@ -59,6 +64,20 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	virtual protected void Update () {
+		//Update timer:
+		timer += Time.deltaTime;
+		if (timer >= 1) {
+			timeSecs += 1;
+			timer = 0;
+		}
+		//See if done being blasted by air:
+		if (timeSecs - airBlastedTime >= 1) {
+			airBlasted = false;
+		}
+		if (airBlasted && GetComponent<Rigidbody2D> ().velocity.y == 0) {
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0,5));
+			Debug.Log ("VELOCITY ADJUSTED");
+		}
 		if(delayDone) {
 			if(transform.position.y < -5f) Destroy (gameObject);
 			//grounde = isGrounded ();
@@ -114,13 +133,12 @@ public class Enemy : MonoBehaviour {
 	{
 		if (isJump ()) return; //prevents enemy from moving when he should be jumping
 		if (isDash ()) return;
-		if (transform.position.x < Player.transform.position.x) 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D>().velocity.y); 
-		} 
-		else 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (EnemySpeed *-1, GetComponent<Rigidbody2D>().velocity.y); 
+		if (!airBlasted) {
+			if (transform.position.x < Player.transform.position.x) {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
+			} else {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed * -1, GetComponent<Rigidbody2D> ().velocity.y); 
+			}
 		}
 
 	}
@@ -162,6 +180,14 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player" && colObj.collider.transform.name != "Tucker") {
 			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
+		}
+		//If enemy collides with something at a high speed, kill it
+		if (colObj.collider.tag != "Player" && colObj.collider.transform.name != "Tucker") {
+			if (airBlasted){
+				if (Mathf.Abs(GetComponent<Rigidbody2D> ().velocity.y) > 10 || Mathf.Abs (GetComponent<Rigidbody2D> ().velocity.x) > 10) {
+					Hurt (10f);
+				}
+			}
 		}
 	}
 
@@ -215,6 +241,12 @@ public class Enemy : MonoBehaviour {
 	}
 	public void endDelay() {
 		delayDone = true;
+	}
+
+	public void blastedByAir() {
+		Debug.Log ("BLASTED BY AIR CALLED");
+		airBlasted = true;
+		airBlastedTime = timeSecs;
 	}
 
 }
