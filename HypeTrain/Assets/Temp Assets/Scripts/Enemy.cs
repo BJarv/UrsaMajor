@@ -181,12 +181,18 @@ public class Enemy : MonoBehaviour {
 		if (colObj.collider.tag == "Player" && colObj.collider.transform.name != "Tucker") {
 			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 		}
-		//If enemy collides with something at a high speed, kill it
+		//If enemy collides with something at a high speed, hurt it
 		if (colObj.collider.tag != "Player" && colObj.collider.transform.name != "Tucker") {
 			if (airBlasted){
-				if (Mathf.Abs(GetComponent<Rigidbody2D> ().velocity.y) > 10 || Mathf.Abs (GetComponent<Rigidbody2D> ().velocity.x) > 10) {
-					Hurt (10f);
-				}
+				// If the enemy hits a wall at high speed, 20 damage
+				// Medium speed, 10 damage
+				// Low speed, 5 damage
+				float xVel = Mathf.Abs(GetComponent<Rigidbody2D> ().velocity.x);
+				float yVel = Mathf.Abs(GetComponent<Rigidbody2D> ().velocity.y);
+				float hurtVel = (xVel > yVel) ? xVel : yVel;
+				if (hurtVel > 10f && hurtVel < 20f) Hurt(10f);
+				if (hurtVel >= 20f) Hurt (20f);
+				else Hurt (5f);
 			}
 		}
 	}
