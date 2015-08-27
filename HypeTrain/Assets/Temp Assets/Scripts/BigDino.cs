@@ -17,6 +17,7 @@ public class BigDino : MonoBehaviour {
 	public float AttackDist = 35f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
 	public Animator Animator;
+	public Animator ledgeAnimator;
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
@@ -58,6 +59,9 @@ public class BigDino : MonoBehaviour {
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+
+		transform.localEulerAngles = new Vector3 (0, 180, 0);
+		ledgeAnimator.Play ("dinoPlat_idle");
 	}
 	
 	// Update is called once per frame
@@ -89,10 +93,10 @@ public class BigDino : MonoBehaviour {
 	}
 	//Code to flip sprite
 	void Flip(float moveH){
-		if (!stunned || !predashOnce) {
-			if (moveH > 0) {
+		if (!stunned || !predashOnce || State != DinoState.STUN) {
+			if (transform.position.x < Player.transform.position.x) {
 				transform.localEulerAngles = new Vector3 (0, 0, 0);
-			} else if (moveH < 0) {
+			} else if (transform.position.x > Player.transform.position.x) {
 				transform.localEulerAngles = new Vector3 (0, 180, 0);
 			}
 		}
@@ -226,6 +230,7 @@ public class BigDino : MonoBehaviour {
 			HYPECounter.incrementHype(true); //Increment HYPE twice for big kill
 			HYPECounter.incrementHype(true);
 			ScoreKeeper.enemiesKilled += 1; //Increment # of kills in current run
+			ledgeAnimator.SetBool ("fall", true);
 			Destroy (gameObject);
 		}
 	}
@@ -260,6 +265,11 @@ public class BigDino : MonoBehaviour {
 			postDash = false;
 			State = DinoState.ATTACK;
 		}
+	}
+
+	private void fallenState(){
+		ledgeAnimator.Play ("dinoPlat_fallen");
+		Destroy (gameObject);
 	}
 	
 }
