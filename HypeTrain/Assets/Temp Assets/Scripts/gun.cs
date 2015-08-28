@@ -107,7 +107,6 @@ public class gun : MonoBehaviour {
 				rTimerOn = true;
 			}
 
-			//if(player.GetComponent<)
 			if(!player.GetComponent<CharControl>().isGrounded()){
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
 				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));

@@ -376,7 +376,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.2900009, y: 56.3400002, z: 0}
+  m_LocalPosition: {x: -50.7999992, y: 29, z: 0}
   m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 437138}
@@ -757,6 +757,7 @@ MonoBehaviour:
   reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   gunSprite: {fileID: 0}
   gunRegular: {fileID: 21300000, guid: 1ab60754a45b29e4ab2b40a24b91cb6d, type: 3}
+  airBlast: {fileID: 0}
   shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
   airShotParticles: {fileID: 100000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
   airBlastMask:
@@ -915,8 +916,7 @@ MonoBehaviour:
     m_Bits: 96823
   lazerLength: 40
   bullet: {fileID: 5000000, guid: 5263ef53428f34723a95b5d6010b0a51, type: 2}
-  interShotDelay: .100000001
-  rTimerOn: 0
+  lazerTime: .100000001
   reloadTime: 1
 --- !u!114 &11400012
 MonoBehaviour:
