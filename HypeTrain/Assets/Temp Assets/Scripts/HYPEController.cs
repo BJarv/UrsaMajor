@@ -51,7 +51,7 @@ public class HYPEController : MonoBehaviour {
 
 		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
 		if (((Input.GetButtonDown ("Interact") && Input.GetButton ("Reload")) || Input.GetButtonDown ("Fire3")) && ScoreKeeper.HYPE == 6) {
-			Debug.Log ("HYPE MODE");
+			//Debug.Log ("HYPE MODE");
 
 			trailName = HYPEController.HYPEMode + "Trail";
 			trail.Find (trailName).GetComponent<trailToggle>().On ();
@@ -90,7 +90,7 @@ public class HYPEController : MonoBehaviour {
 		if (hTimerOn) {
 			HYPETimer -= Time.deltaTime;
 			if (HYPETimer <= 0) {
-				Debug.Log ("hype over...");
+				//Debug.Log ("hype over...");
 
 				trailName = HYPEController.HYPEMode + "Trail";
 				trail.Find (trailName).GetComponent<trailToggle>().Off ();
@@ -105,7 +105,6 @@ public class HYPEController : MonoBehaviour {
 
 				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets
 					lazers = false;
-					//revolver.GetComponent<gun> (). REENABLE BULLETS SOMEHOW
 				}
 
 				if (HYPEMode == "blue"){

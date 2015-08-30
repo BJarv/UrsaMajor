@@ -12,7 +12,9 @@ public class lazerFire : MonoBehaviour {
 	public float lazerLength;
 
 	private GameObject player;
+	private GameObject revolver;
 	private GameObject shootFrom;
+	public GameObject laserShotParticles;
 
 	public Rigidbody2D bullet;
 
@@ -37,21 +39,20 @@ public class lazerFire : MonoBehaviour {
 	}
 
 	void Update () {
+		//On fire the lazer when HYPE mode is on, and cooldown is off
 		if(Input.GetButtonDown("Fire1") && !lTimerOn && !rTimerOn && HYPEController.lazers){
 			StopCoroutine("Firelazer");
 			StartCoroutine("Firelazer");
 			lTimerOn = true;
 
-			//***** NOT WORKING ******
-			//Attempt at laser force
-			if(!player.GetComponent<CharControl>().isGrounded()){
-				var pos = Input.mousePosition;
-				var q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
-				GameObject forcePoint = new GameObject();
-				Rigidbody2D go = Instantiate(forcePoint, shootFrom.transform.position, q) as Rigidbody2D;
-				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(forcePoint.transform.up.x * -500, forcePoint.transform.up.y * -500));
-			}
+			//Access gun script for kickback
+			player.GetComponentInChildren<gun>().kickIfAirbourne(200f);
+
+			/*Create particles for shot
+			GameObject particles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
+			particles.GetComponent<ParticleSystem>().Play ();
+			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+			*/
 		}
 
 		//Turns off the lazer quickly after it's fired, starts reload timer
@@ -71,6 +72,9 @@ public class lazerFire : MonoBehaviour {
 			if(reloadTimer <= 0) {
 				rTimerOn = false;
 				reloadTimer = reloadTime;
+				GameObject particles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
+				particles.GetComponent<ParticleSystem>().Play ();
+				Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 			}
 		}
 	}
@@ -83,8 +87,6 @@ public class lazerFire : MonoBehaviour {
 			Ray2D ray = new Ray2D(transform.position, transform.right);
 			lazer.SetPosition(0, ray.origin);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, lazerLength, lazerStoppers);
-
-
 
 			//If the ray collides with something in the lazerStoppers, set the lazer's endpoint to the point of the collision
 			if(hit){

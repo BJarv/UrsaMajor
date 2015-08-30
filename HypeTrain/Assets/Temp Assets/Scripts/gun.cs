@@ -74,7 +74,7 @@ public class gun : MonoBehaviour {
 		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
 		else transform.localScale = new Vector3(1,-1,1);
 
-		if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !PlayerHealth.alreadyDying) {
+		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
@@ -114,18 +114,14 @@ public class gun : MonoBehaviour {
 		}
 
 		//If the airblasts power is on
-		else if ((Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1) && Firable () && !HYPEController.lazers && HYPEController.airblasts && !PlayerHealth.alreadyDying) {
+		else if (ShootButton() && Firable () && !HYPEController.lazers && HYPEController.airblasts) {
 			sTimerOn = true;
 			//Get reticle position
-			var pos = retical.recPos;
-			pos.z = transform.position.z - Camera.main.transform.position.z;
-			pos = Camera.main.ScreenToWorldPoint(pos);
-
-			//Appropriate rotation for trigger
-			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
-
+			var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
 			//Get direction between the gun and the reticle
 			Vector2 direction = (pos - shootFrom.transform.position);
+			//Appropriate rotation for trigger
+			var q = Quaternion.FromToRotation(Vector3.up, direction);
 
 			//If key is loaded, fire key.
 			if(keyLoaded){
@@ -140,24 +136,13 @@ public class gun : MonoBehaviour {
 				//Airblast is shot, direction is passed
 				GameObject go = Instantiate(toShoot, shootFrom.transform.position, q) as GameObject;
 				go.GetComponent<AirBlast>().direction = direction;
+				kickIfAirbourne(100f);
 			}
-
-			//Declare RayCast and store info, draw RayCast
-			//RaycastHit2D hit = Physics2D.Raycast(shootFrom.transform.position, direction, 5f, airBlastMask);
-			//Debug.DrawRay (shootFrom.transform.position, direction);
 
 			//Create particles for shot
 			GameObject particles = (GameObject)Instantiate(airShotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 			particles.GetComponent<ParticleSystem>().Play ();
 			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-
-			//Cast a ray from the shootFrom in the direction of the reticle
-			/*if(hit == true)
-			{
-				Debug.Log ("HIT");
-				hit.collider.gameObject.GetComponent<Enemy>().blastedByAir();
-				hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 167);
-			}*/
 
 		}
 
@@ -213,8 +198,19 @@ public class gun : MonoBehaviour {
 		}
 	}*/
 
-	public void adjustCounter(int currBulls)
-	{
+	public void kickIfAirbourne(float kickForce){
+		//Get reticle position
+		var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
+		//Get direction between reticle position and the gunpoint
+		Vector2 direction = (pos - shootFrom.transform.position);
+
+		//If the player is airbourne, send add force in the opposite direction of the shot
+		if(!player.GetComponent<CharControl>().isGrounded()){
+			player.GetComponent<Rigidbody2D>().AddForce (-direction * kickForce);
+		}
+	}
+
+	public void adjustCounter(int currBulls){
 		if (currBulls == 4) {
 			bull1.SetActive (true);
 			bull2.SetActive (true);
@@ -264,7 +260,11 @@ public class gun : MonoBehaviour {
 		}
 	}
 
+	bool ShootButton() {
+		return (Input.GetButton ("Fire1") || Input.GetAxis ("RTrig") > 0.1);
+	}
+
 	bool Firable() {
-		return (inMag != 0 && !rTimerOn && !sTimerOn);
+		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying);
 	}
 }

@@ -376,7 +376,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.7999992, y: 29, z: 0}
+  m_LocalPosition: {x: -46.2721176, y: 24.5699997, z: 0}
   m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 437138}
@@ -757,7 +757,7 @@ MonoBehaviour:
   reload: {fileID: 8300000, guid: 5f0565916a64e91438c7c32424b83c60, type: 3}
   gunSprite: {fileID: 0}
   gunRegular: {fileID: 21300000, guid: 1ab60754a45b29e4ab2b40a24b91cb6d, type: 3}
-  airBlast: {fileID: 0}
+  airBlast: {fileID: 132980, guid: 6812b3b5dc50c684abdce643cb187bca, type: 2}
   shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
   airShotParticles: {fileID: 100000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
   airBlastMask:
