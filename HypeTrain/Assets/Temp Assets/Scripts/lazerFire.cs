@@ -11,12 +11,12 @@ public class lazerFire : MonoBehaviour {
 	LineRenderer lazer;
 	public float lazerLength;
 
+	//Referebces
 	private GameObject player;
 	private GameObject revolver;
 	private GameObject shootFrom;
 	public GameObject laserShotParticles;
-
-	public Rigidbody2D bullet;
+	public GameObject laserChargeParticles;
 
 	private float lazerTimer;
 	private bool lTimerOn = false;
@@ -25,6 +25,13 @@ public class lazerFire : MonoBehaviour {
 	private float reloadTimer;
 	private bool rTimerOn = false;
 	public float reloadTime = 2f;
+
+	//Particle effects
+	GameObject shotParticles = null;
+	GameObject rechargeParticles = null;
+
+	//Used to play recharge particles only once per CD
+	bool once = false;
 		
 	void Start () {
 		//Grab the linerenderer from the object and default it to disabled
@@ -39,7 +46,8 @@ public class lazerFire : MonoBehaviour {
 	}
 
 	void Update () {
-		//On fire the lazer when HYPE mode is on, and cooldown is off
+
+		//Fire the lazer when HYPE mode is on, and cooldown is off
 		if(Input.GetButtonDown("Fire1") && !lTimerOn && !rTimerOn && HYPEController.lazers){
 			StopCoroutine("Firelazer");
 			StartCoroutine("Firelazer");
@@ -48,11 +56,21 @@ public class lazerFire : MonoBehaviour {
 			//Access gun script for kickback
 			player.GetComponentInChildren<gun>().kickIfAirbourne(200f);
 
-			/*Create particles for shot
-			GameObject particles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
-			particles.GetComponent<ParticleSystem>().Play ();
-			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-			*/
+			//Create particles for shot
+			shotParticles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
+			shotParticles.GetComponent<ParticleSystem>().Play ();
+			Destroy (shotParticles, shotParticles.GetComponent<ParticleSystem>().startLifetime);
+			shotParticles = null;
+		}
+
+		//Keep the active particles lined up with the barrel tip
+		if (shotParticles != null){
+			shotParticles.transform.position = shootFrom.transform.position;
+			shotParticles.transform.rotation = shootFrom.transform.rotation;
+		}
+		if (rechargeParticles != null){
+			rechargeParticles.transform.position = shootFrom.transform.position;
+			rechargeParticles.transform.rotation = shootFrom.transform.rotation;
 		}
 
 		//Turns off the lazer quickly after it's fired, starts reload timer
@@ -69,21 +87,28 @@ public class lazerFire : MonoBehaviour {
 		//Once completed, player can fire lazer again
 		if (rTimerOn) {
 			reloadTimer -= Time.deltaTime;
+			//If HYPE isn't over, show recharge particles
+			if(reloadTimer <= .7f && HYPEController.lazers && !once){
+				once = true;
+				rechargeParticles = (GameObject)Instantiate(laserChargeParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
+				rechargeParticles.GetComponent<ParticleSystem>().Play ();
+				Destroy (rechargeParticles, rechargeParticles.GetComponent<ParticleSystem>().startLifetime);
+				rechargeParticles = null;
+			}
 			if(reloadTimer <= 0) {
 				rTimerOn = false;
+				once = false;
 				reloadTimer = reloadTime;
-				GameObject particles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
-				particles.GetComponent<ParticleSystem>().Play ();
-				Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 			}
 		}
 	}
 
 	//Coroutine to raycast then display lazer
 	IEnumerator Firelazer(){
-		lazer.enabled = true;
+		lazer.enabled = true; //Enable LineRenderer
 			
 		while(Input.GetButton("Fire1")){
+			//Raycast for determining length of lazer
 			Ray2D ray = new Ray2D(transform.position, transform.right);
 			lazer.SetPosition(0, ray.origin);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, lazerLength, lazerStoppers);
