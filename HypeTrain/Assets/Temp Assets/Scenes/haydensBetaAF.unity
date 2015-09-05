@@ -114,7 +114,7 @@ Transform:
   m_Children:
   - {fileID: 35003494}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &24807054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
       propertyPath: cameraObj
@@ -1659,6 +1659,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1675,7 +1676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &657174603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,7 +2754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
       propertyPath: heart1
@@ -2783,22 +2784,6 @@ Prefab:
       propertyPath: bull4
       value: 
       objectReference: {fileID: 1939969898}
-    - target: {fileID: 11400010, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
-      propertyPath: laserShotParticles
-      value: 
-      objectReference: {fileID: 124952, guid: 2a4c887ba3c7aeb4b80fae621a994aa5, type: 2}
-    - target: {fileID: 11400010, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
-      propertyPath: laserChargeParticles
-      value: 
-      objectReference: {fileID: 170974, guid: d52c232eba62f8f4dbd67e813fc60b0f, type: 2}
-    - target: {fileID: 11400010, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
-      propertyPath: lazerStoppers.m_Bits
-      value: 96791
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
-      propertyPath: renderForward
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_IsPrefabParent: 0
@@ -4079,48 +4064,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1001 &1357596547
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -55.8744354
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 16.0983696
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1359249055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,6 +4214,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5261,7 +5205,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
       value: 1
