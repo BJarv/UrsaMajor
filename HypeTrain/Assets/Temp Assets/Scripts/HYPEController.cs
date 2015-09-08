@@ -11,7 +11,6 @@ public class HYPEController : MonoBehaviour {
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 	public GameObject HYPEPlane;
-	GameObject plane;
 
 	private Transform trail;
 	private string trailName;
@@ -44,7 +43,7 @@ public class HYPEController : MonoBehaviour {
 	void Update () {
 		//If HYPE is full and player is on top of a train, spawn a HYPE Plane
 		if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
-			plane = (GameObject)Instantiate(HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
+			Instantiate(HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
 			planeSpawn = false;
 		}
 

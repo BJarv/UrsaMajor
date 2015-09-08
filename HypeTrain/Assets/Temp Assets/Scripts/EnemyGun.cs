@@ -37,13 +37,11 @@ public class EnemyGun : MonoBehaviour {
 		}
 	}
 
-	void shootOn() 
-	{
+	void shootOn() {
 		shootable = true;
 	}
 
-	GameObject shootBullet() //90 for straight forward
-	{
+	GameObject shootBullet(){ //90 for straight forward
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rotToPlayer = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position);

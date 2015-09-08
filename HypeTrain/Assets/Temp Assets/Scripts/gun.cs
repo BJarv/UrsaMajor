@@ -126,7 +126,8 @@ public class gun : MonoBehaviour {
 			//If key is loaded, fire key.
 			if(keyLoaded){
 				gunSprite.sprite = gunRegular;
-				Rigidbody2D go = Instantiate(key, shootFrom.transform.position, q) as Rigidbody2D;
+				//Rigidbody2D go = 
+				Instantiate(key, shootFrom.transform.position, q); //as Rigidbody2D;
 				keyLoaded = false;
 			}
 

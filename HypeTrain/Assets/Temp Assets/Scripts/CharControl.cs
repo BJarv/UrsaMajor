@@ -12,6 +12,7 @@ public enum JumpState
 public class CharControl : MonoBehaviour {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
+	private Rigidbody2D r;
 
 	public bool controllable = true;
 
@@ -68,6 +69,7 @@ public class CharControl : MonoBehaviour {
 		//  GetComponent<SpriteRenderer>().sprite = skin2; //or whatever itll be called
 		// 	break;
 		//}
+		r = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator>();
 		midGroundCheck = GameObject.Find("character/raycasts/midGroundCheck").transform;
 		leftGroundCheck = GameObject.Find("character/raycasts/leftGroundCheck").transform;
@@ -126,7 +128,7 @@ public class CharControl : MonoBehaviour {
 				var timeDiff = Time.deltaTime * 100;
 				var forceToAdd = PlusJumpForce*timeDiff;
 				CurrJumpForce += forceToAdd;
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, forceToAdd));
+				r.AddForce(new Vector2(0, forceToAdd));
 			}
 			else {
 				Jump = JumpState.FALLING;
@@ -135,7 +137,7 @@ public class CharControl : MonoBehaviour {
 			break;
 
 		case JumpState.FALLING: 
-			if (isGrounded() && GetComponent<Rigidbody2D>().velocity.y <= 0) {
+			if (isGrounded() && r.velocity.y <= 0) {
 				//Debug.Log("Grounded"); Use this to debug jump issues
 				Jump = JumpState.GROUNDED;
 				animator.SetBool ("Jump", false); //End jump animation
@@ -170,18 +172,16 @@ public class CharControl : MonoBehaviour {
 		//Debug.Log (moveH);
 		Flip (moveH);
 		if(controllable){
-			if(moveH > 0 && !rightWalled) //Add && !rightWalled
-			{
+			if(moveH > 0 && !rightWalled){
 				animator.SetBool ("Run",true); //Begin run animation
-				if(GetComponent<Rigidbody2D>().velocity.x <= maxSpeed)
-					GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
+				if(r.velocity.x <= maxSpeed)
+					r.AddForce(new Vector2 (moveH * addSpeed, 0));
 			}
 			else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-			else if(moveH < 0 && !leftWalled)  //Add if(!leftWalled)
-			{
+			else if(moveH < 0 && !leftWalled){
 				animator.SetBool ("Run",true); //Begin run animation
-				if(GetComponent<Rigidbody2D>().velocity.x > -maxSpeed)
-					GetComponent<Rigidbody2D>().AddForce(new Vector2 (moveH * addSpeed, 0));
+				if(r.velocity.x > -maxSpeed)
+					r.AddForce(new Vector2 (moveH * addSpeed, 0));
 			}
 		}
 	}

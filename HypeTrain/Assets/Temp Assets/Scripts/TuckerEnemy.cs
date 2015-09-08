@@ -2,12 +2,12 @@
 using System.Collections;
 using System;
 
-public class ShootingEnemy : Enemy {
-
+public class TuckerEnemy : Enemy {
+	
 	private EnemyGun gun;
 	private EnemyShotgun shotgun;
 	public bool spawnKey = false;
-
+	
 	override protected void Start () {  //overrides start function of enemy.cs
 		base.Start ();
 		try {
@@ -21,7 +21,7 @@ public class ShootingEnemy : Enemy {
 			}
 		}
 	}
-
+	
 	override protected void Attack() //overrides attack function of enemy.cs
 	{
 		base.Attack ();
@@ -31,7 +31,7 @@ public class ShootingEnemy : Enemy {
 			shotgun.isShooting(true, direction);
 		}
 	}
-
+	
 	override public void Hurt(float damage){
 		State = EnemyState.ATTACK;
 		health -= damage;
@@ -45,7 +45,7 @@ public class ShootingEnemy : Enemy {
 			Destroy (gameObject);
 		}
 	}
-
+	
 	override protected void Update () {
 		if(transform.position.y < -5f) Destroy (gameObject);
 		distToPlayer = Vector2.Distance (transform.position, Player.transform.position);
