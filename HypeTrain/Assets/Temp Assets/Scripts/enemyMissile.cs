@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// AUTHORS
+// Hayden Platt     (platt@ursamajorgames.com)
+
+using UnityEngine;
 using System.Collections;
 
 public class enemyMissile : MonoBehaviour {
@@ -7,39 +10,45 @@ public class enemyMissile : MonoBehaviour {
 	[HideInInspector] public Transform player;
 
 	//Collision/lifetime variables
-	public int missileDeath = 3;
-	[HideInInspector] public int layerOfTrigs = 8; //8 is the triggers layer
-	[HideInInspector] public int layerOfLoot = 14; //14 is the Loot layer
-	[HideInInspector] public int layerOfProj = 13; //13 is the Projectiles layer
-
-	public float smoothrate = 0.5f;
-	public Vector2 velocity = new Vector2 (0.5f, 0.5f);
-	private Vector2 newPos2D = Vector2.zero;
+	public float lifetime = 3f;
+	public float missileSpeed = 10f;
+	[HideInInspector] public int triggerLayer = 8; //8 is the triggers layer
+	[HideInInspector] public int lootLayer = 14; //14 is the Loot layer
+	[HideInInspector] public int projectileLayer = 13; //13 is the Projectiles layer
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("character").transform;
-		Destroy (gameObject, missileDeath);
+		Destroy (gameObject, lifetime);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		newPos2D.x = Mathf.SmoothDamp (transform.position.x, player.position.x, ref velocity.x, smoothrate);
-		newPos2D.y = Mathf.SmoothDamp (transform.position.y, player.position.y, ref velocity.y, smoothrate);
+		//Determine the angle between player and missile, rotate missile to that angle
+		Vector3 dir = player.position - transform.position;
+		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 
-		transform.position = new Vector3 (newPos2D.x, newPos2D.y, transform.position.z);
+		//Propel missile forward
+		transform.position = Vector3.MoveTowards (transform.position, player.position, Time.deltaTime * missileSpeed); 
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj) {
-		
-		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == layerOfTrigs || colObj.gameObject.layer == layerOfLoot || colObj.gameObject.layer == layerOfProj) {
+		//If missile is hit by bullet, destroy it
+		if(colObj.gameObject.layer == projectileLayer){
+			Debug.Log ("HIT BY BULLET!");
+			Destroy(colObj.gameObject);
+			Destroy(gameObject);
+		}
+		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == triggerLayer || colObj.gameObject.layer == lootLayer) {
 			return;
 		}
+		//If missile hits player, hurt them
 		if(colObj.tag == "Player") {
 			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 			Destroy (gameObject);
 		}
-		//If it hits a breakable object
+		//If missile hits a breakable object
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
 			colObj.gameObject.GetComponent<breakable>().Damage();
 			Destroy (gameObject);

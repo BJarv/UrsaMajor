@@ -30,7 +30,6 @@ public class BigDino : MonoBehaviour {
 	private float predashTime = 1f;
 	private bool postDash = false;
 	private float dashTime = .3f;
-	private Transform dashCastTransform; //Not currently used?
 	private GameObject wallPos;
 	public Vector2 throwPlayer;
 	public bool inNotStunRange = false;
@@ -55,7 +54,6 @@ public class BigDino : MonoBehaviour {
 	void Start () {
 		health *= Multiplier.enemyHealth;
 		DinoSpeed *= Multiplier.enemySpeed;
-		dashCastTransform = gameObject.transform.Find ("dashCast");
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();

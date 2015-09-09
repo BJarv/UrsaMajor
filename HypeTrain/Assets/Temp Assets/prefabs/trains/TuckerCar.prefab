@@ -3084,7 +3084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad683dd798e8e74a91edc5810ed8dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 650
   missile: {fileID: 137262, guid: d32f27024e037ee4d8aa0a56a4c3fc75, type: 2}
   shootCD: 1
   shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
@@ -3248,7 +3247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81feb4e37eaef3841906842a5efacc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 100
   State: 0
   EnemySpeed: 3.5
   AttackDist: 15

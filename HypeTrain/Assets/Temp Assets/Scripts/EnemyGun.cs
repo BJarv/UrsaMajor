@@ -25,11 +25,6 @@ public class EnemyGun : MonoBehaviour {
 	void Update () {
 		if (shooting) { //if true, enemy has aggro'd and shooting at player
 			if (shootable) {
-				/*GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-				bulletInstance.transform.Rotate (Vector3.forward * 90);
-				bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(direction*bulletSpeed, 0);
-				lastShot = Time.time;
-				shooting = false;*/
 				shootable = false;
 				Invoke ("shootOn", shootCD);
 				shootBullet ();

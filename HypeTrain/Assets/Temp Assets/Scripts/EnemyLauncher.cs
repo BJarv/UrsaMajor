@@ -1,22 +1,20 @@
-﻿using UnityEngine;
+﻿// AUTHORS
+// Hayden Platt     (platt@ursamajorgames.com)
+
+using UnityEngine;
 using System.Collections;
 
 public class EnemyLauncher : MonoBehaviour {
 	
 	private bool shooting = false;
-	private int direction = 0;
-	public float bulletSpeed = 5000f;
 	public GameObject missile;
-	Transform player;
-	//bool shootable = true; //currently able to shoot
-	public float shootCD = 1f;
+	public float shootCD = 4f;
 	private float timer;
 	
 	public GameObject shotParticles;
 	
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("character").transform;
 		timer = shootCD;
 	}
 	
@@ -50,7 +48,6 @@ public class EnemyLauncher : MonoBehaviour {
 	
 	public void isShooting(bool x){
 		shooting = x;
-		//direction = y;
 	}
 }
 

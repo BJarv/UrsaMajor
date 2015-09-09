@@ -7,11 +7,9 @@ public class enemyBullet : MonoBehaviour {
 	[HideInInspector] public int layerOfTrigs = 8; //8 is the triggers layer
 	[HideInInspector] public int layerOfLoot = 14; //14 is the Loot layer
 	[HideInInspector] public int layerOfProj = 13; //13 is the Projectiles layer
-	private GameObject player = null;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("character");
 		Destroy (gameObject, bulletDeath);
 	}
 	

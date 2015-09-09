@@ -143,8 +143,7 @@ public class Enemy : MonoBehaviour {
 
 	}
 
-	virtual public void Idle()
-	{
+	virtual public void Idle(){
 		if (!strolling)
 		{
 			StrollStart = transform.position;
