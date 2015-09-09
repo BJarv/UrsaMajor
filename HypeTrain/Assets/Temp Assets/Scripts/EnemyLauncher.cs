@@ -1,40 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBirdGun : MonoBehaviour {
+public class EnemyLauncher : MonoBehaviour {
 	
 	private bool shooting = false;
 	private int direction = 0;
 	public float bulletSpeed = 5000f;
-	public GameObject bullet;
+	public GameObject missile;
 	Transform player;
-	bool shootable = true; //currently able to shoot
+	//bool shootable = true; //currently able to shoot
 	public float shootCD = 1f;
+	private float timer;
 	
 	public GameObject shotParticles;
 	
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character").transform;
-		shootCD *= Multiplier.enemyShootCD;
+		timer = shootCD;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (shooting) { //if true, enemy has aggro'd and shooting at player
-			if (shootable) {
-				shootable = false;
-				Invoke ("shootOn", shootCD);
-				shootBird ();
+			//Every (shootCD) seconds, fire a birdMissile
+			timer -= Time.deltaTime;
+			if(timer <= 0){
+				Instantiate (missile, transform.position, Quaternion.identity);
+				timer = shootCD;
 			}
 		}
 	}
 	
-	void shootOn() {
-		shootable = true;
-	}
-	
-	GameObject shootBird(){ //90 for straight forward
+	/*GameObject shootBird(){ //90 for straight forward
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rotToPlayer = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position);
@@ -48,11 +46,11 @@ public class EnemyBirdGun : MonoBehaviour {
 		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 		
 		return bulletInstance;
-	}
+	}*/
 	
-	public void isShooting(bool x, int y){
+	public void isShooting(bool x){
 		shooting = x;
-		direction = y;
+		//direction = y;
 	}
 }
 
