@@ -10,6 +10,8 @@ public class enemyMissile : MonoBehaviour {
 	[HideInInspector] public Transform player;
 
 	//Collision/lifetime variables
+	float timer = 0f;
+	public float homingTime = 1f;
 	public float lifetime = 3f;
 	public float missileSpeed = 10f;
 	[HideInInspector] public int triggerLayer = 8; //8 is the triggers layer
@@ -24,13 +26,21 @@ public class enemyMissile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Determine the angle between player and missile, rotate missile to that angle
-		Vector3 dir = player.position - transform.position;
-		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		timer += Time.deltaTime;
+		//Home for 1 second
+		if (timer < 1f) {
+			//Determine the angle between player and missile, rotate missile to that angle
+			Vector3 dir = player.position - transform.position;
+			float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 
-		//Propel missile forward
-		transform.position = Vector3.MoveTowards (transform.position, player.position, Time.deltaTime * missileSpeed); 
+			//Propel missile toward player
+			transform.position = Vector3.MoveTowards (transform.position, player.position, Time.deltaTime * missileSpeed); 
+		} else {
+			transform.Translate(Vector3.right * Time.deltaTime * missileSpeed);
+		}
+
+
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj) {

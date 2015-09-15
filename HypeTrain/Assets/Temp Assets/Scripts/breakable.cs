@@ -23,13 +23,12 @@ public class breakable : MonoBehaviour {
 	
 	}
 
+	//Deal damage if there is no specific projectile or projectile matches required one
 	public void Damage(GameObject projectile){
-		//Check there is no specific projectile or projectile matches required one
-		Debug.Log ("Required: " + requiredProjectile.name + "(Clone)");
-		Debug.Log ("Actual: " + projectile.name);
-		//**************Try/Catch the Undefined Reference Exception???
-		if (requiredProjectile == null || projectile.name == requiredProjectile.name + "(Clone)") {
+		if (requiredProjectile == null) {
 			durability--; //subtract one point from durability on hit
+		} else if (projectile.name == requiredProjectile.name + "(Clone)") {
+			durability--;
 		}
 
 		//If durability is zero, play animation if it exists, drop cash, and destroy object
