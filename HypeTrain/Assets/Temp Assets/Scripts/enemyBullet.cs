@@ -29,7 +29,7 @@ public class enemyBullet : MonoBehaviour {
 		}
 		//If it hits a breakable object
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
-			colObj.gameObject.GetComponent<breakable>().Damage();
+			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		} else if(colObj.tag != "enemy") {
 			Destroy (gameObject);

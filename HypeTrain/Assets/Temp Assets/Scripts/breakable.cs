@@ -3,13 +3,16 @@ using System.Collections;
 
 public class breakable : MonoBehaviour {
 
+	public float durability = 1f;
 	public bool glass = false;
 	public bool dropCash = false;
+	public GameObject requiredProjectile = null;
+
 	public Animator breakAnimator;
 	public AudioClip breakSound;
 
-	public float durability = 1f;
-	public Itemizer money; 
+
+	[HideInInspector] public Itemizer money; 
 	// Use this for initialization
 	void Start () {
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
@@ -20,8 +23,14 @@ public class breakable : MonoBehaviour {
 	
 	}
 
-	public void Damage(){
-		durability--; //Subtract one point from durability on hit
+	public void Damage(GameObject projectile){
+		//Check there is no specific projectile or projectile matches required one
+		Debug.Log ("Required: " + requiredProjectile.name + "(Clone)");
+		Debug.Log ("Actual: " + projectile.name);
+		//**************Try/Catch the Undefined Reference Exception???
+		if (requiredProjectile == null || projectile.name == requiredProjectile.name + "(Clone)") {
+			durability--; //subtract one point from durability on hit
+		}
 
 		//If durability is zero, play animation if it exists, drop cash, and destroy object
 		if (durability <= 0) {

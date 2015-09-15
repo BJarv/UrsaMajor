@@ -7,15 +7,17 @@ using System.Collections;
 public class EnemyLauncher : MonoBehaviour {
 	
 	private bool shooting = false;
-	public GameObject missile;
-	public float shootCD = 4f;
 	private float timer;
-	
+	public float shootCD = 4f;
+
+	public GameObject missile;
 	public GameObject shotParticles;
+	public Transform shootFrom;
 	
 	// Use this for initialization
 	void Start () {
 		timer = shootCD;
+		shootFrom = GameObject.Find ("missilePoint").transform;
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class EnemyLauncher : MonoBehaviour {
 			//Every (shootCD) seconds, fire a birdMissile
 			timer -= Time.deltaTime;
 			if(timer <= 0){
-				Instantiate (missile, transform.position, Quaternion.identity);
+				Instantiate (missile, shootFrom.position, Quaternion.identity);
 				timer = shootCD;
 			}
 		}

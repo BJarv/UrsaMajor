@@ -36,7 +36,6 @@ public class enemyMissile : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D colObj) {
 		//If missile is hit by bullet, destroy it
 		if(colObj.gameObject.layer == projectileLayer){
-			Debug.Log ("HIT BY BULLET!");
 			Destroy(colObj.gameObject);
 			Destroy(gameObject);
 		}
@@ -50,7 +49,7 @@ public class enemyMissile : MonoBehaviour {
 		}
 		//If missile hits a breakable object
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
-			colObj.gameObject.GetComponent<breakable>().Damage();
+			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		} else if(colObj.tag != "enemy") {
 			Destroy (gameObject);
