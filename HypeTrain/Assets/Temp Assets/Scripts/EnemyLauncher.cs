@@ -12,7 +12,7 @@ public class EnemyLauncher : MonoBehaviour {
 
 	public GameObject missile;
 	public GameObject shotParticles;
-	public Transform shootFrom;
+	private Transform shootFrom;
 	
 	// Use this for initialization
 	void Start () {

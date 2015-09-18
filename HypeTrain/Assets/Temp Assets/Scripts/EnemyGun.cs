@@ -11,18 +11,18 @@ public class EnemyGun : MonoBehaviour {
 	bool shootable = true; //currently able to shoot
 	public float shootCD = 1f;
 	
-	[HideInInspector] public float woff = 0;
+	[HideInInspector] public float woff = 0; //NOT USED?
 
 	public GameObject shotParticles;
 
 	// Use this for initialization
-	void Start () {
+	virtual protected void Start () {
 		player = GameObject.Find ("character").transform;
 		shootCD *= Multiplier.enemyShootCD;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	virtual protected void Update () {
 		if (shooting) { //if true, enemy has aggro'd and shooting at player
 			if (shootable) {
 				shootable = false;

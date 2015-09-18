@@ -20,6 +20,7 @@ public class EnemyShotgun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		if (bullets < 2){
 			bullets = 2;
 		}

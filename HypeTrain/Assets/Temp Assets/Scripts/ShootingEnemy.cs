@@ -7,6 +7,7 @@ public class ShootingEnemy : Enemy {
 	private EnemyGun gun;
 	private EnemyShotgun shotgun;
 	private EnemyLauncher launcher;
+	private EnemyLobber lobber;
 	public bool spawnKey = false;
 
 	override protected void Start () {  //overrides start function of enemy.cs
@@ -20,9 +21,14 @@ public class ShootingEnemy : Enemy {
 			} catch {
 				//Debug.Log ("No 'enemyShotgun' found, looking for launcher");
 				try {
-					launcher = transform.Find ("enemyLauncher").GetComponent<EnemyLauncher>();
+					launcher = transform.Find ("missilePoint").GetComponent<EnemyLauncher>();
 				} catch {
-					Debug.Log ("No gun attached to a shooting enemy");
+					//Debug.Log ("No 'enemyLauncher' found, looking for lobber");
+					try {
+						lobber = transform.Find ("lobPoint").GetComponent<EnemyLobber>();
+					} catch {
+						Debug.Log ("No gun attached to a shooting enemy");
+					}
 				}
 			}
 		}
@@ -37,6 +43,8 @@ public class ShootingEnemy : Enemy {
 			shotgun.isShooting(true, direction);
 		} else if(launcher != null) {
 			launcher.isShooting(true);
+		} else if(lobber != null) {
+			lobber.isShooting(true);
 		} 
 	}
 

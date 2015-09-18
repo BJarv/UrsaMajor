@@ -51,7 +51,7 @@ public class enemyMissile : MonoBehaviour {
 			Destroy(colObj.gameObject);
 			Destroy(gameObject);
 		}
-		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == triggerLayer || colObj.gameObject.layer == lootLayer) {
+		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.tag == "path node" || colObj.gameObject.layer == triggerLayer || colObj.gameObject.layer == lootLayer) {
 			return;
 		}
 		//If missile hits player, hurt them
@@ -59,7 +59,7 @@ public class enemyMissile : MonoBehaviour {
 			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
 			Destroy (gameObject);
 		}
-		//If missile hits a breakable object
+		//If it hits a breakable object, damage it
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
 			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
 			Destroy (gameObject);
