@@ -4,6 +4,7 @@ using System.Collections;
 public class enemyLobbedProjectile : MonoBehaviour {
 
 	public float lifetime = 3f;
+	public float spinningSpeed = 5f;
 
 	[HideInInspector] public int layerOfTrigs = 8; //8 is the triggers layer
 	[HideInInspector] public int layerOfLoot = 14; //14 is the Loot layer
@@ -16,7 +17,7 @@ public class enemyLobbedProjectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(0,0,5);
+		transform.Rotate(0,0,spinningSpeed);
 	}
 
 	void OnTriggerEnter2D(Collider2D colObj) {
