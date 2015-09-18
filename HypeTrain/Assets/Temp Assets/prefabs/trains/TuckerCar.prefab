@@ -464,7 +464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &137694
 GameObject:
   m_ObjectHideFlags: 1
@@ -1369,7 +1369,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.439999998, y: 1.11000061, z: 0}
+  m_LocalPosition: {x: 2.76999998, y: 2.78999996, z: 0}
   m_LocalScale: {x: .51577884, y: .515778065, z: 1}
   m_Children: []
   m_Father: {fileID: 477864}
@@ -1491,7 +1491,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.808982134, y: -3.01999998, z: 0}
+  m_LocalPosition: {x: 2.4000001, y: 1.49000001, z: 0}
   m_LocalScale: {x: 1.54733658, y: 1.54733443, z: 1}
   m_Children:
   - {fileID: 496036}
@@ -1552,7 +1552,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 1.11000001, z: 0}
+  m_LocalPosition: {x: 1.96000004, y: 2.78999996, z: 0}
   m_LocalScale: {x: .51577884, y: .515778124, z: 1}
   m_Children: []
   m_Father: {fileID: 477864}
@@ -1744,7 +1744,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.74000001, y: -2.86999989, z: 0}
+  m_LocalPosition: {x: 2.47000003, y: 1.63999999, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 475116}
@@ -3086,7 +3086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3125bff12a7669e4587c491e57783166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 2
+  durability: 5
   glass: 0
   dropCash: 0
   requiredProjectile: {fileID: 137262, guid: d32f27024e037ee4d8aa0a56a4c3fc75, type: 2}
@@ -3131,7 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad683dd798e8e74a91edc5810ed8dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootCD: 1
+  shootCD: 3
   missile: {fileID: 137262, guid: d32f27024e037ee4d8aa0a56a4c3fc75, type: 2}
   shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
   shootFrom: {fileID: 0}

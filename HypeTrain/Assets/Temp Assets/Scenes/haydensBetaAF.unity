@@ -752,7 +752,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 129928, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289438, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_Color.r
+      value: .875
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289438, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_Color.g
+      value: .34396553
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289438, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 164184, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 172558, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 21213708, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 257457845
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6ccea47f21e5eb40bca050c070a8828, type: 2}
