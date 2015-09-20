@@ -10,8 +10,6 @@ public class EnemyGun : MonoBehaviour {
 	Transform player;
 	bool shootable = true; //currently able to shoot
 	public float shootCD = 1f;
-	
-	[HideInInspector] public float woff = 0; //NOT USED?
 
 	public GameObject shotParticles;
 
