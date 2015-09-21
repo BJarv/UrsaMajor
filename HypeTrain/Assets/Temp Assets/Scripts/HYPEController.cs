@@ -27,6 +27,7 @@ public class HYPEController : MonoBehaviour {
 
 	public static bool lazers = false;
 	public static bool airblasts = false;
+	public static bool cannon = false;
 	private bool planeSpawn = true;
 
 	// Use this for initialization
