@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Popup : MonoBehaviour {
 
-	private bool paused = false;
+	public static bool paused = false;
 	CameraShake shaker;
 
 

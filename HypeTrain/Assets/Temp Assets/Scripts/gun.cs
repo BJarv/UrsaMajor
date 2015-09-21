@@ -266,6 +266,6 @@ public class gun : MonoBehaviour {
 	}
 
 	bool Firable() {
-		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying);
+		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying && !Popup.paused);
 	}
 }
