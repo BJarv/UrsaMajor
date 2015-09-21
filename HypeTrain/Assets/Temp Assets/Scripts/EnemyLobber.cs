@@ -11,13 +11,16 @@ public class EnemyLobber : MonoBehaviour {
 	public float shootCD = 2f;
 	
 	public GameObject lobbedProjectile;
-	public Vector2 lobForce = new Vector2(-400f, 200f);
+	public Vector2 lobForce = new Vector2(400f, 200f);
 	public GameObject shotParticles;
+
+	private Transform player;
 	private Transform shootFrom;
 	
 	// Use this for initialization
 	void Start () {
 		timer = 1f; //Fires 1 second after aggro initially, the every shootCD seconds
+		player = GameObject.Find ("character").transform;
 		shootFrom = GameObject.Find ("lobPoint").transform;
 	}
 	
@@ -28,7 +31,14 @@ public class EnemyLobber : MonoBehaviour {
 			timer -= Time.deltaTime;
 			if(timer <= 0){
 				GameObject lobInstance = Instantiate (lobbedProjectile, shootFrom.position, Quaternion.identity) as GameObject;
-				lobInstance.GetComponent<Rigidbody2D>().AddForce(lobForce);
+				//Lob right
+				if (transform.position.x < player.position.x){
+					lobInstance.GetComponent<Rigidbody2D>().AddForce(lobForce);
+				}
+				//Lob left
+				else {
+					lobInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(-lobForce.x, lobForce.y));
+				}
 				timer = shootCD;
 			}
 		}
