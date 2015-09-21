@@ -186,35 +186,7 @@ public class CharControl : MonoBehaviour {
 			}
 		}
 
-		//**********NEW METHOD
-		/*if(controllable){
-			if(!isGrounded()){
-				if(moveH > 0){
-					animator.SetBool ("Run",true); //Begin run animation
-					if(r.velocity.x <= maxSpeed)
-						r.AddForce(new Vector2 (moveH * addSpeed, 0));
-				}
-				else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-				else if(moveH < 0){
-					animator.SetBool ("Run",true); //Begin run animation
-					if(r.velocity.x > -maxSpeed)
-						r.AddForce(new Vector2 (moveH * addSpeed, 0));
-				}
-			} else {
-				Debug.Log ("GROUNDED MOVEMENT");
-				if(moveH > 0){
-					animator.SetBool ("Run",true); //Begin run animation
-					if(r.velocity.x <= maxSpeed)
-						r.velocity = new Vector2(moveH * 6, r.velocity.y);
-				}
-				else if (moveH == 0) animator.SetBool ("Run",false); //End run animation
-				else if(moveH < 0){
-					animator.SetBool ("Run",true); //Begin run animation
-					if(r.velocity.x > -maxSpeed)
-						r.velocity = new Vector2(moveH * 6, r.velocity.y);
-				}
-			}
-		}*/
+
 	}
 
 	public void StartDeath() //turns on hit animation, and makes character drop through floor.

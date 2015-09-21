@@ -11,10 +11,6 @@ public class aggroTrigger : MonoBehaviour {
 				parent.BroadcastMessage ("aggro");
 			}
 		}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> ac6ed25318199103c6845ae22a2108584be446b2
 	}
 }

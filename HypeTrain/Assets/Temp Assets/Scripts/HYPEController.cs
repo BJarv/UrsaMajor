@@ -23,7 +23,7 @@ public class HYPEController : MonoBehaviour {
 	public AudioClip HYPEsound;
 
 	//Default HYPE value
-	public static string HYPEMode = "purple";
+	public static string HYPEMode = "blue";
 
 	public static bool lazers = false;
 	public static bool airblasts = false;
@@ -70,15 +70,11 @@ public class HYPEController : MonoBehaviour {
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Vector4(114, 0, 255, 255);
 				lazers = true;
-				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
-				//ENABLE LASERS SOMEHOW
 			}
 			if (HYPEMode == "blue"){ //Enable air blasts, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.blue;
 				airblasts = true;
-				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
-				//ENABLE LASERS SOMEHOW
 			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
