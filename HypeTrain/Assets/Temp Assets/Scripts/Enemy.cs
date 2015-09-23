@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
 	public float AttackDist = 45f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
 
-	private bool airBlasted = false; //Am I being hit by an air blast??
+	[HideInInspector] public bool airBlasted = false; //Am I being hit by an air blast??
 	private float airBlastedTime = 0;
 	private float timer = 0;
 	private float timeSecs = 0;
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public GameObject Player;
 	[HideInInspector] public int direction = -1; //direction enemy is facing, 1 for right, -1 for left
 	[HideInInspector] public float distToPlayer;	
+	[HideInInspector] public float verticalDistToPlayer;
 	
 	private Vector2 StrollStart = new Vector2(0, 0);
 	
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour {
 	public Vector2 dashVec; //force vector applied during dash
 	public Vector2 jumpVec; //force vector applied during jump
 	public float dashCD = 2f; //time between dashes
-	public float jumpCD = 2f; //time between dashes
+	public float jumpCD = 2f; //time between jumps
 	public LayerMask enemyGroundMask;
 	[HideInInspector] public bool dashRdy = true;
 	[HideInInspector] public bool jumpRdy = true;
@@ -137,10 +138,9 @@ public class Enemy : MonoBehaviour {
 			if (transform.position.x < Player.transform.position.x) {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
 			} else {
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed * -1, GetComponent<Rigidbody2D> ().velocity.y); 
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
 			}
 		}
-
 	}
 
 	virtual public void Idle(){
@@ -233,6 +233,11 @@ public class Enemy : MonoBehaviour {
 	public bool isGrounded()
 	{
 		return Physics2D.Raycast (transform.position, -Vector2.up, groundCast, enemyGroundMask);
+	}
+
+	public bool verticalWithPlayer()
+	{
+		return Mathf.Abs(transform.position.x - Player.transform.position.x) < 0.05;
 	}
 
 	public void aggro()

@@ -8,6 +8,7 @@ public class canvasVar : MonoBehaviour {
 
 	public bool cars;
 	public bool kills;
+	public bool loot;
 	public bool track;
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class canvasVar : MonoBehaviour {
 	void Update () {
 		if(cars) var.text = ScoreKeeper.carsCompleted.ToString();
 		else if(kills) var.text = ScoreKeeper.enemiesKilled.ToString();
+		else if(loot) var.text = "$" + ScoreKeeper.DisplayScore;
 		else if(track) var.text = "♪ " + Jukebox.trackName;
 	}
 }

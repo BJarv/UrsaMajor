@@ -8,6 +8,7 @@ public class ShootingEnemy : Enemy {
 	private EnemyShotgun shotgun;
 	private EnemyLauncher launcher;
 	private EnemyLobber lobber;
+	public float stopAndShootRange = 10f;
 	public bool spawnKey = false;
 
 	override protected void Start () {  //overrides start function of enemy.cs
@@ -36,7 +37,19 @@ public class ShootingEnemy : Enemy {
 
 	override protected void Attack() //overrides attack function of enemy.cs
 	{
-		base.Attack ();
+		//base.Attack ();
+		if (isJump ()) return; //prevents enemy from moving when he should be jumping
+		if (isDash ()) return;
+		if (!airBlasted && distToPlayer > stopAndShootRange) {
+			Debug.Log ("INCOMING!");
+			if (transform.position.x < Player.transform.position.x) {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
+			} else {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
+			}
+		} else {
+			GetComponent<Rigidbody2D> ().velocity = new Vector2(0, GetComponent<Rigidbody2D> ().velocity.y);
+		}
 		if(gun != null){ //shoot the correct gun type
 			gun.isShooting(true, direction);
 		} else if(shotgun != null) {
@@ -79,3 +92,4 @@ public class ShootingEnemy : Enemy {
 		Act();
 	}
 }
+ 
