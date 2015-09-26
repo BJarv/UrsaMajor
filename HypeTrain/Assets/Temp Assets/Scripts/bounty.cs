@@ -26,13 +26,13 @@ public class bounty : MonoBehaviour {
 		title.text = bountyName;
 		info.text = description;
 		if(bountyName == "" || completeAmount == 0 || valToTrack == -1 || description == "") {
-			Debug.LogError(gameObject.name + " has missing values.");
+			Debug.LogError(gameObject.name + " has missing values."); //ensure bounty is properly initialized in inspector, all these fields must have values
 		} else {
 			//display = transform.Find ("counter").GetComponent<Text>(); //should be replaced for inspector references
 			//mouseOverText = transform.Find ("description").GetComponent<Text>(); //should be replaced for inspector references
-
 			//mouseOverText.enabled = false;
-			if(PlayerPrefs.GetInt ("activeBounty1") == valToTrack || PlayerPrefs.GetInt ("activeBounty2") == valToTrack) { //if active bounty is this bounty, call choose(based on bounty number)
+
+			if(PlayerPrefs.GetInt ("activeBounty1") == valToTrack || PlayerPrefs.GetInt ("activeBounty2") == valToTrack) { //if this bounty is active, call choose(based on bounty number)
 				active = true;
 				choose ();
 			}
@@ -40,7 +40,7 @@ public class bounty : MonoBehaviour {
 
 	}
 
-	public void choose() { //called on start, or when choosen as a new bounty on click
+	public void choose() { //called on start, or when choosen as a new bounty on click to prepare scripts to track values
 		if(active && PlayerPrefs.GetInt("savedBounty" + valToTrack) != -1) { //on start
 			valAtStart = PlayerPrefs.GetInt("savedBounty" + valToTrack);
 			grayOut.SetActive (false);
