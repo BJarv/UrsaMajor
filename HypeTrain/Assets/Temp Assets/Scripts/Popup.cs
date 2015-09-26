@@ -8,12 +8,17 @@ public class Popup : MonoBehaviour {
 	private float unmuteVolume;
 	CameraShake shaker;
 
+	public Sprite unmuted;
+	public Sprite muted;
+
 
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject pauseMenu;
 	[HideInInspector] public GameObject deathMenu;
 	[HideInInspector] public GameObject pSlide;
 	[HideInInspector] public GameObject dSlide; 
+	[HideInInspector] public GameObject pMute;
+	[HideInInspector] public GameObject dMute;
 	[HideInInspector] public bool dead;
 
 
@@ -27,6 +32,8 @@ public class Popup : MonoBehaviour {
 		pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 		dSlide = GameObject.Find ("dSlider");
 		dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		pMute = GameObject.Find ("pMuteButton");
+		dMute = GameObject.Find ("dMuteButton");
 		//Find references to the pause and death menus, then disable them
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
@@ -34,7 +41,6 @@ public class Popup : MonoBehaviour {
 		deathMenu = GameObject.Find ("Death");
 		deathMenu.SetActive(false);
 		Time.timeScale = 1;
-		//AudioListener.volume = vol;  //VOLUME SET ON NEW UI
 		Cursor.visible = false;
 	}
 
@@ -87,6 +93,8 @@ public class Popup : MonoBehaviour {
 	public void muteButton(){
 		//If volume is not zero, mute and update sliders
 		if (PlayerPrefs.GetFloat ("volume") != 0) {
+			pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = muted;
+			dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = muted;
 			unmuteVolume = PlayerPrefs.GetFloat ("volume");
 			AudioListener.volume = 0;
 			PlayerPrefs.SetFloat ("volume", 0);
@@ -95,6 +103,8 @@ public class Popup : MonoBehaviour {
 		} 
 		//Otherwise return to last saved volume and update sliders
 		else {
+			pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
+			dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
 			AudioListener.volume = unmuteVolume;
 			PlayerPrefs.SetFloat ("volume", unmuteVolume);
 			pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");

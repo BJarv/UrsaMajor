@@ -10,6 +10,7 @@ public class canvasVar : MonoBehaviour {
 	public bool kills;
 	public bool loot;
 	public bool track;
+	public bool totalLoot;
 
 	// Use this for initialization
 	void Start () {
@@ -22,5 +23,6 @@ public class canvasVar : MonoBehaviour {
 		else if(kills) var.text = ScoreKeeper.DisplayEnemiesKilled.ToString();
 		else if(loot) var.text = "$" + ScoreKeeper.DisplayScore;
 		else if(track) var.text = "♪ " + Jukebox.trackName;
+		else if(totalLoot) var.text = "$" + PlayerPrefs.GetInt ("lifetimeLoot");
 	}
 }

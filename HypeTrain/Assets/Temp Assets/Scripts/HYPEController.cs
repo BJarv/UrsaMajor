@@ -23,7 +23,7 @@ public class HYPEController : MonoBehaviour {
 	public AudioClip HYPEsound;
 
 	//Default HYPE value
-	public static string HYPEMode = "blue";
+	public static string HYPEMode = "orange";
 
 	public static bool lazers = false;
 	public static bool airblasts = false;
@@ -77,9 +77,15 @@ public class HYPEController : MonoBehaviour {
 				renderers[1].color = Color.blue;
 				airblasts = true;
 			}
-			if (HYPEMode == "orange") {
+
+			if (HYPEMode == "orange"){
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(255, 144, 0, 255);
+				revolver.GetComponent<gun> ().magSize = 100;
+				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+				revolver.GetComponent<gun> ().interShotDelay = .4f;
+				revolver.GetComponent<gun> ().rTimerOn = false;
 				cannon = true;
 			}
 			hTimerOn = true;
@@ -114,7 +120,12 @@ public class HYPEController : MonoBehaviour {
 
 				if (HYPEMode == "orange") {
 					cannon = false;
-				} 
+					revolver.GetComponent<gun> ().magSize = 4;
+					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+					revolver.GetComponent<gun> ().interShotDelay = .25f;
+					revolver.GetComponent<gun> ().kickForce = 600f;
+				}
 
 				//Reset HYPE gauge, Timer, and gun color
 				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.

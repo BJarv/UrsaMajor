@@ -37,7 +37,8 @@ public class gun : MonoBehaviour {
 	public GameObject airShotParticles;
 	public LayerMask airBlastMask;
 
-	public GameObject cannonball;
+	public Rigidbody2D cannonball;
+
 
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
@@ -116,7 +117,7 @@ public class gun : MonoBehaviour {
 		}
 
 		//If the airblasts power is on
-		else if (ShootButton() && Firable () && !HYPEController.lazers && HYPEController.airblasts) {
+		else if (ShootButton() && Firable () && !HYPEController.lazers && HYPEController.airblasts && !HYPEController.cannon) {
 			sTimerOn = true;
 			//Get reticle position
 			var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
@@ -148,6 +149,49 @@ public class gun : MonoBehaviour {
 			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
 		}
+		/////////////////////////////
+			
+		else if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && HYPEController.cannon) { //cannonball hype is on
+			//shoot bullet
+			AudioSource.PlayClipAtPoint(gunshot, transform.position); //needs cannon sound?
+			sTimerOn = true;
+			inMag -= 1;
+			adjustCounter(inMag);
+			var pos = retical.recPos;
+			pos.z = transform.position.z - Camera.main.transform.position.z;
+			pos = Camera.main.ScreenToWorldPoint(pos);
+			
+			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
+			
+			Rigidbody2D toShoot = cannonball;
+			//Fire the key instead of a bullet if it's loaded
+			if(keyLoaded){
+				toShoot = key;
+				gunSprite.sprite = gunRegular;
+				keyLoaded = false;
+			}
+			Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
+			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed * 10);
+			
+			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
+			particles.GetComponent<ParticleSystem>().Play ();
+			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+			
+			//If out of bullets after shooting, reload
+			if(inMag <= 0){
+				AudioSource.PlayClipAtPoint(reload, transform.position);
+				rTimerOn = true;
+			}
+			
+			if(!player.GetComponent<CharControl>().isGrounded()){
+				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
+				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce * 1.5f, go.transform.up.y * -kickForce * 1.5f ));
+			}
+		}
+
+
+
+		/////////////////////////////
 
 		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {
 			AudioSource.PlayClipAtPoint(reload, transform.position);

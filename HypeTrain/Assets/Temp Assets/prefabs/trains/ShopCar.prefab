@@ -662,7 +662,6 @@ GameObject:
   - 223: {fileID: 22300004}
   - 114: {fileID: 11400050}
   - 114: {fileID: 11400048}
-  - 114: {fileID: 11400044}
   m_Layer: 12
   m_Name: LootDisplayCanvas
   m_TagString: Untagged
@@ -680,6 +679,7 @@ GameObject:
   - 224: {fileID: 22400012}
   - 222: {fileID: 22200006}
   - 114: {fileID: 11400052}
+  - 114: {fileID: 11448778}
   m_Layer: 12
   m_Name: amount
   m_TagString: Untagged
@@ -4427,17 +4427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortLayer: 2
   renderForward: 0
---- !u!114 &11400044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54882d5e83cda6b4c959d0bcf6176b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6285,6 +6274,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BIG TEXT
+--- !u!114 &11448778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f256cf027c3d044afe28f6edaea243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cars: 0
+  kills: 0
+  loot: 0
+  track: 0
+  totalLoot: 1
 --- !u!114 &11452444
 MonoBehaviour:
   m_ObjectHideFlags: 1
