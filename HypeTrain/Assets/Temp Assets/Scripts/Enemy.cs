@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 	public float EnemySpeed = 2f;
 	public float AttackDist = 45f;  //distance at which enemy will switch to attacking
 	public float StrollDist = 3f;  //distance enemy walks back and forth during idle
+	public int maxLootDropAmount = 6;
 
 	[HideInInspector] public bool airBlasted = false; //Am I being hit by an air blast??
 	private float airBlastedTime = 0;
@@ -201,7 +202,7 @@ public class Enemy : MonoBehaviour {
 		health -= damage;
 		if (health <= 0) {
 			Game.incEnemiesKilled();
-			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
+			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(maxLootDropAmount * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);

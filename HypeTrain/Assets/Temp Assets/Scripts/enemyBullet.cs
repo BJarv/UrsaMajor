@@ -12,11 +12,6 @@ public class enemyBullet : MonoBehaviour {
 	void Start () {
 		Destroy (gameObject, bulletDeath);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 		//Ignore certain objectsF

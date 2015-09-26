@@ -722,6 +722,7 @@ MonoBehaviour:
   kills: 0
   loot: 0
   track: 0
+  totalLoot: 0
 --- !u!114 &248403461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +829,7 @@ MonoBehaviour:
   kills: 0
   loot: 1
   track: 0
+  totalLoot: 0
 --- !u!114 &270161840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,6 +2293,7 @@ MonoBehaviour:
   kills: 0
   loot: 0
   track: 1
+  totalLoot: 0
 --- !u!1 &732867457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2830,7 @@ MonoBehaviour:
   kills: 1
   loot: 0
   track: 0
+  totalLoot: 0
 --- !u!114 &902956625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3205,6 +3209,7 @@ MonoBehaviour:
   kills: 0
   loot: 1
   track: 0
+  totalLoot: 0
 --- !u!1 &1053563375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,48 +3623,6 @@ MonoBehaviour:
   lerpedColor: {r: .5, g: .5, b: 0, a: 1}
   countSwitch: 0
   delay: 0
---- !u!1001 &1177375614
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 54.2999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 472152, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1197874157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,7 +4100,7 @@ GameObject:
   - 114: {fileID: 1282066374}
   - 114: {fileID: 1282066373}
   m_Layer: 5
-  m_Name: MuteButton
+  m_Name: pMuteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4651,11 +4614,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a2f88fe24da40eda596a93f81e1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unmuted: {fileID: 21300000, guid: f4e3f714419250d4bb2390217bd2a62d, type: 3}
+  muted: {fileID: 21300000, guid: 3ddddb64be88fbb45a7dc3fde79a5108, type: 3}
   player: {fileID: 0}
   pauseMenu: {fileID: 0}
   deathMenu: {fileID: 0}
   pSlide: {fileID: 0}
   dSlide: {fileID: 0}
+  pMute: {fileID: 0}
+  dMute: {fileID: 0}
   dead: 0
 --- !u!114 &1409445595
 MonoBehaviour:
@@ -5425,6 +5392,7 @@ MonoBehaviour:
   kills: 0
   loot: 1
   track: 0
+  totalLoot: 0
 --- !u!114 &1666290175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5511,11 +5479,7 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
-=======
-      objectReference: {fileID: 194852, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
->>>>>>> a3e66183b95f688418e56a515a76ec90548eea34
+      objectReference: {fileID: 100064, guid: d5e51937b1ac4a740bf295ad3bd6fc69, type: 2}
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -5696,6 +5660,7 @@ MonoBehaviour:
   kills: 0
   loot: 0
   track: 0
+  totalLoot: 0
 --- !u!114 &1773301262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6153,6 +6118,7 @@ MonoBehaviour:
   kills: 0
   loot: 0
   track: 1
+  totalLoot: 0
 --- !u!114 &1866346191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6203,7 +6169,7 @@ GameObject:
   - 114: {fileID: 1882808115}
   - 114: {fileID: 1882808114}
   m_Layer: 5
-  m_Name: Button
+  m_Name: dMuteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7417,6 +7383,7 @@ MonoBehaviour:
   kills: 0
   loot: 0
   track: 0
+  totalLoot: 0
 --- !u!114 &2095604882
 MonoBehaviour:
   m_ObjectHideFlags: 0

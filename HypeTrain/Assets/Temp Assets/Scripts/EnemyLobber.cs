@@ -32,7 +32,7 @@ public class EnemyLobber : MonoBehaviour {
 	void Update () {
 		if (shooting) { //if true, enemy has aggro'd and shooting at player
 			//Determine how much force to use
-			Debug.Log (Mathf.Abs (transform.position.x - player.position.x));
+			//Debug.Log (Mathf.Abs (transform.position.x - player.position.x));
 			if(Mathf.Abs (transform.position.x - player.position.x) > 10) lobForce = lobLong;
 			else if(Mathf.Abs (transform.position.x - player.position.x) > 5) lobForce = lobMid;
 			else lobForce = lobShort;
