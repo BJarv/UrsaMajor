@@ -91,7 +91,7 @@ public class TrainExit : MonoBehaviour {
 
 			hatchAnimator.Play ("Entry"); //Play exit animation once
 		
-			ScoreKeeper.carsCompleted += 1;
+			ScoreKeeper.DisplayCarsCompleted += 1;
 
 			Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
 

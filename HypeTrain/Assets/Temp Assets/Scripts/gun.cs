@@ -74,7 +74,7 @@ public class gun : MonoBehaviour {
 		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
 		else transform.localScale = new Vector3(1,-1,1);
 
-		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts) {
+		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !HYPEController.cannon) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 

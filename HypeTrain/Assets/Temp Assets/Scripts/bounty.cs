@@ -25,7 +25,7 @@ public class bounty : MonoBehaviour {
 		//Set inspector defined text
 		title.text = bountyName;
 		info.text = description;
-		if(name == "" || completeAmount == 0 || valToTrack == -1 || description == "") {
+		if(bountyName == "" || completeAmount == 0 || valToTrack == -1 || description == "") {
 			Debug.LogError(gameObject.name + " has missing values.");
 		} else {
 			//display = transform.Find ("counter").GetComponent<Text>(); //should be replaced for inspector references

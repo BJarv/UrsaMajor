@@ -90,7 +90,7 @@ public class Jukebox : MonoBehaviour {
 		else if (ScoreKeeper.HYPED) {
 			jukebox.clip = HYPE;
 		}
-		else if (ScoreKeeper.carsCompleted >= 1) {
+		else if (ScoreKeeper.DisplayCarsCompleted >= 1) {
 			jukebox.clip = gameFast;
 		}
 		else {
