@@ -37,6 +37,8 @@ public class gun : MonoBehaviour {
 	public GameObject airShotParticles;
 	public LayerMask airBlastMask;
 
+	public GameObject cannonball;
+
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
 	private RaycastHit pointingAt = new RaycastHit();
