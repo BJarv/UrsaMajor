@@ -41,7 +41,6 @@ public class ShootingEnemy : Enemy {
 		if (isJump ()) return; //prevents enemy from moving when he should be jumping
 		if (isDash ()) return;
 		if (!airBlasted && distToPlayer > stopAndShootRange) {
-			Debug.Log ("INCOMING!");
 			if (transform.position.x < Player.transform.position.x) {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
 			} else {
@@ -51,9 +50,9 @@ public class ShootingEnemy : Enemy {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 		if(gun != null){ //shoot the correct gun type
-			gun.isShooting(true, direction);
+			gun.isShooting(true);
 		} else if(shotgun != null) {
-			shotgun.isShooting(true, direction);
+			shotgun.isShooting(true);
 		} else if(launcher != null) {
 			launcher.isShooting(true);
 		} else if(lobber != null) {
@@ -70,7 +69,7 @@ public class ShootingEnemy : Enemy {
 			}
 			money.At (transform.position, (int)UnityEngine.Random.Range ((int)(5 * Multiplier.moneyDrop),(int)(11 * Multiplier.moneyDrop))); 	
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
-			ScoreKeeper.DisplayEnemiesKilled += 1; //Increment # of kills in current run
+			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);
 		}
 	}

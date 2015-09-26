@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Popup : MonoBehaviour {
 
 	public static bool paused = false;
+	private float unmuteVolume;
 	CameraShake shaker;
 
 
@@ -19,6 +20,7 @@ public class Popup : MonoBehaviour {
 	void Start () {
 		shaker = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
+		unmuteVolume = PlayerPrefs.GetFloat ("volume");
 		player = GameObject.Find ("character");
 		//Set volume sliders to saved Pref
 		pSlide = GameObject.Find ("pSlider");
@@ -79,6 +81,25 @@ public class Popup : MonoBehaviour {
 		//Update the local volume and pref
 		AudioListener.volume = newVol;
 		PlayerPrefs.SetFloat ("volume", newVol);
+	}
+
+	//Function called by the mute button
+	public void muteButton(){
+		//If volume is not zero, mute and update sliders
+		if (PlayerPrefs.GetFloat ("volume") != 0) {
+			unmuteVolume = PlayerPrefs.GetFloat ("volume");
+			AudioListener.volume = 0;
+			PlayerPrefs.SetFloat ("volume", 0);
+			pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		} 
+		//Otherwise return to last saved volume and update sliders
+		else {
+			AudioListener.volume = unmuteVolume;
+			PlayerPrefs.SetFloat ("volume", unmuteVolume);
+			pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		}
 	}
 
 	public void pauseButton(){

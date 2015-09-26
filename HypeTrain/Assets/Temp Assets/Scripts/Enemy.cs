@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector] public Itemizer money;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 
-	public float initialDelay = Random.Range (.1f, .5f);
+	public float initialDelay;
 	public bool delayDone = false;
 
 	// Use this for initialization
@@ -59,8 +59,8 @@ public class Enemy : MonoBehaviour {
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		initialDelay = Random.Range (.1f, .5f);
 		Invoke ("endDelay", initialDelay);
-
 	}
 	
 	// Update is called once per frame
@@ -203,7 +203,7 @@ public class Enemy : MonoBehaviour {
 			Game.incEnemiesKilled();
 			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
-			ScoreKeeper.DisplayEnemiesKilled += 1; //Increment # of kills in current run
+			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);
 		}
 	}

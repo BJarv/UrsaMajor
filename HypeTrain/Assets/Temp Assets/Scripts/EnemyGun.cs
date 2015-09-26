@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyGun : MonoBehaviour {
 
 	private bool shooting = false;
-	private int direction = 0;
 	public float bulletSpeed = 5000f;
 	public GameObject bullet;
 	Transform player;
@@ -50,8 +49,7 @@ public class EnemyGun : MonoBehaviour {
 		return bulletInstance;
 	}
 
-	public void isShooting(bool x, int y){
+	public void isShooting(bool x){
 		shooting = x;
-		direction = y;
 	}
 }

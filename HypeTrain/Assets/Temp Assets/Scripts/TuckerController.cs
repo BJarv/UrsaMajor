@@ -31,7 +31,7 @@ public class TuckerController: MonoBehaviour {
 	public AudioClip bark2;
 	public AudioClip bark3;
 	public AudioClip bark4;
-	AudioSource audio;
+	AudioSource audioSrc;
 
 	bool attackOnCD = false;
 	float attackCD = .5f;
@@ -42,7 +42,7 @@ public class TuckerController: MonoBehaviour {
 	List<Vector2> path;
 	// Use this for initialization
 	void Start () {
-		audio = GetComponent<AudioSource> ();
+		audioSrc = GetComponent<AudioSource> ();
 		rigbod = GetComponent<Rigidbody2D> ();
 		nodeSearch = GetComponent<NodeSearch>();
 		target = GameObject.Find ("character");
@@ -132,10 +132,10 @@ public class TuckerController: MonoBehaviour {
 		if(!barkOnCD){
 			float random = Random.Range (0,101);
 			//Debug.Log (random);
-			if (random < 33)  {audio.PlayOneShot (bark1);}
-			else if (random >= 33 && random < 66) {audio.PlayOneShot(bark2);}
-			else if (random >= 66 && random < 99) {audio.PlayOneShot (bark3);}
-			else {audio.PlayOneShot (bark4, 1.5f);}
+			if (random < 33)  {audioSrc.PlayOneShot (bark1);}
+			else if (random >= 33 && random < 66) {audioSrc.PlayOneShot(bark2);}
+			else if (random >= 66 && random < 99) {audioSrc.PlayOneShot (bark3);}
+			else {audioSrc.PlayOneShot (bark4, 1.5f);}
 		}
 	}
 
