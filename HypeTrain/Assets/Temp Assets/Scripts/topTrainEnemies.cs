@@ -34,12 +34,12 @@ public class topTrainEnemies : MonoBehaviour {
 	public void spawnEnemies() {
 		setSpawns ();
 		int roll = Random.Range(1, 100);
-		if(ScoreKeeper.DisplayCarsCompleted < 10) {
+		if(ScoreKeeper.CarsCompleted < 10) {
 			if(roll <= 10) spawn2enemy();
 			else if(roll <= 50) spawn1enemy();
 			else Debug.Log ("no enemies spawned");
 		} 
-		else if (ScoreKeeper.DisplayCarsCompleted >= 10 && ScoreKeeper.DisplayCarsCompleted < 20) {
+		else if (ScoreKeeper.CarsCompleted >= 10 && ScoreKeeper.CarsCompleted < 20) {
 			if(roll <= 25) spawn2enemy();
 			else if(roll <= 60) spawn1enemy();
 			else Debug.Log ("no enemies spawned");

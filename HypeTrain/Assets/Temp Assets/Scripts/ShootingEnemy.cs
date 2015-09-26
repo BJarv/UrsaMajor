@@ -69,7 +69,7 @@ public class ShootingEnemy : Enemy {
 			}
 			money.At (transform.position, (int)UnityEngine.Random.Range ((int)(5 * Multiplier.moneyDrop),(int)(11 * Multiplier.moneyDrop))); 	
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
-			ScoreKeeper.DisplayEnemiesKilled += 1; //Increment # of kills in current run
+			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);
 		}
 	}

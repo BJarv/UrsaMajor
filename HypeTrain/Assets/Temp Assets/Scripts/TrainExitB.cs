@@ -39,7 +39,7 @@ public class TrainExitB : MonoBehaviour {
 			soundPlayed = true;
 		}
 
-		ScoreKeeper.DisplayCarsCompleted += 1;
+		ScoreKeeper.CarsCompleted += 1;
 
 		//Make sidePanel visible again
 		sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();

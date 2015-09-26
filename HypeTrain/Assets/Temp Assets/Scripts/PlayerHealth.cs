@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	public void deathCheck() {
 		Game.addLoot(ScoreKeeper.Score);
-		Game.addCarsCleared (ScoreKeeper.DisplayCarsCompleted);
+		Game.addCarsCleared (ScoreKeeper.CarsCompleted);
 	}
 
 	private void adjustCounter(float currHealth)
