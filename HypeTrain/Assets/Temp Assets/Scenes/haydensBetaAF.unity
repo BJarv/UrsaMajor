@@ -112,7 +112,7 @@ Transform:
   m_Children:
   - {fileID: 35003494}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &24807054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5511,7 +5511,11 @@ Prefab:
     - target: {fileID: 11400000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: testCar
       value: 
+<<<<<<< HEAD
+      objectReference: {fileID: 100048, guid: ec4f6743ab09faa4eb21f0b77833eee6, type: 2}
+=======
       objectReference: {fileID: 194852, guid: c365b6cf9308e5b4e9f8e0ea7f2ecf65, type: 2}
+>>>>>>> a3e66183b95f688418e56a515a76ec90548eea34
     - target: {fileID: 100000, guid: ea4703f05acd84180a2a18f2363a0c0a, type: 2}
       propertyPath: m_IsActive
       value: 1

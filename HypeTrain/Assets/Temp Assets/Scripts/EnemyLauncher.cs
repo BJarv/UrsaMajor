@@ -17,7 +17,7 @@ public class EnemyLauncher : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timer = 1f; //Fires 1 second after aggro initially
-		shootFrom = GameObject.Find ("missilePoint").transform;
+		shootFrom = GetComponentInChildren<Transform>();
 	}
 	
 	// Update is called once per frame
