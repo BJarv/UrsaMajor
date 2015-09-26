@@ -11,7 +11,6 @@ public class HYPEController : MonoBehaviour {
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 	public GameObject HYPEPlane;
-	GameObject plane;
 
 	private Transform trail;
 	private string trailName;
@@ -24,10 +23,11 @@ public class HYPEController : MonoBehaviour {
 	public AudioClip HYPEsound;
 
 	//Default HYPE value
-	public static string HYPEMode = "purple";
+	public static string HYPEMode = "blue";
 
 	public static bool lazers = false;
 	public static bool airblasts = false;
+	public static bool cannon = false;
 	private bool planeSpawn = true;
 
 	// Use this for initialization
@@ -44,7 +44,7 @@ public class HYPEController : MonoBehaviour {
 	void Update () {
 		//If HYPE is full and player is on top of a train, spawn a HYPE Plane
 		if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
-			plane = (GameObject)Instantiate(HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
+			Instantiate(HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
 			planeSpawn = false;
 		}
 
@@ -69,17 +69,18 @@ public class HYPEController : MonoBehaviour {
 
 			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
-				renderers[1].color = new Vector4(114, 0, 255, 255);
+				renderers[1].color = new Color(114, 0, 255, 255);
 				lazers = true;
-				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
-				//ENABLE LASERS SOMEHOW
 			}
 			if (HYPEMode == "blue"){ //Enable air blasts, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.blue;
 				airblasts = true;
-				//revolver.GetComponent<gun> (). DISABLE BULLETS SOMEHOW
-				//ENABLE LASERS SOMEHOW
+			}
+			if (HYPEMode == "orange") {
+				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				renderers[1].color = new Color(255, 144, 0, 255);
+				cannon = true;
 			}
 			hTimerOn = true;
 			ScoreKeeper.HYPED = true;
@@ -110,6 +111,10 @@ public class HYPEController : MonoBehaviour {
 				if (HYPEMode == "blue"){
 					airblasts = false;
 				}
+
+				if (HYPEMode == "orange") {
+					cannon = false;
+				} 
 
 				//Reset HYPE gauge, Timer, and gun color
 				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.

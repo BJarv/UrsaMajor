@@ -32,10 +32,11 @@ public class BountyBoardTrigger : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D colObj) {
 		if(colObj.tag == "Player" && bountyCanvas.activeSelf && Input.GetKeyDown(KeyCode.E)) {
 			bountyCanvas.SetActive(false);
+			Popup.paused = false;
 
 		} else if(colObj.tag == "Player" && !bountyCanvas.activeSelf && Input.GetKeyDown(KeyCode.E)) {
 			bountyCanvas.SetActive(true);
-
+			Popup.paused = true;
 		}
 
 	

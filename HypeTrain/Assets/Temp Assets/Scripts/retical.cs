@@ -4,9 +4,6 @@ using System.Collections;
 public class retical : MonoBehaviour {
 
 	public int reticalSize = 32;
-	private int retX;
-	private int retY;
-	private int retOffset;
 	public static Vector3 recPos;
 	public Vector3 joystickPosition;
 	[HideInInspector] public GameObject cameraObj;
@@ -16,9 +13,6 @@ public class retical : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cameraObj = GameObject.Find ("Main Camera");
-		retX = reticalSize;
-		retY = reticalSize;
-		retOffset = reticalSize/2;
 		Cursor.visible = false;
 	}
 

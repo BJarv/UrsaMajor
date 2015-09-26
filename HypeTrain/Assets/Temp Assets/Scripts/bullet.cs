@@ -49,7 +49,7 @@ public class bullet : MonoBehaviour {
 		}
 		//If it hits a breakable object
 		if (colObj.GetComponent<Collider2D>().tag == "breakable" || colObj.GetComponent<Collider2D>().tag == "meat") {
-			colObj.gameObject.GetComponent<breakable>().Damage();
+			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		}
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class TrainExitB : MonoBehaviour {
@@ -39,7 +39,7 @@ public class TrainExitB : MonoBehaviour {
 			soundPlayed = true;
 		}
 
-		ScoreKeeper.carsCompleted += 1;
+		ScoreKeeper.CarsCompleted += 1;
 
 		//Make sidePanel visible again
 		sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();

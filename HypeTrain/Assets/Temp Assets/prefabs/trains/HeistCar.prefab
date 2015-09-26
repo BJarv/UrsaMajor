@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438288}
-  - 114: {fileID: 11420170}
+  - 114: {fileID: 11427190}
   - 50: {fileID: 5009678}
   m_Layer: 8
   m_Name: lasers
@@ -1249,7 +1249,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.4200001, y: 49.7400017, z: 0}
+  m_LocalPosition: {x: -43.6605148, y: 26.5390682, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 414276}
@@ -2342,7 +2342,7 @@ Animation:
   m_GameObject: {fileID: 199386}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8f6bbe37400202d45a4d5d468e1c3f54, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -2396,19 +2396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00860cae8190beb4a9c26ea0e0784ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11420170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ad7e6e20fbc8d4ca310c003ddfa621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  valuables: {fileID: 0}
-  explosionParticles: {fileID: 100000, guid: 43d731fb81372954cadc387cdba39bdc, type: 2}
 --- !u!114 &11421172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2422,6 +2409,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortLayer: 3
   renderForward: 0
+--- !u!114 &11427190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2415658d4cb3cea4facd2da4ca0e6351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valuables: {fileID: 0}
+  explosionParticles: {fileID: 100000, guid: 43d731fb81372954cadc387cdba39bdc, type: 2}
 --- !u!114 &11428116
 MonoBehaviour:
   m_ObjectHideFlags: 1

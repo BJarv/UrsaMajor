@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Multiplier : MonoBehaviour {
@@ -33,7 +33,7 @@ public class Multiplier : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(ScoreKeeper.carsCompleted == 1){
+		if(ScoreKeeper.CarsCompleted == 1){
 			enemyHealth = 1.1f;
 			enemySpeed = 1.1f;
 			enemyShootCD = 0.9f;
@@ -51,7 +51,7 @@ public class Multiplier : MonoBehaviour {
 
 			trainSpawner.exPoint = 0; //Includes DinoCar in PossTrains
 		} 
-		else if(ScoreKeeper.carsCompleted == 20){
+		else if(ScoreKeeper.CarsCompleted == 20){
 			enemyHealth = 1.25f;
 			enemySpeed = 1.25f;
 			enemyShootCD = 0.9f;
@@ -60,7 +60,7 @@ public class Multiplier : MonoBehaviour {
 			moneyDrop = 1.25f;
 			safeDrop = 1.25f;
 		}
-		else if(ScoreKeeper.carsCompleted == 30){
+		else if(ScoreKeeper.CarsCompleted == 30){
 			enemyHealth = 1.4f;
 			enemySpeed = 1.4f;
 			enemyShootCD = 0.9f;
@@ -68,7 +68,7 @@ public class Multiplier : MonoBehaviour {
 			moneyDrop = 1.4f;
 			safeDrop = 1.4f;
 		}
-		else if(ScoreKeeper.carsCompleted == 40){
+		else if(ScoreKeeper.CarsCompleted == 40){
 			enemyHealth = 1.6f;
 			enemySpeed = 1.6f;
 			enemyShootCD = 0.9f;

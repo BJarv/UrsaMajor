@@ -37,6 +37,8 @@ public class gun : MonoBehaviour {
 	public GameObject airShotParticles;
 	public LayerMask airBlastMask;
 
+	public GameObject cannonball;
+
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
 	private RaycastHit pointingAt = new RaycastHit();
@@ -74,7 +76,7 @@ public class gun : MonoBehaviour {
 		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
 		else transform.localScale = new Vector3(1,-1,1);
 
-		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts) {
+		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !HYPEController.cannon) {
 			//shoot bullet
 			AudioSource.PlayClipAtPoint(gunshot, transform.position);
 
@@ -126,7 +128,8 @@ public class gun : MonoBehaviour {
 			//If key is loaded, fire key.
 			if(keyLoaded){
 				gunSprite.sprite = gunRegular;
-				Rigidbody2D go = Instantiate(key, shootFrom.transform.position, q) as Rigidbody2D;
+				//Rigidbody2D go = 
+				Instantiate(key, shootFrom.transform.position, q); //as Rigidbody2D;
 				keyLoaded = false;
 			}
 
@@ -265,6 +268,6 @@ public class gun : MonoBehaviour {
 	}
 
 	bool Firable() {
-		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying);
+		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying && !Popup.paused);
 	}
 }

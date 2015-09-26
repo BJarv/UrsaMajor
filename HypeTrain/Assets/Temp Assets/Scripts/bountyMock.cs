@@ -10,11 +10,11 @@ public class bountyMock : MonoBehaviour {
 	public string varToTrack = "enemiesKilled";
 	private int counter = 0;
 
-	private Text display;
+	//private Text display;
 
 	// Use this for initialization
 	void Start () {
-		display = transform.GetComponent<Text>();
+		//isplay = transform.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

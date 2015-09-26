@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum DinoState //enemy states dictate what mode enemies are in
@@ -30,7 +30,6 @@ public class BigDino : MonoBehaviour {
 	private float predashTime = 1f;
 	private bool postDash = false;
 	private float dashTime = .3f;
-	private Transform dashCastTransform; //Not currently used?
 	private GameObject wallPos;
 	public Vector2 throwPlayer;
 	public bool inNotStunRange = false;
@@ -55,7 +54,6 @@ public class BigDino : MonoBehaviour {
 	void Start () {
 		health *= Multiplier.enemyHealth;
 		DinoSpeed *= Multiplier.enemySpeed;
-		dashCastTransform = gameObject.transform.Find ("dashCast");
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
 		Player = GameObject.Find("character");
 		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
@@ -229,7 +227,7 @@ public class BigDino : MonoBehaviour {
 			money.At (transform.position, Random.Range ((int)(10 * Multiplier.moneyDrop),(int)(50 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE twice for big kill
 			HYPECounter.incrementHype(true);
-			ScoreKeeper.enemiesKilled += 1; //Increment # of kills in current run
+			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			ledgeAnimator.SetBool ("fall", true);
 			Destroy (gameObject);
 		}

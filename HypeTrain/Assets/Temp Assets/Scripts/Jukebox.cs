@@ -11,17 +11,20 @@ public class Jukebox : MonoBehaviour {
 	public int trackNo;
 	public static string trackName;
 
+	//Transition clips(static)
+	public AudioClip toFaster;
+	public AudioClip toHYPE;
+	public AudioClip toDeath;
+
+	public AudioClip[] Cowboy;
+	public AudioClip[] EightBit;
+
 	//Track clips (dynamic)
 	public AudioClip title;
 	public AudioClip gameReg;
 	public AudioClip gameFast;
 	public AudioClip HYPE;
 	public AudioClip death;
-
-	//Transition clips(static)
-	public AudioClip toFaster;
-	public AudioClip toHYPE;
-	public AudioClip toDeath;
 
 	//Comparison clip to check for clip change
 	public AudioClip diff;
@@ -38,16 +41,12 @@ public class Jukebox : MonoBehaviour {
 
 		diff = jukebox.clip;
 
-		//Load transitions
-		toFaster = Resources.Load ("toFaster") as AudioClip;
-		toHYPE = Resources.Load ("toHype") as AudioClip;
-		toDeath = Resources.Load ("toDeath") as AudioClip;
-
 		player = GameObject.Find("character");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//Transition sound handler
 		if (diff != jukebox.clip) {
 			if(jukebox.clip == death && !menuSwap){
 				jukebox.PlayOneShot(toDeath, 1);
@@ -68,20 +67,20 @@ public class Jukebox : MonoBehaviour {
 		//Cowboy
 		if (trackNo == 0) {
 			trackName = "Cowboy";
-			title = Resources.Load ("cowboy") as AudioClip;
-			gameReg = Resources.Load ("cowboyFaster") as AudioClip;
-			gameFast = Resources.Load ("cowboyFastest") as AudioClip;
-			HYPE = Resources.Load ("cowboyHype") as AudioClip;
-			death = Resources.Load ("cowboyDeath") as AudioClip;
+			title = Cowboy[0];
+			gameReg = Cowboy[1];
+			gameFast = Cowboy[2];
+			HYPE = Cowboy[3];
+			death = Cowboy[4];
 		}
 		//8-BIT
 		if (trackNo == 1) {
 			trackName = "8-Bit";
-			title = Resources.Load ("8BITloop") as AudioClip;
-			gameReg = Resources.Load ("8BITfasterloop") as AudioClip;
-			gameFast = Resources.Load ("8BITfastestloop") as AudioClip;
-			HYPE = Resources.Load ("cowboyHype") as AudioClip;
-			death = Resources.Load ("8BITDeath") as AudioClip;
+			title = EightBit[0];
+			gameReg = EightBit[1];
+			gameFast = EightBit[2];
+			HYPE = EightBit[3];
+			death = EightBit[4];
 		}
 
 		//Audio state switcher
@@ -91,7 +90,7 @@ public class Jukebox : MonoBehaviour {
 		else if (ScoreKeeper.HYPED) {
 			jukebox.clip = HYPE;
 		}
-		else if (ScoreKeeper.carsCompleted >= 1) {
+		else if (ScoreKeeper.CarsCompleted >= 1) {
 			jukebox.clip = gameFast;
 		}
 		else {
@@ -99,13 +98,15 @@ public class Jukebox : MonoBehaviour {
 		}
 	}
 
+	//Function for the back arrow in the menu's jukebox
 	public void prevTrack(){
 		if (trackNo == 0) PlayerPrefs.SetInt ("track", 1);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") - 1));
 		trackNo = PlayerPrefs.GetInt ("track");
 		menuSwap = true;
 	}
-	
+
+	//Function for the forward arrow in the menu's jukebox
 	public void nextTrack(){
 		if (trackNo == 1) PlayerPrefs.SetInt ("track", 0);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") + 1));

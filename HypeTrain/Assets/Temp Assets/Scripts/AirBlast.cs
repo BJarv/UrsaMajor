@@ -7,20 +7,23 @@ public class AirBlast : MonoBehaviour {
 
 	public GameObject player;
 
-	private float timer = 0;
+	//private float timer = 0;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("character");
+		//If this airblast has existed for 1/10 s and hasn't hit anything, kill itself.
+		Destroy (gameObject, .1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//If this airblast has existed for 1/10 s and hasn't hit anything, kill itself.
+		/* SAM'S CODE, SEE LINE 16 FOR ABBREVIATED VERSION
+		 * If this airblast has existed for 1/10 s and hasn't hit anything, kill itself.
 		timer += Time.deltaTime;
 		if (timer >= .1f) {
 			Destroy (gameObject);
-		}
+		}*/
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

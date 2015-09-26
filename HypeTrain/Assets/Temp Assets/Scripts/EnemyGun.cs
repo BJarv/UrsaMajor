@@ -4,32 +4,24 @@ using System.Collections;
 public class EnemyGun : MonoBehaviour {
 
 	private bool shooting = false;
-	private int direction = 0;
 	public float bulletSpeed = 5000f;
 	public GameObject bullet;
 	Transform player;
 	bool shootable = true; //currently able to shoot
 	public float shootCD = 1f;
-	
-	[HideInInspector] public float woff = 0;
 
 	public GameObject shotParticles;
 
 	// Use this for initialization
-	void Start () {
+	virtual protected void Start () {
 		player = GameObject.Find ("character").transform;
 		shootCD *= Multiplier.enemyShootCD;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	virtual protected void Update () {
 		if (shooting) { //if true, enemy has aggro'd and shooting at player
 			if (shootable) {
-				/*GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-				bulletInstance.transform.Rotate (Vector3.forward * 90);
-				bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(direction*bulletSpeed, 0);
-				lastShot = Time.time;
-				shooting = false;*/
 				shootable = false;
 				Invoke ("shootOn", shootCD);
 				shootBullet ();
@@ -37,13 +29,11 @@ public class EnemyGun : MonoBehaviour {
 		}
 	}
 
-	void shootOn() 
-	{
+	void shootOn() {
 		shootable = true;
 	}
 
-	GameObject shootBullet() //90 for straight forward
-	{
+	GameObject shootBullet(){ //90 for straight forward
 		//Quaternion rotation = Quaternion.LookRotation(player.position);
 		Vector3 playerPos = player.transform.position;
 		Quaternion rotToPlayer = Quaternion.FromToRotation(Vector3.up, playerPos - transform.position);
@@ -59,8 +49,7 @@ public class EnemyGun : MonoBehaviour {
 		return bulletInstance;
 	}
 
-	public void isShooting(bool x, int y){
+	public void isShooting(bool x){
 		shooting = x;
-		direction = y;
 	}
 }
