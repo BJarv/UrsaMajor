@@ -81,6 +81,11 @@ public class HYPEController : MonoBehaviour {
 			if (HYPEMode == "orange"){
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(255, 144, 0, 255);
+				revolver.GetComponent<gun> ().magSize = 100;
+				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+				revolver.GetComponent<gun> ().interShotDelay = .4f;
+				revolver.GetComponent<gun> ().rTimerOn = false;
 				cannon = true;
 			}
 			hTimerOn = true;
@@ -114,12 +119,14 @@ public class HYPEController : MonoBehaviour {
 				}
 
 				if (HYPEMode == "orange") {
+					revolver.GetComponent<gun> ().magSize = 4;
 					cannon = false;
-<<<<<<< HEAD
+					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
+					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
+					revolver.GetComponent<gun> ().interShotDelay = .25f;
+					revolver.GetComponent<gun> ().kickForce = 600f;
 				}
-=======
-				} 
->>>>>>> origin/master
+
 
 				//Reset HYPE gauge, Timer, and gun color
 				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.
