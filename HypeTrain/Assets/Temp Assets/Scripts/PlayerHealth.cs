@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour {
 		if ((playerHealth <= 0f || transform.position.y < -5f) && !alreadyDying) {
 			//Causes game end in Popup script
 			alreadyDying = true;
-			Invoke ("safetyKill", 2*deathDelay);
+			Invoke ("safetyKill", deathDelay);
 			player.GetComponent<CharControl>().StartDeath (); 
 			Invoke("deathCheck", deathDelay);
 		}

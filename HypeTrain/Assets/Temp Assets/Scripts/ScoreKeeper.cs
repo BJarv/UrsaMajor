@@ -34,13 +34,16 @@ public class ScoreKeeper : MonoBehaviour {
 
 	void Start () {
 		StartCoroutine("ScoreTicker");
+		StartCoroutine("AllTicker");
 		cameraObj = GameObject.Find("Main Camera");
 	}
 
 	void Update () {
-		if(cameraObj.GetComponent<Popup>().dead) {
+		/*if(CharControl.dead) {
+			Debug.Log ("ALLTICKER");
+			ScoreKeeper.DisplayEnemiesKilled = 0;
 			StartCoroutine("AllTicker");
-		}
+		}*/
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
@@ -69,8 +72,10 @@ public class ScoreKeeper : MonoBehaviour {
 	public IEnumerator AllTicker(){
 		//this loop will run forever so you can just call AddScore and the ticker will continue automatically
 		while (true){
-			//we don't want to increment CurrentScore to infinity, so we only do it if it's lower than TargetScore
-			ScoreKeeper.DisplayEnemiesKilled = Ticker(ScoreKeeper.DisplayEnemiesKilled, ScoreKeeper.EnemiesKilled, 1);
+			if(CharControl.dead){
+				//we don't want to increment CurrentScore to infinity, so we only do it if it's lower than TargetScore
+				ScoreKeeper.DisplayEnemiesKilled = Ticker(ScoreKeeper.DisplayEnemiesKilled, ScoreKeeper.EnemiesKilled, 1);
+			}
 			//wait for some time before incrementing again
 			yield return new WaitForSeconds(carsTickSpeed);
 		}
