@@ -41,7 +41,6 @@ public class ShootingEnemy : Enemy {
 		if (isJump ()) return; //prevents enemy from moving when he should be jumping
 		if (isDash ()) return;
 		if (!airBlasted && distToPlayer > stopAndShootRange) {
-			Debug.Log ("INCOMING!");
 			if (transform.position.x < Player.transform.position.x) {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (EnemySpeed, GetComponent<Rigidbody2D> ().velocity.y); 
 			} else {
@@ -51,9 +50,9 @@ public class ShootingEnemy : Enemy {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 		if(gun != null){ //shoot the correct gun type
-			gun.isShooting(true, direction);
+			gun.isShooting(true);
 		} else if(shotgun != null) {
-			shotgun.isShooting(true, direction);
+			shotgun.isShooting(true);
 		} else if(launcher != null) {
 			launcher.isShooting(true);
 		} else if(lobber != null) {

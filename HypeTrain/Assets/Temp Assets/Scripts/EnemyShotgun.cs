@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class EnemyShotgun : MonoBehaviour {
 	
 	private bool shooting = false;
-	private int direction = 0;
 	public float bulletSpeed = 5000f;
 	public GameObject bullet;
 	Transform player;
@@ -71,8 +70,7 @@ public class EnemyShotgun : MonoBehaviour {
 		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 	}
 	
-	public void isShooting(bool x, int y){
+	public void isShooting(bool x){
 		shooting = x;
-		direction = y;
 	}
 }
