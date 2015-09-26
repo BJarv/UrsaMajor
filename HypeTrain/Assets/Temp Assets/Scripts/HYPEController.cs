@@ -77,6 +77,7 @@ public class HYPEController : MonoBehaviour {
 				renderers[1].color = Color.blue;
 				airblasts = true;
 			}
+
 			if (HYPEMode == "orange"){
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(255, 144, 0, 255);
@@ -114,7 +115,11 @@ public class HYPEController : MonoBehaviour {
 
 				if (HYPEMode == "orange") {
 					cannon = false;
+<<<<<<< HEAD
 				}
+=======
+				} 
+>>>>>>> origin/master
 
 				//Reset HYPE gauge, Timer, and gun color
 				HYPECounter.incrementHype(false); //Reset HYPE, since it was activated.

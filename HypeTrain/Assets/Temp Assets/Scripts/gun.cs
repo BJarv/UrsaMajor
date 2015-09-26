@@ -39,6 +39,7 @@ public class gun : MonoBehaviour {
 
 	public Rigidbody2D cannonball;
 
+
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
 	private RaycastHit pointingAt = new RaycastHit();
