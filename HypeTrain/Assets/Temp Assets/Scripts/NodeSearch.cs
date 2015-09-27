@@ -74,7 +74,7 @@ public class NodeSearch : MonoBehaviour {
 			}
 
 		}
-		Debug.Log ("NO PATH FOUND, OH LORD");
+		//Debug.Log ("NO PATH FOUND, OH LORD");
 
 		//Destroy(sn); //destroy temp source and dest nodes
 		//Destroy(dn);
