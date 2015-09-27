@@ -6,14 +6,23 @@ public class BountyController : MonoBehaviour {
 	public GameObject[] bounties;
 	public GameObject[] actives;
 
+	public Transform pauseBounty1;
+	public Transform pauseBounty2;
+
+	public Vector3 activeBoardPos1;
+	public Vector3 activeBoardPos2;
+
 	// Use this for initialization
 	void Start () {
+		pauseBounty1 = GameObject.Find("pBounty1").transform;
+		pauseBounty2 = GameObject.Find("pBounty2").transform;
+
 		for(int i = 0; i < bounties.Length; i++) {
 			if(PlayerPrefs.GetInt ("activeBounty1") == (i + 1) || PlayerPrefs.GetInt ("activeBounty2") == (i + 1)){
 				addActive(bounties[i]);
 			} else {
-				bounties[i].SetActive (false); 
-				Debug.Log ("fix this");//needs to be changed so that bounty is grayed out instead of set inactive
+				//bounties[i].SetActive (false); 
+				Debug.Log ("gray out inactives here");//needs to be changed so that bounty is grayed out instead of set inactive
 			}
 		}
 		sendActives();
@@ -53,6 +62,18 @@ public class BountyController : MonoBehaviour {
 		} else {
 			Debug.LogError ("null check failed in bountycontroller");
 		}
+	}
+
+	public void pauseBounties(){
+		activeBoardPos1 = actives[0].transform.position;
+		activeBoardPos2 = actives[1].transform.position;
+		actives[0].transform.position = pauseBounty1.position;
+		actives[1].transform.position = pauseBounty2.position;
+	}
+
+	public void unpauseBounties(){
+		actives[0].transform.position = activeBoardPos1;
+		actives[1].transform.position = activeBoardPos2;
 	}
 
 

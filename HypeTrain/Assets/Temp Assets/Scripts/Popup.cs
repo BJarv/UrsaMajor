@@ -21,6 +21,9 @@ public class Popup : MonoBehaviour {
 	[HideInInspector] public GameObject dMute;
 	[HideInInspector] public bool dead;
 
+	public BountyController bountyConch;
+
+
 
 	void Start () {
 		shaker = transform.parent.GetComponent<CameraShake>();
@@ -52,6 +55,7 @@ public class Popup : MonoBehaviour {
 				pauseMenu.SetActive(false);
 
 				Cursor.visible = false;
+				bountyConch.unpauseBounties(); //remove active bounties from pause menu	
 
 			} else if (!paused) { //pause game if not pause
 				shaker.stopAllShake();
@@ -62,6 +66,8 @@ public class Popup : MonoBehaviour {
 				pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
  
 				Cursor.visible = true;
+				Debug.Log (bountyConch);
+				bountyConch.pauseBounties(); //show active bounties on pause menu	
 			}
 		}
 		if(player.transform.position.y < -15f || dead) {

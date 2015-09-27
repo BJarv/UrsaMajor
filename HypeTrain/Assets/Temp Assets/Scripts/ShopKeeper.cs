@@ -5,13 +5,14 @@ using System.Collections;
 public class ShopKeeper : MonoBehaviour {
 
 	public Text text;
-	public GameObject bountyBoard;
+	[HideInInspector] public GameObject bountyBoard;
 
 	bool keyUp = false;
 	bool withinTrig = false;
+	bool isOnScreen = false;
 	// Use this for initialization
 	void Start () {
-	
+		bountyBoard = GameObject.Find ("BountyCanvas");
 	}
 	
 	// Update is called once per frame
@@ -31,20 +32,25 @@ public class ShopKeeper : MonoBehaviour {
 		if(colObj.tag == "Player"){
 			text.enabled = false;
 			withinTrig = false;
-			if(bountyBoard.activeSelf) {
-				bountyBoard.SetActive (false);
+			if(isOnScreen) {
+				isOnScreen = false;
+				bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+				bountyBoard.transform.position = new Vector3(-1000f, -1000f, 0);
 			}
 		}
 
 	}
 	void OnTriggerStay2D(Collider2D colObj){ //choose what to show while player stays in trigger area
 		if(colObj.tag == "Player"){
-			if(keyUp && !bountyBoard.activeSelf) { // show board
+			if(keyUp && !isOnScreen) { // show board
 				keyUp = false;
-				bountyBoard.SetActive (true);
-			} else if(keyUp && bountyBoard.activeSelf) { // hide board
+				isOnScreen = true;
+				bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+			} else if(keyUp && isOnScreen) { // hide board
 				keyUp = false;
-				bountyBoard.SetActive (false);
+				isOnScreen = false;
+				bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+				bountyBoard.transform.position = new Vector3(-1000f, -1000f, 0);
 			}
 		}
 	}
