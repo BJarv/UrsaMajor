@@ -20,8 +20,6 @@ public class ScoreKeeper : MonoBehaviour {
 	public float scoreTickSpeed = 0.01f;
 	public int scoreTickInterval = 10;
 
-	private GameObject cameraObj;
-
 	void Awake () {
 		DisplayCarsCompleted = 0;
 		CarsCompleted = 0;
@@ -35,7 +33,6 @@ public class ScoreKeeper : MonoBehaviour {
 	void Start () {
 		StartCoroutine("ScoreTicker");
 		StartCoroutine("AllTicker");
-		cameraObj = GameObject.Find("Main Camera");
 	}
 
 	void Update () {

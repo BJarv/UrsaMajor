@@ -18,6 +18,8 @@ public class bounty : MonoBehaviour {
 	private Text mouseOverText;
 	public bool active = false;
 	public GameObject grayOut;
+
+	public bool completed = false;
 	
 
 	// Use this for initialization
@@ -61,6 +63,15 @@ public class bounty : MonoBehaviour {
 	void Update () {
 		if(active) {
 			updateVal ();
+			if((PlayerPrefs.GetInt("savedBounty" + valToTrack) - valAtStart) >= completeAmount) {
+				active = false;
+				grayOut.SetActive(true);
+				counter.text = completeAmount + "/" + completeAmount;
+				
+
+			}
+		} else {
+
 		}
 	}
 }
