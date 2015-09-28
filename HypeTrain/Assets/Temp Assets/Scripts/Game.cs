@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
-public class Game {
-	public static Game current;
+//[System.Serializable]
+public class Game : MonoBehaviour{
 	/*public static Game current;
 	public static int lifetimeLoot;
 	public static int currLoot;
@@ -26,6 +25,7 @@ public class Game {
 
 
 	void Start() {
+		//Create all playerprefs if they don't exist yet
 		if(!PlayerPrefs.HasKey ("lifetimeLoot")) {
 			PlayerPrefs.SetInt ("lifetimeLoot", 0);
 			PlayerPrefs.SetInt ("currLoot", 0);
@@ -46,6 +46,7 @@ public class Game {
 			PlayerPrefsBool.SetBool ("skin4", false);
 			PlayerPrefsBool.SetBool ("hype1", true);
 			PlayerPrefsBool.SetBool ("hype2", false);
+			//Bool used to run tutorial on the first play
 			PlayerPrefsBool.SetBool ("firstTime", true);
 			//these need to be commented with names
 			PlayerPrefsBool.SetBool ("bounty1", false);
@@ -64,6 +65,8 @@ public class Game {
 			PlayerPrefsBool.SetBool ("bounty14", false);
 			PlayerPrefsBool.SetBool ("bounty15", false);
 			PlayerPrefsBool.SetBool ("bounty16", false);
+
+			//STORES THE ALL THE COMPLETION VALUES OF BOUNTIES.
 			//-1 for not being tracked yet. also need to be name commented
 			PlayerPrefs.SetInt ("savedBounty1", -1);
 			PlayerPrefs.SetInt ("savedBounty2", -1);
@@ -85,10 +88,6 @@ public class Game {
 			PlayerPrefs.SetInt ("activeBounty1", -1);
 			PlayerPrefs.SetInt ("activeBounty2", -1);
 		}
-	}
-
-	public Game () { //constructor
-
 	}
 
 	public static void addLoot(int amount) {
@@ -115,5 +114,11 @@ public class Game {
 		PlayerPrefs.SetInt ("bossesKilled", (PlayerPrefs.GetInt ("bossesKilled") + 1));
 		PlayerPrefs.Save ();
 	}
-	
+
+	public static void incBounty(int bountyNo){
+		if(PlayerPrefsBool.GetBool ("bounty" + bountyNo)){
+			PlayerPrefs.SetInt ("savedBounty" + bountyNo, (PlayerPrefs.GetInt ("bounty" + bountyNo) + 1));
+			PlayerPrefs.Save ();
+		}
+	}
 }

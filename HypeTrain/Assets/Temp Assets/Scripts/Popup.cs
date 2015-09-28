@@ -48,7 +48,7 @@ public class Popup : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetButtonDown ("Start")){
+		if(Input.GetButtonDown ("Start") && !ShopKeeper.isOnScreen){
 			if(paused) { //unpause game if paused
 				paused = false;
 				Time.timeScale = 1;
@@ -66,7 +66,7 @@ public class Popup : MonoBehaviour {
 				pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
  
 				Cursor.visible = true;
-				Debug.Log (bountyConch);
+				//Debug.Log (bountyConch);
 				bountyConch.pauseBounties(); //show active bounties on pause menu	
 			}
 		}
@@ -131,47 +131,4 @@ public class Popup : MonoBehaviour {
 		Application.LoadLevel ("MainMenu");
 	}
 
-
-
-	/*void OnGUI() {
-		if(paused) {
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 200), "Paused"); //main background box
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 250, 50), "Main Menu")) {
-				Application.LoadLevel ("MainMenu");
-			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Quit")) {
-				Application.Quit ();
-			}
-		}
-		if(player.transform.position.y < -15f || dead) {
-
-			Time.timeScale = 0;
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 250, 300), "Press Any Key to Retry"); //main background box
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 250, 50), "Main Menu")) {
-				Application.LoadLevel ("MainMenu");
-			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2, 250, 50), "Shop")) {
-				TutShopController.tutorial = false;
-				TutShopController.shop = true;
-				Application.LoadLevel (Application.loadedLevelName);
-			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 50, 250, 50), "Tutorial")) {
-				TutShopController.tutorial = true;
-				Application.LoadLevel (Application.loadedLevelName);
-			}
-			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 100, 250, 50), "Quit")) {
-				Application.Quit ();
-			}
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 150, 250, 25), "Cars Completed: " + ScoreKeeper.carsCompleted); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 175, 250, 25), "Total Cars Completed: " + PlayerPrefs.GetInt ("carsCleared")); //loot counter
-			GUI.Box (new Rect(Screen.width/2 - 100, Screen.height/2 + 200, 250, 25), "Total Loot: " + PlayerPrefs.GetInt ("currLoot")); //loot counter
-			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
-				//PlayerHealth.endOfLife = false;
-				Time.timeScale = 1;
-				Application.LoadLevel (Application.loadedLevelName);
-			}
-		}
-
-	}*/
-	
 }

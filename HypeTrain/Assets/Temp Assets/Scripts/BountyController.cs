@@ -17,15 +17,23 @@ public class BountyController : MonoBehaviour {
 		pauseBounty1 = GameObject.Find("pBounty1").transform;
 		pauseBounty2 = GameObject.Find("pBounty2").transform;
 
+		//Loop through all bounties on play
 		for(int i = 0; i < bounties.Length; i++) {
+			Debug.Log ("Checking bounty #" + i + 1);
+			Debug.Log (PlayerPrefs.GetInt ("activeBounty1") + "VS." + (i+1));
+			//If the bounty is an active previously, throw it back in the actives array, and set its active bool to true
 			if(PlayerPrefs.GetInt ("activeBounty1") == (i + 1) || PlayerPrefs.GetInt ("activeBounty2") == (i + 1)){
+				Debug.Log ("Actually revived an active!!! $$$$$$$$$$$$$$$$$");
 				addActive(bounties[i]);
-			} else {
+				bounties[i].GetComponent<bounty>().active = true;
+				bounties[i].GetComponent<bounty>().choose ();
+			} 
+			//Otherwise...
+			else {
 				//bounties[i].SetActive (false); 
-				Debug.Log ("gray out inactives here");//needs to be changed so that bounty is grayed out instead of set inactive
+				//Debug.Log ("gray out inactives here");//needs to be changed so that bounty is grayed out instead of set inactive
 			}
 		}
-		sendActives();
 	}
 	
 	// Update is called once per frame
@@ -33,13 +41,7 @@ public class BountyController : MonoBehaviour {
 	
 	}
 
-	void sendActives() {
-		//find deathmenu/pausemenu and pass actives array to them to display bounties
-		//find shopkeeper and pass bounties array to him to display all bounties(with only actives ones as active)
-		Debug.Log ("not sending actives yet");
-	}
-
-
+	//Adds bounty to actives array
 	public void addActive(GameObject newActive){
 		if(actives[0] && actives[1]) {
 			Debug.Log ("already 2 active quests");
@@ -64,16 +66,27 @@ public class BountyController : MonoBehaviour {
 		}
 	}
 
+	//Moves active bounties on screen while paused
 	public void pauseBounties(){
-		activeBoardPos1 = actives[0].transform.position;
-		activeBoardPos2 = actives[1].transform.position;
-		actives[0].transform.position = pauseBounty1.position;
-		actives[1].transform.position = pauseBounty2.position;
+		//Move both bounties if both are set, otherwise one or none
+		if(actives[0] != null && actives[1] != null){
+			activeBoardPos1 = actives[0].transform.position;
+			activeBoardPos2 = actives[1].transform.position;
+			actives[0].transform.position = pauseBounty1.position;
+			actives[1].transform.position = pauseBounty2.position;
+		} else if(actives[0] != null && actives[1] == null){
+			activeBoardPos1 = actives[0].transform.position;
+			actives[0].transform.position = pauseBounty1.position;
+		}
 	}
 
+	//Moves active bounties back off screen and onto the board
 	public void unpauseBounties(){
-		actives[0].transform.position = activeBoardPos1;
-		actives[1].transform.position = activeBoardPos2;
+		if(actives[0] != null) {
+			actives[0].transform.position = activeBoardPos1;
+			actives[1].transform.position = activeBoardPos2;
+		}
+		else if(actives[0] != null && actives[1] == null) actives[0].transform.position = activeBoardPos1;
 	}
 
 
