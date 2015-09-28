@@ -62,6 +62,8 @@ public class Popup : MonoBehaviour {
 				paused = true;
 				Time.timeScale = 0;
 				pauseMenu.SetActive(true);
+				Cursor.visible = true;
+
 				//Update slider position
 				pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
  
@@ -74,11 +76,13 @@ public class Popup : MonoBehaviour {
 			paused = true;
 			shaker.stopAllShake();
 			Time.timeScale = 0;
+			Cursor.visible = true;
 
 			deathMenu.SetActive(true);
-			Cursor.visible = true;
 			//Update slider position
 			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			bountyConch.pauseBounties(); //show active bounties on death menu
+
 
 			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				deathMenu.SetActive(false);

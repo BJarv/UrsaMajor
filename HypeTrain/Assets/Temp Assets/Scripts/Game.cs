@@ -117,7 +117,7 @@ public class Game : MonoBehaviour{
 
 	public static void incBounty(int bountyNo){
 		if(PlayerPrefsBool.GetBool ("bounty" + bountyNo)){
-			PlayerPrefs.SetInt ("savedBounty" + bountyNo, (PlayerPrefs.GetInt ("bounty" + bountyNo) + 1));
+			PlayerPrefs.SetInt ("savedBounty" + bountyNo, (PlayerPrefs.GetInt ("savedBounty" + bountyNo) + 1));
 			PlayerPrefs.Save ();
 		}
 	}

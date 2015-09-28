@@ -4,19 +4,20 @@ using UnityEngine.UI;
 
 public class bounty : MonoBehaviour {
 
+	public int bountyNumber = -1; //constructs key for playerprefs from this number
 	public string bountyName = "";
 	public string description = "";
 	public bool cumulative = false;
-	int valOnActivate = 0;
+	//int valOnActivate = 0;
 	public int completeAmount = 0;
-	public int bountyNumber = -1; //constructs key for playerprefs from this number
+
 	public Text title;
 	public Text info;
 	public Text counter;
 
 	//private Image picture;
 	private Text mouseOverText;
-	public bool active = false;
+	//public bool active = false;
 	//public GameObject grayOut;
 
 	public bool completed = false;
@@ -29,7 +30,9 @@ public class bounty : MonoBehaviour {
 		info.text = description;
 		if(bountyName == "" || completeAmount == 0 || bountyNumber == -1 || description == "") {
 			Debug.LogError(gameObject.name + " has missing values."); //ensure bounty is properly initialized in inspector, all these fields must have values
-		} else {
+		} 
+
+		/*else {
 			//display = transform.Find ("counter").GetComponent<Text>(); //should be replaced for inspector references
 			//mouseOverText = transform.Find ("description").GetComponent<Text>(); //should be replaced for inspector references
 			//mouseOverText.enabled = false;
@@ -40,50 +43,44 @@ public class bounty : MonoBehaviour {
 				//choose ();
 				//now called from within bountycontroller
 			}
-		}
+		}*/
 
 	}
 
-	//called on start, or when choosen as a new bounty on click to prepare scripts to track values
+	//Called on start, or when choosen as a new bounty on click to prepare scripts to track values
 	public void choose() { 
 		//This check is used to reactivate bounties when the game is started
-		if(active && PlayerPrefs.GetInt("savedBounty" + bountyNumber) != -1) {
+		/*if(PlayerPrefsBool.GetBool ("bounty" + bountyNumber) && PlayerPrefs.GetInt("savedBounty" + bountyNumber) != -1) {
 			//Return the tracked value to the active bounty
-			valOnActivate = PlayerPrefs.GetInt("savedBounty" + bountyNumber);
+			//valOnActivate = PlayerPrefs.GetInt("savedBounty" + bountyNumber);
 			//grayOut.SetActive (false);
 		} 
 
 		//This check is used to activate bounties in-game for the first time
-		else if (!active) { //on click, not active to ensure a second click doesnt save-over values
+		else */
+
+		//This check is used to activate bounties in-game for the first time
+		if (!PlayerPrefsBool.GetBool ("bounty" + bountyNumber)) { //on click, not active to ensure a second click doesnt save-over values
 			transform.parent.GetComponent<BountyController>().addActive(gameObject);
-			active = true;
-			//PlayerPrefs.SetInt ("savedBounty" + bountyNumber, PlayerPrefs.GetInt ("bounty" + bountyNumber));
 			PlayerPrefsBool.SetBool ("bounty" + bountyNumber, true);
 			PlayerPrefs.Save();
 			//grayOut.SetActive (false);
 		}
 	}
 
-
-	public void updateVal() {
-		counter.text = (PlayerPrefs.GetInt("savedBounty" + bountyNumber) - valOnActivate) + "/" + (completeAmount); //derived current amount out of complete amount ie 12/25
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		//If this bounty is active
-		if(active) {
-			//Update it's value every frame
-			updateVal ();
-			//If it's value is equivalent to the complete amount, deactivate it
-			if((PlayerPrefs.GetInt("savedBounty" + bountyNumber) - valOnActivate) >= completeAmount) {
-				active = false;
+		//If this bounty# is active, update and check values
+		if(PlayerPrefsBool.GetBool ("bounty" + bountyNumber)) {
+			//Update the counter display on the bounty object
+			counter.text = (PlayerPrefs.GetInt("savedBounty" + bountyNumber) + "/" + (completeAmount)); 
+			//If the savedBounty#'s value is equivalent to the complete amount, deactivate it
+			if((PlayerPrefs.GetInt("savedBounty" + bountyNumber) >= completeAmount)){
+				Debug.Log("BOUNTY COMPLETE!");
+				PlayerPrefsBool.SetBool ("bounty" + bountyNumber, false);
 				//grayOut.SetActive(true);
 				counter.text = completeAmount + "/" + completeAmount;
-
 			}
-		} else {
-
 		}
 	}
 }

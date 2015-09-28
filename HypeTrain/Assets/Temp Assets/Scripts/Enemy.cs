@@ -200,7 +200,9 @@ public class Enemy : MonoBehaviour {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
+			Debug.Log ("ENEMY DOWN");
 			Game.incEnemiesKilled();
+			Game.incBounty(1);
 			money.At (transform.position, Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(6 * Multiplier.moneyDrop)));
 			HYPECounter.incrementHype(true); //Increment HYPE on kill
 			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
