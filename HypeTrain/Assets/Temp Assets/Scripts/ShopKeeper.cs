@@ -42,6 +42,7 @@ public class ShopKeeper : MonoBehaviour {
 		if(colObj.tag == "Player"){
 			if(keyUp && !isOnScreen) { // show board
 				Cursor.visible = true;
+				Popup.paused = true;
 				keyUp = false;
 				isOnScreen = true;
 				bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
@@ -54,6 +55,7 @@ public class ShopKeeper : MonoBehaviour {
 
 	void hideBoard(){
 		Cursor.visible = false;
+		Popup.paused = false;
 		isOnScreen = false;
 		bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
 		bountyBoard.transform.position = new Vector3(-1000f, -1000f, 0);

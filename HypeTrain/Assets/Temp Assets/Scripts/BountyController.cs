@@ -18,15 +18,14 @@ public class BountyController : MonoBehaviour {
 		pauseBounty2 = GameObject.Find("pBounty2").transform;
 
 		//Loop through all bounties on play
-		for(int i = 0; i < bounties.Length; i++) {
-			Debug.Log ("Checking bounty #" + i + 1);
-			Debug.Log (PlayerPrefs.GetInt ("activeBounty1") + "VS." + (i+1));
+		for(int i = 1; i <= bounties.Length; i++) {
+			Debug.Log ("Checking bounty #" + i);
+			Debug.Log (PlayerPrefsBool.GetBool("bounty" + i));
 			//If the bounty is an active previously, throw it back in the actives array, and set its active bool to true
-			if(PlayerPrefs.GetInt ("activeBounty1") == (i + 1) || PlayerPrefs.GetInt ("activeBounty2") == (i + 1)){
+			if(PlayerPrefsBool.GetBool ("bounty" + i)){
 				Debug.Log ("Actually revived an active!!! $$$$$$$$$$$$$$$$$");
-				addActive(bounties[i]);
-				bounties[i].GetComponent<bounty>().active = true;
-				bounties[i].GetComponent<bounty>().choose ();
+				addActive(bounties[i - 1]);
+				bounties[i - 1].GetComponent<bounty>().choose ();
 			} 
 			//Otherwise...
 			else {
@@ -46,20 +45,20 @@ public class BountyController : MonoBehaviour {
 		if(actives[0] && actives[1]) {
 			Debug.Log ("already 2 active quests");
 		} else {
-			repositionActives();
 			if(actives[0]){
 				actives[1] = newActive;
 			} else {
 				actives[0] = newActive;
 			}
+			repositionActives();
 		}
 	}
 
 	public void repositionActives() {
-		if(!actives[0] && actives[1]) {
+		if(actives[0] == null && actives[1] != null) {
 			actives[0] = actives[1];
 			actives[1] = null;
-		} else if(actives[0] && !actives[1]) {
+		} else if(actives[0] != null && actives[1] == null) {
 			Debug.Log ("bounty1 active, but bounty2 not active");
 		} else {
 			Debug.LogError ("null check failed in bountycontroller");
@@ -82,7 +81,7 @@ public class BountyController : MonoBehaviour {
 
 	//Moves active bounties back off screen and onto the board
 	public void unpauseBounties(){
-		if(actives[0] != null) {
+		if(actives[0] != null && actives[1] != null) {
 			actives[0].transform.position = activeBoardPos1;
 			actives[1].transform.position = activeBoardPos2;
 		}

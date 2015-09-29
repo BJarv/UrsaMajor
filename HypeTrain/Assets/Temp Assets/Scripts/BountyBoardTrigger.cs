@@ -9,7 +9,7 @@ public class BountyBoardTrigger : MonoBehaviour {
 
 
     /// 
-    /// I DONT THINK WE ARE USING THIS SCRIPT ANYMORE.
+    /// WE ARE NOT USING THIS SCRIPT ANYMORE.
 	/// 
 
 	// Use this for initialization
