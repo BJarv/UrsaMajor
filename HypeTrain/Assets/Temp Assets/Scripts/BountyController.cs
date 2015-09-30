@@ -60,6 +60,8 @@ public class BountyController : MonoBehaviour {
 			actives[1] = null;
 		} else if(actives[0] != null && actives[1] == null) {
 			Debug.Log ("bounty1 active, but bounty2 not active");
+		} else if(actives[0] != null && actives[1] != null) {
+			Debug.Log("Both bounties active");
 		} else {
 			Debug.LogError ("null check failed in bountycontroller");
 		}
