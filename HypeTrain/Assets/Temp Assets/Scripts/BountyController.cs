@@ -21,12 +21,13 @@ public class BountyController : MonoBehaviour {
 		for(int i = 1; i <= bounties.Length; i++) {
 			Debug.Log ("Checking bounty #" + i);
 			Debug.Log (PlayerPrefsBool.GetBool("bounty" + i));
-			//If the bounty is an active previously, throw it back in the actives array, and set its active bool to true
+
+			//If the bounty is an active previously and hasn't been collected, throw it back in the actives array
+
 			if(PlayerPrefsBool.GetBool ("bounty" + i)){
 				Debug.Log ("Actually revived an active!!! $$$$$$$$$$$$$$$$$");
 				addActive(bounties[i - 1]);
-				bounties[i - 1].GetComponent<bounty>().choose ();
-			} 
+			}
 			//Otherwise...
 			else {
 				//bounties[i].SetActive (false); 
@@ -43,7 +44,7 @@ public class BountyController : MonoBehaviour {
 	//Adds bounty to actives array
 	public void addActive(GameObject newActive){
 		if(actives[0] && actives[1]) {
-			Debug.Log ("already 2 active quests");
+			Debug.Log ("already 2 active bounties");
 		} else {
 			if(actives[0]){
 				actives[1] = newActive;

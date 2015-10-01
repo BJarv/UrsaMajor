@@ -743,6 +743,7 @@ MonoBehaviour:
   counter: {fileID: 1775556496}
   bountyConch: {fileID: 0}
   completed: 0
+  collected: 0
 --- !u!114 &126131004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,13 +1063,14 @@ MonoBehaviour:
   bountyNumber: 1
   bountyName: Western Slayer
   description: Kill 5 Enemies
-  completeAmount: 5
+  completeAmount: 2
   cumulative: 1
   title: {fileID: 789481780}
   info: {fileID: 2082975882}
   counter: {fileID: 1617773136}
   bountyConch: {fileID: 0}
   completed: 0
+  collected: 0
 --- !u!114 &202571218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2562,7 @@ MonoBehaviour:
   counter: {fileID: 1143758853}
   bountyConch: {fileID: 0}
   completed: 0
+  collected: 0
 --- !u!114 &734714436
 MonoBehaviour:
   m_ObjectHideFlags: 0

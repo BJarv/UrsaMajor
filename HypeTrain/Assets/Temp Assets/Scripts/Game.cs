@@ -84,9 +84,6 @@ public class Game : MonoBehaviour{
 			PlayerPrefs.SetInt ("savedBounty14", 0);
 			PlayerPrefs.SetInt ("savedBounty15", 0);
 			PlayerPrefs.SetInt ("savedBounty16", 0);
-			//currently active bounties
-			PlayerPrefs.SetInt ("activeBounty1", -1);
-			PlayerPrefs.SetInt ("activeBounty2", -1);
 		}
 	}
 
