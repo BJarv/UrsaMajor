@@ -13,9 +13,14 @@ public class Cannonball : MonoBehaviour {
 
 	public float explosionRadius = 3f; //explosion size
 
+	public float damage = 20f; //damage delt to enemies
+
 	public GameObject explosion;
 
 	public LayerMask hittableObjs;
+
+
+
 	
 	[HideInInspector]
 	public GameObject meatObj;
@@ -39,7 +44,7 @@ public class Cannonball : MonoBehaviour {
 
 		foreach (Collider2D colObj in objs) { //apply bullet effects but to each object in explosion radius
 			if (colObj.tag == "enemy") {
-				colObj.gameObject.GetComponent<Enemy> ().Hurt (10f);
+				colObj.gameObject.GetComponent<Enemy> ().Hurt (damage);
 				if (transform.position.x - colObj.transform.position.x > 0) {
 					colObj.gameObject.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200, 375));
 				} else if (transform.position.x - colObj.transform.position.x < 0) {
@@ -50,7 +55,7 @@ public class Cannonball : MonoBehaviour {
 				Destroy (gameObject);
 			}
 			if (colObj.tag == "dino") {
-				colObj.gameObject.GetComponent<BigDino> ().Hurt (10f);
+				colObj.gameObject.GetComponent<BigDino> ().Hurt (damage);
 				Destroy (gameObject);
 			}
 			//If it hits a breakable object

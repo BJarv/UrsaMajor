@@ -46,6 +46,7 @@ public class Game : MonoBehaviour{
 			PlayerPrefsBool.SetBool ("skin4", false);
 			PlayerPrefsBool.SetBool ("hype1", true);
 			PlayerPrefsBool.SetBool ("hype2", false);
+			PlayerPrefsBool.SetBool ("hype3", false);
 			//Bool used to run tutorial on the first play
 			PlayerPrefsBool.SetBool ("firstTime", true);
 			//these need to be commented with names
