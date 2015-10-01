@@ -46,7 +46,7 @@ public class ShopKeeper : MonoBehaviour {
 				keyUp = false;
 				isOnScreen = true;
 				bountyBoard.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-			} else if(keyUp && isOnScreen) { // hide board
+			} else if((keyUp || Input.GetKeyDown(KeyCode.Escape)) && isOnScreen) { // hide board
 				keyUp = false;
 				hideBoard();
 			}

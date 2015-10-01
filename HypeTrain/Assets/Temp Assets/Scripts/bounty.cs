@@ -7,9 +7,12 @@ public class bounty : MonoBehaviour {
 	public int bountyNumber = -1; //constructs key for playerprefs from this number
 	public string bountyName = "";
 	public string description = "";
-	public bool cumulative = false;
-	//int valOnActivate = 0;
 	public int completeAmount = 0;
+	public bool cumulative = false;
+
+	/// <summary>
+	/// LINE 64
+	/// </summary>
 
 	public Text title;
 	public Text info;
@@ -17,8 +20,7 @@ public class bounty : MonoBehaviour {
 
 	//private Image picture;
 	private Text mouseOverText;
-	//public bool active = false;
-	//public GameObject grayOut;
+	public BountyController bountyConch;
 
 	public bool completed = false;
 	
@@ -28,6 +30,8 @@ public class bounty : MonoBehaviour {
 		//Set inspector defined text
 		title.text = bountyName;
 		info.text = description;
+		counter.text = 0 + "/" + (completeAmount);
+		bountyConch = transform.parent.transform.parent.GetComponent<BountyController> ();
 		if(bountyName == "" || completeAmount == 0 || bountyNumber == -1 || description == "") {
 			Debug.LogError(gameObject.name + " has missing values."); //ensure bounty is properly initialized in inspector, all these fields must have values
 		} 
@@ -60,8 +64,8 @@ public class bounty : MonoBehaviour {
 		else */
 
 		//This check is used to activate bounties in-game for the first time
-		if (!PlayerPrefsBool.GetBool ("bounty" + bountyNumber)) { //on click, not active to ensure a second click doesnt save-over values
-			transform.parent.GetComponent<BountyController>().addActive(gameObject);
+		if (!PlayerPrefsBool.GetBool ("bounty" + bountyNumber)){ //&& bountyConch.actives.Length < 2) { //on click, not active to ensure a second click doesnt save-over values
+			bountyConch.addActive(gameObject);
 			PlayerPrefsBool.SetBool ("bounty" + bountyNumber, true);
 			PlayerPrefs.Save();
 			//grayOut.SetActive (false);

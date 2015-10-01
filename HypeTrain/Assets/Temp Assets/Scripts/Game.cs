@@ -68,22 +68,22 @@ public class Game : MonoBehaviour{
 
 			//STORES THE ALL THE COMPLETION VALUES OF BOUNTIES.
 			//-1 for not being tracked yet. also need to be name commented
-			PlayerPrefs.SetInt ("savedBounty1", -1);
-			PlayerPrefs.SetInt ("savedBounty2", -1);
-			PlayerPrefs.SetInt ("savedBounty3", -1);
-			PlayerPrefs.SetInt ("savedBounty4", -1);
-			PlayerPrefs.SetInt ("savedBounty5", -1);
-			PlayerPrefs.SetInt ("savedBounty6", -1);
-			PlayerPrefs.SetInt ("savedBounty7", -1);
-			PlayerPrefs.SetInt ("savedBounty8", -1);
-			PlayerPrefs.SetInt ("savedBounty9", -1);
-			PlayerPrefs.SetInt ("savedBounty10", -1);
-			PlayerPrefs.SetInt ("savedBounty11", -1);
-			PlayerPrefs.SetInt ("savedBounty12", -1);
-			PlayerPrefs.SetInt ("savedBounty13", -1);
-			PlayerPrefs.SetInt ("savedBounty14", -1);
-			PlayerPrefs.SetInt ("savedBounty15", -1);
-			PlayerPrefs.SetInt ("savedBounty16", -1);
+			PlayerPrefs.SetInt ("savedBounty1", 0);
+			PlayerPrefs.SetInt ("savedBounty2", 0);
+			PlayerPrefs.SetInt ("savedBounty3", 0);
+			PlayerPrefs.SetInt ("savedBounty4", 0);
+			PlayerPrefs.SetInt ("savedBounty5", 0);
+			PlayerPrefs.SetInt ("savedBounty6", 0);
+			PlayerPrefs.SetInt ("savedBounty7", 0);
+			PlayerPrefs.SetInt ("savedBounty8", 0);
+			PlayerPrefs.SetInt ("savedBounty9", 0);
+			PlayerPrefs.SetInt ("savedBounty10", 0);
+			PlayerPrefs.SetInt ("savedBounty11", 0);
+			PlayerPrefs.SetInt ("savedBounty12", 0);
+			PlayerPrefs.SetInt ("savedBounty13", 0);
+			PlayerPrefs.SetInt ("savedBounty14", 0);
+			PlayerPrefs.SetInt ("savedBounty15", 0);
+			PlayerPrefs.SetInt ("savedBounty16", 0);
 			//currently active bounties
 			PlayerPrefs.SetInt ("activeBounty1", -1);
 			PlayerPrefs.SetInt ("activeBounty2", -1);
