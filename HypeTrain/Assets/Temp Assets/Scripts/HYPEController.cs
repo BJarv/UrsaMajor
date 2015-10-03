@@ -78,7 +78,7 @@ public class HYPEController : MonoBehaviour {
 				airblasts = true;
 			}
 
-			if (HYPEMode == "orange"){
+			if (HYPEMode == "orange"){ //enable cannonball fire, disable bullets
 				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(255, 144, 0, 255);
 				revolver.GetComponent<gun> ().magSize = 100;
