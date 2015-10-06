@@ -23,7 +23,7 @@ public class HYPEController : MonoBehaviour {
 	public AudioClip HYPEsound;
 
 	//Default HYPE value
-	public static string HYPEMode = "orange";
+	public static string HYPEMode = "blue";
 
 	public static bool lazers = false;
 	public static bool airblasts = false;
