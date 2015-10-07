@@ -11,7 +11,6 @@ public class Popup : MonoBehaviour {
 	public Sprite unmuted;
 	public Sprite muted;
 
-
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject pauseMenu;
 	[HideInInspector] public GameObject deathMenu;

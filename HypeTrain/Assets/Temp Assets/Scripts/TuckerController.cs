@@ -221,7 +221,7 @@ public class TuckerController: MonoBehaviour {
 	}
 
 	IEnumerator updatePath() { //repeatedly updates path
-		Debug.Log ("searching");
+		//Debug.Log ("searching");
 		path = nodeSearch.search (transform.position, target.transform.position);
 		yield return new WaitForSeconds (searchFreq);
 		StartCoroutine (updatePath());

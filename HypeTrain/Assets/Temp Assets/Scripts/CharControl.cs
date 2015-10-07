@@ -185,8 +185,6 @@ public class CharControl : MonoBehaviour {
 					r.AddForce(new Vector2 (moveH * addSpeed, 0));
 			}
 		}
-
-
 	}
 
 	public void StartDeath() //turns on hit animation, and makes character drop through floor.
@@ -196,6 +194,7 @@ public class CharControl : MonoBehaviour {
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		Game.incDeaths();
 		dead = true;
+		gun.keyLoaded = false; //So that player does not shoot key on respawning
 		Destroy (gameObject, 3f);
 	}
 

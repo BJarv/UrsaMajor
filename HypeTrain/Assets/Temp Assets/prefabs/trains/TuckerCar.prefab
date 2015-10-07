@@ -1518,7 +1518,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.5912857, y: -90.0806885, z: 0}
+  m_LocalPosition: {x: -45.5, y: 50, z: 0}
   m_LocalScale: {x: 1.93881547, y: 1.93881786, z: 1}
   m_Children:
   - {fileID: 447786}
@@ -3460,7 +3460,7 @@ MonoBehaviour:
   justDidAnim: 0
   anim: {fileID: 0}
   missile: {fileID: 137262, guid: d32f27024e037ee4d8aa0a56a4c3fc75, type: 2}
-  shotParticles: {fileID: 100000, guid: 90c2109d2fffe4b4fb0d96d3f736c316, type: 2}
+  shotParticles: {fileID: 100000, guid: 6d17a974220249b4c8337819780a5b52, type: 2}
 --- !u!114 &11482398
 MonoBehaviour:
   m_ObjectHideFlags: 1
