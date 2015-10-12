@@ -14,8 +14,8 @@ public class BountyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		pauseBounty1 = GameObject.Find("pBounty1").transform;
-		pauseBounty2 = GameObject.Find("pBounty2").transform;
+		//pauseBounty1 = GameObject.Find("pBounty1").transform;
+		//pauseBounty2 = GameObject.Find("pBounty2").transform;
 
 		//Loop through all bounties on play
 		for(int i = 1; i <= bounties.Length; i++) {

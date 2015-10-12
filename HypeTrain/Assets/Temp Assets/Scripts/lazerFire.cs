@@ -58,7 +58,7 @@ public class lazerFire : MonoBehaviour {
 
 			//Create particles for shot
 			shotParticles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
-			shotParticles.GetComponent<ParticleSystem>().Play ();
+			shotParticles.GetComponentInChildren<ParticleSystem>().Play ();
 			Destroy (shotParticles, shotParticles.GetComponent<ParticleSystem>().startLifetime);
 			shotParticles = null;
 		}
