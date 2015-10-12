@@ -112,7 +112,7 @@ Transform:
   m_Children:
   - {fileID: 35003494}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!1 &35003493
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ RectTransform:
   - {fileID: 2112972515}
   - {fileID: 798420753}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 372.5, y: 209.5}
@@ -2007,10 +2007,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1601425288}
-    - target: {fileID: 11400008, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-      propertyPath: bountyConch
-      value: 
-      objectReference: {fileID: 57588433}
     - target: {fileID: 22496376, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2049,6 +2045,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22413572, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: m_Depth
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

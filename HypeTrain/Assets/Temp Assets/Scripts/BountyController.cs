@@ -14,8 +14,8 @@ public class BountyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//pauseBounty1 = GameObject.Find("pBounty1").transform;
-		//pauseBounty2 = GameObject.Find("pBounty2").transform;
+		pauseBounty1 = GameObject.Find("pBounty1").transform;
+		pauseBounty2 = GameObject.Find("pBounty2").transform;
 
 		//Loop through all bounties on play
 		for(int i = 1; i <= bounties.Length; i++) {
@@ -52,6 +52,16 @@ public class BountyController : MonoBehaviour {
 				actives[0] = newActive;
 			}
 			repositionActives();
+		}
+	}
+
+	//Removes collected bounty from actives array, repositions accordingly
+	public void removeActive(GameObject completedActive){
+		if (actives [0] == completedActive) {
+			actives [0] = actives [1];
+			actives [1] = null;
+		} else if (actives [1] == completedActive) {
+			actives [1] = null;
 		}
 	}
 

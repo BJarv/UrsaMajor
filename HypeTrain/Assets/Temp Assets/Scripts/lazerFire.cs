@@ -59,7 +59,7 @@ public class lazerFire : MonoBehaviour {
 			//Create particles for shot
 			shotParticles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
 			shotParticles.GetComponentInChildren<ParticleSystem>().Play ();
-			Destroy (shotParticles, shotParticles.GetComponent<ParticleSystem>().startLifetime);
+			Destroy (shotParticles, shotParticles.GetComponentInChildren<ParticleSystem>().startLifetime);
 			shotParticles = null;
 		}
 
@@ -91,8 +91,8 @@ public class lazerFire : MonoBehaviour {
 			if(reloadTimer <= .7f && HYPEController.lazers && !once){
 				once = true;
 				rechargeParticles = (GameObject)Instantiate(laserChargeParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
-				rechargeParticles.GetComponent<ParticleSystem>().Play ();
-				Destroy (rechargeParticles, rechargeParticles.GetComponent<ParticleSystem>().startLifetime);
+				rechargeParticles.GetComponentInChildren<ParticleSystem>().Play ();
+				Destroy (rechargeParticles, rechargeParticles.GetComponentInChildren<ParticleSystem>().startLifetime);
 				rechargeParticles = null;
 			}
 			if(reloadTimer <= 0) {

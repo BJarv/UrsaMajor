@@ -25,6 +25,8 @@ public class Popup : MonoBehaviour {
 
 
 	void Start () {
+		bountyConch = GameObject.Find ("BountyCanvas").GetComponent<BountyController> ();
+
 		shaker = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
 		unmuteVolume = PlayerPrefs.GetFloat ("volume");
