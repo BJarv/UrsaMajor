@@ -204,8 +204,8 @@ MonoBehaviour:
   actives:
   - {fileID: 0}
   - {fileID: 0}
-  pauseBounty1: {fileID: 136806705}
-  pauseBounty2: {fileID: 630417667}
+  pauseBounty1: {fileID: 389552053}
+  pauseBounty2: {fileID: 2035445917}
   activeBoardPos1: {x: 0, y: 0, z: 0}
   activeBoardPos2: {x: 0, y: 0, z: 0}
 --- !u!114 &57588434
@@ -658,11 +658,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 126131001}
---- !u!224 &136806705 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22456678, guid: 31ff6c41e4e992e4081007275f504a75,
-    type: 2}
-  m_PrefabInternal: {fileID: 1490989809}
 --- !u!1 &202571215
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +952,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202571215}
+--- !u!1 &389552053 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 116304, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+  m_PrefabInternal: {fileID: 1490989809}
 --- !u!1001 &578962278
 Prefab:
   m_ObjectHideFlags: 0
@@ -1016,11 +1015,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b648caeb92c788f4db0affc239661e0b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &630417667 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22410226, guid: 31ff6c41e4e992e4081007275f504a75,
-    type: 2}
-  m_PrefabInternal: {fileID: 1490989809}
 --- !u!1 &636049402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,43 +2003,43 @@ Prefab:
       objectReference: {fileID: 1601425288}
     - target: {fileID: 22496376, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22496376, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22483410, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22483410, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22483410, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22491348, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22491348, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22413572, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22413572, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22413572, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_Depth
@@ -2283,6 +2277,10 @@ GameObject:
 --- !u!1 &1939969901 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 180740, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+  m_PrefabInternal: {fileID: 1490989809}
+--- !u!1 &2035445917 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121600, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
   m_PrefabInternal: {fileID: 1490989809}
 --- !u!1 &2082975880
 GameObject:
