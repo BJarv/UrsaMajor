@@ -59,16 +59,7 @@ public class CharControl : MonoBehaviour {
 	int IDofColl = 9;
 
 	void Start() {
-		//SaveLoad.Load (); //LOADS SAVE GAME
-		//SaveLoad.Load (); //LOADS SAVE GAME
-		//switch(Game.skin) {
-		//case 0:
-		//  //default char skin, do nothing
-		//	break;
-		//case 1:
-		//  GetComponent<SpriteRenderer>().sprite = skin2; //or whatever itll be called
-		// 	break;
-		//}
+		dead = false;
 		r = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator>();
 		midGroundCheck = GameObject.Find("character/raycasts/midGroundCheck").transform;
@@ -187,15 +178,15 @@ public class CharControl : MonoBehaviour {
 		}
 	}
 
-	public void StartDeath() //turns on hit animation, and makes character drop through floor.
-	{
+	public void StartDeath(){ //turns on hit animation, and makes character drop through floor.
 		animator.SetBool ("Hit", true);
 		animator.SetBool ("Jump", false);
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		Game.incDeaths();
 		dead = true;
-		gun.keyLoaded = false; //So that player does not shoot key on respawning
-		Destroy (gameObject, 3f);
+		gun.keyLoaded = false; //So that player does not shoot key on respawning\
+		ScoreKeeper.DisplayScore = 0;
+		//Destroy (gameObject, 3f);
 	}
 
 	void Flip(float moveH)
