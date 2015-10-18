@@ -20,11 +20,13 @@ public class ScoreKeeper : MonoBehaviour {
 	public float scoreTickSpeed = 0.01f;
 	public int scoreTickInterval = 10;
 
+	//public Vector2 velocity = new Vector2 (.5f, .5f);
+
 	void Awake () {
 		DisplayCarsCompleted = 0;
 		CarsCompleted = 0;
 		DisplayEnemiesKilled = 0;
-		EnemiesKilled = 0;
+		EnemiesKilled = 1000;
 		Score = 0;
 		DisplayScore = 0;
 		HYPE = 6;
@@ -41,6 +43,7 @@ public class ScoreKeeper : MonoBehaviour {
 			ScoreKeeper.DisplayEnemiesKilled = 0;
 			StartCoroutine("AllTicker");
 		}*/
+		//Mathf.SmoothDamp (ScoreKeeper.DisplayScore, ScoreKeeper.Score, ref velocity.x, .5f);
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
@@ -50,7 +53,7 @@ public class ScoreKeeper : MonoBehaviour {
 
 		return HYPE;
 	}
-
+	
 	//RUNS ALWAYS
 	//this will increment the CurrentScore towards the TargetScore over time
 	public IEnumerator ScoreTicker()
@@ -71,6 +74,7 @@ public class ScoreKeeper : MonoBehaviour {
 		while (true){
 			if(CharControl.dead){
 				//we don't want to increment CurrentScore to infinity, so we only do it if it's lower than TargetScore
+				Debug.Log ("ENEMY TICKING");
 				ScoreKeeper.DisplayEnemiesKilled = Ticker(ScoreKeeper.DisplayEnemiesKilled, ScoreKeeper.EnemiesKilled, 1);
 			}
 			//wait for some time before incrementing again

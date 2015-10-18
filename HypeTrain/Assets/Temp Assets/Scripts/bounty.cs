@@ -44,7 +44,7 @@ public class bounty : MonoBehaviour {
 
 	//Called on click
 	public void choose() { 
-		//If -1, the bounty has been completed and collected so don't click
+		//If -1, the bounty has been completed and collected so don't click, otherwise...
 		if(PlayerPrefs.GetInt ("bounty" + bountyNumber) != -1){
 			//This check is used to activate bounties in-game for the first time
 			if (!PlayerPrefsBool.GetBool ("bounty" + bountyNumber) && (!bountyConch.actives[1] || !bountyConch.actives[0])){
@@ -58,6 +58,7 @@ public class bounty : MonoBehaviour {
 				ScoreKeeper.Score += 1000;
 				PlayerPrefs.SetInt ("bounty" + bountyNumber, -1); //-1 means it has been comleted, so cannot be done again
 				collected = true;
+				bountyConch.removeActive(gameObject);
 			} else {
 				Debug.LogError ("2 bounties already selected OR already collected reward");
 			}

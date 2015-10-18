@@ -6,16 +6,17 @@ public class BountyController : MonoBehaviour {
 	public GameObject[] bounties;
 	public GameObject[] actives;
 
-	public Transform pauseBounty1;
-	public Transform pauseBounty2;
+	public GameObject pauseBounty1;
+	public GameObject pauseBounty2;
 
 	public Vector3 activeBoardPos1;
 	public Vector3 activeBoardPos2;
 
 	// Use this for initialization
 	void Start () {
-		pauseBounty1 = GameObject.Find("pBounty1").transform;
-		pauseBounty2 = GameObject.Find("pBounty2").transform;
+		//Must be dragged in from inspector?
+		//pauseBounty1 = GameObject.Find ("pBounty1").GetComponent<RectTransform> ();
+		//pauseBounty2 = GameObject.Find("pBounty2").GetComponent<RectTransform> ();
 
 		//Loop through all bounties on play
 		for(int i = 1; i <= bounties.Length; i++) {
@@ -55,6 +56,16 @@ public class BountyController : MonoBehaviour {
 		}
 	}
 
+	//Removes collected bounty from actives array, repositions accordingly
+	public void removeActive(GameObject completedActive){
+		if (actives [0] == completedActive) {
+			actives [0] = actives [1];
+			actives [1] = null;
+		} else if (actives [1] == completedActive) {
+			actives [1] = null;
+		}
+	}
+
 	public void repositionActives() {
 		if(actives[0] == null && actives[1] != null) {
 			actives[0] = actives[1];
@@ -74,11 +85,11 @@ public class BountyController : MonoBehaviour {
 		if(actives[0] != null && actives[1] != null){
 			activeBoardPos1 = actives[0].transform.position;
 			activeBoardPos2 = actives[1].transform.position;
-			actives[0].transform.position = pauseBounty1.position;
-			actives[1].transform.position = pauseBounty2.position;
+			actives[0].transform.position = pauseBounty1.transform.position;
+			actives[1].transform.position = pauseBounty2.transform.position;
 		} else if(actives[0] != null && actives[1] == null){
 			activeBoardPos1 = actives[0].transform.position;
-			actives[0].transform.position = pauseBounty1.position;
+			actives[0].transform.position = pauseBounty1.transform.position;
 		}
 	}
 

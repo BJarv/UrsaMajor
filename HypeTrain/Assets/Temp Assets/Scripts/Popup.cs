@@ -11,7 +11,6 @@ public class Popup : MonoBehaviour {
 	public Sprite unmuted;
 	public Sprite muted;
 
-
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject pauseMenu;
 	[HideInInspector] public GameObject deathMenu;
@@ -26,6 +25,8 @@ public class Popup : MonoBehaviour {
 
 
 	void Start () {
+		bountyConch = GameObject.Find ("BountyCanvas").GetComponent<BountyController> ();
+
 		shaker = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
 		unmuteVolume = PlayerPrefs.GetFloat ("volume");

@@ -18,12 +18,14 @@ public class EnemyLauncher : MonoBehaviour {
 
 	public GameObject missile;
 	public GameObject shotParticles;
+	private Transform player;
 	private Transform shootFrom;
 
 
 	// Use this for initialization
 	void Start () {
 		shotTimer = 1f; //Fires 1 second after aggro initially
+		player = GameObject.Find ("character").transform;
 		shootFrom = GetComponentInChildren<Transform>();	
 	}
 	
@@ -42,6 +44,16 @@ public class EnemyLauncher : MonoBehaviour {
 				shotTimer = shootCD;
 				animTimer = shootAnimCD;
 				justDidAnim = false;
+
+				//Fire particles in the direction thrown (L/R)
+				GameObject particles;
+				if(shootFrom.position.x < player.position.x){
+					particles = (GameObject)Instantiate(shotParticles, shootFrom.position, Quaternion.identity); //apply particles
+				} else {
+					particles = (GameObject)Instantiate(shotParticles, shootFrom.position, Quaternion.AngleAxis(180, Vector3.forward)); //apply particles
+				}
+				particles.GetComponent<ParticleSystem>().Play ();
+				Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 			}
 			if(animTimer <= 0) {
 				if (anim != null && justDidAnim == false){
@@ -64,7 +76,6 @@ public class EnemyLauncher : MonoBehaviour {
 
 	public void setAnimator(Animator a) {
 		anim = a;
-
 	}
 }
 
