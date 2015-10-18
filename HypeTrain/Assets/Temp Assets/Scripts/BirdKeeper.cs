@@ -9,10 +9,12 @@ public class BirdKeeper : ShootingEnemy {
 	private EnemyLobber lobber;
 	private Animator anim;
 	private bool dying;
+	private ParticleSystem sparks;
 
 	override protected void Start () {  //overrides start function of enemy.cs
 		anim = GetComponent<Animator> ();
 		base.Start ();
+		sparks = transform.Find ("sparks").GetComponent<ParticleSystem> ();
 		try {
 			gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
 		} catch {
@@ -69,6 +71,7 @@ public class BirdKeeper : ShootingEnemy {
 		health -= damage;
 		if (health <= 30 && dying == false) {
 			dying = true;
+			sparks.Play();
 			anim.SetTrigger ("dying");
 		}
 		if (health <= 0) {
