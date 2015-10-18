@@ -35,7 +35,7 @@ public class breakable : MonoBehaviour {
 		if (durability <= 0) {
 			if (breakAnimator != null){ //Do this if animator exists
 				if (breakSound != null){ 
-					AudioSource.PlayClipAtPoint(breakSound, transform.position);
+					AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
 				}
 				if (dropCash){ //Drop cash if true
 					money.At(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), Random.Range ((int)(1 * Multiplier.moneyDrop),(int)(5 * Multiplier.moneyDrop)));

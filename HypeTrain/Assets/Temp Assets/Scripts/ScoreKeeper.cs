@@ -21,6 +21,8 @@ public class ScoreKeeper : MonoBehaviour {
 	public int scoreTickInterval = 10;
 
 	public AudioClip carTickSound;
+	public AudioClip killTickSound;
+	public AudioClip scoreTickSound;
 
 	//public Vector2 velocity = new Vector2 (.5f, .5f);
 
@@ -29,7 +31,7 @@ public class ScoreKeeper : MonoBehaviour {
 		CarsCompleted = 8;
 		DisplayEnemiesKilled = 0;
 		EnemiesKilled = 20;
-		Score = 5000;
+		Score = 1500;
 		DisplayScore = 0;
 		HYPE = 6;
 	}
@@ -71,9 +73,9 @@ public class ScoreKeeper : MonoBehaviour {
 	//Increment CARS COMPLETED on death
 	public IEnumerator CarTicker(){
 		while (true){
-			if(CharControl.dead){
+			if(CharControl.dead && ScoreKeeper.DisplayCarsCompleted != ScoreKeeper.CarsCompleted){
 				ScoreKeeper.DisplayCarsCompleted = Ticker(ScoreKeeper.DisplayCarsCompleted, ScoreKeeper.CarsCompleted, 1);
-				AudioSource.PlayClipAtPoint(carTickSound, transform.position);
+				AudioSource.PlayClipAtPoint(carTickSound, Camera.main.transform.position);
 			}
 			yield return new WaitForSeconds(carsTickSpeed); //wait for some time before incrementing again
 		}
@@ -81,8 +83,9 @@ public class ScoreKeeper : MonoBehaviour {
 	//Increment KILLS on death
 	public IEnumerator KillTicker(){
 		while (true){
-			if(CharControl.dead && ScoreKeeper.DisplayCarsCompleted == ScoreKeeper.CarsCompleted){
+			if(CharControl.dead && ScoreKeeper.DisplayCarsCompleted == ScoreKeeper.CarsCompleted && ScoreKeeper.DisplayEnemiesKilled != ScoreKeeper.EnemiesKilled){
 				ScoreKeeper.DisplayEnemiesKilled = Ticker(ScoreKeeper.DisplayEnemiesKilled, ScoreKeeper.EnemiesKilled, 1);
+				AudioSource.PlayClipAtPoint(killTickSound, Camera.main.transform.position);
 			}
 			yield return new WaitForSeconds(killsTickSpeed); //wait for some time before incrementing again
 		}
@@ -90,8 +93,9 @@ public class ScoreKeeper : MonoBehaviour {
 	//Increment SCORE on death
 	public IEnumerator ScoreTicker(){
 		while (true){
-			if(CharControl.dead && ScoreKeeper.DisplayEnemiesKilled == ScoreKeeper.EnemiesKilled){
+			if(CharControl.dead && ScoreKeeper.DisplayEnemiesKilled == ScoreKeeper.EnemiesKilled && ScoreKeeper.DisplayScore != ScoreKeeper.Score){
 				ScoreKeeper.DisplayScore = Ticker(ScoreKeeper.DisplayScore, ScoreKeeper.Score, scoreTickInterval);
+				AudioSource.PlayClipAtPoint(scoreTickSound, Camera.main.transform.position);
 			}
 			yield return new WaitForSeconds(scoreTickSpeed); //wait for some time before incrementing again
 		}

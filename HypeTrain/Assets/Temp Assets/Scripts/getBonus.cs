@@ -20,7 +20,7 @@ public class getBonus : MonoBehaviour {
 		//Debug.Log ("\n");
 		if(hit.gameObject.tag == "Player"){
 			//Debug.Log ("entered");
-			AudioSource.PlayClipAtPoint(kaChing, transform.position);
+			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 			ScoreKeeper.Score += value;
 			Game.addLoot (value);
 			Destroy (gameObject);

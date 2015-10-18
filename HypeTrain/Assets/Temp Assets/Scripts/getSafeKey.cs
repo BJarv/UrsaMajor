@@ -25,7 +25,7 @@ public class getSafeKey : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hit){
 		//When the player collides with the key, load it in the gun
 		if(hit.gameObject.tag == "Player"){
-			AudioSource.PlayClipAtPoint(kaChing, transform.position);
+			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 
 			gunSprite.sprite = gunKey; //Change gun sprite to have key in it
 			gun.keyLoaded = true;		   //Next fire attempt will shoot key instead of bullet

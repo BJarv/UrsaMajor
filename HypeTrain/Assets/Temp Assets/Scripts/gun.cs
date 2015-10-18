@@ -79,7 +79,7 @@ public class gun : MonoBehaviour {
 
 		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !HYPEController.cannon) {
 			//shoot bullet
-			AudioSource.PlayClipAtPoint(gunshot, transform.position);
+			AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position);
 
 			sTimerOn = true;
 			inMag -= 1;
@@ -106,7 +106,7 @@ public class gun : MonoBehaviour {
 
 			//If out of bullets after shooting, reload
 			if(inMag <= 0){
-				AudioSource.PlayClipAtPoint(reload, transform.position);
+				AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
 				rTimerOn = true;
 			}
 
@@ -153,7 +153,7 @@ public class gun : MonoBehaviour {
 			
 		else if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && HYPEController.cannon) { //cannonball hype is on
 			//shoot bullet
-			AudioSource.PlayClipAtPoint(gunshot, transform.position); //needs cannon sound?
+			AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position); //needs cannon sound?
 			sTimerOn = true;
 			inMag -= 1;
 			adjustCounter(inMag);
@@ -179,7 +179,7 @@ public class gun : MonoBehaviour {
 			
 			//If out of bullets after shooting, reload
 			if(inMag <= 0){
-				AudioSource.PlayClipAtPoint(reload, transform.position);
+				AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
 				rTimerOn = true;
 			}
 			
@@ -194,7 +194,7 @@ public class gun : MonoBehaviour {
 		/////////////////////////////
 
 		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {
-			AudioSource.PlayClipAtPoint(reload, transform.position);
+			AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
 			//play reload anim
 			rTimerOn = true;
 		}

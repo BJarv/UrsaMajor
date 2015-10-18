@@ -47,7 +47,7 @@ public class TrainEnter : MonoBehaviour {
 	//What to do if E is pressed in trigger
 	void EnteredTrain(Collider2D hit){
 		if(!soundPlayed){
-			AudioSource.PlayClipAtPoint(enterSound, transform.position);
+			AudioSource.PlayClipAtPoint(enterSound, Camera.main.transform.position);
 			soundPlayed = true;
 		}
 		//Special case for entering the Shop Car

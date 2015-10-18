@@ -1431,7 +1431,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1444,7 +1444,7 @@ AudioSource:
       outSlope: 0
       tangentMode: 0
     - time: 1
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f256cf027c3d044afe28f6edaea243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cars: 0
+  cars: 1
   kills: 0
   loot: 0
   track: 0
@@ -3833,7 +3833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cars: 0
-  kills: 0
+  kills: 1
   loot: 0
   track: 0
   totalLoot: 0

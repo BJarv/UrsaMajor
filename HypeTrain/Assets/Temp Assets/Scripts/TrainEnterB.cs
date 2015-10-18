@@ -35,7 +35,7 @@ public class TrainEnterB : MonoBehaviour {
 	
 	void EnteredTrain(Collider2D hit){
 		if(!soundPlayed && enterSound != null){
-			AudioSource.PlayClipAtPoint(enterSound, transform.position);
+			AudioSource.PlayClipAtPoint(enterSound, Camera.main.transform.position);
 			soundPlayed = true;
 		}
 		//Pass through

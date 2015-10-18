@@ -87,7 +87,7 @@ public class TrainExit : MonoBehaviour {
 		if (!soundPlayed) {
 			soundPlayed = true;
 			Invoke ("soundPlayedOff", 3f);
-			AudioSource.PlayClipAtPoint (exitSound, transform.position);
+			AudioSource.PlayClipAtPoint (exitSound, Camera.main.transform.position);
 
 			hatchAnimator.Play ("Entry"); //Play exit animation once
 		
