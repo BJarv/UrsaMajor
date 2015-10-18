@@ -72,6 +72,7 @@ public class ShootingEnemy : Enemy {
 			if(spawnKey) {
 				money.keyAt (transform.position); 
 			}
+			ScoreKeeper.EnemiesKilled += 1; //Increment # of kills in current run
 			Destroy (gameObject);
 		}
 	}

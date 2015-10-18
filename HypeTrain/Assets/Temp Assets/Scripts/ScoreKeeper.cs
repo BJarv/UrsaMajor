@@ -28,11 +28,11 @@ public class ScoreKeeper : MonoBehaviour {
 
 	void Awake () {
 		DisplayCarsCompleted = 0;
-		CarsCompleted = 8;
+		CarsCompleted = 4;
 		DisplayEnemiesKilled = 0;
-		EnemiesKilled = 20;
-		Score = 1500;
+		EnemiesKilled = 9;
 		DisplayScore = 0;
+		Score = 1200;
 		HYPE = 6;
 	}
 
@@ -44,7 +44,9 @@ public class ScoreKeeper : MonoBehaviour {
 	}
 
 	void Update () {
-
+		//ScoreKeeper.DisplayCarsCompleted = ScoreKeeper.CarsCompleted;
+		//ScoreKeeper.DisplayEnemiesKilled = ScoreKeeper.EnemiesKilled;
+		//ScoreKeeper.DisplayScore = ScoreKeeper.Score;
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
