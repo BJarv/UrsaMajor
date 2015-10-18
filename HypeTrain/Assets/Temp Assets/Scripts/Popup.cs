@@ -33,11 +33,14 @@ public class Popup : MonoBehaviour {
 		player = GameObject.Find ("character");
 		//Set volume sliders to saved Pref
 		pSlide = GameObject.Find ("pSlider");
-		pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 		dSlide = GameObject.Find ("dSlider");
-		dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 		pMute = GameObject.Find ("pMuteButton");
 		dMute = GameObject.Find ("dMuteButton");
+
+		pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+		dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+
+
 		//Find references to the pause and death menus, then disable them
 		pauseMenu = GameObject.Find ("Pause");
 		pauseMenu.SetActive(false);
@@ -65,29 +68,32 @@ public class Popup : MonoBehaviour {
 				pauseMenu.SetActive(true);
 				Cursor.visible = true;
 
-				//Update slider position
-				pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+				//Update slider position if not muted
+				if(PlayerPrefs.GetFloat("volume") != 0) pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+				
  
 				Cursor.visible = true;
 				//Debug.Log (bountyConch);
 				bountyConch.pauseBounties(); //show active bounties on pause menu	
 			}
 		}
+
+		//Stop game and show death menu on pause
 		if(player.transform.position.y < -15f || dead) {
 			paused = true;
 			shaker.stopAllShake();
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 			Cursor.visible = true;
 
 			deathMenu.SetActive(true);
 			//Update slider position
-			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			if(PlayerPrefs.GetFloat("volume") != 0) dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 			bountyConch.pauseBounties(); //show active bounties on death menu
-
 
 			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				deathMenu.SetActive(false);
 				Cursor.visible = false;
+				CharControl.dead = false;
 				Time.timeScale = 1;
 				Application.LoadLevel (Application.loadedLevelName);
 			}
@@ -96,6 +102,8 @@ public class Popup : MonoBehaviour {
 
 	public void setVolume(float newVol){
 		//Update the local volume and pref
+		pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
+		dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
 		AudioListener.volume = newVol;
 		PlayerPrefs.SetFloat ("volume", newVol);
 	}
@@ -109,8 +117,8 @@ public class Popup : MonoBehaviour {
 			unmuteVolume = PlayerPrefs.GetFloat ("volume");
 			AudioListener.volume = 0;
 			PlayerPrefs.SetFloat ("volume", 0);
-			pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			//pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			//dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 		} 
 		//Otherwise return to last saved volume and update sliders
 		else {
@@ -118,8 +126,8 @@ public class Popup : MonoBehaviour {
 			dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
 			AudioListener.volume = unmuteVolume;
 			PlayerPrefs.SetFloat ("volume", unmuteVolume);
-			pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-			dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			//pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
+			//dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
 		}
 	}
 

@@ -15,35 +15,34 @@ public class ScoreKeeper : MonoBehaviour {
 	public static int HYPE;
 	public static bool HYPED;
 
-	public float carsTickSpeed = 0.5f;
-	public float killsTickSpeed = 0.25f;
+	public float carsTickSpeed = 0.25f;
+	public float killsTickSpeed = 0.1f;
 	public float scoreTickSpeed = 0.01f;
 	public int scoreTickInterval = 10;
+
+	public AudioClip carTickSound;
 
 	//public Vector2 velocity = new Vector2 (.5f, .5f);
 
 	void Awake () {
 		DisplayCarsCompleted = 0;
-		CarsCompleted = 0;
+		CarsCompleted = 8;
 		DisplayEnemiesKilled = 0;
-		EnemiesKilled = 1000;
-		Score = 0;
+		EnemiesKilled = 20;
+		Score = 5000;
 		DisplayScore = 0;
 		HYPE = 6;
 	}
 
 	void Start () {
+		StartCoroutine("AliveScoreTicker");
+		StartCoroutine("CarTicker");
+		StartCoroutine("KillTicker");
 		StartCoroutine("ScoreTicker");
-		StartCoroutine("AllTicker");
 	}
 
 	void Update () {
-		/*if(CharControl.dead) {
-			Debug.Log ("ALLTICKER");
-			ScoreKeeper.DisplayEnemiesKilled = 0;
-			StartCoroutine("AllTicker");
-		}*/
-		//Mathf.SmoothDamp (ScoreKeeper.DisplayScore, ScoreKeeper.Score, ref velocity.x, .5f);
+
 	}
 
 	//Called to increment HYPE level by 1 on kill, or reset upon entering HYPE Mode
@@ -56,29 +55,45 @@ public class ScoreKeeper : MonoBehaviour {
 	
 	//RUNS ALWAYS
 	//this will increment the CurrentScore towards the TargetScore over time
-	public IEnumerator ScoreTicker()
-	{
+	public IEnumerator AliveScoreTicker(){
 		//this loop will run forever so you can just call AddScore and the ticker will continue automatically
 		while (true){
-			//Use the Ticker function to rapidly increment toward the actual score
-			ScoreKeeper.DisplayScore = Ticker(ScoreKeeper.DisplayScore, ScoreKeeper.Score, scoreTickInterval);
+			if(!CharControl.dead){
+				//Use the Ticker function to rapidly increment toward the actual score
+				ScoreKeeper.DisplayScore = Ticker(ScoreKeeper.DisplayScore, ScoreKeeper.Score, scoreTickInterval);
+			}
 			//wait for some time before incrementing again
 			yield return new WaitForSeconds(scoreTickSpeed);
 		}
 	}
 
 	//RUNS ON DEATH
-	//this will increment all values towards their target values over time
-	public IEnumerator AllTicker(){
-		//this loop will run forever so you can just call AddScore and the ticker will continue automatically
+	//Increment CARS COMPLETED on death
+	public IEnumerator CarTicker(){
 		while (true){
 			if(CharControl.dead){
-				//we don't want to increment CurrentScore to infinity, so we only do it if it's lower than TargetScore
-				Debug.Log ("ENEMY TICKING");
+				ScoreKeeper.DisplayCarsCompleted = Ticker(ScoreKeeper.DisplayCarsCompleted, ScoreKeeper.CarsCompleted, 1);
+				AudioSource.PlayClipAtPoint(carTickSound, transform.position);
+			}
+			yield return new WaitForSeconds(carsTickSpeed); //wait for some time before incrementing again
+		}
+	}
+	//Increment KILLS on death
+	public IEnumerator KillTicker(){
+		while (true){
+			if(CharControl.dead && ScoreKeeper.DisplayCarsCompleted == ScoreKeeper.CarsCompleted){
 				ScoreKeeper.DisplayEnemiesKilled = Ticker(ScoreKeeper.DisplayEnemiesKilled, ScoreKeeper.EnemiesKilled, 1);
 			}
-			//wait for some time before incrementing again
-			yield return new WaitForSeconds(carsTickSpeed);
+			yield return new WaitForSeconds(killsTickSpeed); //wait for some time before incrementing again
+		}
+	}
+	//Increment SCORE on death
+	public IEnumerator ScoreTicker(){
+		while (true){
+			if(CharControl.dead && ScoreKeeper.DisplayEnemiesKilled == ScoreKeeper.EnemiesKilled){
+				ScoreKeeper.DisplayScore = Ticker(ScoreKeeper.DisplayScore, ScoreKeeper.Score, scoreTickInterval);
+			}
+			yield return new WaitForSeconds(scoreTickSpeed); //wait for some time before incrementing again
 		}
 	}
 

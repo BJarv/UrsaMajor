@@ -868,7 +868,7 @@ MonoBehaviour:
     m_Bits: 4294875849
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 70199
+    m_Bits: 70167
   PlusJumpForce: 100
   CurrJumpForce: 0
   MaxJumpForce: 1300
@@ -964,10 +964,11 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  carsTickSpeed: .5
-  killsTickSpeed: .25
+  carsTickSpeed: .25
+  killsTickSpeed: .100000001
   scoreTickSpeed: .00999999978
   scoreTickInterval: 10
+  carTickSound: {fileID: 8300000, guid: 07da9fb137ed88c42a91ac280f8b9142, type: 3}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
