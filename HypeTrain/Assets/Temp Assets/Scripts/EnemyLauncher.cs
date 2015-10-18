@@ -7,11 +7,12 @@ using System.Collections;
 public class EnemyLauncher : MonoBehaviour {
 	
 	private bool shooting = false;
-	private float shotTimer;
+	public float shotTimer;
 	public float shootCD = 3f;
 
 	//Animation variables.
-	private float animTimer;
+	public float animTimer;
+	//CD = countdown
 	public float shootAnimCD = 2.75f;
 	public bool justDidAnim = false;
 	public Animator anim;

@@ -9,10 +9,12 @@ public class BirdKeeper : ShootingEnemy {
 	private EnemyLobber lobber;
 	private Animator anim;
 	private bool dying;
+	private ParticleSystem sparks;
 
 	override protected void Start () {  //overrides start function of enemy.cs
 		anim = GetComponent<Animator> ();
 		base.Start ();
+		sparks = transform.Find ("sparks").GetComponent<ParticleSystem> ();
 		try {
 			gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
 		} catch {
@@ -62,14 +64,21 @@ public class BirdKeeper : ShootingEnemy {
 		} 
 	}
 
-
-	//HE DOESNT DIE AT 0???
+	
 	override public void Hurt(float damage){
 		State = EnemyState.ATTACK;
 		health -= damage;
+		//This only happens once when BirdKeeper starts having low health.
 		if (health <= 30 && dying == false) {
 			dying = true;
+			sparks.Play();
 			anim.SetTrigger ("dying");
+			//The launcher timers are changed and reset
+			launcher.shootCD = 2f;
+			launcher.shootAnimCD = 1.75f;
+			launcher.shotTimer = launcher.shootCD;
+			launcher.animTimer = launcher.shootAnimCD;
+			launcher.justDidAnim = false;
 		}
 		if (health <= 0) {
 			if(spawnKey) {
