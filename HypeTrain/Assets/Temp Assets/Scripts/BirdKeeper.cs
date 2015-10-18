@@ -2,11 +2,8 @@
 using System.Collections;
 
 public class BirdKeeper : ShootingEnemy {
-
-	private EnemyGun gun;
-	private EnemyShotgun shotgun;
+	
 	private EnemyLauncher launcher;
-	private EnemyLobber lobber;
 	private Animator anim;
 	private bool dying;
 	private ParticleSystem sparks;
@@ -16,25 +13,10 @@ public class BirdKeeper : ShootingEnemy {
 		base.Start ();
 		sparks = transform.Find ("sparks").GetComponent<ParticleSystem> ();
 		try {
-			gun = transform.Find ("enemyGun").GetComponent<EnemyGun>();
+			launcher = transform.Find ("missilePoint").GetComponent<EnemyLauncher>();
 		} catch {
-			//Debug.Log ("No 'enemyGun' found, looking for shotgun");
-			try {
-				shotgun = transform.Find ("enemyShotgun").GetComponent<EnemyShotgun>();
-			} catch {
-				//Debug.Log ("No 'enemyShotgun' found, looking for launcher");
-				try {
-					launcher = transform.Find ("missilePoint").GetComponent<EnemyLauncher>();
-				} catch {
 					//Debug.Log ("No 'enemyLauncher' found, looking for lobber");
-					try {
-						lobber = transform.Find ("lobPoint").GetComponent<EnemyLobber>();
-					} catch {
-						Debug.Log ("No gun attached to a shooting enemy");
-					}
 				}
-			}
-		}
 	}
 
 	override protected void Attack() //overrides attack function of enemy.cs
@@ -51,17 +33,11 @@ public class BirdKeeper : ShootingEnemy {
 		} else {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0, GetComponent<Rigidbody2D> ().velocity.y);
 		}
-		if(gun != null){ //shoot the correct gun type
-			gun.isShooting(true);
-		} else if(shotgun != null) {
-			shotgun.isShooting(true);
-		} else if(launcher != null) {
+		if(launcher != null) {
 			launcher.isShooting(true);
 			launcher.setAnimator(anim);
 			//anim.SetBool ("throwing", true);
-		} else if(lobber != null) {
-			lobber.isShooting(true);
-		} 
+		}
 	}
 
 	

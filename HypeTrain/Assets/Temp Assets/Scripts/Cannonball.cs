@@ -79,6 +79,7 @@ public class Cannonball : MonoBehaviour {
 		if (colObj.tag == "bonus" || colObj.tag == "UI" || colObj.gameObject.layer == layerOfTrigs || colObj.gameObject.layer == layerOfLoot || colObj.gameObject.layer == layerOfProj) {
 			return;
 		} else {
+			Debug.Log (colObj.name);
 			explode();
 		}
 
