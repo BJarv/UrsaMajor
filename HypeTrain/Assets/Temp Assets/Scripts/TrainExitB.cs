@@ -35,7 +35,7 @@ public class TrainExitB : MonoBehaviour {
 	
 	void ExitedTrain(Collider2D hit){
 		if(!soundPlayed && exitSound != null){
-			AudioSource.PlayClipAtPoint(exitSound, transform.position);
+			AudioSource.PlayClipAtPoint(exitSound, Camera.main.transform.position);
 			soundPlayed = true;
 		}
 

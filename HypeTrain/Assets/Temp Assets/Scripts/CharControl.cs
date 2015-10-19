@@ -183,10 +183,13 @@ public class CharControl : MonoBehaviour {
 		animator.SetBool ("Jump", false);
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		Game.incDeaths();
-		dead = true;
 		gun.keyLoaded = false; //So that player does not shoot key on respawning\
 		ScoreKeeper.DisplayScore = 0;
-		//Destroy (gameObject, 3f);
+		Invoke ("setDead", 1f);
+	}
+
+	public void setDead(){
+		dead = true;
 	}
 
 	void Flip(float moveH)

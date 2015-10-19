@@ -965,10 +965,12 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   carsTickSpeed: .25
-  killsTickSpeed: .100000001
+  killsTickSpeed: .119999997
   scoreTickSpeed: .00999999978
   scoreTickInterval: 10
   carTickSound: {fileID: 8300000, guid: 07da9fb137ed88c42a91ac280f8b9142, type: 3}
+  killTickSound: {fileID: 8300000, guid: 848b7ffabaafccd43ba6d031e4017037, type: 3}
+  scoreTickSound: {fileID: 8300000, guid: 8d4dc3c4912842244a0b1d3b7aec3827, type: 3}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
