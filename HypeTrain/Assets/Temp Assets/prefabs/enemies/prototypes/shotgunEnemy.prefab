@@ -14,7 +14,23 @@ GameObject:
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
   m_Layer: 11
-  m_Name: basicEnemy
+  m_Name: shotgunEnemy
+  m_TagString: enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400002}
+  m_Layer: 11
+  m_Name: enemyShotgun
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,10 +43,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.58722472, y: 1.0154891, z: 0}
-  m_LocalScale: {x: 3.12820196, y: 3.19465327, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: -40.2700005, y: 30.0599995, z: 0}
+  m_LocalScale: {x: 2.97261071, y: 3.03577304, z: 1.87709963}
+  m_Children:
+  - {fileID: 400002}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0688683838, y: .202306271, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
   m_RootOrder: 0
 --- !u!50 &5000000
 Rigidbody2D:
@@ -58,9 +87,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 1035eaa9587d1814294cec79c4268714, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -1.45984075e-07, y: -.0342953727}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: .5, y: .698597491}
+  m_Size: {x: .5, y: .629999995}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -70,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9bc17d2e0b11544f86ec9d5b5687ed8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 425755260dda48a4591dbd7af1ad8427, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -86,42 +115,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4086d790168b50a49b5b5f0e98f5e3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 81feb4e37eaef3841906842a5efacc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 20
   State: 0
-  EnemySpeed: 4.5
-  AttackDist: 12
+  EnemySpeed: 2
+  AttackDist: 10
   StrollDist: 3
-  maxLootDropAmount: 6
   airBlasted: 0
   Player: {fileID: 0}
   direction: 1
   distToPlayer: 0
   verticalDistToPlayer: 0
-  dashCast: 4
-  jumpCast: 4
+  dashCast: 1
+  jumpCast: 2
   dashMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   jumpMask:
     serializedVersion: 2
-    m_Bits: 512
-  dashVec: {x: 1000, y: 600}
-  jumpVec: {x: 100, y: 1000}
+    m_Bits: 0
+  dashVec: {x: 0, y: 0}
+  jumpVec: {x: 0, y: 0}
   dashCD: 2
   jumpCD: 2
   enemyGroundMask:
     serializedVersion: 2
-    m_Bits: 70145
+    m_Bits: 0
   dashRdy: 1
   jumpRdy: 1
-  groundCast: 1.02499998
+  groundCast: 1
   money: {fileID: 0}
   HYPECounter: {fileID: 0}
-  initialDelay: .491666704
+  initialDelay: .220333308
   delayDone: 0
+  stopAndShootRange: 10
+  spawnKey: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a578dc3e129c98469b4477d8d55351d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 500
+  bullet: {fileID: 100000, guid: bed1396505ce8f94b90c40883dc1c5ce, type: 2}
+  shootCD: 3
+  bulletRotsToPlayer: []
+  spread: .5
+  bullets: 3
+  shotParticles: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -146,7 +194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 121282003
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 765a2ba0087eb574797569fbeef4562b, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 9cb621c7f53ad2e4cb78f27fa9eaf01a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
