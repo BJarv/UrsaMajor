@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.4800034, y: -1014.15002, z: 0}
-  m_LocalScale: {x: .186350062, y: .186350062, z: .186350062}
+  m_LocalPosition: {x: -82.7527847, y: 47.613533, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.09000015
+  m_Radius: .289999992
 --- !u!96 &9635112
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -122,6 +122,7 @@ MonoBehaviour:
   layerOfLoot: 14
   layerOfProj: 13
   explosionRadius: 3
+  damage: 20
   explosion: {fileID: 130540, guid: b9ecf667d429129439ff08983fa19a39, type: 2}
   hittableObjs:
     serializedVersion: 2
@@ -151,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1853532537
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5589493a84756484eba2316ab52fad8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36c0a38a1cbc8c247a0061c521cf9df6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -159,7 +160,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36c0a38a1cbc8c247a0061c521cf9df6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102220}
