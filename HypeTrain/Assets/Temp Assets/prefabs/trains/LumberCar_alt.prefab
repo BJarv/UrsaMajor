@@ -726,7 +726,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.6115303, y: -2.71939397, z: 0}
+  m_LocalPosition: {x: -11.8299999, y: -2.67000008, z: 0}
   m_LocalScale: {x: .51577884, y: .515778184, z: 1}
   m_Children: []
   m_Father: {fileID: 400028}
@@ -1339,9 +1339,11 @@ MonoBehaviour:
   EnemySpeed: 2
   AttackDist: 10
   StrollDist: 3
+  airBlasted: 0
   Player: {fileID: 0}
   direction: 1
   distToPlayer: 0
+  verticalDistToPlayer: 0
   dashCast: 1
   jumpCast: 2
   dashMask:
@@ -1364,6 +1366,7 @@ MonoBehaviour:
   HYPECounter: {fileID: 0}
   initialDelay: .429907113
   delayDone: 0
+  stopAndShootRange: 10
   spawnKey: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -1381,9 +1384,11 @@ MonoBehaviour:
   EnemySpeed: 3
   AttackDist: 10
   StrollDist: 3
+  airBlasted: 0
   Player: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   direction: 1
   distToPlayer: 0
+  verticalDistToPlayer: 0
   dashCast: 4
   jumpCast: 4
   dashMask:
@@ -1435,9 +1440,11 @@ MonoBehaviour:
   EnemySpeed: 3
   AttackDist: 10
   StrollDist: 3
+  airBlasted: 0
   Player: {fileID: 100012, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   direction: 1
   distToPlayer: 0
+  verticalDistToPlayer: 0
   dashCast: 4
   jumpCast: 4
   dashMask:
