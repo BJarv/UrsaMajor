@@ -33,7 +33,7 @@ public class DesertHandler : MonoBehaviour {
 	void Start () {
 
 		//This is now a reference to the character.
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 
 		//New queue for all the tiles
 		tileQ = new Queue<GameObject>();

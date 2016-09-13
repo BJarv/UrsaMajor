@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("character");
+		player = GameObject.Find ("Player");
 		camObj = GameObject.Find ("Main Camera");
 		playerHealth = maxHealth;
 		alreadyDying = false;

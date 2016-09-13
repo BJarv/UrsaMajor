@@ -12,7 +12,7 @@ public class SpikeWall : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Player = GameObject.Find("character");
+		Player = GameObject.Find("Player");
 	}
 
 	//Start moving the spike wall once the timer has ended

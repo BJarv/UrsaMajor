@@ -30,7 +30,7 @@ public class Scroller : MonoBehaviour
 		rend = GetComponent<Renderer>();
 
 		//This is now a reference to the character.
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 
 		//If random dimension is true, generate a random scale for the object
 		if (randomDimension == true)

@@ -24,6 +24,7 @@ public class gun : MonoBehaviour {
 
 	private GameObject player = null;
 	private GameObject shootFrom = null;
+    private playerCharacter playerScript;
 	public AudioClip gunshot;
 	public AudioClip reload;
 
@@ -53,10 +54,11 @@ public class gun : MonoBehaviour {
 		inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
-		player = GameObject.Find("character");
-		shootFrom = GameObject.Find("barrelTip");
-		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
-		gunSprite = GameObject.Find ("actual gun").GetComponent<SpriteRenderer>();
+        player = transform.parent.gameObject;
+        shootFrom = transform.FindChild("Gun/BarrelTip").gameObject;
+		HYPECounter = player.GetComponent<ScoreKeeper>();
+		gunSprite = shootFrom.transform.parent.GetComponent<SpriteRenderer>();
+        playerScript = transform.parent.GetComponent<playerCharacter>();
 	}
 	
 	// Update is called once per frame
@@ -110,7 +112,7 @@ public class gun : MonoBehaviour {
 				rTimerOn = true;
 			}
 
-			if(!player.GetComponent<CharControl>().isGrounded()){
+			if(!playerScript.IsGrounded()){
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
 				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 			}
@@ -183,7 +185,7 @@ public class gun : MonoBehaviour {
 				rTimerOn = true;
 			}
 			
-			if(!player.GetComponent<CharControl>().isGrounded()){
+			if(!playerScript.IsGrounded()){
 				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
 				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce * 1.5f, go.transform.up.y * -kickForce * 1.5f ));
 			}

@@ -6,7 +6,7 @@ public class getBonus : MonoBehaviour {
 	public int value = 100;
 	// Use this for initialization
 	void Start () {
-
+        
 	}
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class getBonus : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 			ScoreKeeper.Score += value;
 			Game.addLoot (value);
-			Destroy (gameObject);
+			Destroy (transform.parent.gameObject);
 		}
 	}
 }

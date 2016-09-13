@@ -30,7 +30,7 @@ public class Popup : MonoBehaviour {
 		shaker = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
 		unmuteVolume = PlayerPrefs.GetFloat ("volume");
-		player = GameObject.Find ("character");
+		player = GameObject.Find ("Player");
 		//Set volume sliders to saved Pref
 		pSlide = GameObject.Find ("pSlider");
 		dSlide = GameObject.Find ("dSlider");

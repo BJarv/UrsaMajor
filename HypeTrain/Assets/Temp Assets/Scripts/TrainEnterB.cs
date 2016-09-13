@@ -13,7 +13,7 @@ public class TrainEnterB : MonoBehaviour {
 	//private GameObject Player = null;
 	// Use this for initialization
 	void Start () {
-		//Player = GameObject.Find("Character");
+		//Player = GameObject.Find("Player");
 		cameraObj = GameObject.Find("Main Camera");
 		trainSpawn = GameObject.Find ("trainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");

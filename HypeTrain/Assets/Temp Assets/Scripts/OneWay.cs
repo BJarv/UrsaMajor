@@ -6,7 +6,7 @@ public class OneWay : MonoBehaviour {
 	//private GameObject Player = null;
 	// Use this for initialization
 	void Start () {
-		//Player = GameObject.Find("Character");
+		//Player = GameObject.Find("Player");
 	}
 
 	// Update is called once per frame

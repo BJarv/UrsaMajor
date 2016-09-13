@@ -37,7 +37,7 @@ public class trainSpawner : MonoBehaviour {
 	void Start () {
 		//begTim = Time.time;
 		trains = new Queue<GameObject>();
-		player = GameObject.Find ("character");
+		player = GameObject.Find ("Player");
 		cameraObj = GameObject.Find ("/Main Camera");
 		//if testCar is set, spawn only testCars
 		spawnShop();

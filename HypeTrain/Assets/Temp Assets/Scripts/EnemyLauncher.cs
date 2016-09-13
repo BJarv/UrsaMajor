@@ -26,7 +26,7 @@ public class EnemyLauncher : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		shotTimer = 1f; //Fires 1 second after aggro initially
-		player = GameObject.Find ("character").transform;
+		player = GameObject.Find ("Player").transform;
 		shootFrom = GetComponentInChildren<Transform>();	
 	}
 	

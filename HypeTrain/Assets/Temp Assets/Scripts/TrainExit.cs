@@ -31,7 +31,7 @@ public class TrainExit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cameraObj = GameObject.Find("Main Camera");
-		Player = GameObject.Find("character");
+		Player = GameObject.Find("Player");
 		sidePanel = GameObject.Find ("sidepanel");
 		trainSpawn = GameObject.Find ("trainSpawner");
 	}
@@ -118,7 +118,7 @@ public class TrainExit : MonoBehaviour {
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
 			cameraObj.GetComponent<Camera2D> ().setLock (false);
-			Player.GetComponent<Rigidbody2D>().gravityScale = 2f; //Temporarily lower gravity's effect
+			Player.GetComponent<Rigidbody2D>().gravityScale = 4f; //Temporarily lower gravity's effect
 			Camera2D.setCameraTarget (40f, zoomOutSpeed);
 			//cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 			justExit = true; //Calls zoom in once player starts falling

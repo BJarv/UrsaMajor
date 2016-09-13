@@ -20,7 +20,7 @@ public class enemyMissile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("character").transform;
+		player = GameObject.Find("Player").transform;
 		//Flip the sprite in the y-direction if shooting to the left
 		if (player.position.x < transform.position.x)
 			transform.localScale = new Vector3 (1, -1, 1);

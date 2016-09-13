@@ -9,7 +9,7 @@ public class Shop : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("character");
+		player = GameObject.Find ("Player");
 		//skin = transform.Find("skin").GetComponent<SpriteRenderer>().sprite;
 		//hypeMode = transform.Find("hype").........
 	}

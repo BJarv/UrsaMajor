@@ -11,7 +11,7 @@ public class AirBlast : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("character");
+		player = GameObject.Find ("Player");
 		//If this airblast has existed for 1/10 s and hasn't hit anything, kill itself.
 		Destroy (gameObject, .1f);
 	}

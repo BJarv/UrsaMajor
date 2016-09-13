@@ -14,7 +14,7 @@ public class EnemyGun : MonoBehaviour {
 
 	// Use this for initialization
 	virtual protected void Start () {
-		player = GameObject.Find ("character").transform;
+		player = GameObject.Find ("Player").transform;
 		shootCD *= Multiplier.enemyShootCD;
 	}
 	

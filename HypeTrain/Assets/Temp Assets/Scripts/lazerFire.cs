@@ -41,7 +41,7 @@ public class lazerFire : MonoBehaviour {
 		lazer.sortingOrder = 1;
 		lazerTimer = lazerTime;
 		reloadTimer = reloadTime;
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 		shootFrom = GameObject.Find("barrelTip");
 	}
 

@@ -45,7 +45,7 @@ public class TuckerController: MonoBehaviour {
 		audioSrc = GetComponent<AudioSource> ();
 		rigbod = GetComponent<Rigidbody2D> ();
 		nodeSearch = GetComponent<NodeSearch>();
-		target = GameObject.Find ("character");
+		target = GameObject.Find ("Player");
 		Physics2D.IgnoreCollision (GetComponent<Collider2D> (), target.GetComponent<Collider2D> ()); //stops collision with player
 		//other ignore collisions set in charcontrol for things such as nodes and projectiles
 		if (target.transform.position.x < transform.position.x) {
@@ -114,7 +114,7 @@ public class TuckerController: MonoBehaviour {
 				towardTarget = 1;
 			}
 		} else
-			target = GameObject.Find ("character");
+			target = GameObject.Find ("Player");
 	}
 
 	void FixedUpdate () {

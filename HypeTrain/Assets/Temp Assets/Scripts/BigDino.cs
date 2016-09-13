@@ -55,8 +55,8 @@ public class BigDino : MonoBehaviour {
 		health *= Multiplier.enemyHealth;
 		DinoSpeed *= Multiplier.enemySpeed;
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
-		Player = GameObject.Find("character");
-		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		Player = GameObject.Find("Player");
+		HYPECounter = GameObject.Find("Player").GetComponent<ScoreKeeper>();
 
 		transform.localEulerAngles = new Vector3 (0, 180, 0);
 		ledgeAnimator.Play ("dinoPlat_idle");

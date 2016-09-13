@@ -15,7 +15,7 @@ public class BgObjectControlScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//This is now a reference to the character.
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 	
 	}
 	

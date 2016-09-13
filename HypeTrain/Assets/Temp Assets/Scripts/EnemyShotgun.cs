@@ -25,7 +25,7 @@ public class EnemyShotgun : MonoBehaviour {
 		}
 		bullets += Multiplier.shotgunBulletsPlus;
 		bulletRotsToPlayer = new List<Quaternion> ();
-		player = GameObject.Find ("character").transform;
+		player = GameObject.Find ("Player").transform;
 	}
 	
 	// Update is called once per frame

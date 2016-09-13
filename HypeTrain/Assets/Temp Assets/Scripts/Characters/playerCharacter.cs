@@ -6,7 +6,7 @@ public class playerCharacter : baseCharacter
 
     public float plusJumpForce = 300f;
     private float currentJumpForce = 0f;
-    public float airMoveSpeed = 0f;
+    public float airMoveSpeed = 50f;
 
     // Use this for initialization
     override protected void Start() {
@@ -18,7 +18,6 @@ public class playerCharacter : baseCharacter
     {
         float moveH = Input.GetAxisRaw("Horizontal");
         Flip(moveH);
-        Debug.Log(IsGrounded());
         if (IsGrounded()) {
             if (moveH > 0)
             {
@@ -37,12 +36,12 @@ public class playerCharacter : baseCharacter
             if (moveH > 0)
             {
                 if (rb.velocity.x < moveSpeed)
-                    rb.AddForce(new Vector2(moveH * moveSpeed, 0));
+                    rb.AddForce(new Vector2(moveH * airMoveSpeed, 0));
             }
             else if (moveH < 0)
             {
                 if (rb.velocity.x > -moveSpeed)
-                    rb.AddForce(new Vector2(moveH * moveSpeed, 0));
+                    rb.AddForce(new Vector2(moveH * airMoveSpeed, 0));
             }
         }
 
@@ -87,5 +86,4 @@ public class playerCharacter : baseCharacter
     {
 
     }
-
 }

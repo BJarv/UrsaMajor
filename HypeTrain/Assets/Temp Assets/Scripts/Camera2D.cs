@@ -30,7 +30,7 @@ public class Camera2D : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("character").transform;
+		player = GameObject.Find("Player").transform;
 		velocity = new Vector2 (0.5f, 0.5f);
 		targetCameraPosition = Camera.main.orthographicSize;
 		AudioListener.volume = 0.35f;
@@ -79,7 +79,7 @@ public class Camera2D : MonoBehaviour {
 	}
 
 	public void zoomIn () {
-		player.GetComponent<Rigidbody2D>().gravityScale = 4; //Revert gravity's effect
+		player.GetComponent<Rigidbody2D>().gravityScale = 8f; //Revert gravity's effect
 		setCameraTarget(lockCameraSize, zoomInSpeed);
 	}
 

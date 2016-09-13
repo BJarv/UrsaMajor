@@ -9,17 +9,19 @@ public class getSafeKey : MonoBehaviour {
 	private GameObject trainSpawn;
 	private SpriteRenderer gunSprite;
 	private Itemizer money;
+    private float timer = 0;
 
 	// Use this for initialization
 	void Start () {
 		trainSpawn = GameObject.Find ("trainSpawner");
-		gunSprite = GameObject.Find ("actual gun").GetComponent<SpriteRenderer>();
+		gunSprite = GameObject.Find ("Gun").GetComponent<SpriteRenderer>();
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
+        Invoke("ActivateCollider", .2f); //Delay trigger activation so player doesn't immediately pickup when firing
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        
 	}
 	
 	void OnTriggerEnter2D(Collider2D hit){
@@ -53,4 +55,6 @@ public class getSafeKey : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+    void ActivateCollider() { GetComponent<BoxCollider2D>().enabled = true; }
 }

@@ -7,7 +7,7 @@ using System.Collections;
 public class HYPEController : MonoBehaviour {
 
 	[HideInInspector] public GameObject player;
-	[HideInInspector] public GameObject revolver;
+	[HideInInspector] public GameObject gunArm;
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 	public GameObject HYPEPlane;
@@ -32,11 +32,11 @@ public class HYPEController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("character");
-		trail = player.transform.Find ("HYPEtrail");
-		revolver = GameObject.Find ("character/gun");
-		gunScript = revolver.GetComponent<gun> ();
-		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		player = GameObject.Find ("Player");
+		trail = player.transform.Find("HYPEtrail");
+        gunArm = player.transform.Find("GunArm").gameObject;
+		gunScript = gunArm.GetComponent<gun>();
+		HYPECounter = player.GetComponent<ScoreKeeper>();
 		HYPETimer = HYPEDuration;
 	}
 	
@@ -57,35 +57,35 @@ public class HYPEController : MonoBehaviour {
 			trail.Find (trailName).GetComponent<trailToggle>().On ();
 
 			if (HYPEMode == "red"){ //Enable rapid fire
-				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.red;
-				revolver.GetComponent<gun> ().magSize = 100;
-				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-				revolver.GetComponent<gun> ().interShotDelay = .1f;
-				revolver.GetComponent<gun> ().rTimerOn = false;
-				revolver.GetComponent<gun> ().kickForce = 300f;
+				gunArm.GetComponent<gun> ().magSize = 100;
+				gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
+				gunArm.GetComponent<gun> ().adjustCounter(gunArm.GetComponent<gun> ().inMag);
+				gunArm.GetComponent<gun> ().interShotDelay = .1f;
+				gunArm.GetComponent<gun> ().rTimerOn = false;
+				gunArm.GetComponent<gun> ().kickForce = 300f;
 			}
 
 			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
-				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(114, 0, 255, 255);
 				lazers = true;
 			}
 			if (HYPEMode == "blue"){ //Enable air blasts, disable bullets
-				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.blue;
 				airblasts = true;
 			}
 
 			if (HYPEMode == "orange"){ //enable cannonball fire, disable bullets
-				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(255, 144, 0, 255);
-				revolver.GetComponent<gun> ().magSize = 100;
-				revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-				revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-				revolver.GetComponent<gun> ().interShotDelay = .4f;
-				revolver.GetComponent<gun> ().rTimerOn = false;
+				gunArm.GetComponent<gun> ().magSize = 100;
+				gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
+				gunArm.GetComponent<gun> ().adjustCounter(gunArm.GetComponent<gun> ().inMag);
+				gunArm.GetComponent<gun> ().interShotDelay = .4f;
+				gunArm.GetComponent<gun> ().rTimerOn = false;
 				cannon = true;
 			}
 			hTimerOn = true;
@@ -103,11 +103,11 @@ public class HYPEController : MonoBehaviour {
 				trail.Find (trailName).GetComponent<trailToggle>().Off ();
 
 				if(HYPEMode == "red"){	//Reset gun values
-					revolver.GetComponent<gun> ().magSize = 4;
-					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-					revolver.GetComponent<gun> ().interShotDelay = .25f;
-					revolver.GetComponent<gun> ().kickForce = 600f;
+					gunArm.GetComponent<gun> ().magSize = 4;
+					gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
+					gunArm.GetComponent<gun> ().adjustCounter(gunArm.GetComponent<gun> ().inMag);
+					gunArm.GetComponent<gun> ().interShotDelay = .25f;
+					gunArm.GetComponent<gun> ().kickForce = 600f;
 				}
 
 				if (HYPEMode == "purple"){ //Disable lazers and reenable bullets
@@ -120,11 +120,11 @@ public class HYPEController : MonoBehaviour {
 
 				if (HYPEMode == "orange") {
 					cannon = false;
-					revolver.GetComponent<gun> ().magSize = 4;
-					revolver.GetComponent<gun> ().inMag = revolver.GetComponent<gun> ().magSize;
-					revolver.GetComponent<gun> ().adjustCounter(revolver.GetComponent<gun> ().inMag);
-					revolver.GetComponent<gun> ().interShotDelay = .25f;
-					revolver.GetComponent<gun> ().kickForce = 600f;
+					gunArm.GetComponent<gun> ().magSize = 4;
+					gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
+					gunArm.GetComponent<gun> ().adjustCounter(gunArm.GetComponent<gun> ().inMag);
+					gunArm.GetComponent<gun> ().interShotDelay = .25f;
+					gunArm.GetComponent<gun> ().kickForce = 600f;
 				}
 
 				//Reset HYPE gauge, Timer, and gun color
@@ -132,7 +132,7 @@ public class HYPEController : MonoBehaviour {
 				ScoreKeeper.HYPED = false;
 				hTimerOn = false;
 				HYPETimer = HYPEDuration;
-				SpriteRenderer[] renderers = revolver.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.white;
 			}
 		}

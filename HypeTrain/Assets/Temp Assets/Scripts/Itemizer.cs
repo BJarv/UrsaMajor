@@ -16,7 +16,7 @@ public class Itemizer : MonoBehaviour {
 	public float yMax = 1600;
 	
 	void Awake() {
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 	}
 
 	public void At(Vector3 here, int amount)

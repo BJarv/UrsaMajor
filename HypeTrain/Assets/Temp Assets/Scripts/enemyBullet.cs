@@ -25,7 +25,7 @@ public class enemyBullet : MonoBehaviour {
 		}
 		//If bullet hits player, hurt them
 		if(colObj.tag == "Player") {
-			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
+			colObj.gameObject.GetComponent<playerCharacter>().Hurt(10, gameObject);
 			Destroy (gameObject);
 		}
 		//If it hits a breakable object

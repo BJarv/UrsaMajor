@@ -16,7 +16,7 @@ public class ScoreKeeper : MonoBehaviour {
 	public static bool HYPED;
 
 	public float carsTickSpeed = 0.25f;
-	public float killsTickSpeed = 0.1f;
+	public float killsTickSpeed = 0.12f;
 	public float scoreTickSpeed = 0.01f;
 	public int scoreTickInterval = 10;
 

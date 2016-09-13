@@ -57,8 +57,8 @@ public class Enemy : MonoBehaviour {
 		health *= Multiplier.enemyHealth;
 		EnemySpeed *= Multiplier.enemySpeed;
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
-		Player = GameObject.Find("character");
-		HYPECounter = GameObject.Find("character").GetComponent<ScoreKeeper>();
+		Player = GameObject.Find("Player");
+		HYPECounter = GameObject.Find("Player").GetComponent<ScoreKeeper>();
 		initialDelay = Random.Range (.1f, .5f);
 		Invoke ("endDelay", initialDelay);
 	}

@@ -41,7 +41,7 @@ public class Jukebox : MonoBehaviour {
 
 		diff = jukebox.clip;
 
-		player = GameObject.Find("character");
+		player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame

@@ -13,12 +13,12 @@ public class baseCharacter : MonoBehaviour
 
     //Movement variables
     [SerializeField]
-    protected float moveSpeed;
+    protected float moveSpeed = 6f;
     [SerializeField]
-    protected float maxJumpForce;
+    protected float maxJumpForce = 600f;
     protected JumpStates jumpState;
     [SerializeField]
-    protected Vector2 hurtKnockback;
+    protected Vector2 hurtKnockback = new Vector2(800, 1000);
 
     //Health variables
     [SerializeField]
@@ -28,9 +28,9 @@ public class baseCharacter : MonoBehaviour
     //Ground check variables
     protected Transform groundCheckTransform;
     [SerializeField]
-    protected float groundCheckRayLength = 0.35f; //0.27 for player(maybe for standard enemies as well)
+    protected float groundCheckRayLength = 0.35f; //0.35 for player(maybe for standard enemies as well)
     [SerializeField]
-    public LayerMask groundMask;
+    public LayerMask groundMask = 302593; //Default values for all characters' ground checks. If new layers added for ground, check the commented out debug logs in baseCharacter's start function.
 
     //Component references
     protected Rigidbody2D rb;
@@ -45,6 +45,8 @@ public class baseCharacter : MonoBehaviour
         groundCheckTransform = transform.FindChild("raycasts/groundCheck").transform;
 
         currentHealth = maxHealth;
+        //Debug.Log("groundmask values:");
+        //Debug.Log(groundMask.value);
 
     }
 
@@ -56,7 +58,7 @@ public class baseCharacter : MonoBehaviour
     }
 
     //Decrement health, play animation, apply knockback
-    virtual protected void Hurt(int damage, GameObject dmgObj) {
+    virtual public void Hurt(int damage, GameObject dmgObj) {
         //Decrement character health
         currentHealth -= damage;
         if (currentHealth <= 0) Death();

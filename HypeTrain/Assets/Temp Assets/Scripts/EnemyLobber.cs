@@ -24,7 +24,7 @@ public class EnemyLobber : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timer = 1f; //Fires 1 second after aggro initially, the every shootCD seconds
-		player = GameObject.Find ("character").transform;
+		player = GameObject.Find ("Player").transform;
 		shootFrom = GetComponentInChildren<Transform>();
 	}
 	
