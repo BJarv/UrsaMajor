@@ -8,6 +8,7 @@ public class HYPEController : MonoBehaviour {
 
 	[HideInInspector] public GameObject player;
 	[HideInInspector] public GameObject gunArm;
+	[HideInInspector] public GameObject gun;
 	[HideInInspector] public Component gunScript;
 	[HideInInspector] public ScoreKeeper HYPECounter;
 	public GameObject HYPEPlane;
@@ -35,6 +36,7 @@ public class HYPEController : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		trail = player.transform.Find("HYPEtrail");
         gunArm = player.transform.Find("GunArm").gameObject;
+		gun = gunArm.transform.Find ("Gun").gameObject;
 		gunScript = gunArm.GetComponent<gun>();
 		HYPECounter = player.GetComponent<ScoreKeeper>();
 		HYPETimer = HYPEDuration;
@@ -57,7 +59,7 @@ public class HYPEController : MonoBehaviour {
 			trail.Find (trailName).GetComponent<trailToggle>().On ();
 
 			if (HYPEMode == "red"){ //Enable rapid fire
-				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gun.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.red;
 				gunArm.GetComponent<gun> ().magSize = 100;
 				gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
@@ -68,19 +70,19 @@ public class HYPEController : MonoBehaviour {
 			}
 
 			if (HYPEMode == "purple"){ //Enable lazers, disable bullets
-				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gun.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = new Color(114, 0, 255, 255);
 				lazers = true;
 			}
 			if (HYPEMode == "blue"){ //Enable air blasts, disable bullets
-				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gun.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.blue;
 				airblasts = true;
 			}
 
 			if (HYPEMode == "orange"){ //enable cannonball fire, disable bullets
-				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
-				renderers[1].color = new Color(255, 144, 0, 255);
+				SpriteRenderer[] renderers = gun.GetComponentsInChildren<SpriteRenderer>();
+				renderers [1].color = new Color(255, 144, 0, 255);
 				gunArm.GetComponent<gun> ().magSize = 100;
 				gunArm.GetComponent<gun> ().inMag = gunArm.GetComponent<gun> ().magSize;
 				gunArm.GetComponent<gun> ().adjustCounter(gunArm.GetComponent<gun> ().inMag);
@@ -132,7 +134,7 @@ public class HYPEController : MonoBehaviour {
 				ScoreKeeper.HYPED = false;
 				hTimerOn = false;
 				HYPETimer = HYPEDuration;
-				SpriteRenderer[] renderers = gunArm.GetComponentsInChildren<SpriteRenderer>();
+				SpriteRenderer[] renderers = gun.GetComponentsInChildren<SpriteRenderer>();
 				renderers[1].color = Color.white;
 			}
 		}
