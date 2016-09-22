@@ -58,7 +58,7 @@ public class baseCharacter : MonoBehaviour
     }
 
     //Decrement health, play animation, apply knockback
-    virtual public void Hurt(int damage, GameObject dmgObj) {
+    virtual public void Hurt(int damage, GameObject dmgObj) { //damage value and what did damage do it
         //Decrement character health
         currentHealth -= damage;
         if (currentHealth <= 0) Death();

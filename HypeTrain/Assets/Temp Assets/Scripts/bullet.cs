@@ -30,7 +30,7 @@ public class bullet : MonoBehaviour {
 			return;
 		}
 		if(colObj.tag == "enemy") {
-			colObj.gameObject.GetComponent<Enemy>().Hurt(10f);
+			colObj.gameObject.GetComponent<baseCharacter>().Hurt(10, gameObject);
 			if(transform.position.x - colObj.transform.position.x > 0)
 			{
 				colObj.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 375));
