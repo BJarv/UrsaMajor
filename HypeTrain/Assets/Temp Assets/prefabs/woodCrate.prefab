@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.19023, y: -0.1955139, z: 0}
+  m_LocalPosition: {x: -39.905647, y: 20.835314, z: 0}
   m_LocalScale: {x: 1.8076607, y: 1.8076594, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -60,7 +60,7 @@ MonoBehaviour:
   glass: 0
   dropCash: 1
   requiredProjectile: {fileID: 0}
-  breakParticle: {fileID: 1000011100084632, guid: 87d7efde8eb3d5d429a271a33075136d,
+  breakParticle: {fileID: 1000010036297728, guid: edb1ba0a0307ea843bd21e121c5ca873,
     type: 2}
   breakAnimator: {fileID: 0}
   breakSound: {fileID: 0}
