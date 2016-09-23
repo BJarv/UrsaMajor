@@ -84,7 +84,7 @@ public class Jukebox : MonoBehaviour {
 		}
 
 		//Audio state switcher
-		if (PlayerHealth.playerHealth <= 0 || player.transform.position.y < -5f) {
+		if (player.GetComponent<playerCharacter>().currentHealth <= 0 || player.transform.position.y < -5f) {
 			jukebox.clip = death;
 		}
 		else if (ScoreKeeper.HYPED) {
