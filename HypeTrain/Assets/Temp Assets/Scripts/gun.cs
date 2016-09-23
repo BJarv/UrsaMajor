@@ -51,7 +51,8 @@ public class gun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		inMag = magSize;
+        keyLoaded = false;
+        inMag = magSize;
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
         player = transform.parent.gameObject;

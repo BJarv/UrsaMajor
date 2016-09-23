@@ -23,7 +23,7 @@ public class baseCharacter : MonoBehaviour
     //Health variables
     [SerializeField]
     protected int maxHealth;
-    protected int currentHealth;
+    public int currentHealth;
 
     //Ground check variables
     protected Transform groundCheckTransform;
@@ -58,7 +58,7 @@ public class baseCharacter : MonoBehaviour
     }
 
     //Decrement health, play animation, apply knockback
-    virtual public void Hurt(int damage, GameObject dmgObj) {
+    virtual public void Hurt(int damage, GameObject dmgObj) { //damage value and what did damage do it
         //Decrement character health
         currentHealth -= damage;
         if (currentHealth <= 0) Death();
@@ -66,7 +66,7 @@ public class baseCharacter : MonoBehaviour
         //Play hit animation
         characterAnimator.SetBool("Hit", true);
         characterAnimator.SetBool("Jump", false);
-        Invoke("hitToIdle", .25f);
+        Invoke("HitToIdle", .25f);
 
         //Knock back player in a direction depending on their position relative to the damaging object
         if (dmgObj.transform.position.x - transform.position.x > 0)

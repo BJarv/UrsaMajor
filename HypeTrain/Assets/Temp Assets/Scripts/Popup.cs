@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Popup : MonoBehaviour {
@@ -103,7 +104,7 @@ public class Popup : MonoBehaviour {
 					Cursor.visible = false;
 					CharControl.dead = false;
 					Time.timeScale = 1;
-					Application.LoadLevel (Application.loadedLevelName);
+					SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 				}
 			}
 		}
@@ -150,7 +151,7 @@ public class Popup : MonoBehaviour {
 	}
 
 	public void returnMain(){
-		Application.LoadLevel ("MainMenu");
+		SceneManager.LoadScene ("MainMenu");
 	}
 
 }
