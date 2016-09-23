@@ -23,7 +23,7 @@ public class baseCharacter : MonoBehaviour
     //Health variables
     [SerializeField]
     protected int maxHealth;
-    protected int currentHealth;
+    public int currentHealth;
 
     //Ground check variables
     protected Transform groundCheckTransform;
@@ -66,7 +66,7 @@ public class baseCharacter : MonoBehaviour
         //Play hit animation
         characterAnimator.SetBool("Hit", true);
         characterAnimator.SetBool("Jump", false);
-        Invoke("hitToIdle", .25f);
+        Invoke("HitToIdle", .25f);
 
         //Knock back player in a direction depending on their position relative to the damaging object
         if (dmgObj.transform.position.x - transform.position.x > 0)
