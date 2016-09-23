@@ -67,8 +67,7 @@ public class breakable : MonoBehaviour
 	void Break ()
 	{
 		if (breakParticle != null) {
-			GameObject particles =  (GameObject) Instantiate (breakParticle, transform.position, Quaternion.identity) as GameObject;
-			Destroy(particles, .5f);
+			Instantiate (breakParticle, transform.position, Quaternion.identity);
 		}
 		Destroy (gameObject);
 	}
