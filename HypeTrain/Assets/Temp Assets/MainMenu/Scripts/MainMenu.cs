@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
@@ -12,7 +13,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void startGame(){
-		Application.LoadLevel ("haydensBetaAF");
+		SceneManager.LoadScene ("haydensBetaAF");
 	}
 
 	public void quitGame(){
