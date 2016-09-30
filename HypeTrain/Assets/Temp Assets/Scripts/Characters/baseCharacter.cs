@@ -16,6 +16,8 @@ public class baseCharacter : MonoBehaviour
     protected float moveSpeed = 6f;
     [SerializeField]
     protected float maxJumpForce = 600f;
+    [SerializeField]
+    protected float airMoveSpeed = 50f;
     protected JumpStates jumpState;
     [SerializeField]
     protected Vector2 hurtKnockback = new Vector2(800, 1000);

@@ -5,7 +5,7 @@ public class playerCharacter : baseCharacter
 {
     //Jump force variables
     public float plusJumpForce = 300f; 
-    public float airMoveSpeed = 50f;
+    
     private float currentJumpForce = 0f;
     private float forceToAdd = 0f;
     private bool applyJumpForce = false;
