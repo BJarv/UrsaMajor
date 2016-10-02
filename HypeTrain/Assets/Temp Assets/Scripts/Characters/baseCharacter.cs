@@ -21,6 +21,7 @@ public class baseCharacter : MonoBehaviour
     protected JumpStates jumpState;
     [SerializeField]
     protected Vector2 hurtKnockback = new Vector2(800, 1000);
+    bool isGrounded;
 
     //Health variables
     [SerializeField]
@@ -28,15 +29,17 @@ public class baseCharacter : MonoBehaviour
     public int currentHealth;
 
     //Ground check variables
-    protected Transform groundCheckTransform;
-    [SerializeField]
-    protected float groundCheckRayLength = 0.35f; //0.35 for player(maybe for standard enemies as well)
-    [SerializeField]
-    public LayerMask groundMask = 302593; //Default values for all characters' ground checks. If new layers added for ground, check the commented out debug logs in baseCharacter's start function.
+    //protected Transform groundCheckTransform;
+    //[SerializeField]
+    //protected float groundCheckRayLength = 0.5f; //0.35 for player(maybe for standard enemies as well)
+    //[SerializeField]
+    //public LayerMask groundMask = 302593; //Default values for all characters' ground checks. If new layers added for ground, check the commented out debug logs in baseCharacter's start function.
 
     //Component references
     protected Rigidbody2D rb;
     protected Animator characterAnimator;
+
+    protected IsGrounded ground;
 
     // Use this for initialization
     virtual protected void Start()
@@ -44,9 +47,11 @@ public class baseCharacter : MonoBehaviour
         //Set component references
         rb = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponent<Animator>();
-        groundCheckTransform = transform.FindChild("raycasts/groundCheck").transform;
+        //groundCheckTransform = transform.FindChild("raycasts/groundCheck").transform;
 
         currentHealth = maxHealth;
+
+        ground = transform.Find("Colliders/Feet").GetComponent<IsGrounded>();
         //Debug.Log("groundmask values:");
         //Debug.Log(groundMask.value);
 
@@ -93,7 +98,13 @@ public class baseCharacter : MonoBehaviour
     }
 
     //Raycast to check if the character is on the ground
-    public bool IsGrounded() { return Physics2D.OverlapArea(new Vector2(groundCheckTransform.position.x, groundCheckTransform.position.y), new Vector2(groundCheckTransform.position.x + groundCheckRayLength, groundCheckTransform.position.y - .01f), groundMask) != null; }
+    //public bool IsGrounded() { return Physics2D.OverlapArea(new Vector2(groundCheckTransform.position.x, groundCheckTransform.position.y), new Vector2(groundCheckTransform.position.x + groundCheckRayLength, groundCheckTransform.position.y - .1f), groundMask) != null; }
+    public bool IsGrounded()
+    {
+        return ground.check();
+    }
+
+    
 
     //Line to be invoked after delay in hurt
     public void HitToIdle() { characterAnimator.SetBool("Hit", false); }

@@ -41,7 +41,7 @@ public class enemyCharacter : baseCharacter
     protected float delayTime = 1f;
     protected Transform visionRayLocation;
     protected Transform jumpCheckLocation;
-    protected Transform obstacleCheckLocation;
+    protected Transform obstacleHeightCheckLocation;
     [SerializeField]
     protected float visionRayLength = 4f;
     [SerializeField]
@@ -69,8 +69,8 @@ public class enemyCharacter : baseCharacter
         HYPECounter = player.GetComponent<ScoreKeeper>();
         strollDistance += Random.Range(0, 1f);
         visionRayLocation = transform.Find("raycasts/Vision Ray");
-        jumpCheckLocation = transform.Find("raycasts/JumpCheck");
-        obstacleCheckLocation = transform.Find("raycasts/ObstacleCheck");
+        jumpCheckLocation = transform.Find("raycasts/JumpCheck"); //checks to see if you need to jump
+        obstacleHeightCheckLocation = transform.Find("raycasts/ObstacleCheck"); //checks to see if you can clear the obstacle
         StrollStartLocation = transform.position;
     }
 
