@@ -40,6 +40,9 @@ public class gun : MonoBehaviour {
 
 	public Rigidbody2D cannonball;
 
+	public GameObject equippedHype;
+
+	public bool hypeActive = false;
 
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
@@ -80,120 +83,18 @@ public class gun : MonoBehaviour {
 		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
 		else transform.localScale = new Vector3(1,-1,1);
 
-		if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && !HYPEController.cannon) {
-			//shoot bullet
-			AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position);
-
-			sTimerOn = true;
-			inMag -= 1;
-			adjustCounter(inMag);
-			var pos = retical.recPos;
-			pos.z = transform.position.z - Camera.main.transform.position.z;
-			pos = Camera.main.ScreenToWorldPoint(pos);
-
-			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
-
-			Rigidbody2D toShoot = bullet;
-			//Fire the key instead of a bullet if it's loaded
-			if(keyLoaded){
-				toShoot = key;
-				gunSprite.sprite = gunRegular;
-				keyLoaded = false;
+		if (ShootButton() && Firable ()) {
+			
+			if (equippedHype != null && hypeActive) {
+				sTimerOn = true;
+				shotTimer = equippedHype.GetComponent<Hype> ().Shoot (shootFrom);
+				Debug.Log (shotTimer);
+				return;
 			}
-			Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
-			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
-
-			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
-			particles.GetComponent<ParticleSystem>().Play ();
-			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-
-			//If out of bullets after shooting, reload
-			if(inMag <= 0){
-				AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
-				rTimerOn = true;
-			}
-
-			if(!playerScript.IsGrounded()){
-				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
-			}
-		}
-
-		//If the airblasts power is on
-		else if (ShootButton() && Firable () && !HYPEController.lazers && HYPEController.airblasts && !HYPEController.cannon) {
-			sTimerOn = true;
-			//Get reticle position
-			var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
-			//Get direction between the gun and the reticle
-			Vector2 direction = (pos - shootFrom.transform.position);
-			//Appropriate rotation for trigger
-			var q = Quaternion.FromToRotation(Vector3.up, direction);
-
-			//If key is loaded, fire key.
-			if(keyLoaded){
-				gunSprite.sprite = gunRegular;
-				//Rigidbody2D go = 
-				Instantiate(key, shootFrom.transform.position, q); //as Rigidbody2D;
-				keyLoaded = false;
-			}
-
-			//Otherwise, fire an air blast
-			else{
-				GameObject toShoot = airBlast;
-				//Airblast is shot, direction is passed
-				GameObject go = Instantiate(toShoot, shootFrom.transform.position, q) as GameObject;
-				go.GetComponent<AirBlast>().direction = direction;
-				kickIfAirbourne(100f);
-			}
-
-			//Create particles for shot
-			GameObject particles = (GameObject)Instantiate(airShotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
-			particles.GetComponent<ParticleSystem>().Play ();
-			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+			else
+				Shoot ();
 
 		}
-		/////////////////////////////
-			
-		else if (ShootButton() && Firable () && !HYPEController.lazers && !HYPEController.airblasts && HYPEController.cannon) { //cannonball hype is on
-			//shoot bullet
-			AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position); //needs cannon sound?
-			sTimerOn = true;
-			inMag -= 1;
-			adjustCounter(inMag);
-			var pos = retical.recPos;
-			pos.z = transform.position.z - Camera.main.transform.position.z;
-			pos = Camera.main.ScreenToWorldPoint(pos);
-			
-			var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
-			
-			Rigidbody2D toShoot = cannonball;
-			//Fire the key instead of a bullet if it's loaded
-			if(keyLoaded){
-				toShoot = key;
-				gunSprite.sprite = gunRegular;
-				keyLoaded = false;
-			}
-			Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
-			go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed * 10);
-			
-			GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
-			particles.GetComponent<ParticleSystem>().Play ();
-			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-			
-			//If out of bullets after shooting, reload
-			if(inMag <= 0){
-				AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
-				rTimerOn = true;
-			}
-			
-			if(!playerScript.IsGrounded()){
-				//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-				player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce * 1.5f, go.transform.up.y * -kickForce * 1.5f ));
-			}
-		}
-
-
-
 		/////////////////////////////
 
 		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {
@@ -222,6 +123,45 @@ public class gun : MonoBehaviour {
 			}
 		}
 
+	}
+
+	public void Shoot() {
+		//shoot bullet
+		AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position);
+
+		sTimerOn = true;
+		inMag -= 1;
+		adjustCounter(inMag);
+		var pos = retical.recPos;
+		pos.z = transform.position.z - Camera.main.transform.position.z;
+		pos = Camera.main.ScreenToWorldPoint(pos);
+
+		var q = Quaternion.FromToRotation(Vector3.up, pos - shootFrom.transform.position);
+
+		Rigidbody2D toShoot = bullet;
+		//Fire the key instead of a bullet if it's loaded
+		if(keyLoaded){
+			toShoot = key;
+			gunSprite.sprite = gunRegular;
+			keyLoaded = false;
+		}
+		Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
+		go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
+
+		GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
+		particles.GetComponent<ParticleSystem>().Play ();
+		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+
+		//If out of bullets after shooting, reload
+		if(inMag <= 0){
+			AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
+			rTimerOn = true;
+		}
+
+		if(!playerScript.IsGrounded()){
+			//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
+			player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
+		}
 	}
 
 	/*void FixedUpdate() {
@@ -316,5 +256,9 @@ public class gun : MonoBehaviour {
 
 	bool Firable() {
 		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying && !Popup.paused);
+	}
+
+	public void setHypeActive(bool b) {
+		hypeActive = b;
 	}
 }

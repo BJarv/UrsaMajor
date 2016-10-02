@@ -54,13 +54,14 @@ public class lazerFire : MonoBehaviour {
 			lTimerOn = true;
 
 			//Access gun script for kickback
-			player.GetComponentInChildren<gun>().kickIfAirbourne(200f);
+			//player.GetComponentInChildren<gun>().kickIfAirbourne(200f);
 
-			//Create particles for shot
+			/*Create particles for shot
 			shotParticles = (GameObject)Instantiate(laserShotParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
 			shotParticles.GetComponentInChildren<ParticleSystem>().Play ();
 			Destroy (shotParticles, shotParticles.GetComponentInChildren<ParticleSystem>().startLifetime);
 			shotParticles = null;
+			*/
 		}
 
 		//Keep the active particles lined up with the barrel tip
@@ -90,10 +91,12 @@ public class lazerFire : MonoBehaviour {
 			//If HYPE isn't over, show recharge particles
 			if(reloadTimer <= .7f && HYPEController.lazers && !once){
 				once = true;
+				/*
 				rechargeParticles = (GameObject)Instantiate(laserChargeParticles, shootFrom.transform.position, laserShotParticles.transform.rotation * shootFrom.transform.rotation);
 				rechargeParticles.GetComponentInChildren<ParticleSystem>().Play ();
 				Destroy (rechargeParticles, rechargeParticles.GetComponentInChildren<ParticleSystem>().startLifetime);
 				rechargeParticles = null;
+				*/
 			}
 			if(reloadTimer <= 0) {
 				rTimerOn = false;
