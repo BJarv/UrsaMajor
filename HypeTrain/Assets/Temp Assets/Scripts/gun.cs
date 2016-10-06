@@ -17,10 +17,12 @@ public class gun : MonoBehaviour {
 	//Timing Variables
 	private float reloadTimer;
 	private float shotTimer;
-	[HideInInspector] public bool rTimerOn = false;
-	private bool sTimerOn = false;
+	private bool canShoot = true;
 	public float reloadTime = 2f;
 	public float interShotDelay = .5f;
+
+	public GameObject gunGlow;
+	public GameObject gunUnderlay;
 
 	private GameObject player = null;
 	private GameObject shootFrom = null;
@@ -28,21 +30,24 @@ public class gun : MonoBehaviour {
 	public AudioClip gunshot;
 	public AudioClip reload;
 
+	private Transform trail;
+	private string trailName;
+
 	//For changing gun sprite back after firing key
 	public static bool keyLoaded = false;
 	public SpriteRenderer gunSprite;
 	public Sprite gunRegular;
 
-	public GameObject airBlast;
 	public GameObject shotParticles;
-	public GameObject airShotParticles;
-	public LayerMask airBlastMask;
 
-	public Rigidbody2D cannonball;
+	public GameObject equippedHypePrefab;
+	private GameObject equippedHype;
 
-	public GameObject equippedHype;
+	public GameObject HYPEPlane;
 
 	public bool hypeActive = false;
+
+	private bool planeSpawn = true;
 
 	/*WHAT IS THE GUN POINTING AT SO TUCKER CAN GO GET EM
 	private Vector3 pointingDirection; 
@@ -59,14 +64,33 @@ public class gun : MonoBehaviour {
 		reloadTimer = reloadTime;
 		shotTimer = interShotDelay;
         player = transform.parent.gameObject;
+		trail = player.transform.Find ("HYPEtrail");
         shootFrom = transform.FindChild("Gun/BarrelTip").gameObject;
 		HYPECounter = player.GetComponent<ScoreKeeper>();
 		gunSprite = shootFrom.transform.parent.GetComponent<SpriteRenderer>();
         playerScript = transform.parent.GetComponent<playerCharacter>();
+		gunGlow = transform.Find ("Gun").Find("Glow").gameObject;
+		gunUnderlay = transform.Find ("Gun").Find("GunUnderlay").gameObject;
+		gunGlow.SetActive (false);
+		if (equippedHypePrefab != null) {
+			Debug.Log ("Hype is being spawned.");
+			equippedHype = (GameObject) Instantiate (equippedHypePrefab, transform.parent) as GameObject;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		//If HYPE is full and player is on top of a train, spawn a HYPE Plane
+		if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
+			Instantiate (HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
+			planeSpawn = false;
+		}
+
+		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
+		if (((Input.GetButtonDown ("Interact") && Input.GetButton ("Reload")) || Input.GetButtonDown ("Fire3")) && ScoreKeeper.HYPE == 6) {
+			BeginHype ();
+		}
 
 		//rotation
 		Vector3 mousePos = retical.recPos;
@@ -86,9 +110,9 @@ public class gun : MonoBehaviour {
 		if (ShootButton() && Firable ()) {
 			
 			if (equippedHype != null && hypeActive) {
-				sTimerOn = true;
-				shotTimer = equippedHype.GetComponent<Hype> ().Shoot (shootFrom);
-				Debug.Log (shotTimer);
+				float shotTime = equippedHype.GetComponent<Hype> ().Shoot (shootFrom);
+				StartCoroutine(WaitAndEnableShoot (shotTime));
+				kickIfAirbourne (equippedHype.GetComponent<Hype>().GetKickForce());
 				return;
 			}
 			else
@@ -97,30 +121,8 @@ public class gun : MonoBehaviour {
 		}
 		/////////////////////////////
 
-		if (Input.GetButtonDown ("Reload") && inMag != magSize && !rTimerOn) {
-			AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
-			//play reload anim
-			rTimerOn = true;
-		}
-
-		//Timer for how long reload takes
-		if (rTimerOn) {
-			reloadTimer -= Time.deltaTime;
-			if(reloadTimer <= 0) {
-				rTimerOn = false;
-				inMag = magSize;
-				adjustCounter(inMag);
-				reloadTimer = reloadTime;
-			}
-		}
-
-		//Timer for how long before you can shoot again
-		if (sTimerOn) {
-			shotTimer -= Time.deltaTime;
-			if(shotTimer <= 0) {
-				sTimerOn = false;
-				shotTimer = interShotDelay;
-			}
+		if (Input.GetButtonDown ("Reload") && inMag != magSize) {
+			StartCoroutine (WaitAndReload ());
 		}
 
 	}
@@ -129,7 +131,7 @@ public class gun : MonoBehaviour {
 		//shoot bullet
 		AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position);
 
-		sTimerOn = true;
+		StartCoroutine(WaitAndEnableShoot (interShotDelay));
 		inMag -= 1;
 		adjustCounter(inMag);
 		var pos = retical.recPos;
@@ -154,8 +156,7 @@ public class gun : MonoBehaviour {
 
 		//If out of bullets after shooting, reload
 		if(inMag <= 0){
-			AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
-			rTimerOn = true;
+			StartCoroutine (WaitAndReload ());
 		}
 
 		if(!playerScript.IsGrounded()){
@@ -195,7 +196,7 @@ public class gun : MonoBehaviour {
 		Vector2 direction = (pos - shootFrom.transform.position);
 
 		//If the player is airbourne, send add force in the opposite direction of the shot
-		if(!player.GetComponent<CharControl>().isGrounded()){
+		if(!player.GetComponent<playerCharacter>().IsGrounded()){
 			player.GetComponent<Rigidbody2D>().AddForce (-direction * kickForce);
 		}
 	}
@@ -231,6 +232,9 @@ public class gun : MonoBehaviour {
 			bull3.SetActive (false);
 			bull4.SetActive (false);
 		}
+	}
+
+	public void HypeCounter() {
 		//Bullet counter modifications for during and after HYPEmode
 		if (ScoreKeeper.HYPED) {
 			bull1.SetActive (true);
@@ -255,10 +259,43 @@ public class gun : MonoBehaviour {
 	}
 
 	bool Firable() {
-		return (inMag != 0 && !rTimerOn && !sTimerOn && !PlayerHealth.alreadyDying && !Popup.paused);
+		return (inMag > 0 && canShoot && !PlayerHealth.alreadyDying && !Popup.paused);
 	}
 
-	public void setHypeActive(bool b) {
-		hypeActive = b;
+	void BeginHype() {
+		gunGlow.SetActive (true);
+		gunGlow.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
+		gunUnderlay.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
+		hypeActive = true;
+		trail.Find ("redTrail").GetComponent<trailToggle> ().On ();
+		StartCoroutine (WaitAndEndHype());
+		ScoreKeeper.HYPED = true;
+		HypeCounter ();
+		//AudioSource.PlayClipAtPoint(HYPEsound, transform.position);
+	}
+
+	IEnumerator WaitAndEnableShoot(float howLong) {
+		canShoot = false;
+		yield return new WaitForSeconds (howLong);
+		canShoot = true;
+	}
+
+	IEnumerator WaitAndEndHype() {
+		yield return new WaitForSeconds (7f);
+		gunGlow.SetActive (false);
+		gunUnderlay.GetComponent<SpriteRenderer> ().color = Color.white;
+		hypeActive = false;
+		trail.Find ("redTrail").GetComponent<trailToggle> ().Off ();
+		ScoreKeeper.HYPED = false;
+		HypeCounter ();
+		HYPECounter.incrementHype (false); //Reset HYPE, since it was activated.
+	}
+
+	IEnumerator WaitAndReload() {
+		AudioSource.PlayClipAtPoint(reload, Camera.main.transform.position);
+		yield return new WaitForSeconds (reloadTime);
+		inMag = magSize;
+		adjustCounter(inMag);
+		reloadTimer = reloadTime;
 	}
 }

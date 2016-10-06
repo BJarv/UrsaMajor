@@ -6,7 +6,6 @@ abstract public class Hype : MonoBehaviour {
 	//	These scripts will be attached to gun and define how gun should shoot
 
 	protected Color color;
-	protected GameObject gunGlow;
 
 	protected float intershotDelay = 0f;
 	protected float kickForce = 0f;
@@ -14,9 +13,7 @@ abstract public class Hype : MonoBehaviour {
 	protected float hypeDuration = 7f;
 
 	// Use this for initialization
-	void Start () {
-		gunGlow = transform.Find ("Glow").gameObject;
-		gunGlow.SetActive (false);
+	protected void Start () {
 	}
 	
 	// Update is called once per frame
@@ -27,15 +24,11 @@ abstract public class Hype : MonoBehaviour {
 	//	EMPTY, override in children
 	public abstract float Shoot(GameObject shootFrom);
 		
-	//	Now you're in HYPE mode
-	//	White overrides this function because it has no glow. Other colors do not override this.
-	public float Activate() {
-		gunGlow.SetActive (true);
-		//	Initiate crazy visual effects that we haven't implemented yet (flashing, bright colors, etc.)
-		return hypeDuration;
+	public float GetKickForce() {
+		return kickForce;
 	}
 
-	public void Deactivate() {
-		gunGlow.SetActive (false);
+	public Color GetColor() {
+		return color;
 	}
 }

@@ -10,9 +10,10 @@ public class HypeRed : Hype {
 
 	// Use this for initialization
 	void Start () {
+		base.Start ();
 		color = Color.red;
 		intershotDelay = .1f;
-		kickForce = 300f;
+		kickForce = 35f;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +40,6 @@ public class HypeRed : Hype {
 		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
 		//	Would like this to return intershotDelay
-		return .1f;
+		return intershotDelay;
 	}
 }

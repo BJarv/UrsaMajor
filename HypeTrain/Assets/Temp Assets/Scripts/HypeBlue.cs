@@ -8,6 +8,7 @@ public class HypeBlue : Hype {
 
 	// Use this for initialization
 	void Start () {
+		base.Start ();
 		color = Color.blue;
 	}
 	
@@ -35,7 +36,7 @@ public class HypeBlue : Hype {
 		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
 
 		//	Would like this to return intershotDelay
-		return .4f;
+		return intershotDelay;
 
 		// Kick if airborne 100f
 	}

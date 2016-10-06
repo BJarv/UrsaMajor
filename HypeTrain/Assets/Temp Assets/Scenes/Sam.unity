@@ -1175,6 +1175,22 @@ Prefab:
       propertyPath: bull4
       value: 
       objectReference: {fileID: 1939969898}
+    - target: {fileID: 114000012048399134, guid: fdd7f9435866e304d9d31fb3e4c30c85,
+        type: 2}
+      propertyPath: HYPEPlane
+      value: 
+      objectReference: {fileID: 169608, guid: 2d0f404aaeb4d414f948b009af404d07, type: 2}
+    - target: {fileID: 114000012048399134, guid: fdd7f9435866e304d9d31fb3e4c30c85,
+        type: 2}
+      propertyPath: equippedHype
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012048399134, guid: fdd7f9435866e304d9d31fb3e4c30c85,
+        type: 2}
+      propertyPath: equippedHypePrefab
+      value: 
+      objectReference: {fileID: 1000012784574478, guid: c3e2ab45865d70f4383d531c529101c9,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdd7f9435866e304d9d31fb3e4c30c85, type: 2}
   m_IsPrefabParent: 0
@@ -2083,7 +2099,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
