@@ -65,7 +65,7 @@ public class gun : MonoBehaviour {
 		shotTimer = interShotDelay;
         player = transform.parent.gameObject;
 		trail = player.transform.Find ("HYPEtrail");
-        shootFrom = transform.FindChild("Gun/BarrelTip").gameObject;
+        shootFrom = transform.Find("Gun/BarrelTip").gameObject;
 		HYPECounter = player.GetComponent<ScoreKeeper>();
 		gunSprite = shootFrom.transform.parent.GetComponent<SpriteRenderer>();
         playerScript = transform.parent.GetComponent<playerCharacter>();

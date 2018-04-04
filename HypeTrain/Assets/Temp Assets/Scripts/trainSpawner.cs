@@ -158,19 +158,19 @@ public class trainSpawner : MonoBehaviour {
 	public GameObject headPanel()
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
-		return trainCheck.transform.FindChild ("sidepanel").gameObject;
+		return trainCheck.transform.Find ("sidepanel").gameObject;
 	}
 
 	//Overloaded call from TrainEnter, returns the sidepanel of the specified car
 	public GameObject headPanel(GameObject trainCheck)
 	{
-		return trainCheck.transform.FindChild ("sidepanel").gameObject;
+		return trainCheck.transform.Find ("sidepanel").gameObject;
 	}
 
 	public Vector3 headVault()
 	{
 		GameObject trainCheck = (GameObject)trains.Peek();
-		return trainCheck.transform.FindChild ("objects").transform.FindChild ("vault").transform.position;
+		return trainCheck.transform.Find ("objects").transform.Find ("vault").transform.position;
 	}
 
 	// Update is called once per frame

@@ -102,7 +102,7 @@ public class TrainExit : MonoBehaviour {
 				sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel (trainSpawn.GetComponent<trainSpawner>().theShopCar);
 				transform.parent.transform.Find("entryRange").gameObject.GetComponent<Collider2D>().enabled = false;
 				Debug.Log ("HAYDEN START IN TRAIN EXIT, LINE 105");
-				Debug.Log ("Disabled " + transform.parent.transform.FindChild("entryRange").name);
+				Debug.Log ("Disabled " + transform.parent.transform.Find("entryRange").name);
 				Invoke ("enableEnterCollide", 1f);
 			} 
 			//Default case for finding where to launch player from
