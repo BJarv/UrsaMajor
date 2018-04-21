@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class buyHype0 : MonoBehaviour {
+public class BuyHype0 : MonoBehaviour {
 	
 	public int price;
 	Text text;

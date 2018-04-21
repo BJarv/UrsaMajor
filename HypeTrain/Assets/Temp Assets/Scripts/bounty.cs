@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class bounty : MonoBehaviour {
+public class Bounty : MonoBehaviour {
 
 	public int bountyNumber = -1; //constructs key for playerprefs from this number
 	public string bountyName = "";

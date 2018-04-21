@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class buy : MonoBehaviour {
+public class Buy : MonoBehaviour {
 
 	public float price;
 	public static bool purchased;

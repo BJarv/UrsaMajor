@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class fallThrough : MonoBehaviour {
+public class FallThrough : MonoBehaviour {
 
 	//Checks to see if player is pressing down while on a one way to let him drop through
 	void OnCollisionEnter2D(Collision2D col) {

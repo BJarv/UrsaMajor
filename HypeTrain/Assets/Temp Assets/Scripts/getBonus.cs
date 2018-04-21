@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class getBonus : MonoBehaviour {
+public class GetBonus : MonoBehaviour {
 	public AudioClip kaChing;
 	public int value = 100;
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class getBonus : MonoBehaviour {
 		//Debug.Log (hit.gameObject.tag);
 		//Debug.Log ("\n");
 		if(hit.gameObject.tag == "Player"){
-			//Debug.Log ("entered");
+			Debug.Log ("getBonus: Collided with player.");
 			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 			ScoreKeeper.Score += value;
 			Game.addLoot (value);

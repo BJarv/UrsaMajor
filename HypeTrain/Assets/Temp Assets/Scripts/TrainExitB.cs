@@ -15,7 +15,7 @@ public class TrainExitB : MonoBehaviour {
 	void Start () {
 		//Player = GameObject.Find("Player");
 		cameraObj = GameObject.Find("Main Camera");
-		trainSpawn = GameObject.Find ("trainSpawner");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
 	
@@ -42,7 +42,7 @@ public class TrainExitB : MonoBehaviour {
 		ScoreKeeper.CarsCompleted += 1;
 
 		//Make sidePanel visible again
-		sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
+		sidePanel = trainSpawn.GetComponent<TrainSpawner> ().headPanel ();
 		sidePanel.SetActive (true);
 		//Unlock camera
 		cameraObj.GetComponent<Camera2D> ().setLock (false);

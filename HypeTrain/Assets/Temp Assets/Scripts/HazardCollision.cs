@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hotShit : MonoBehaviour {
+public class HazardCollision : MonoBehaviour {
 
 	private GameObject player = null;
 	public float knockUpForce;

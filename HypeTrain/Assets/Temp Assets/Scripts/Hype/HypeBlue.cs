@@ -19,7 +19,7 @@ public class HypeBlue : Hype {
 
 	public override float Shoot(GameObject shootFrom) {
 		//Get reticle position
-		var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
+		var pos = Camera.main.ScreenToWorldPoint(Reticle.recPos);
 		//Get direction between the gun and the reticle
 		Vector2 direction = (pos - shootFrom.transform.position);
 		//Appropriate rotation for trigger

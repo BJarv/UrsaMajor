@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class stroller : MonoBehaviour {
+public class Stroller : MonoBehaviour {
 
 	public float StrollSpeed = .5f;
 	public float StrollDist = 15f;  //distance enemy walks back and forth during idle

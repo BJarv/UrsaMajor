@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class aggroTrigger : MonoBehaviour {
+public class AggroTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colObj) {
 		if (colObj.tag == "Player") {

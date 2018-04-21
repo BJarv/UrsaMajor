@@ -57,8 +57,8 @@ public class Itemizer : MonoBehaviour {
 
 	void spawn(Vector3 at, GameObject what) {
 		nuObj = (GameObject)Instantiate (what, at, Quaternion.identity); //spawn item
-		if(nuObj.GetComponent<magnetic>()) {
-			nuObj.GetComponent<magnetic>().player = player;
+		if(nuObj.GetComponent<Magnetic>()) {
+			nuObj.GetComponent<Magnetic>().player = player;
 		}
 		nuObj.GetComponent<Rigidbody2D>().AddForce (new Vector2 (Random.Range (xMin, xMax), Random.Range (yMin, yMax)));//pop it up
 	}

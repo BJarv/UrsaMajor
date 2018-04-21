@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class canvasTrans : MonoBehaviour {
+public class CanvasTrans : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

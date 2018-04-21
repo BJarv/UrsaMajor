@@ -60,7 +60,7 @@ public class Cannonball : MonoBehaviour {
 			}
 			//If it hits a breakable object
 			if (colObj.GetComponent<Collider2D> ().tag == "breakable" || colObj.GetComponent<Collider2D> ().tag == "meat") {
-				colObj.gameObject.GetComponent<breakable> ().Damage (gameObject);
+				colObj.gameObject.GetComponent<Breakable> ().Damage (gameObject);
 				Destroy (gameObject);
 			}
 		
