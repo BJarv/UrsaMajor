@@ -24,7 +24,7 @@ public class HypeRed : Hype {
 	public override float Shoot(GameObject shootFrom) {
 		AudioSource.PlayClipAtPoint(gunShot, Camera.main.transform.position);
 
-		var pos = retical.recPos;
+		var pos = Reticle.recPos;
 		pos.z = transform.position.z - Camera.main.transform.position.z;
 		pos = Camera.main.ScreenToWorldPoint(pos);
 

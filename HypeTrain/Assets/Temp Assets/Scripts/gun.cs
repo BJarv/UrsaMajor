@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class gun : MonoBehaviour {
+public class Gun : MonoBehaviour {
 	//Bullet variables
 	public float bulletSpeed = 500f;
 	public float kickForce = 1000f;
@@ -93,7 +93,7 @@ public class gun : MonoBehaviour {
 		}
 
 		//rotation
-		Vector3 mousePos = retical.recPos;
+		Vector3 mousePos = Reticle.recPos;
 		mousePos.z = 5.23f;
 		
 		Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
@@ -134,7 +134,7 @@ public class gun : MonoBehaviour {
 		StartCoroutine(WaitAndEnableShoot (interShotDelay));
 		inMag -= 1;
 		adjustCounter(inMag);
-		var pos = retical.recPos;
+		var pos = Reticle.recPos;
 		pos.z = transform.position.z - Camera.main.transform.position.z;
 		pos = Camera.main.ScreenToWorldPoint(pos);
 
@@ -169,7 +169,7 @@ public class gun : MonoBehaviour {
 
 		mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		//Cast a ray from the player thru the gun
-		//pointingDirection = (retical.recPos - transform.position);
+		//pointingDirection = (Reticle.recPos - transform.position);
 		pointingDirection = (mouseWorldPosition - transform.position);
 		//If this returns true it hit something
 		Debug.DrawRay (transform.position, pointingDirection, Color.red);
@@ -191,7 +191,7 @@ public class gun : MonoBehaviour {
 
 	public void kickIfAirbourne(float kickForce){
 		//Get reticle position
-		var pos = Camera.main.ScreenToWorldPoint(retical.recPos);
+		var pos = Camera.main.ScreenToWorldPoint(Reticle.recPos);
 		//Get direction between reticle position and the gunpoint
 		Vector2 direction = (pos - shootFrom.transform.position);
 
@@ -267,7 +267,7 @@ public class gun : MonoBehaviour {
 		gunGlow.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
 		gunUnderlay.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
 		hypeActive = true;
-		trail.Find ("redTrail").GetComponent<trailToggle> ().On ();
+		trail.Find ("redTrail").GetComponent<TrailToggle> ().On ();
 		StartCoroutine (WaitAndEndHype());
 		ScoreKeeper.HYPED = true;
 		HypeCounter ();
@@ -285,7 +285,7 @@ public class gun : MonoBehaviour {
 		gunGlow.SetActive (false);
 		gunUnderlay.GetComponent<SpriteRenderer> ().color = Color.white;
 		hypeActive = false;
-		trail.Find ("redTrail").GetComponent<trailToggle> ().Off ();
+		trail.Find ("redTrail").GetComponent<TrailToggle> ().Off ();
 		ScoreKeeper.HYPED = false;
 		HypeCounter ();
 		HYPECounter.incrementHype (false); //Reset HYPE, since it was activated.

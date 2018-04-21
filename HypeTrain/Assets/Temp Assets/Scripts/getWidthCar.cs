@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class getWidthCar : MonoBehaviour {
+public class GetWidthCar : MonoBehaviour {
 
 	public GameObject left;
 	public GameObject right;

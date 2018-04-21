@@ -41,7 +41,7 @@ public class HYPEController : MonoBehaviour
 		gun = gunArm.transform.Find ("Gun").gameObject;
 		gunGlow = gun.transform.Find ("Glow").gameObject;
 		gunGlow.SetActive (false);
-		gunScript = gunArm.GetComponent<gun> ();
+		gunScript = gunArm.GetComponent<Gun> ();
 		HYPETimer = HYPEDuration;
 	}
 	

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class deleteIfOffScreen : MonoBehaviour {
+public class DeleteIfOffScreen : MonoBehaviour {
 
 	//We will make this a reference to the camera
 	private GameObject mainCamera = null;

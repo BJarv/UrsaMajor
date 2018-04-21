@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class magnetic : MonoBehaviour {
+public class Magnetic : MonoBehaviour {
 
 	public GameObject player;
 	public bool magnetized = false;

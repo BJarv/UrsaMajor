@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class wallSlide : MonoBehaviour {
+public class WallSlide : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

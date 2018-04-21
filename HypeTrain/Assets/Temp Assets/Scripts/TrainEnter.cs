@@ -20,7 +20,7 @@ public class TrainEnter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cameraObj = GameObject.Find("Main Camera");
-		trainSpawn = GameObject.Find ("trainSpawner");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
 
@@ -53,8 +53,8 @@ public class TrainEnter : MonoBehaviour {
 		//Special case for entering the Shop Car
 		if (transform.parent.transform.parent.transform.parent.name == "ShopCar(Clone)") {
 			//Lock camera on the shop car
-			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter(trainSpawn.GetComponent<trainSpawner>().theShopCar));
-			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel(trainSpawn.GetComponent<trainSpawner>().theShopCar);
+			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter(trainSpawn.GetComponent<TrainSpawner>().theShopCar));
+			sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel(trainSpawn.GetComponent<TrainSpawner>().theShopCar);
 		} 
 		//Default case
 		else {
@@ -64,10 +64,10 @@ public class TrainEnter : MonoBehaviour {
 				wall.GetComponent<SpikeWall>().activateSpikeTimer();
 			} 
 			//Remove previous train
-			trainSpawn.GetComponent<trainSpawner>().KillTrain();
+			trainSpawn.GetComponent<TrainSpawner>().KillTrain();
 			//Lock camera on the current car
-			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
-			sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
+			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
+			sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel();
 		}
 		hatchAnimator.Play ("Entry"); //Play entry animation once
 		//Pass through

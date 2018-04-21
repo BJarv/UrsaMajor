@@ -78,7 +78,7 @@ public class CharControl : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofPlayer, true); //ignore tucker collision
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofProjs, true);
 		Physics2D.IgnoreLayerCollision (IDofTucker, IDofNodes, true);
-		Physics2D.IgnoreLayerCollision (IDofRet, IDofPlayer, true); //ignore collision on retical
+		Physics2D.IgnoreLayerCollision (IDofRet, IDofPlayer, true); //ignore collision on Reticle
 		//Physics2D.IgnoreLayerCollision (IDofRet, IDofTucker, true);
 		//Physics2D.IgnoreLayerCollision (IDofRet, IDofEnes, true);
 		Physics2D.IgnoreLayerCollision (IDofRet, IDofProjs, true);
@@ -183,7 +183,7 @@ public class CharControl : MonoBehaviour {
 		animator.SetBool ("Jump", false);
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		Game.incDeaths();
-		gun.keyLoaded = false; //So that player does not shoot key on respawning\
+		Gun.keyLoaded = false; //So that player does not shoot key on respawning\
 		ScoreKeeper.DisplayScore = 0;
 		Invoke ("setDead", 1f);
 	}

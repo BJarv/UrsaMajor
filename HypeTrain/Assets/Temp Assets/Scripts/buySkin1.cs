@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class buySkin1 : MonoBehaviour {
+public class BuySkin1 : MonoBehaviour {
 
 	public int price;
 	public Sprite gunArm;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class getSafeKey : MonoBehaviour {
+public class GetSafeKey : MonoBehaviour {
 
 	public AudioClip kaChing;
 	public Sprite gunKey;
@@ -13,7 +13,7 @@ public class getSafeKey : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		trainSpawn = GameObject.Find ("trainSpawner");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 		gunSprite = GameObject.Find ("Gun").GetComponent<SpriteRenderer>();
 		money = GameObject.Find ("Main Camera").GetComponent<Itemizer>();
         Invoke("ActivateCollider", .2f); //Delay trigger activation so player doesn't immediately pickup when firing
@@ -30,7 +30,7 @@ public class getSafeKey : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 
 			gunSprite.sprite = gunKey; //Change gun sprite to have key in it
-			gun.keyLoaded = true;		   //Next fire attempt will shoot key instead of bullet
+			Gun.keyLoaded = true;		   //Next fire attempt will shoot key instead of bullet
 			Destroy (gameObject);
 		}
 	}
@@ -40,7 +40,7 @@ public class getSafeKey : MonoBehaviour {
 		if (hit.gameObject.name == "vault") {
 			try {
 				//Get location to instantiate loot at
-				Vector3 vaultLoc = trainSpawn.GetComponent<trainSpawner> ().headVault ();
+				Vector3 vaultLoc = trainSpawn.GetComponent<TrainSpawner> ().headVault ();
 				int repeat = (int)Random.Range (30 * Multiplier.safeDrop, 60 * Multiplier.safeDrop); //spawn coins between 30 and 60
 				while (repeat > 0) {
 					money.At (vaultLoc, 1);

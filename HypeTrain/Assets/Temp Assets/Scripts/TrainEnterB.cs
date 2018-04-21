@@ -15,7 +15,7 @@ public class TrainEnterB : MonoBehaviour {
 	void Start () {
 		//Player = GameObject.Find("Player");
 		cameraObj = GameObject.Find("Main Camera");
-		trainSpawn = GameObject.Find ("trainSpawner");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 		sidePanel = GameObject.Find ("sidepanel");
 	}
 	
@@ -40,12 +40,12 @@ public class TrainEnterB : MonoBehaviour {
 		}
 		//Pass through
 		//Remove previous train
-		trainSpawn.GetComponent<trainSpawner>().KillTrain();
+		trainSpawn.GetComponent<TrainSpawner>().KillTrain();
 		//Lock camera on the current car
-		cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<trainSpawner>().headCenter());
+		cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
 		cameraObj.GetComponent<Camera2D>().setLock(true);
 		//Remove side panel
-		sidePanel = trainSpawn.GetComponent<trainSpawner>().headPanel();
+		sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel();
 		sidePanel.SetActive(false);
 	}
 }

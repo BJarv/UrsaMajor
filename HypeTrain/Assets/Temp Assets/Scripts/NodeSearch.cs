@@ -33,31 +33,31 @@ public class NodeSearch : MonoBehaviour {
 			dn.transform.position = d;
 		}
 		//dist and previous dictionaries
-		Dictionary<path_node, float> dist = new Dictionary<path_node, float>();
-		Dictionary<path_node, path_node> prev = new Dictionary<path_node, path_node>();
+		Dictionary<PathNode, float> dist = new Dictionary<PathNode, float>();
+		Dictionary<PathNode, PathNode> prev = new Dictionary<PathNode, PathNode>();
 		//queue for BFS
-		Queue<path_node> q = new Queue<path_node> ();
-		Queue<path_node> visited = new Queue<path_node> ();
+		Queue<PathNode> q = new Queue<PathNode> ();
+		Queue<PathNode> visited = new Queue<PathNode> ();
 		//setup initial values for search
-		dist [sn.GetComponent<path_node>()] = 0;
-		prev [sn.GetComponent<path_node>()] = null;
-		q.Enqueue (sn.GetComponent<path_node>());
+		dist [sn.GetComponent<PathNode>()] = 0;
+		prev [sn.GetComponent<PathNode>()] = null;
+		q.Enqueue (sn.GetComponent<PathNode>());
 
 		while (q.Count > 0) { //while there are still nodes to search
 			//in the case of coroutine, yield if taking too long
-			path_node temp = q.Dequeue();
-			List<Collider2D> neighbors = temp.transform.GetComponent<path_node>().neighbors();
+			PathNode temp = q.Dequeue();
+			List<Collider2D> neighbors = temp.transform.GetComponent<PathNode>().neighbors();
 			visited.Enqueue(temp);
 			foreach (Collider2D neighbor in neighbors) {
 				//Debug.Log ("neighbor: " + neighbor.name);
-				if(!visited.Contains (neighbor.transform.GetComponent<path_node>())){
+				if(!visited.Contains (neighbor.transform.GetComponent<PathNode>())){
 					//Debug.Log ("in contains if");
-					q.Enqueue(neighbor.transform.GetComponent<path_node>());
-					prev[neighbor.transform.GetComponent<path_node>()] = temp;
-					if(neighbor.transform.GetComponent<path_node>() == dn.GetComponent<path_node>()) {
+					q.Enqueue(neighbor.transform.GetComponent<PathNode>());
+					prev[neighbor.transform.GetComponent<PathNode>()] = temp;
+					if(neighbor.transform.GetComponent<PathNode>() == dn.GetComponent<PathNode>()) {
 						Debug.Log ("path found");
 						//return shortest path
-						path_node tracer = neighbor.transform.GetComponent<path_node>();
+						PathNode tracer = neighbor.transform.GetComponent<PathNode>();
 						while(prev[tracer] != null) { //construct shortest path by going up prev list
 							//Debug.Log ("adding to path: " + tracer.getPos ());
 							path.Add(tracer.getPos());

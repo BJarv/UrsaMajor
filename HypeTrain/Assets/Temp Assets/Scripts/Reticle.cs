@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class retical : MonoBehaviour {
+public class Reticle : MonoBehaviour {
 
 	public int reticalSize = 32;
 	public static Vector3 recPos;

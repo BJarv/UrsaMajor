@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class enemyMissile : MonoBehaviour {
+public class EnemyMissile : MonoBehaviour {
 
 	//Player Reference
 	[HideInInspector] public Transform player;
@@ -61,7 +61,7 @@ public class enemyMissile : MonoBehaviour {
 		}
 		//If it hits a breakable object, damage it
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
-			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
+			colObj.gameObject.GetComponent<Breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		} else if(colObj.tag != "enemy") {
 			Destroy (gameObject);

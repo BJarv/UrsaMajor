@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class logo : MonoBehaviour {
+public class Logo : MonoBehaviour {
 
 	//How long the long the logo will show if nothing is pressed
 	public float logoLifetime = 3f;

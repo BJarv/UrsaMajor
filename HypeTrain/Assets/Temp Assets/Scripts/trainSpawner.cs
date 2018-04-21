@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class trainSpawner : MonoBehaviour {
+public class TrainSpawner : MonoBehaviour {
 	
 	//variables
 	private int carsCompleted;
@@ -14,7 +14,7 @@ public class trainSpawner : MonoBehaviour {
 	private GameObject tempTrain;
 	public GameObject player;
 	private GameObject cameraObj;
-	private getWidthCar widthFind;
+	private GetWidthCar widthFind;
 	private float theWidth;
 	public float widthBetween = 2f;
 	private float begTim;
@@ -45,7 +45,7 @@ public class trainSpawner : MonoBehaviour {
 			testCarOn = true;
 			QueueAndMove(testCar);
 			QueueAndMove(testCar);
-		} else if (TutShopController.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
+		} else if (TutorialShopController.tutorial) { //if tutorial is on, load tutorial cars first and set camera and player to spawn correctly
 			QueueAndMove(tutCar1);
 			QueueAndMove(tutCar2);
 			GameObject tutorialCar = (GameObject)trains.Peek();
@@ -74,8 +74,8 @@ public class trainSpawner : MonoBehaviour {
 		if(testCarOn){
 			QueueAndMove (testCar);
 		} else {
-			tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.Length - trainSpawner.exPoint)], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
-			theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
+			tempTrain = (GameObject)Instantiate(possTrains[Random.Range(0, possTrains.Length - TrainSpawner.exPoint)], transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
+			theWidth = tempTrain.GetComponent<GetWidthCar> ().carWidth (); //get car width				
 			float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
 			tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter); //right justify the car to properly space them
 			trains.Enqueue(tempTrain); //put train game object into trains queue
@@ -85,7 +85,7 @@ public class trainSpawner : MonoBehaviour {
 
 	void QueueAndMove(GameObject traincar){ //loads specific car passed in rather than random car
 		tempTrain = (GameObject)Instantiate(traincar, transform.position, Quaternion.identity); //Instantiate random train at position of trainspawner
-		theWidth = tempTrain.GetComponent<getWidthCar> ().carWidth (); //get car width				
+		theWidth = tempTrain.GetComponent<GetWidthCar> ().carWidth (); //get car width				
 		float railToCenter = railHeight - tempTrain.transform.Find ("base").transform.localPosition.y;
 		tempTrain.transform.position = new Vector2(tempTrain.transform.position.x + theWidth/2, railToCenter);
 		trains.Enqueue(tempTrain); //put train game object into trains queue
@@ -95,7 +95,7 @@ public class trainSpawner : MonoBehaviour {
 	void spawnShop() {
 		theShopCar = (GameObject)Instantiate(shopCar, transform.position, Quaternion.identity);
 		float railToCenter = railHeight - theShopCar.transform.Find ("base").transform.localPosition.y;
-		theShopCar.transform.position = new Vector2(theShopCar.transform.position.x - theShopCar.GetComponent<getWidthCar>().carWidth()/2 - 1.5f, railToCenter + 3f);
+		theShopCar.transform.position = new Vector2(theShopCar.transform.position.x - theShopCar.GetComponent<GetWidthCar>().carWidth()/2 - 1.5f, railToCenter + 3f);
 	}
 	
 
@@ -107,14 +107,14 @@ public class trainSpawner : MonoBehaviour {
 			Destroy (deadTrain);
 			CancelInvoke();
 			deadTrain = (GameObject)trains.Dequeue();
-			fallAwayPoint = new Vector2(deadTrain.transform.position.x - deadTrain.GetComponent<getWidthCar>().carWidth() * 3f,  deadTrain.transform.position.y);
+			fallAwayPoint = new Vector2(deadTrain.transform.position.x - deadTrain.GetComponent<GetWidthCar>().carWidth() * 3f,  deadTrain.transform.position.y);
 			Destroy(deadTrain, deathDelay);
 			//Invoke ("emptyDeadTrain", deathDelay);
 			QueueAndMove();
 			string c = trains.Peek ().name;
 			//If upcoming car is NOT in the exemptCars array, try to spawn enemies of top of it
 			if(!exemptNames.Contains (c)) {
-				gameObject.GetComponent<topTrainEnemies>().spawnEnemies();
+				gameObject.GetComponent<TopTrainEnemies>().spawnEnemies();
 			}
 		}
 	}

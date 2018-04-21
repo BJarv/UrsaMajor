@@ -18,12 +18,7 @@ public class AirBlast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		/* SAM'S CODE, SEE LINE 16 FOR ABBREVIATED VERSION
-		 * If this airblast has existed for 1/10 s and hasn't hit anything, kill itself.
-		timer += Time.deltaTime;
-		if (timer >= .1f) {
-			Destroy (gameObject);
-		}*/
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

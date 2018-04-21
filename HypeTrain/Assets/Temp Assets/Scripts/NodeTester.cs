@@ -14,7 +14,7 @@ public class NodeTester : MonoBehaviour {
 	void Update () {
 		if (test) {
 			test = false;
-			List<Collider2D> hits = GetComponent<path_node>().neighbors();
+			List<Collider2D> hits = GetComponent<PathNode>().neighbors();
 			foreach(Collider2D hit in hits) {
 				Debug.Log (hit.name);
 			}

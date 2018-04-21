@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TutShopController : MonoBehaviour {
+public class TutorialShopController : MonoBehaviour {
 
 	public static bool tutorial = false;
 	public static bool shop = false;
@@ -10,7 +10,7 @@ public class TutShopController : MonoBehaviour {
 	void Start () {
 		if (PlayerPrefsBool.GetBool ("firstTime")) {
 			PlayerPrefsBool.SetBool ("firstTime", false);
-			TutShopController.tutorial = true;
+			TutorialShopController.tutorial = true;
 		} 
 	}
 	

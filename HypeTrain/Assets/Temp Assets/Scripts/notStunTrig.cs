@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class notStunTrig : MonoBehaviour {
+public class NotStunTrig : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {

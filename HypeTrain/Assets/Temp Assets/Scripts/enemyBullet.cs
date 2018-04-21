@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class enemyBullet : MonoBehaviour {
+public class EnemyBullet : MonoBehaviour {
 
 	public int bulletDeath = 3;
 	[HideInInspector] public int layerOfTrigs = 8; //8 is the triggers layer
@@ -30,7 +30,7 @@ public class enemyBullet : MonoBehaviour {
 		}
 		//If it hits a breakable object
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
-			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
+			colObj.gameObject.GetComponent<Breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		} else if(colObj.tag != "enemy") {
 			Destroy (gameObject);

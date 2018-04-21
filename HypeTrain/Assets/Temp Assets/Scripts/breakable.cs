@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class breakable : MonoBehaviour
+public class Breakable : MonoBehaviour
 {
 
 	public float durability = 1f;

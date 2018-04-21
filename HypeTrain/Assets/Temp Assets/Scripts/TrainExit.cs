@@ -33,7 +33,7 @@ public class TrainExit : MonoBehaviour {
 		cameraObj = GameObject.Find("Main Camera");
 		Player = GameObject.Find("Player");
 		sidePanel = GameObject.Find ("sidepanel");
-		trainSpawn = GameObject.Find ("trainSpawner");
+		trainSpawn = GameObject.Find ("TrainSpawner");
 	}
 	
 	// Update is called once per frame
@@ -59,7 +59,7 @@ public class TrainExit : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D hit) 
 	{
 		if(transform.parent.transform.parent.transform.parent.name.Contains("TutorialCar_2")){ //if this car is the 2nd Tutorial Car, turn off tutorial when you leave it.
-			TutShopController.tutorial = false;
+			TutorialShopController.tutorial = false;
 		}
 		check = false;
 		if(!transform.parent.transform.parent.transform.parent.name.Contains("DinoCar")){ //if this car is the 2nd Tutorial Car, turn off tutorial when you leave it.
@@ -98,8 +98,8 @@ public class TrainExit : MonoBehaviour {
 			Player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 			//Specific case to launch player from Shop Car
 			if (transform.parent.transform.parent.transform.parent.name == "ShopCar(Clone)") {
-				exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele (trainSpawn.GetComponent<trainSpawner>().theShopCar);
-				sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel (trainSpawn.GetComponent<trainSpawner>().theShopCar);
+				exitPos = trainSpawn.GetComponent<TrainSpawner> ().exitTele (trainSpawn.GetComponent<TrainSpawner>().theShopCar);
+				sidePanel = trainSpawn.GetComponent<TrainSpawner> ().headPanel (trainSpawn.GetComponent<TrainSpawner>().theShopCar);
 				transform.parent.transform.Find("entryRange").gameObject.GetComponent<Collider2D>().enabled = false;
 				Debug.Log ("HAYDEN START IN TRAIN EXIT, LINE 105");
 				Debug.Log ("Disabled " + transform.parent.transform.Find("entryRange").name);
@@ -107,8 +107,8 @@ public class TrainExit : MonoBehaviour {
 			} 
 			//Default case for finding where to launch player from
 			else {
-				exitPos = trainSpawn.GetComponent<trainSpawner> ().exitTele ();
-				sidePanel = trainSpawn.GetComponent<trainSpawner> ().headPanel ();
+				exitPos = trainSpawn.GetComponent<TrainSpawner> ().exitTele ();
+				sidePanel = trainSpawn.GetComponent<TrainSpawner> ().headPanel ();
 			}
 			exitPos.y -= .4f;
 			//Launch player from exit hatch

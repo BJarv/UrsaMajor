@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class trainLootCounter : MonoBehaviour {
+public class TrainLootCounter : MonoBehaviour {
 	public GUIStyle style;
 	// Use this for initialization
 	void Start () {

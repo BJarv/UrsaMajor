@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class enemyLobbedProjectile : MonoBehaviour {
+public class EnemyLobbedProjectile : MonoBehaviour {
 
 	public float lifetime = 3f;
 	public float spinningSpeed = 5f;
@@ -32,7 +32,7 @@ public class enemyLobbedProjectile : MonoBehaviour {
 		}
 		//If it hits a breakable object, damage it
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {
-			colObj.gameObject.GetComponent<breakable>().Damage(gameObject);
+			colObj.gameObject.GetComponent<Breakable>().Damage(gameObject);
 			Destroy (gameObject);
 		} else if(colObj.tag != "enemy") {
 			Destroy (gameObject);

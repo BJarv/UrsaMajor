@@ -49,7 +49,7 @@ public class Multiplier : MonoBehaviour {
 			}
 			camObj.GetComponent<DesertHandler>().changeTile(forest);
 
-			trainSpawner.exPoint = 0; //Includes DinoCar in PossTrains
+			TrainSpawner.exPoint = 0; //Includes DinoCar in PossTrains
 		} 
 		else if(ScoreKeeper.CarsCompleted == 20){
 			enemyHealth = 1.25f;

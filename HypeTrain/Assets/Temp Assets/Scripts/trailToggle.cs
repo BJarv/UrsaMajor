@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class trailToggle : MonoBehaviour {
+public class TrailToggle : MonoBehaviour {
 
 	public float trailLength = 2;
 	TrailRenderer trail;

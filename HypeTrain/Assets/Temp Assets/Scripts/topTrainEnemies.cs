@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class topTrainEnemies : MonoBehaviour {
+public class TopTrainEnemies : MonoBehaviour {
 
 	public GameObject[] possEnemies;
 
@@ -14,7 +14,7 @@ public class topTrainEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		trainSpawner = GameObject.Find("trainSpawner");
+		trainSpawner = GameObject.Find("TrainSpawner");
 	}
 	
 	// Update is called once per frame
@@ -23,14 +23,14 @@ public class topTrainEnemies : MonoBehaviour {
 	}
 
 	void setSpawns() { //sets 2 spawns, each a third of the way in from the top corners of the trains
-		trains = trainSpawner.GetComponent<trainSpawner>().trains.ToArray();
-		float spawnOffset = trains[0].GetComponent<getWidthCar>().carWidth() / 3f;
-		spawn1 = new Vector2(trains[0].GetComponent<getWidthCar>().left.transform.position.x + spawnOffset, trains[1].GetComponent<getWidthCar>().left.transform.position.y - .4f);
+		trains = trainSpawner.GetComponent<TrainSpawner>().trains.ToArray();
+		float spawnOffset = trains[0].GetComponent<GetWidthCar>().carWidth() / 3f;
+		spawn1 = new Vector2(trains[0].GetComponent<GetWidthCar>().left.transform.position.x + spawnOffset, trains[1].GetComponent<GetWidthCar>().left.transform.position.y - .4f);
 		spawn2 = new Vector2(spawn1.x + spawnOffset, spawn1.y);
 		spawn1 = new Vector2(spawn1.x + spawnOffset/3f, spawn1.y);
 	}
 
-	//called when outside of train bounds in trainSpawner, make enemies possibly jump onto top of train
+	//called when outside of train bounds in TrainSpawner, make enemies possibly jump onto top of train
 	public void spawnEnemies() {
 		setSpawns ();
 		int roll = Random.Range(1, 100);
