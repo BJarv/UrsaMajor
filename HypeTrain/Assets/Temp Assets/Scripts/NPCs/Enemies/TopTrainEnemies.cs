@@ -14,7 +14,7 @@ public class TopTrainEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		trainSpawner = GameObject.Find("TrainSpawner");
+		trainSpawner = GameObject.Find("trainSpawner");
 	}
 	
 	// Update is called once per frame
