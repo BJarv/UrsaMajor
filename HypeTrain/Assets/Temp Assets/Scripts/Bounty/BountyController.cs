@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BountyController : MonoBehaviour {
+public class BountyController : LogController {
 
 	public GameObject[] bounties;
 	public GameObject[] actives;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GetSafeKey : MonoBehaviour {
+public class GetSafeKey : LogController {
 
 	public AudioClip kaChing;
 	public Sprite gunKey;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class throwTrig : MonoBehaviour {
+public class throwTrig : LogController {
 
 	// Use this for initialization
 	void Start () {

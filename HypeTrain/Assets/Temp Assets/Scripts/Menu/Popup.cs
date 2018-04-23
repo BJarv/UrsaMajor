@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Popup : MonoBehaviour {
+public class Popup : LogController {
 
 	public static bool paused = false;
 	private float unmuteVolume;

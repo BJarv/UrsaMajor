@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CanvasVar : MonoBehaviour {
+public class CanvasVar : LogController {
 
 	private Text var;
 

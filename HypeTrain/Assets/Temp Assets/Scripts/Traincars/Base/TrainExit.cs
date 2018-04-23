@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class TrainExit : MonoBehaviour {
+public class TrainExit : LogController {
 	
 	private GameObject Player = null;
 	[HideInInspector] public GameObject cameraObj;

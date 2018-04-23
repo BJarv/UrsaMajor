@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cannonball : MonoBehaviour {
+public class Cannonball : LogController {
 	
 	public float bulletDeath = .1f;
 	[HideInInspector]

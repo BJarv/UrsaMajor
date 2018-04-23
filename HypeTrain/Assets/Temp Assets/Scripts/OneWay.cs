@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class OneWay : MonoBehaviour {
+public class OneWay : LogController {
 	
 	//private GameObject Player = null;
 	// Use this for initialization

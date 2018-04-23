@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PathNode : MonoBehaviour {
+public class PathNode : LogController {
 	//MAKE SURE TO TURN OFF PLAYER COLLISION WITH THE NODES
 
 	Collider2D myNodeCollider;

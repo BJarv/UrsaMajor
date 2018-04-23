@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyGun : MonoBehaviour {
+public class EnemyGun : LogController {
 
 	private bool shooting = false;
 	public float bulletSpeed = 5000f;

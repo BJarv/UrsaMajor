@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class HYPEController : MonoBehaviour
+public class HYPEController : LogController
 {
 
 	[HideInInspector] public GameObject player;

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : LogController {
 
 	public GameObject volSlide;
 

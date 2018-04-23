@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpikeWall : MonoBehaviour {
+public class SpikeWall : LogController {
 
 	public float speed = 4f;
 	public float delay = 1f;

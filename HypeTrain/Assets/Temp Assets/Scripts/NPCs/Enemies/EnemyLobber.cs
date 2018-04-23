@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyLobber : MonoBehaviour {
+public class EnemyLobber : LogController {
 
 	private bool shooting = false;
 	private float timer;

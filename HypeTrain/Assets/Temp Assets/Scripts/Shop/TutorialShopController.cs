@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TutorialShopController : MonoBehaviour {
+public class TutorialShopController : LogController {
 
 	public static bool tutorial = false;
 	public static bool shop = false;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyLobbedProjectile : MonoBehaviour {
+public class EnemyLobbedProjectile : LogController {
 
 	public float lifetime = 3f;
 	public float spinningSpeed = 5f;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class TopTrainEnemies : MonoBehaviour {
+public class TopTrainEnemies : LogController {
 
 	public GameObject[] possEnemies;
 

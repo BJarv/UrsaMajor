@@ -2,7 +2,7 @@
 using System.Collections;
 
 //[System.Serializable]
-public class Game : MonoBehaviour{
+public class Game : LogController{
 	/*public static Game current;
 	public static int lifetimeLoot;
 	public static int currLoot;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TrainEnterB : MonoBehaviour {
+public class TrainEnterB : LogController {
 	
 	[HideInInspector] public GameObject cameraObj;
 	[HideInInspector] public GameObject sidePanel;

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyShotgun : MonoBehaviour {
+public class EnemyShotgun : LogController {
 	
 	private bool shooting = false;
 	public float bulletSpeed = 5000f;

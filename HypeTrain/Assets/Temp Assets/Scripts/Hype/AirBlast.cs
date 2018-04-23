@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AirBlast : MonoBehaviour {
+public class AirBlast : LogController {
 
 	public Vector2 direction;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Magnetic : MonoBehaviour {
+public class Magnetic : LogController {
 
 	public GameObject player;
 	public bool magnetized = false;
@@ -11,6 +11,7 @@ public class Magnetic : MonoBehaviour {
 	void Start () {
 		target = player;
 		speed = 20f;
+        Log("WE DID IT");
 	}
 	
 	// Update is called once per frame

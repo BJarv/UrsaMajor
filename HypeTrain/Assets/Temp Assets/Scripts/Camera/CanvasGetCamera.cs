@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class CanvasGetCamera : MonoBehaviour {
+public class CanvasGetCamera : LogController {
 
 	// Use this for initialization
 	void Start () {

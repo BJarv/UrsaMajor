@@ -9,7 +9,7 @@ public enum TuckerState {
 	JUMP
 }
 
-public class TuckerController: MonoBehaviour {
+public class TuckerController: LogController {
 	private TuckerState state = TuckerState.FOLLOW;
 	NodeSearch nodeSearch;
 	public GameObject target;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class TrainSpawner : MonoBehaviour {
+public class TrainSpawner : LogController {
 	
 	//variables
 	private int carsCompleted;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : LogController {
 	public float maxHealth = 30f;
 	[HideInInspector] public static float playerHealth;
 	public float deathDelay = 1.5f;

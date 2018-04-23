@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class NodeSearch : MonoBehaviour {
+public class NodeSearch : LogController {
 	public GameObject node;
 	private GameObject sn;
 	private GameObject dn;

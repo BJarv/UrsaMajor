@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Buy : MonoBehaviour {
+public class Buy : LogController {
 
 	public float price;
 	public static bool purchased;

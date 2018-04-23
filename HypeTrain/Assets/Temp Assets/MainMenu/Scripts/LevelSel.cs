@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class LevelSel : MonoBehaviour {
+public class LevelSel : LogController {
 	
 	public Texture backgroundTexture;
 	

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class NodeTester : MonoBehaviour {
+public class NodeTester : LogController {
 	public bool test = false;
 	// Use this for initialization
 	void Start () {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HazardCollision : MonoBehaviour {
+public class HazardCollision : LogController {
 
 	private GameObject player = null;
 	public float knockUpForce;

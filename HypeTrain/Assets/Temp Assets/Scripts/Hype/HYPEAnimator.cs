@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class HYPEAnimator : MonoBehaviour {
+public class HYPEAnimator : LogController {
 
 	private Animator animator;
 

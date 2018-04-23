@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IsGrounded : MonoBehaviour {
+public class IsGrounded : LogController {
 
     bool isGrounded;
 

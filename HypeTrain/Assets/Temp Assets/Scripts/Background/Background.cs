@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Background : MonoBehaviour {
+public class Background : LogController {
 
 	/*public float red = 0.5f;
 	public float green = 0.5f;

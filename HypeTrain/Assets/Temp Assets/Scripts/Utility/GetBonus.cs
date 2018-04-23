@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GetBonus : MonoBehaviour {
+public class GetBonus : LogController {
 	public AudioClip kaChing;
 	public int value = 100;
 	// Use this for initialization

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeleteIfOffScreen : MonoBehaviour {
+public class DeleteIfOffScreen : LogController {
 
 	//We will make this a reference to the camera
 	private GameObject mainCamera = null;

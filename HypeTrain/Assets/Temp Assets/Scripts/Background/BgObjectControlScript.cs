@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BgObjectControlScript : MonoBehaviour {
+public class BgObjectControlScript : LogController {
 
 	public float interval = 0f;
 	public GameObject cloud;

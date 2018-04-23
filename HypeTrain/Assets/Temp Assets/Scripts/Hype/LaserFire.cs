@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class LaserFire : MonoBehaviour {
+public class LaserFire : LogController {
 		
 	//What the lazer collides with
 	public LayerMask lazerStoppers;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : LogController {
 	
 	public float bulletDeath = .1f;
 	[HideInInspector]

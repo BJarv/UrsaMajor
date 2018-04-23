@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pulse : MonoBehaviour {
+public class Pulse : LogController {
 
 	Vector3 minSize = new Vector3 (.25f, .25f, .25f);
 	Vector3 maxSize = new Vector3 (1f, 1f, 1f);

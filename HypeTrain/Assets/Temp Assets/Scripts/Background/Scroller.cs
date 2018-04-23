@@ -7,7 +7,7 @@ using System.Collections;
 // by Sam and Hayden
 // </summary>
 
-public class Scroller : MonoBehaviour 
+public class Scroller : LogController 
 {
 
 	public float speed = .05f;

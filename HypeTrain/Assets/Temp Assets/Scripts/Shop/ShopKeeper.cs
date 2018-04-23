@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ShopKeeper : MonoBehaviour {
+public class ShopKeeper : LogController {
 
 	public Text text;
 	[HideInInspector] public GameObject bountyBoard;

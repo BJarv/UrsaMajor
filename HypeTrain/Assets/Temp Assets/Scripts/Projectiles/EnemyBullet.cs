@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyBullet : MonoBehaviour {
+public class EnemyBullet : LogController {
 
 	public int bulletDeath = 3;
 	[HideInInspector] public int layerOfTrigs = 8; //8 is the triggers layer

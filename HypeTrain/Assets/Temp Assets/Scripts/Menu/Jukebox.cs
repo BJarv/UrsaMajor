@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jukebox : MonoBehaviour {
+public class Jukebox : LogController {
 	
 	public GameObject player;
 	public AudioSource jukebox;

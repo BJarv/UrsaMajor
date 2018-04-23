@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrailLayerSwap : MonoBehaviour {
+public class TrailLayerSwap : LogController {
 
 	public int sortLayer = 2; //1 is rendered in front of all sprites on particles layer, 2 is rendered on obstacles layer, 3 is rendered behind train
 	public bool renderForward = false; //false for setting effect behind set layer, true for effect in front of set layer

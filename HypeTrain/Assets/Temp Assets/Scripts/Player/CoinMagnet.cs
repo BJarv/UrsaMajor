@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CoinMagnet : MonoBehaviour {
+public class CoinMagnet : LogController {
 	
 	void OnTriggerEnter2D(Collider2D col) {
 		//Debug.Log (col.gameObject.name);

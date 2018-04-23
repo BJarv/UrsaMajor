@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Breakable : MonoBehaviour
+public class Breakable : LogController
 {
 
 	public float durability = 1f;

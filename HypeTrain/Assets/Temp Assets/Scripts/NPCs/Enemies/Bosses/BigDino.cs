@@ -9,7 +9,7 @@ public enum DinoState //enemy states dictate what mode enemies are in
 	STUN
 }
 
-public class BigDino : MonoBehaviour {
+public class BigDino : LogController {
 	
 	public float health = 100f;
 	public DinoState State = DinoState.IDLE; //basic state

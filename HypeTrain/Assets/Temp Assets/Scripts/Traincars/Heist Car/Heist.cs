@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Heist : MonoBehaviour {
+public class Heist : LogController {
 
 	public GameObject valuables;
 	public GameObject explosionParticles;

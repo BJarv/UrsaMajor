@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class BountyMock : MonoBehaviour {
+public class BountyMock : LogController {
 
 	public bool Cumulative = false;
 	public int total = 0;

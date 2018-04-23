@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyLauncher : MonoBehaviour {
+public class EnemyLauncher : LogController {
 	
 	private bool shooting = false;
 	public float shotTimer;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-abstract public class Hype : MonoBehaviour {
+abstract public class Hype : LogController {
 
 	//	These scripts will be attached to gun and define how gun should shoot
 

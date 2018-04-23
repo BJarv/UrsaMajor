@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Reticle : MonoBehaviour {
+public class Reticle : LogController {
 
 	public int reticalSize = 32;
 	public static Vector3 recPos;

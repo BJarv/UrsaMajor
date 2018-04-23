@@ -9,7 +9,7 @@ public enum JumpState
 }
 
 
-public class CharControl : MonoBehaviour {
+public class CharControl : LogController {
 
 	private Animator animator; //Store a ref to the animator so we can use it later
 	private Rigidbody2D r;

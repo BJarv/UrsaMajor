@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GetWidthCar : MonoBehaviour {
+public class GetWidthCar : LogController {
 
 	public GameObject left;
 	public GameObject right;

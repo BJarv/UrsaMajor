@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class CanvasTrans : MonoBehaviour {
+public class CanvasTrans : LogController {
 
 	// Use this for initialization
 	void Start () {

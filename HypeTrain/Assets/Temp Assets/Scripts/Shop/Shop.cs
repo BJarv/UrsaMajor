@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shop : MonoBehaviour {
+public class Shop : LogController {
 
 	[HideInInspector] public GameObject player;
 	public RuntimeAnimatorController skin;

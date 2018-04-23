@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScoreKeeper : MonoBehaviour {
+public class ScoreKeeper : LogController {
 
 	public GUIStyle scoreStyle;
 

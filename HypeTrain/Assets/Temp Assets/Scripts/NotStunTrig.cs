@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NotStunTrig : MonoBehaviour {
+public class NotStunTrig : LogController {
 	
 	// Use this for initialization
 	void Start () {

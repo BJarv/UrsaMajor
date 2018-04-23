@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyMissile : MonoBehaviour {
+public class EnemyMissile : LogController {
 
 	//Player Reference
 	[HideInInspector] public Transform player;

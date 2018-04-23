@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Camera2D : MonoBehaviour {
+public class Camera2D : LogController {
 
 	//Camera Tracking Variables
 

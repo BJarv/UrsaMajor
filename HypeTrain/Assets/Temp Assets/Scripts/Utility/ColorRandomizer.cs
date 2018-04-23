@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ColorRandomizer : MonoBehaviour {
+public class ColorRandomizer : LogController {
 
 	// Use this for initialization
 	void Start () {

@@ -10,7 +10,7 @@ public enum EnemyState //enemy states dictate what mode enemies are in
 	JUMP
 }
 
-public class Enemy : MonoBehaviour {
+public class Enemy : LogController {
 
 	public float health = 20f;
 	public EnemyState State = EnemyState.IDLE; //basic state

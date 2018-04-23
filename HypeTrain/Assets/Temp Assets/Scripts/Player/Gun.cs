@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Gun : MonoBehaviour {
+public class Gun : LogController {
 	//Bullet variables
 	public float bulletSpeed = 500f;
 	public float kickForce = 1000f;

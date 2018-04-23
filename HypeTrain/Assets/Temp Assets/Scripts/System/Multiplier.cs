@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Multiplier : MonoBehaviour {
+public class Multiplier : LogController {
 
 	public static float enemyHealth = 1f;
 	public static float enemySpeed = 1f;

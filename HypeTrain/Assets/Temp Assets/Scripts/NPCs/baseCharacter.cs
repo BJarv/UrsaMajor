@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class baseCharacter : MonoBehaviour
+public class baseCharacter : LogController
 {
 
     protected enum JumpStates

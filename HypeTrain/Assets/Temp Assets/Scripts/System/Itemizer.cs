@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections; 
 
-public class Itemizer : MonoBehaviour {
+public class Itemizer : LogController {
 	
 	public GameObject coin;     
 	public GameObject safeKey;   

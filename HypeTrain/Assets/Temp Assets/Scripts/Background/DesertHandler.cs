@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DesertHandler : MonoBehaviour {
+public class DesertHandler : LogController {
 
 	//This is the first background we want to access.
 	public GameObject tile;

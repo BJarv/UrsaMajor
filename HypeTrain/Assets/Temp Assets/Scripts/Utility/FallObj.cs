@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FallObj : MonoBehaviour {
+public class FallObj : LogController {
 
 	public float damageSpeed;
 	public float playerDamage;
