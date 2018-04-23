@@ -15,11 +15,7 @@ public class GetBonus : LogController {
 	}
 
 	void OnTriggerEnter2D(Collider2D hit){
-		//Debug.Log ("\n");
-		//Debug.Log (hit.gameObject.tag);
-		//Debug.Log ("\n");
 		if(hit.gameObject.tag == "Player"){
-			Debug.Log ("getBonus: Collided with player.");
 			AudioSource.PlayClipAtPoint(kaChing, Camera.main.transform.position);
 			ScoreKeeper.Score += value;
 			Game.addLoot (value);
