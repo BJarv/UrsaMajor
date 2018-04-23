@@ -1064,6 +1064,16 @@ Prefab:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 1939969899}
+    - target: {fileID: 114000012048399134, guid: fdd7f9435866e304d9d31fb3e4c30c85,
+        type: 2}
+      propertyPath: HYPEPlane
+      value: 
+      objectReference: {fileID: 169608, guid: 2d0f404aaeb4d414f948b009af404d07, type: 2}
+    - target: {fileID: 114000012048399134, guid: fdd7f9435866e304d9d31fb3e4c30c85,
+        type: 2}
+      propertyPath: equippedHypePrefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdd7f9435866e304d9d31fb3e4c30c85, type: 2}
   m_IsPrefabParent: 0
