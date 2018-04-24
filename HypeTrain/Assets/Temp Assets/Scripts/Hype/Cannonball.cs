@@ -40,9 +40,9 @@ public class Cannonball : LogController {
 
 		GameObject tempExplo = (GameObject)Instantiate (explosion, transform.position, Quaternion.identity);//show explosion
 		Camera.main.transform.parent.transform.GetComponent<CameraShake> ().bumpIt (); //shake camera a bit
-		Destroy (tempExplo, tempExplo.GetComponent<ParticleSystem> ().startLifetime);
+        Destroy(tempExplo, tempExplo.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-		foreach (Collider2D colObj in objs) { //apply bullet effects but to each object in explosion radius
+        foreach (Collider2D colObj in objs) { //apply bullet effects but to each object in explosion radius
 			if (colObj.tag == "enemy") {
 				colObj.gameObject.GetComponent<Enemy> ().Hurt (damage);
 				if (transform.position.x - colObj.transform.position.x > 0) {

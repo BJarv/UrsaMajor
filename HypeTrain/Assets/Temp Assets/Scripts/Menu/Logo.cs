@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Logo : LogController {
@@ -18,7 +19,7 @@ public class Logo : LogController {
 		//If lifetime expires or player presses any key, load menu
 		if(logoLifetime <= 0 || Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1){
 			Debug.Log("Now loading!");
-			Application.LoadLevel ("MainMenu");
+			SceneManager.LoadScene ("MainMenu");
 		}
 	}
 }

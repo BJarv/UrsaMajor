@@ -37,9 +37,9 @@ public class HypeRed : Hype {
 
 		GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 		particles.GetComponent<ParticleSystem>().Play ();
-		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+        Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-		//	Would like this to return intershotDelay
-		return intershotDelay;
+        //	Would like this to return intershotDelay
+        return intershotDelay;
 	}
 }

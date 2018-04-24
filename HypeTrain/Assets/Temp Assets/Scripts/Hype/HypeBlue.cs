@@ -33,7 +33,7 @@ public class HypeBlue : Hype {
 		//Create particles for shot
 		GameObject particles = (GameObject)Instantiate(airShotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 		particles.GetComponent<ParticleSystem>().Play ();
-		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+		Destroy (particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
 		//	Would like this to return intershotDelay
 		return intershotDelay;

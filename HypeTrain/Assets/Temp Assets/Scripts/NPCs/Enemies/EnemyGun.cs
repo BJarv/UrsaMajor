@@ -44,9 +44,9 @@ public class EnemyGun : LogController {
 		rotToPlayer *= Quaternion.Euler (0, 0, 90);
 		GameObject particles = (GameObject)Instantiate(shotParticles, transform.position, rotToPlayer); //apply particles
 		particles.GetComponent<ParticleSystem>().Play ();
-		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+        Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-		return bulletInstance;
+        return bulletInstance;
 	}
 
 	public void isShooting(bool x){

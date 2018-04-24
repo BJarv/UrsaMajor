@@ -36,8 +36,8 @@ public class Heist : LogController {
 			//Destroy the loot
 			GameObject particles = (GameObject)Instantiate(explosionParticles, valuables.transform.position, valuables.transform.rotation);
 			particles.GetComponent<ParticleSystem>().Play ();
-			Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-			Destroy(valuables);
+            Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
+            Destroy(valuables);
 
 			//Deactivate all lasers
 			gameObject.SetActive(false);

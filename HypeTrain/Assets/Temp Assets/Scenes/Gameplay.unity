@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c6ef639833b40b0a37d53317dc18d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   shakeTime: 0.1
   shakeAmount: 0.15
   altShakeAmount: 2
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c407e01a27fc40f8a1c51ed023d7c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   bounties:
   - {fileID: 202571215}
   - {fileID: 734714433}
@@ -249,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9806fb4c15bfe394994b6f0f2026be0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
 --- !u!114 &57588435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c7a17758264073805773a89f45818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   bountyNumber: 3
   bountyName: Rex Wrecker
   description: Kill 4 Dinos
@@ -747,6 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c7a17758264073805773a89f45818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   bountyNumber: 1
   bountyName: Western Slayer
   description: Kill 5 Enemies
@@ -1035,6 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   sortLayer: 2
   renderForward: 1
 --- !u!114 &265687750
@@ -1049,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c54a30f0c374478407310cd4d6652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   trailLength: 2
 --- !u!96 &265687751
 TrailRenderer:
@@ -1286,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7106c1e5806d749ad620cce54f9ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   sortLayer: 2
   renderForward: 0
 --- !u!114 &504938440
@@ -1297,9 +1305,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 504938437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4cdfe7af7062a92459291d0040036b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
+  player: {fileID: 0}
+  gunArm: {fileID: 0}
+  gun: {fileID: 0}
+  gunGlow: {fileID: 0}
+  gunScript: {fileID: 0}
+  HYPEPlane: {fileID: 0}
+  HYPEDuration: 7
+  HYPEsound: {fileID: 0}
 --- !u!120 &504938441
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1511,7 +1528,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1809972732
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5038,6 +5055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   sortLayer: 2
   renderForward: 1
 --- !u!114 &701420310
@@ -5052,6 +5070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c54a30f0c374478407310cd4d6652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   trailLength: 2
 --- !u!96 &701420311
 TrailRenderer:
@@ -5308,6 +5327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c7a17758264073805773a89f45818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   bountyNumber: 2
   bountyName: Loot Legend
   description: Collect $10,000
@@ -5852,6 +5872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc131675f3e6bc248a4c3c7920a97789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   speed: 1
   true4Left: 1
   handleSpeed: 0
@@ -6086,6 +6107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c54a30f0c374478407310cd4d6652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   trailLength: 2
 --- !u!114 &1132594783
 MonoBehaviour:
@@ -6099,6 +6121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   sortLayer: 2
   renderForward: 1
 --- !u!96 &1132594784
@@ -6347,6 +6370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6940eea18fe00764986b4033cff1a66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   scoreStyle:
     m_Name: 
     m_Normal:
@@ -6433,6 +6457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362e5e6d48748244591180c1310eb96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   moveSpeed: 10
   maxJumpForce: 1100
   airMoveSpeed: 40
@@ -6627,6 +6652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b1e1df131f8954bbd9f635c57ec5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   t: 0
   nightynight: {r: 0.12435122, g: 0.12435122, b: 0.33823532, a: 1}
   dayday: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
@@ -6678,6 +6704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c54a30f0c374478407310cd4d6652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   trailLength: 2
 --- !u!114 &1186798423
 MonoBehaviour:
@@ -6691,6 +6718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac092e24405e8ed41ba57d4be0f318f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   sortLayer: 2
   renderForward: 1
 --- !u!96 &1186798424
@@ -6816,6 +6844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc131675f3e6bc248a4c3c7920a97789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   speed: 1
   true4Left: 1
   handleSpeed: 0
@@ -6942,6 +6971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69a8db1804bf704b9fda55f671fe3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 302593
@@ -7108,6 +7138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da399ec676f6c44997f6432d8ad5d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
 --- !u!212 &1541523216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7341,6 +7372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee67c782cc23449a4a91b9b07c6b7df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
 --- !u!1001 &1686544785
 Prefab:
   m_ObjectHideFlags: 0
@@ -7908,6 +7940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b9df3c5c5747eba35ded498917251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggingEnabled: 0
   bulletSpeed: 1200
   kickForce: 600
   magSize: 4

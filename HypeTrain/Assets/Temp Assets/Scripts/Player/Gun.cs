@@ -152,10 +152,10 @@ public class Gun : LogController {
 
 		GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 		particles.GetComponent<ParticleSystem>().Play ();
-		Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
+        Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-		//If out of bullets after shooting, reload
-		if(inMag <= 0){
+        //If out of bullets after shooting, reload
+        if (inMag <= 0){
 			StartCoroutine (WaitAndReload ());
 		}
 

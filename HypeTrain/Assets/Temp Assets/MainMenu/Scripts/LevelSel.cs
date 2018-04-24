@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelSel : LogController {
@@ -12,23 +13,23 @@ public class LevelSel : LogController {
 		//Display buttons
 		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .1f, Screen.width * .2f, Screen.height * .1f), "firsttest")) {
 			Debug.Log ("Pressed Play!");
-			Application.LoadLevel("firsttest");
+			SceneManager.LoadScene("firsttest");
 		};
 		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .3f, Screen.width * .2f, Screen.height * .1f), "guntest")) {
 			Debug.Log ("Pressed Options!");	
-			Application.LoadLevel("guntest");
+			SceneManager.LoadScene("guntest");
 		};
 		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .5f, Screen.width * .2f, Screen.height * .1f), "AITest")) {
 			Debug.Log ("Pressed Options!");	
-			Application.LoadLevel("AITest");
+			SceneManager.LoadScene("AITest");
 		};
 		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .7f, Screen.width * .2f, Screen.height * .1f), "Anim")) {
 			Debug.Log ("Pressed Options!");	
-			Application.LoadLevel("Anim");
+			SceneManager.LoadScene("Anim");
 		};
 		if (GUI.Button (new Rect (Screen.width * .7f, Screen.height * .1f, Screen.width * .2f, Screen.height * .1f), "trainGen")) {
 			Debug.Log ("Pressed Options!");	
-			Application.LoadLevel("trainGen");
+			SceneManager.LoadScene("trainGen");
 		};
 	}
 }

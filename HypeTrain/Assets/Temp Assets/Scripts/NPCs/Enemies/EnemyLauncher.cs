@@ -54,9 +54,9 @@ public class EnemyLauncher : LogController {
 					particles = (GameObject)Instantiate(shotParticles, shootFrom.position, Quaternion.AngleAxis(180, Vector3.forward)); //apply particles
 				}
 				particles.GetComponent<ParticleSystem>().Play ();
-				Destroy (particles, particles.GetComponent<ParticleSystem>().startLifetime);
-			}
-			if(animTimer <= 0) {
+                Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
+            }
+            if (animTimer <= 0) {
 				if (anim != null && justDidAnim == false){
 					anim.SetTrigger ("throwing");
 					justDidAnim = true;
