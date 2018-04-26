@@ -15,8 +15,6 @@ public class Gun : LogController {
 	public Rigidbody2D bullet;
 	public Rigidbody2D key;
 	//Timing Variables
-	private float reloadTimer;
-	private float shotTimer;
 	private bool canShoot = true;
 	public float reloadTime = 2f;
 	public float interShotDelay = .5f;
@@ -61,8 +59,6 @@ public class Gun : LogController {
 	void Start () {
         keyLoaded = false;
         inMag = magSize;
-		reloadTimer = reloadTime;
-		shotTimer = interShotDelay;
         player = transform.parent.gameObject;
 		trail = player.transform.Find ("HYPEtrail");
         shootFrom = transform.Find("Gun/BarrelTip").gameObject;
@@ -296,6 +292,5 @@ public class Gun : LogController {
 		yield return new WaitForSeconds (reloadTime);
 		inMag = magSize;
 		adjustCounter(inMag);
-		reloadTimer = reloadTime;
 	}
 }

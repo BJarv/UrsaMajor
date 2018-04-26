@@ -9,7 +9,6 @@ public class GetSafeKey : LogController {
 	private GameObject trainSpawn;
 	private SpriteRenderer gunSprite;
 	private Itemizer money;
-    private float timer = 0;
 
 	// Use this for initialization
 	void Start () {

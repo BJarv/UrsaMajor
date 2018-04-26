@@ -14,7 +14,6 @@ public class HYPEController : LogController
 	[HideInInspector] public Component gunScript;
 	public GameObject HYPEPlane;
 
-	private Transform trail;
 	private string trailName;
 
 	//Timer variables
@@ -30,13 +29,11 @@ public class HYPEController : LogController
 	public static bool lazers = false;
 	public static bool airblasts = false;
 	public static bool cannon = false;
-	private bool planeSpawn = true;
 
 	// Use this for initialization
 	void Start ()
 	{
 		player = GameObject.Find ("Player");
-		trail = player.transform.Find ("HYPEtrail");
 		gunArm = player.transform.Find ("GunArm").gameObject;
 		gun = gunArm.transform.Find ("Gun").gameObject;
 		gunGlow = gun.transform.Find ("Glow").gameObject;
