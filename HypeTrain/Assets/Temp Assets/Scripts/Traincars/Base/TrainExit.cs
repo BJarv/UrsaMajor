@@ -33,7 +33,7 @@ public class TrainExit : LogController {
 		cameraObj = GameObject.Find("Main Camera");
 		Player = GameObject.Find("Player");
 		sidePanel = GameObject.Find ("sidepanel");
-		trainSpawn = GameObject.Find ("TrainSpawner");
+		trainSpawn = GameObject.Find ("trainSpawner");
 	}
 	
 	// Update is called once per frame
