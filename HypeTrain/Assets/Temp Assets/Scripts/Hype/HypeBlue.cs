@@ -7,8 +7,7 @@ public class HypeBlue : Hype {
 	public GameObject airShotParticles;
 
 	// Use this for initialization
-	void Start () {
-		base.Start ();
+	protected override void Start () {
 		color = Color.blue;
 	}
 	

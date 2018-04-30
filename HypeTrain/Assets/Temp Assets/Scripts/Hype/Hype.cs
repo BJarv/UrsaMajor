@@ -12,9 +12,8 @@ abstract public class Hype : LogController {
 
 	protected float hypeDuration = 7f;
 
-	// Use this for initialization
-	protected void Start () {
-	}
+    // Use this for initialization
+    protected abstract void Start();
 	
 	// Update is called once per frame
 	void Update () {

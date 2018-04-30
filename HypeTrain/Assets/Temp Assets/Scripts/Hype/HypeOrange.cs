@@ -9,8 +9,7 @@ public class HypeOrange : Hype {
 	public GameObject shotParticles;
 
 	// Use this for initialization
-	void Start () {
-		base.Start ();
+	protected override void Start () {
 		color = new Color (255, 144, 0, 255);
 		intershotDelay = .4f;
 		kickForce = 120f;
