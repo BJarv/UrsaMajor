@@ -2,6 +2,7 @@
 // by Sam Fields
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Background : LogController {
@@ -44,7 +45,7 @@ public class Background : LogController {
 
 		lerpedColor = Color.Lerp(nightynight,dayday, t);
 
-		GetComponent<GUITexture>().color = lerpedColor;
+		GetComponent<Image>().color = lerpedColor;
 		delay = delay + 1;
 
 		//Debug
