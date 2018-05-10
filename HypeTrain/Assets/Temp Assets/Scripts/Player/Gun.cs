@@ -259,6 +259,7 @@ public class Gun : LogController {
 	}
 
 	void BeginHype() {
+        EventManager.TriggerEvent("StartHYPE");
 		gunGlow.SetActive (true);
 		gunGlow.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
 		gunUnderlay.GetComponent<SpriteRenderer> ().color = equippedHype.GetComponent<Hype> ().GetColor ();
