@@ -1,24 +1,23 @@
-﻿using UnityEngine;
+﻿// AUTHORS
+// Hayden Platt     (platt@ursamajorgames.com)
+
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+//Logic to advance past the logo screen after X seconds or input detected.
 public class Logo : LogController {
 
-	//How long the long the logo will show if nothing is pressed
+	[Tooltip("How long the long the logo will display for if nothing is pressed")]
 	public float logoLifetime = 3f;
-
-	// Use this for initialization
-	void Start () {
-		logoLifetime = 3f;
-		Time.timeScale = 1; //ensures time scale isn't 0 from pausing
-	}
 	
 	// Update is called once per frame
 	void Update () {
-		logoLifetime -= Time.deltaTime;
+        logoLifetime -= Time.deltaTime;
+
 		//If lifetime expires or player presses any key, load menu
-		if(logoLifetime <= 0 || Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1){
-			Debug.Log("Now loading!");
+		if(logoLifetime <= 0 || Input.anyKeyDown){
+			Log("Now loading!");
 			SceneManager.LoadScene ("MainMenu");
 		}
 	}

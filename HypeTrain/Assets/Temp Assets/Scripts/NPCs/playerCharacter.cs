@@ -133,6 +133,7 @@ public class playerCharacter : baseCharacter
 
     //Set animator, disable colliders, invoke game over screen
     public void StartDeath(){
+        EventManager.TriggerEvent("PlayerDeath");
         playerDead = true;
         characterAnimator.SetBool("Hit", true);
         characterAnimator.SetBool("Jump", false);

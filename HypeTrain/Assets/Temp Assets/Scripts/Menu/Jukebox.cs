@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class Jukebox : LogController {
 	
-	public GameObject player;
-	public AudioSource jukebox;
+	private GameObject player;
+	private AudioSource jukebox;
 
-	//0 = Cowboy
-	//1 = 8-Bit
 	public int trackNo;
 	public static string trackName;
 
@@ -16,101 +15,96 @@ public class Jukebox : LogController {
 	public AudioClip toHYPE;
 	public AudioClip toDeath;
 
-	public AudioClip[] Cowboy;
-	public AudioClip[] EightBit;
+    //Track clips (dynamic)
+    private AudioClip gameReg;
+    private AudioClip gameFaster;
+    private AudioClip gameFastest;
+    private AudioClip HYPE;
+    private AudioClip death;
 
-	//Track clips (dynamic)
-	public AudioClip title;
-	public AudioClip gameReg;
-	public AudioClip gameFast;
-	public AudioClip HYPE;
-	public AudioClip death;
+    [System.Serializable]
+    public struct Song {
+        public string songName;
+        public AudioClip[] songClips;
+    }
 
-	//Comparison clip to check for clip change
-	public AudioClip diff;
-	//Ignores transition when clip changed from UI player
-	public bool menuSwap = false;
-	
-	// Use this for initialization
-	void Start () {
-		jukebox = gameObject.GetComponent<AudioSource> ();
-		trackNo = PlayerPrefs.GetInt ("track");
+    public Song[] songs;
 
-		if(trackNo == 0) trackName = "Cowboy";
-		else if(trackNo == 1) trackName = "8-Bit";
+    //Ignores transition when clip changed from UI player
+    private bool menuSwap = false;
 
-		diff = jukebox.clip;
+    private void OnEnable()
+    {
+        EventManager.StartListening("PlayerDeath", OnDeath);
+        EventManager.StartListening("StartHYPE", OnHYPE);
+    }
 
-		player = GameObject.Find("Player");
-	}
+    private void OnDisable()
+    {
+        EventManager.StopListening("PlayerDeath", OnDeath);
+        EventManager.StopListening("StartHYPE", OnHYPE);
+    }
+
+    //Initialize references
+    private void Awake()
+    {
+        jukebox = GetComponent<AudioSource>();
+        trackNo = PlayerPrefs.GetInt("track");
+        jukebox.clip = gameFaster;
+        SetTrack(songs[trackNo]);
+    }
+
+    // Use this for initialization
+    void Start () { }
 	
 	// Update is called once per frame
 	void Update () {
-		//Transition sound handler
-		if (diff != jukebox.clip) {
-			if(jukebox.clip == death && !menuSwap){
-				jukebox.PlayOneShot(toDeath, 1);
-				jukebox.PlayDelayed(2.9f);
-			} else if(jukebox.clip == HYPE && !menuSwap){
-				jukebox.PlayOneShot(toHYPE, 1);
-				jukebox.PlayDelayed(1.5f);
-			} else if(jukebox.clip == gameFast && !menuSwap){
-				jukebox.PlayOneShot(toFaster, 1);
-				jukebox.PlayDelayed(.8f);
-			} else { 
-				jukebox.Play();
-			}
-			diff = jukebox.clip;
-			menuSwap = false;
-		}
-		//Change clips to the correct track
-		//Cowboy
-		if (trackNo == 0) {
-			trackName = "Cowboy";
-			title = Cowboy[0];
-			gameReg = Cowboy[1];
-			gameFast = Cowboy[2];
-			HYPE = Cowboy[3];
-			death = Cowboy[4];
-		}
-		//8-BIT
-		if (trackNo == 1) {
-			trackName = "8-Bit";
-			title = EightBit[0];
-			gameReg = EightBit[1];
-			gameFast = EightBit[2];
-			HYPE = EightBit[3];
-			death = EightBit[4];
-		}
-
-		//Audio state switcher
-		if (player.GetComponent<playerCharacter>().currentHealth <= 0 || player.transform.position.y < -5f) {
-			jukebox.clip = death;
-		}
-		else if (ScoreKeeper.HYPED) {
-			jukebox.clip = HYPE;
-		}
-		else if (ScoreKeeper.CarsCompleted >= 1) {
-			jukebox.clip = gameFast;
-		}
+		if (ScoreKeeper.CarsCompleted >= 1) {
+			jukebox.clip = gameFastest;
+            jukebox.PlayOneShot(toFaster, 1);
+            jukebox.PlayDelayed(toFaster.length - .2f);
+        }
 		else {
-			jukebox.clip = gameReg;
+			jukebox.clip = gameFaster;
 		}
 	}
 
+    void OnHYPE() {
+        jukebox.clip = HYPE;
+        jukebox.PlayOneShot(toHYPE, 1);
+        jukebox.PlayDelayed(toHYPE.length - .2f);
+    }
+
+    void OnDeath() {
+        jukebox.clip = death;
+        jukebox.PlayOneShot(toDeath, 1);
+        jukebox.PlayDelayed(toDeath.length - .2f);
+    }
+
+    void SetTrack(Song s) {
+        trackName = s.songName;
+        gameReg = s.songClips[0];
+        gameFaster = s.songClips[1];
+        gameFastest = s.songClips[2];
+        HYPE = s.songClips[3];
+        death = s.songClips[4];
+    }
+
 	//Function for the back arrow in the menu's jukebox
-	public void prevTrack(){
-		if (trackNo == 0) PlayerPrefs.SetInt ("track", 1);
+	public void PrevTrack(){
+		if (trackNo == 0) PlayerPrefs.SetInt ("track", songs.Length - 1);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") - 1));
 		trackNo = PlayerPrefs.GetInt ("track");
+        SetTrack(songs[trackNo]);
 		menuSwap = true;
 	}
 
 	//Function for the forward arrow in the menu's jukebox
-	public void nextTrack(){
-		if (trackNo == 1) PlayerPrefs.SetInt ("track", 0);
+	public void NextTrack(){
+		if (trackNo == songs.Length - 1) PlayerPrefs.SetInt ("track", 0);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") + 1));
 		trackNo = PlayerPrefs.GetInt ("track");
-		menuSwap = true;
+        SetTrack(songs[trackNo]);
+        menuSwap = true;
 	}
 }
