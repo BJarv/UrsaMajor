@@ -33,7 +33,8 @@ public class Multiplier : LogController {
 	
 	// Update is called once per frame
 	void Update () {
-		if(ScoreKeeper.CarsCompleted == 1){
+		if(ScoreKeeper.CarsCompleted == 10){
+            EventManager.TriggerEvent("CarGroupComplete");
 			enemyHealth = 1.1f;
 			enemySpeed = 1.1f;
 			enemyShootCD = 0.9f;

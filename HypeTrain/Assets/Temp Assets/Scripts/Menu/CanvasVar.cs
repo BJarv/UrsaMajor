@@ -8,66 +8,51 @@ public class CanvasVar : LogController {
 
     public enum ScoreVariable {
         TICKER_CARS_COMPLETED,
-        CARS_COMPLETED,
+        TOTAL_CARS_COMPLETED,
         TICKER_KILLS,
-        KILLS,
+        TOTAL_KILLS,
         TICKER_LOOT,
-        LOOT,
+        TOTAL_LOOT,
         LIFETIME_LOOT,
         SONG_NAME
     }
 
+    [Tooltip("Enumerated value which allows designer to easily access various common values for display.")]
     public ScoreVariable valueToDisplay;
-
-	public bool cars;
-	public bool kills;
-	public bool loot;
-	public bool dCars;
-	public bool dKills;
-	public bool dLoot;
-	public bool track;
-	public bool totalLoot;
 
 	// Use this for initialization
 	void Start () {
 		var = transform.GetComponent<Text>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        /*switch (testes) {
-            case Test.TICKER_CARS_COMPLETED:
+        //Retrieve value for text based on selected "valueToDisplay"
+        switch (valueToDisplay) {
+            case ScoreVariable.TICKER_CARS_COMPLETED:
                 var.text = ScoreKeeper.DisplayCarsCompleted.ToString();
                 break;
-            case Test.CARS_COMPLETED:
+            case ScoreVariable.TOTAL_CARS_COMPLETED:
                 var.text = ScoreKeeper.CarsCompleted.ToString();
                 break;
-            case Test.TICKER_KILLS:
+            case ScoreVariable.TICKER_KILLS:
                 var.text = ScoreKeeper.DisplayEnemiesKilled.ToString();
                 break;
-            case Test.KILLS:
+            case ScoreVariable.TOTAL_KILLS:
                 var.text = ScoreKeeper.EnemiesKilled.ToString();
                 break;
-            case Test.TICKER_LOOT:
+            case ScoreVariable.TICKER_LOOT:
                 var.text = "$" + ScoreKeeper.DisplayScore.ToString();
                 break;
-            case Test.LOOT:
+            case ScoreVariable.TOTAL_LOOT:
                 var.text = "$" + ScoreKeeper.Score.ToString();
                 break;
-            case Test.LIFETIME_LOOT:
+            case ScoreVariable.LIFETIME_LOOT:
                 var.text = "$" + PlayerPrefs.GetInt("lifetimeLoot");
                 break;
-            case Test.SONG_NAME:
+            case ScoreVariable.SONG_NAME:
                 var.text = "♪ " + Jukebox.trackName;
                 break;
-        }*/
-		if(cars) var.text = ScoreKeeper.CarsCompleted.ToString();
-		else if(kills) var.text = ScoreKeeper.EnemiesKilled.ToString();
-		else if(loot) var.text = "$" + ScoreKeeper.Score;
-		else if(dCars) var.text = ScoreKeeper.DisplayCarsCompleted.ToString();
-		else if(dKills) var.text = ScoreKeeper.DisplayEnemiesKilled.ToString();
-		else if(dLoot) var.text = "$" + ScoreKeeper.DisplayScore;
-		else if(track) var.text = "♪ " + Jukebox.trackName;
-		else if(totalLoot) var.text = "$" + PlayerPrefs.GetInt ("lifetimeLoot");
+        }
 	}
 }

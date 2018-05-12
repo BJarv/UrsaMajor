@@ -7188,17 +7188,37 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8200000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489440, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-      propertyPath: loggingEnabled
+    - target: {fileID: 11436134, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454634, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496972, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488944, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480298, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478806, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454766, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400970, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
+      propertyPath: valueToDisplay
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}

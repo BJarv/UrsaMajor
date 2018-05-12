@@ -3936,8 +3936,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loggingEnabled: 0
-  player: {fileID: 0}
-  jukebox: {fileID: 8200000}
   trackNo: 1
   toFaster: {fileID: 8300000, guid: 397661b4a1e95e6479ee5c7579f89c72, type: 3}
   toHYPE: {fileID: 8300000, guid: 3ac2a528b835d2c46a86650aa71c7b29, type: 3}
@@ -3957,25 +3955,6 @@ MonoBehaviour:
     - {fileID: 8300000, guid: cb9915117f8f9bf48a47f8346b5c4d7d, type: 3}
     - {fileID: 8300000, guid: 3e13d875549e5c240b85c36b5d509d0e, type: 3}
     - {fileID: 8300000, guid: d8b936eb650c6ab4ab890f7d8a46f86c, type: 3}
-  Cowboy:
-  - {fileID: 8300000, guid: 89a80055a75cf02418f7d4691ed14a32, type: 3}
-  - {fileID: 8300000, guid: d9d6fad165076dc4f8d341e1d35ea3b6, type: 3}
-  - {fileID: 8300000, guid: 52b6a9f766b94294794286c954d2273d, type: 3}
-  - {fileID: 8300000, guid: 3e13d875549e5c240b85c36b5d509d0e, type: 3}
-  - {fileID: 8300000, guid: 8fecca0b1369b5c4aa317a3d38a841ff, type: 3}
-  EightBit:
-  - {fileID: 8300000, guid: 48baddbeb4e00ac4d89622db831cb019, type: 3}
-  - {fileID: 8300000, guid: c07a72013645cbc4aaa3e7e1243a5517, type: 3}
-  - {fileID: 8300000, guid: cb9915117f8f9bf48a47f8346b5c4d7d, type: 3}
-  - {fileID: 8300000, guid: 3e13d875549e5c240b85c36b5d509d0e, type: 3}
-  - {fileID: 8300000, guid: d8b936eb650c6ab4ab890f7d8a46f86c, type: 3}
-  title: {fileID: 0}
-  gameReg: {fileID: 0}
-  gameFast: {fileID: 0}
-  HYPE: {fileID: 0}
-  death: {fileID: 0}
-  diff: {fileID: 0}
-  menuSwap: 0
 --- !u!114 &11490248
 MonoBehaviour:
   m_ObjectHideFlags: 1

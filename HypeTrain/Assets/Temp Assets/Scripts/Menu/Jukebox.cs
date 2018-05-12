@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Jukebox : LogController {
 	
-	private GameObject player;
 	private AudioSource jukebox;
 
 	public int trackNo;
@@ -28,53 +27,54 @@ public class Jukebox : LogController {
         public AudioClip[] songClips;
     }
 
+    [Tooltip("Array of song titles paired with their respective tracks.")]
     public Song[] songs;
-
-    //Ignores transition when clip changed from UI player
-    private bool menuSwap = false;
 
     private void OnEnable()
     {
         EventManager.StartListening("PlayerDeath", OnDeath);
         EventManager.StartListening("StartHYPE", OnHYPE);
+        EventManager.StartListening("CarGroupComplete", OnCarGroupComplete);
     }
 
     private void OnDisable()
     {
         EventManager.StopListening("PlayerDeath", OnDeath);
         EventManager.StopListening("StartHYPE", OnHYPE);
+        EventManager.StopListening("CarGroupComplete", OnCarGroupComplete);
     }
 
     //Initialize references
-    private void Awake()
-    {
+    void Awake() {
         jukebox = GetComponent<AudioSource>();
         trackNo = PlayerPrefs.GetInt("track");
-        jukebox.clip = gameFaster;
         SetTrack(songs[trackNo]);
+        jukebox.clip = gameFaster;
     }
 
     // Use this for initialization
-    void Start () { }
+    void Start () {
+        jukebox.Play();
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		if (ScoreKeeper.CarsCompleted >= 1) {
-			jukebox.clip = gameFastest;
-            jukebox.PlayOneShot(toFaster, 1);
-            jukebox.PlayDelayed(toFaster.length - .2f);
-        }
-		else {
-			jukebox.clip = gameFaster;
-		}
-	}
+	void Update () { }
 
+    //Handle speed up transition
+    void OnCarGroupComplete() {
+        jukebox.clip = gameFastest;
+        jukebox.PlayOneShot(toFaster, 1);
+        jukebox.PlayDelayed(toFaster.length - .2f);
+    }
+
+    //Handle HYPE activation transition
     void OnHYPE() {
         jukebox.clip = HYPE;
         jukebox.PlayOneShot(toHYPE, 1);
         jukebox.PlayDelayed(toHYPE.length - .2f);
     }
 
+    //Handle death transition
     void OnDeath() {
         jukebox.clip = death;
         jukebox.PlayOneShot(toDeath, 1);
@@ -96,7 +96,6 @@ public class Jukebox : LogController {
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") - 1));
 		trackNo = PlayerPrefs.GetInt ("track");
         SetTrack(songs[trackNo]);
-		menuSwap = true;
 	}
 
 	//Function for the forward arrow in the menu's jukebox
@@ -105,6 +104,5 @@ public class Jukebox : LogController {
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") + 1));
 		trackNo = PlayerPrefs.GetInt ("track");
         SetTrack(songs[trackNo]);
-        menuSwap = true;
 	}
 }
