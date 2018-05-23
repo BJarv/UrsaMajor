@@ -53,7 +53,7 @@ public class TrainEnter : LogController {
 		//Special case for entering the Shop Car
 		if (transform.parent.transform.parent.transform.parent.name == "ShopCar(Clone)") {
 			//Lock camera on the shop car
-			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter(trainSpawn.GetComponent<TrainSpawner>().theShopCar));
+			cameraObj.GetComponent<Camera2D>().SetCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter(trainSpawn.GetComponent<TrainSpawner>().theShopCar));
 			sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel(trainSpawn.GetComponent<TrainSpawner>().theShopCar);
 		} 
 		//Default case
@@ -66,13 +66,13 @@ public class TrainEnter : LogController {
 			//Remove previous train
 			trainSpawn.GetComponent<TrainSpawner>().KillTrain();
 			//Lock camera on the current car
-			cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
+			cameraObj.GetComponent<Camera2D>().SetCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
 			sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel();
 		}
 		hatchAnimator.Play ("Entry"); //Play entry animation once
 		//Pass through
 		Physics2D.IgnoreCollision (hit, transform.parent.gameObject.GetComponent<Collider2D>(), true);
-		cameraObj.GetComponent<Camera2D>().setLock(true);
+		cameraObj.GetComponent<Camera2D>().ToggleCameraLock(true);
 		//Remove side panel
 
 		sidePanel.SetActive(false);

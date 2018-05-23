@@ -42,8 +42,8 @@ public class TrainEnterB : LogController {
 		//Remove previous train
 		trainSpawn.GetComponent<TrainSpawner>().KillTrain();
 		//Lock camera on the current car
-		cameraObj.GetComponent<Camera2D>().setCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
-		cameraObj.GetComponent<Camera2D>().setLock(true);
+		cameraObj.GetComponent<Camera2D>().SetCenter(trainSpawn.GetComponent<TrainSpawner>().headCenter());
+		cameraObj.GetComponent<Camera2D>().ToggleCameraLock(true);
 		//Remove side panel
 		sidePanel = trainSpawn.GetComponent<TrainSpawner>().headPanel();
 		sidePanel.SetActive(false);
