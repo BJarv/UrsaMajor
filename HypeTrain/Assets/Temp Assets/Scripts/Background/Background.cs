@@ -5,50 +5,80 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+public enum BackgroundState
+{
+    DAY,
+    NIGHT,
+    SUNSETTING,
+    SUNRISING,
+}
+
 public class Background : LogController {
 
-	/*public float red = 0.5f;
-	public float green = 0.5f;
-	public float blue = 0;*/
-	public float t = 0;
-	public Color nightynight = new Color(.01f, .01f, .5f,1);
-	public Color dayday = new Color(1f, 1f, 1f, 0);
-	public Color lerpedColor = new Color(.5f, .5f, 0, 1);
-	public int countSwitch = 0; // 0 = let's count up, 1 = let's count down
-	public int delay = 0;
+    [Tooltip("Indicates the length in seconds of a day (and of a night).")]
+    public float dayLength = 60.0f;
+    public float sunTransitionLength = 30.0f;
+    public float timer;
+    public Color nightColor = new Color(.01f, .01f, .5f, 1);
+    public Color dayColor = new Color(1f, 1f, 1f, 0);
+    private Color currColor;
+    private BackgroundState bgState;
+    private float t; // This is for the Color.Lerp function. "When t is 0 returns a. When t is 1 returns b."
 
-	// Use this for initialization
-	void Start () {
+    private void Start()
+    {
+        bgState = BackgroundState.DAY;
+        timer = dayLength;
+        t = 1.0f;
+        currColor = Color.Lerp(nightColor, dayColor, t);
+        GetComponent<Image>().color = currColor;
+    }
 
-	}
+    void Update() {
 
-	void brighten () {
-		t = t + .01f;
-		}
+        switch(bgState)
+        {
+            case BackgroundState.DAY:
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    bgState = BackgroundState.SUNSETTING;
+                }
+                break;
 
-	void darken () {
-		t = t - .01f;
-		}
+            case BackgroundState.NIGHT:
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    bgState = BackgroundState.SUNRISING;
+                }
+                break;
 
-	void Update () {
-		//Increment t
-		if (countSwitch == 0)
-						brighten ();
-				else if (countSwitch == 1)
-						darken ();
+            case BackgroundState.SUNSETTING:
+                //  Increment t and paint the background with the new color.
+                Debug.Log(Time.deltaTime);
+                t = t - (Time.deltaTime / sunTransitionLength);
+                currColor = Color.Lerp(nightColor, dayColor, t);
+                GetComponent<Image>().color = currColor;
+                if (currColor.Equals(nightColor))
+                {
+                    bgState = BackgroundState.NIGHT;
+                    timer = dayLength;
+                }
+                break;
 
-		if (t <= 0f && delay % 1000 == 0)
-						countSwitch = 0; 
+            case BackgroundState.SUNRISING:
+                //  Increment t and paint the background with the new color.
+                t = t + (Time.deltaTime / sunTransitionLength);
+                currColor = Color.Lerp(nightColor, dayColor, t);
+                GetComponent<Image>().color = currColor;
+                if (currColor.Equals(dayColor))
+                {
+                    bgState = BackgroundState.DAY;
+                    timer = dayLength;
+                }
+                break;
+        }
 
-		if (t >= 1f && delay % 1000 == 0)
-						countSwitch = 1;
-
-		lerpedColor = Color.Lerp(nightynight,dayday, t);
-
-		GetComponent<Image>().color = lerpedColor;
-		delay = delay + 1;
-
-		//Debug
-		//print("Red : " + red + "Green : " + green + "Blue : " + blue);
 	}
 }
