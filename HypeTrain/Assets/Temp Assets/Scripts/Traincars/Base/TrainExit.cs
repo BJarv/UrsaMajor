@@ -39,7 +39,7 @@ public class TrainExit : LogController {
 	// Update is called once per frame
 	void Update () {
 		if (justExit && Player.GetComponent<Rigidbody2D>().velocity.y < 0) {
-			cameraObj.GetComponent<Camera2D> ().zoomIn ();
+			cameraObj.GetComponent<Camera2D> ().ZoomIn ();
 		}
 	}
 	//Check if E is pressed in trigger zone
@@ -117,9 +117,9 @@ public class TrainExit : LogController {
 			//Make sidePanel visible again
 			sidePanel.SetActive (true);
 			//Unlock camera, hard zoom out, slow zoom in
-			cameraObj.GetComponent<Camera2D> ().setLock (false);
+			cameraObj.GetComponent<Camera2D> ().ToggleCameraLock (false);
 			Player.GetComponent<Rigidbody2D>().gravityScale = 4f; //Temporarily lower gravity's effect
-			Camera2D.setCameraTarget (40f, zoomOutSpeed);
+			Camera2D.SetCameraTarget (40f, zoomOutSpeed);
 			//cameraObj.GetComponent<Camera2D> ().scheduleZoomIn ();
 			justExit = true; //Calls zoom in once player starts falling
 

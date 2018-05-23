@@ -45,7 +45,7 @@ public class TrainExitB : LogController {
 		sidePanel = trainSpawn.GetComponent<TrainSpawner> ().headPanel ();
 		sidePanel.SetActive (true);
 		//Unlock camera
-		cameraObj.GetComponent<Camera2D> ().setLock (false);
+		cameraObj.GetComponent<Camera2D> ().ToggleCameraLock (false);
 
 	}
 }

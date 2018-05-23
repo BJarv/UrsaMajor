@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Jukebox : LogController {
 	
 	private AudioSource jukebox;
 
-	public int trackNo;
+    //Track info variables
+	private int trackNo;
 	public static string trackName;
 
 	//Transition clips(static)
@@ -14,7 +16,7 @@ public class Jukebox : LogController {
 	public AudioClip toHYPE;
 	public AudioClip toDeath;
 
-    //Track clips (dynamic)
+    //Track-specific clips (dynamic)
     private AudioClip gameReg;
     private AudioClip gameFaster;
     private AudioClip gameFastest;
@@ -29,6 +31,13 @@ public class Jukebox : LogController {
 
     [Tooltip("Array of song titles paired with their respective tracks.")]
     public Song[] songs;
+
+    //Volume Control variables
+    public Sprite unmutedSprite;
+    public Sprite mutedSprite;
+    public GameObject muteButton;
+    public GameObject volumeSlider;
+    private float unmuteVolume;
 
     private void OnEnable()
     {
@@ -50,6 +59,8 @@ public class Jukebox : LogController {
         trackNo = PlayerPrefs.GetInt("track");
         SetTrack(songs[trackNo]);
         jukebox.clip = gameFaster;
+        volumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volume");
+        unmuteVolume = PlayerPrefs.GetFloat("volume");
     }
 
     // Use this for initialization
@@ -81,6 +92,7 @@ public class Jukebox : LogController {
         jukebox.PlayDelayed(toDeath.length - .2f);
     }
 
+    //Set each track-specific clip based on the current song
     void SetTrack(Song s) {
         trackName = s.songName;
         gameReg = s.songClips[0];
@@ -90,7 +102,7 @@ public class Jukebox : LogController {
         death = s.songClips[4];
     }
 
-	//Function for the back arrow in the menu's jukebox
+	// [<<] Function for the back arrow in the menu's jukebox
 	public void PrevTrack(){
 		if (trackNo == 0) PlayerPrefs.SetInt ("track", songs.Length - 1);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") - 1));
@@ -98,11 +110,42 @@ public class Jukebox : LogController {
         SetTrack(songs[trackNo]);
 	}
 
-	//Function for the forward arrow in the menu's jukebox
+	// [>>] Function for the forward arrow in the menu's jukebox
 	public void NextTrack(){
 		if (trackNo == songs.Length - 1) PlayerPrefs.SetInt ("track", 0);
 		else PlayerPrefs.SetInt ("track", (PlayerPrefs.GetInt ("track") + 1));
 		trackNo = PlayerPrefs.GetInt ("track");
         SetTrack(songs[trackNo]);
 	}
+
+    //Function called by the Volume Slider
+    public void SetVolume(float newVolume) {
+        Log("Setting Volume: " + newVolume);
+        //Update the local volume and pref
+        if (newVolume == 0) {
+            muteButton.GetComponent<Image>().overrideSprite = mutedSprite;
+        }
+        else {
+            muteButton.GetComponent<Image>().overrideSprite = unmutedSprite;
+        }
+        AudioListener.volume = newVolume;
+        PlayerPrefs.SetFloat("volume", newVolume);
+    }
+
+    //Function called by the Mute button
+    public void MuteButton() {
+        //If volume is not zero, mute and update sliders
+        if (PlayerPrefs.GetFloat("volume") != 0) {
+            muteButton.GetComponent<Image>().overrideSprite = mutedSprite;
+            unmuteVolume = PlayerPrefs.GetFloat("volume");
+            AudioListener.volume = 0;
+            PlayerPrefs.SetFloat("volume", 0);
+        }
+        //Otherwise return to last saved volume and update sliders
+        else {
+            muteButton.GetComponent<Image>().overrideSprite = unmutedSprite;
+            AudioListener.volume = unmuteVolume;
+            PlayerPrefs.SetFloat("volume", unmuteVolume);
+        }
+    }
 }

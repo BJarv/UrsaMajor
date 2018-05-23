@@ -6,48 +6,34 @@ using UnityEngine.UI;
 public class Popup : LogController {
 
 	public static bool paused = false;
-	private float unmuteVolume;
-	CameraShake shaker;
+	CameraShake cameraShake;
 
-	public Sprite unmuted;
-	public Sprite muted;
+    public GameObject generalMenu;
+    public GameObject pauseMenu;
+    public GameObject deathMenu;
 
-	[HideInInspector] public GameObject player;
-	[HideInInspector] public GameObject pauseMenu;
-	[HideInInspector] public GameObject deathMenu;
-	[HideInInspector] public GameObject pSlide;
-	[HideInInspector] public GameObject dSlide; 
-	[HideInInspector] public GameObject pMute;
-	[HideInInspector] public GameObject dMute;
+    [HideInInspector] public GameObject player;
 	[HideInInspector] public bool dead;
 
-	public BountyController bountyConch;
+	public BountyController bountyController;
 
+    private void OnEnable()
+    {
+        EventManager.StartListening("PlayerDeath", OnDeath);
+    }
 
+    private void OnDisable()
+    {
+        EventManager.StopListening("PlayerDeath", OnDeath);
+    }
 
-	void Start () {
-		bountyConch = GameObject.Find ("BountyCanvas").GetComponent<BountyController> ();
+    void Start () {
+		bountyController = GameObject.Find ("BountyCanvas").GetComponent<BountyController> ();
 
-		shaker = transform.parent.GetComponent<CameraShake>();
+		cameraShake = transform.parent.GetComponent<CameraShake>();
 		AudioListener.volume = PlayerPrefs.GetFloat ("volume");
-		unmuteVolume = PlayerPrefs.GetFloat ("volume");
 		player = GameObject.Find ("Player");
-		//Set volume sliders to saved Pref
-		pSlide = GameObject.Find ("pSlider");
-		dSlide = GameObject.Find ("dSlider");
-		pMute = GameObject.Find ("pMuteButton");
-		dMute = GameObject.Find ("dMuteButton");
 
-		pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-		dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-
-
-		//Find references to the pause and death menus, then disable them
-		pauseMenu = GameObject.Find ("Pause");
-		pauseMenu.SetActive(false);
-		paused = false;
-		deathMenu = GameObject.Find ("Death");
-		deathMenu.SetActive(false);
 		Time.timeScale = 1;
 		Cursor.visible = false;
 	}
@@ -57,40 +43,26 @@ public class Popup : LogController {
 			if(paused) { //unpause game if paused
 				paused = false;
 				Time.timeScale = 1;
-				pauseMenu.SetActive(false);
+                generalMenu.SetActive(false);
+                pauseMenu.SetActive(false);
 
 				Cursor.visible = false;
-				bountyConch.unpauseBounties(); //remove active bounties from pause menu	
+				bountyController.unpauseBounties(); //remove active bounties from pause menu	
 
 			} else if (!paused) { //pause game if not pause
-				shaker.stopAllShake();
+				cameraShake.stopAllShake();
 				paused = true;
 				Time.timeScale = 0;
-				pauseMenu.SetActive(true);
-				Cursor.visible = true;
+                generalMenu.SetActive(true);
+                pauseMenu.SetActive(true);
 
-				//Update slider position if not muted
-				if(PlayerPrefs.GetFloat("volume") != 0) pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-				
- 
 				Cursor.visible = true;
-				//Debug.Log (bountyConch);
-				bountyConch.pauseBounties(); //show active bounties on pause menu	
+				bountyController.pauseBounties(); //show active bounties on pause menu	
 			}
 		}
 
-		//Stop game and show death menu on pause
-		if(player.transform.position.y < -15f || dead) {
-			paused = true;
-			shaker.stopAllShake();
-			//Time.timeScale = 0;
-			Cursor.visible = true;
-
-			deathMenu.SetActive(true);
-			//Update slider position
-			if(PlayerPrefs.GetFloat("volume") != 0) dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-			bountyConch.pauseBounties(); //show active bounties on death menu
-
+		//Stop game and show pause menu on death
+		if(dead) {
 			if((Input.anyKeyDown || Input.GetButton ("Submit") || Input.GetAxis ("LTrig") > 0.1) && !Input.GetMouseButton(0)){ //if any key is pressed that isnt a mouse button, delay is set in PlayerHealth
 				//If any key is pressed and ticking isn't done, end it
 				if(ScoreKeeper.DisplayScore != ScoreKeeper.Score){
@@ -99,8 +71,9 @@ public class Popup : LogController {
 					ScoreKeeper.DisplayScore = ScoreKeeper.Score;
 				} 
 				//Otherwise retry game as usual
-				else{
-					deathMenu.SetActive(false);
+				else {
+                    generalMenu.SetActive(false);
+                    deathMenu.SetActive(false);
 					Cursor.visible = false;
 					CharControl.dead = false;
 					Time.timeScale = 1;
@@ -110,47 +83,28 @@ public class Popup : LogController {
 		}
 	}
 
-	public void setVolume(float newVol){
-		//Update the local volume and pref
-		pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
-		dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
-		AudioListener.volume = newVol;
-		PlayerPrefs.SetFloat ("volume", newVol);
-	}
+    //Stop game and show pause menu on death
+    void OnDeath() {
+        dead = true;
+        paused = true;
+        cameraShake.stopAllShake();
+        Cursor.visible = true;
+        generalMenu.SetActive(true);
+        deathMenu.SetActive(true);
+        bountyController.pauseBounties(); //show active bounties on death menu
+    }
 
-	//Function called by the mute button
-	public void muteButton(){
-		//If volume is not zero, mute and update sliders
-		if (PlayerPrefs.GetFloat ("volume") != 0) {
-			pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = muted;
-			dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = muted;
-			unmuteVolume = PlayerPrefs.GetFloat ("volume");
-			AudioListener.volume = 0;
-			PlayerPrefs.SetFloat ("volume", 0);
-			//pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-			//dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-		} 
-		//Otherwise return to last saved volume and update sliders
-		else {
-			pMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
-			dMute.GetComponent<UnityEngine.UI.Image>().overrideSprite = unmuted;
-			AudioListener.volume = unmuteVolume;
-			PlayerPrefs.SetFloat ("volume", unmuteVolume);
-			//pSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-			//dSlide.GetComponent<Slider> ().value = PlayerPrefs.GetFloat ("volume");
-		}
-	}
-
-	public void pauseButton(){
-		//unpause game
-		paused = false;
+    //Function called by the Resume button
+    public void ResumeButton(){
+        paused = false;
 		Time.timeScale = 1;
-		pauseMenu.SetActive(false);
-
+        generalMenu.SetActive(false);
+        pauseMenu.SetActive(false);
 		Cursor.visible = false;
 	}
 
-	public void returnMain(){
+    //Function called by the Main Menu button
+    public void MainMenuButton(){
 		SceneManager.LoadScene ("MainMenu");
 	}
 

@@ -145,8 +145,6 @@ public class playerCharacter : baseCharacter
 
     private void DisplayGameOverScreen()
     {
-        
-        popupManager.dead = true;
         Game.incDeaths();
         Game.addLoot(ScoreKeeper.Score);
         Game.addCarsCleared(ScoreKeeper.CarsCompleted);
