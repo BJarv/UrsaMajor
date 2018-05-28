@@ -16,14 +16,14 @@ public class CameraShake : LogController {
 	public bool test = false;
 	
 	void Start() {
-		StartCoroutine(trainShake());
+		StartCoroutine(TrainShake());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(test) {
 			test = false;
-			bumpIt(altShakeAmount);
+			BumpIt(altShakeAmount);
 		}
 		if (altShake){
 			transform.localPosition = Vector3.zero + Random.insideUnitSphere * altShakeAmount;
@@ -36,34 +36,35 @@ public class CameraShake : LogController {
 	}
 	
 	
-	public void bumpIt(float intensity = 2f, float time = .1f) {
+	public void BumpIt(float intensity = 2f, float time = .1f) {
 		altShakeAmount = intensity;
 		altShake = true;
-		StartCoroutine(altShakeOff (time));
+		StartCoroutine(AltShakeOff (time));
 	}
 	
-	void trainBumpIt() {
+    //Currently not used anywhere?
+	void TrainBumpIt() {
 		shake = true;
-		StartCoroutine(shakeOff (shakeTime));
+		StartCoroutine(ShakeOff (shakeTime));
 	}
 	
-	IEnumerator shakeOff(float time) {
+	IEnumerator ShakeOff(float time) {
 		yield return new WaitForSeconds(time);
 		shake = false;
 	}
 	
-	IEnumerator altShakeOff(float time) {
+	IEnumerator AltShakeOff(float time) {
 		yield return new WaitForSeconds(time);
 		altShake = false;
 	}
 	
-	IEnumerator trainShake(){
-		InvokeRepeating("trainBumpIt", 0f, 1.4f);
+	IEnumerator TrainShake() {
+		InvokeRepeating("TrainBumpIt", 0f, 1.4f);
 		yield return new WaitForSeconds(0.2f);
-		InvokeRepeating("trainBumpIt", 0f, 1.4f);
+		InvokeRepeating("TrainBumpIt", 0f, 1.4f);
 	}
 
-	public void stopAllShake() { //stop any shake that is currently happening
+	public void StopAllShake() { //stop any shake that is currently happening
 		shake = false;
 		altShake = false;
 		transform.localPosition = Vector3.zero;

@@ -39,7 +39,7 @@ public class Cannonball : LogController {
 		Collider2D[] objs = Physics2D.OverlapCircleAll (transform.position, explosionRadius, hittableObjs); //get all objects in explosion radius
 
 		GameObject tempExplo = (GameObject)Instantiate (explosion, transform.position, Quaternion.identity);//show explosion
-		Camera.main.transform.parent.transform.GetComponent<CameraShake> ().bumpIt (); //shake camera a bit
+		Camera.main.transform.parent.transform.GetComponent<CameraShake> ().BumpIt (); //shake camera a bit
         Destroy(tempExplo, tempExplo.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
         foreach (Collider2D colObj in objs) { //apply bullet effects but to each object in explosion radius

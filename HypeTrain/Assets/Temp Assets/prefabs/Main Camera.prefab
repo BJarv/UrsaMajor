@@ -1148,9 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loggingEnabled: 1
-  unmutedSprite: {fileID: 21300000, guid: f4e3f714419250d4bb2390217bd2a62d, type: 3}
-  mutedSprite: {fileID: 21300000, guid: 3ddddb64be88fbb45a7dc3fde79a5108, type: 3}
-  generalMenu: {fileID: 1195137996158128}
+  baseMenu: {fileID: 1195137996158128}
   pauseMenu: {fileID: 125066}
   deathMenu: {fileID: 167368}
   player: {fileID: 0}
@@ -1792,7 +1790,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400008}
-        m_MethodName: ResumeButton
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2597,8 +2595,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d8b936eb650c6ab4ab890f7d8a46f86c, type: 3}
   unmutedSprite: {fileID: 21300000, guid: f4e3f714419250d4bb2390217bd2a62d, type: 3}
   mutedSprite: {fileID: 21300000, guid: 3ddddb64be88fbb45a7dc3fde79a5108, type: 3}
+  muteButton: {fileID: 125456}
   volumeSlider: {fileID: 135076}
-  muteButton: {fileID: 0}
 --- !u!114 &11496972
 MonoBehaviour:
   m_ObjectHideFlags: 1

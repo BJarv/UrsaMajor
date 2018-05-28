@@ -234,8 +234,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   actives:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 202571215}
+  - {fileID: 734714433}
   pauseBounty1: {fileID: 389552053}
   pauseBounty2: {fileID: 2035445917}
   activeBoardPos1: {x: 0, y: 0, z: 0}
@@ -6856,10 +6856,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1601425288}
-    - target: {fileID: 11489440, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-      propertyPath: muteButton
-      value: 
-      objectReference: {fileID: 760869997}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
   m_IsPrefabParent: 0
@@ -6949,10 +6945,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7debc4cf85476c48976ecbcf5d321d0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &760869997 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 125456, guid: 31ff6c41e4e992e4081007275f504a75, type: 2}
-  m_PrefabInternal: {fileID: 738746331}
 --- !u!1 &789481778
 GameObject:
   m_ObjectHideFlags: 0
@@ -7419,7 +7411,7 @@ GameObject:
   - component: {fileID: 1124801424}
   m_Layer: 10
   m_Name: IcyWall
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8514,12 +8506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loggingEnabled: 0
-  t: 0
-  nightynight: {r: 0.21118082, g: 0.27549812, b: 0.46323532, a: 1}
-  dayday: {r: 1, g: 1, b: 1, a: 1}
-  lerpedColor: {r: 0.5, g: 0.5, b: 0, a: 1}
-  countSwitch: 0
-  delay: 0
+  dayLength: 60
+  sunTransitionLength: 30
+  timer: 0
+  nightColor: {r: 0.01, g: 0.01, b: 0.5, a: 1}
+  dayColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1541523213
 GameObject:
   m_ObjectHideFlags: 0

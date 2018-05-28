@@ -64,7 +64,6 @@ public class ShootingEnemy : Enemy {
 		State = EnemyState.ATTACK;
 		health -= damage;
 		if (health <= 0) {
-			Debug.Log ("ENEMY DOWN");
 			Game.incEnemiesKilled();
 			Game.incBounty(1);
 			money.At (transform.position, (int)UnityEngine.Random.Range ((int)(5 * Multiplier.moneyDrop),(int)(11 * Multiplier.moneyDrop))); 	

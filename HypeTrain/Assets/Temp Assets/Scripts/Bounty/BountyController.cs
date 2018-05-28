@@ -20,13 +20,12 @@ public class BountyController : LogController {
 
 		//Loop through all bounties on play
 		for(int i = 1; i <= bounties.Length; i++) {
-			Debug.Log ("Checking bounty #" + i);
-			Debug.Log (PlayerPrefsBool.GetBool("bounty" + i));
+			Log ("Checking bounty #" + i);
+			Log (PlayerPrefsBool.GetBool("bounty" + i));
 
 			//If the bounty is an active previously and hasn't been collected, throw it back in the actives array
-
 			if(PlayerPrefsBool.GetBool ("bounty" + i)){
-				Debug.Log ("Actually revived an active!!! $$$$$$$$$$$$$$$$$");
+				Log ("Actually revived an active!!! $$$$$$$$$$$$$$$$$");
 				addActive(bounties[i - 1]);
 			}
 			//Otherwise...
@@ -45,7 +44,7 @@ public class BountyController : LogController {
 	//Adds bounty to actives array
 	public void addActive(GameObject newActive){
 		if(actives[0] && actives[1]) {
-			Debug.Log ("already 2 active bounties");
+			Log ("already 2 active bounties");
 		} else {
 			if(actives[0]){
 				actives[1] = newActive;
@@ -71,9 +70,9 @@ public class BountyController : LogController {
 			actives[0] = actives[1];
 			actives[1] = null;
 		} else if(actives[0] != null && actives[1] == null) {
-			Debug.Log ("bounty1 active, but bounty2 not active");
+			Log ("bounty1 active, but bounty2 not active");
 		} else if(actives[0] != null && actives[1] != null) {
-			Debug.Log("Both bounties active");
+			Log("Both bounties active");
 		} else {
 			Debug.LogError ("null check failed in bountycontroller");
 		}

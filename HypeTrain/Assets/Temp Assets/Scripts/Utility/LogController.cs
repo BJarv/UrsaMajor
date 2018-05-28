@@ -8,7 +8,7 @@ public class LogController : MonoBehaviour {
     [SerializeField] private bool loggingEnabled = false;
 
     //Basic message print, which appends "[SCRIPT_NAME.cs]" for easier trackdowns
-    protected void Log(string message) {
+    protected void Log(object message) {
         if (loggingEnabled) Debug.Log(message + " [" + GetComponent<MonoBehaviour>().GetType().Name + ".cs]");
     }
 
