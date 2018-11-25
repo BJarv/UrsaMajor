@@ -56,8 +56,8 @@ public class EnemyMissile : LogController {
 		}
 		//If missile hits player, hurt them
 		if(colObj.tag == "Player") {
-			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
-			Destroy (gameObject);
+            colObj.gameObject.GetComponent<PlayerCharacter>().Hurt(10, gameObject);
+            Destroy (gameObject);
 		}
 		//If it hits a breakable object, damage it
 		if (colObj.GetComponent<Collider2D>().tag == "breakable") {

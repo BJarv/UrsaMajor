@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class playerCharacter : baseCharacter
+public class PlayerCharacter : baseCharacter
 {
     //Jump force variables
-    public float plusJumpForce = 300f; 
+    public float plusJumpForce = 300f;
+    public float fastFallForce = 50f;
+    public float maxFallSpeed = 400f;
     
     private float currentJumpForce = 0f;
     private float forceToAdd = 0f;
@@ -120,14 +122,12 @@ public class playerCharacter : baseCharacter
                 if (rb.velocity.x > -moveSpeed)
                     rb.AddForce(new Vector2(moveH * airMoveSpeed, 0));
             }
-            if(Input.GetAxisRaw("Vertical") == -1) {
-                Debug.Log("Fastfall!");
-                //if (rb.velocity.y > maxFallSpeed) {
-                    rb.AddForce(new Vector2(0, -200));
-                //}
-                
+            //Fast-fall
+            if(Input.GetAxisRaw("Vertical") == -1)
+            {
+                //Check that player is falling and not already exceeding 'maxFallSpeed' before applying more fastFallForce
+                if(rb.velocity.y < 0 && rb.velocity.y > -maxFallSpeed) rb.AddForce(new Vector2(0, -fastFallForce));
             }
-
         }
     }
 
@@ -158,11 +158,11 @@ public class playerCharacter : baseCharacter
         {
             invincibility = true;
             AdjustHealthUI(currentHealth);
-            Invoke("invincibiltyReset", invincibilityCooldown);
+            Invoke("InvincibiltyReset", invincibilityCooldown);
         }
     }
 
-    void invincibiltyReset() { invincibility = false; }
+    void InvincibiltyReset() { invincibility = false; }
 
     //Activates / deactivates UI hearts based on current health
     private void AdjustHealthUI(float health)

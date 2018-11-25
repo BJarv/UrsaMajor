@@ -208,8 +208,8 @@ public class BigDino : LogController {
 	
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player") {
-			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
-		}
+            colObj.gameObject.GetComponent<PlayerCharacter>().Hurt(10, gameObject);
+        }
 		if(State == DinoState.DASH && colObj.collider.tag == "wall" && !inNotStunRange) {
 			wallPos = colObj.gameObject;
 			State = DinoState.STUN;

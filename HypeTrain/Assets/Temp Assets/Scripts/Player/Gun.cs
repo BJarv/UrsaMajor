@@ -24,7 +24,7 @@ public class Gun : LogController {
 
 	private GameObject player = null;
 	private GameObject shootFrom = null;
-    private playerCharacter playerScript;
+    private PlayerCharacter playerScript;
 	public AudioClip gunshot;
 	public AudioClip reload;
 
@@ -64,7 +64,7 @@ public class Gun : LogController {
         shootFrom = transform.Find("Gun/BarrelTip").gameObject;
 		HYPECounter = player.GetComponent<ScoreKeeper>();
 		gunSprite = shootFrom.transform.parent.GetComponent<SpriteRenderer>();
-        playerScript = transform.parent.GetComponent<playerCharacter>();
+        playerScript = transform.parent.GetComponent<PlayerCharacter>();
 		gunGlow = transform.Find ("Gun").Find("Glow").gameObject;
 		gunUnderlay = transform.Find ("Gun").Find("GunUnderlay").gameObject;
 		gunGlow.SetActive (false);
@@ -192,7 +192,7 @@ public class Gun : LogController {
 		Vector2 direction = (pos - shootFrom.transform.position);
 
 		//If the player is airbourne, send add force in the opposite direction of the shot
-		if(!player.GetComponent<playerCharacter>().IsGrounded()){
+		if(!player.GetComponent<PlayerCharacter>().IsGrounded()){
 			player.GetComponent<Rigidbody2D>().AddForce (-direction * kickForce);
 		}
 	}

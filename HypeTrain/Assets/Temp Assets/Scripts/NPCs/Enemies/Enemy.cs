@@ -178,8 +178,8 @@ public class Enemy : LogController {
 
 	void OnCollisionEnter2D(Collision2D colObj){
 		if (colObj.collider.tag == "Player" && colObj.collider.transform.name != "Tucker") {
-			colObj.gameObject.GetComponent<PlayerHealth>().HurtPlus(10, gameObject);
-		}
+            colObj.gameObject.GetComponent<PlayerCharacter>().Hurt(10, gameObject);
+        }
 		//If enemy collides with something at a high speed, hurt it
 		if (colObj.collider.tag != "Player" && colObj.collider.transform.name != "Tucker") {
 			if (airBlasted){
