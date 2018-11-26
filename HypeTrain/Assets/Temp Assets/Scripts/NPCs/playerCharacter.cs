@@ -27,12 +27,19 @@ public class PlayerCharacter : baseCharacter
     public static bool playerDead;
     private bool healed = false;
 
+    //Experimental Jump Variables
+    private bool jumpButtonPressed = false;
+    private bool jumping = false;
+    public float jumpVector = 300f;
+    public float minJumpTime = .1f;
+    public float maxJumpTime = .3f;
+
     private Popup popupManager;
 
     // Use this for initialization
     override protected void Start() {
         base.Start();
-        popupManager = GameObject.Find("Main Camera").GetComponent<Popup>();
+        popupManager = Camera.main.transform.GetComponent<Popup>();
         currentHealth = maxHealth;
         alreadyDying = false;
     }
@@ -40,29 +47,17 @@ public class PlayerCharacter : baseCharacter
     // Update is called once per frame
     override protected void Update()
     {
+        jumpButtonPressed = Input.GetKey(KeyCode.Space) || Input.GetAxisRaw("LTrig") == 1;
+
+
         //Grounded movement
         moveH = Input.GetAxisRaw("Horizontal");
         Flip(moveH);
-        if (IsGrounded()) {
-            if (moveH > 0)
-            {
-                characterAnimator.SetBool("Run", true);
-                if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
-                rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-            }
-            else if (moveH == 0) characterAnimator.SetBool("Run", false);
-            else if (moveH < 0)
-            {
-                characterAnimator.SetBool("Run", true);
-                if (rb.velocity.x > 0) rb.velocity = new Vector2(0, rb.velocity.y);
-                rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
-            }
-        }
 
         //Jumpstate handler
         switch (jumpState) {
             case JumpStates.GROUNDED:
-                if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("LTrig") > 0.1) && IsGrounded())
+                if (jumpButtonPressed && IsGrounded())
                 {
                     jumpState = JumpStates.JUMPING;
                     characterAnimator.SetBool("Jump", true); //Switch to jump animation
@@ -104,14 +99,38 @@ public class PlayerCharacter : baseCharacter
     // Use for actions on rigidbodies
     override protected void FixedUpdate()
     {
-        if (applyJumpForce) {
+        if (jumpButtonPressed && !jumping && IsGrounded())
+        {
+            jumping = true;
+            StartCoroutine(JumpRoutine());
+        }
+        /*if (applyJumpForce) {
             float timeDiff = Time.deltaTime * 100;
             forceToAdd = plusJumpForce * timeDiff;
             currentJumpForce += forceToAdd;
             rb.AddForce(new Vector2(0, forceToAdd));
-        }
-        if(!IsGrounded())
+        }*/
+
+        if (IsGrounded())
         {
+            //Grounded Movement
+            if (moveH > 0)
+            {
+                characterAnimator.SetBool("Run", true);
+                if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
+                rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            }
+            else if (moveH == 0) characterAnimator.SetBool("Run", false);
+            else if (moveH < 0)
+            {
+                characterAnimator.SetBool("Run", true);
+                if (rb.velocity.x > 0) rb.velocity = new Vector2(0, rb.velocity.y);
+                rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            }
+        } 
+        else
+        {
+            //Aerial Horizontal Movement
             if (moveH > 0)
             {
                 if (rb.velocity.x < moveSpeed)
@@ -129,6 +148,23 @@ public class PlayerCharacter : baseCharacter
                 if(rb.velocity.y < 0 && rb.velocity.y > -maxFallSpeed) rb.AddForce(new Vector2(0, -fastFallForce));
             }
         }
+    }
+
+    IEnumerator JumpRoutine() {
+        //Only zero'ing out the y axis so that horizontal momentum is carried into the jump
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        float jumpTimer = 0;
+
+        while ((jumpButtonPressed || jumpTimer < minJumpTime) && jumpTimer < maxJumpTime)
+        {
+            float jumpPercent = jumpTimer / maxJumpTime;
+            Vector2 thisFrameJumpVector = Vector2.Lerp(new Vector2 (0, jumpVector), Vector2.zero, jumpPercent);
+            rb.AddForce(thisFrameJumpVector);
+            jumpTimer += Time.deltaTime;
+            yield return null;
+        }
+
+        jumping = false;
     }
 
     //Set animator, disable colliders, invoke game over screen

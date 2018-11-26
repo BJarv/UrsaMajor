@@ -7897,12 +7897,16 @@ MonoBehaviour:
   maxHealth: 30
   currentHealth: 0
   plusJumpForce: 400
+  fastFallForce: 50
+  maxFallSpeed: 400
   heart1: {fileID: 1939969901}
   heart2: {fileID: 1939969896}
   heart3: {fileID: 1939969899}
   invincibilityCooldown: 0.5
   deathDelay: 1.5
   invincibility: 0
+  jumpVector: 300
+  maxJumpTime: 0.3
 --- !u!95 &1154240073
 Animator:
   serializedVersion: 3
