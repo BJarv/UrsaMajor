@@ -49,7 +49,6 @@ public class PlayerCharacter : baseCharacter
     {
         jumpButtonPressed = Input.GetKey(KeyCode.Space) || Input.GetAxisRaw("LTrig") == 1;
 
-
         //Grounded movement
         moveH = Input.GetAxisRaw("Horizontal");
         Flip(moveH);

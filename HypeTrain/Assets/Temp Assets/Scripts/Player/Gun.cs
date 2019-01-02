@@ -3,21 +3,21 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Gun : LogController {
+
+    public bool oldGunLogic = false;
+
 	//Bullet variables
 	public float bulletSpeed = 500f;
 	public float kickForce = 1000f;
 	public int magSize = 3;
 	public int inMag;
-	public GameObject bull1;
-	public GameObject bull2;
-	public GameObject bull3;
-	public GameObject bull4;
+    public GameObject[] UIBullets;
 	public Rigidbody2D bullet;
 	public Rigidbody2D key;
 	//Timing Variables
 	private bool canShoot = true;
 	public float reloadTime = 2f;
-	public float interShotDelay = .5f;
+	public float interShotDelay = .1f;
 
 	public GameObject gunGlow;
 	public GameObject gunUnderlay;
@@ -57,6 +57,14 @@ public class Gun : LogController {
 
 	// Use this for initialization
 	void Start () {
+        if (oldGunLogic) {
+            interShotDelay = 0.26f;
+            bulletSpeed = 1200f;
+            magSize = 4;
+            UIBullets[4].SetActive(false);
+            UIBullets[5].SetActive(false);
+        }
+
         keyLoaded = false;
         inMag = magSize;
         player = transform.parent.gameObject;
@@ -76,33 +84,54 @@ public class Gun : LogController {
 	
 	// Update is called once per frame
 	void Update () {
-
-		//If HYPE is full and player is on top of a train, spawn a HYPE Plane
-		if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
+        
+        //If HYPE is full and player is on top of a train, spawn a HYPE Plane
+        if (ScoreKeeper.HYPE == 6 && player.transform.position.y > 18.5 && planeSpawn) {
 			Instantiate (HYPEPlane, new Vector3 (player.transform.position.x - 50, 28, 0), Quaternion.identity);
 			planeSpawn = false;
 		}
 
-		//When HYPE is full, pressing the scroll wheel activates HYPE MODE, faster fire and no reloading, HYPE reset
-		if (((Input.GetButtonDown ("Interact") && Input.GetButton ("Reload")) || Input.GetButtonDown ("Fire3")) && ScoreKeeper.HYPE == 6) {
+		//When HYPE is full, pressing the scroll wheel activates HYPE MODE
+		if (Input.GetButtonDown ("Fire3") && ScoreKeeper.HYPE == 6) {
 			BeginHype ();
 		}
 
-		//rotation
-		Vector3 mousePos = Reticle.recPos;
-		mousePos.z = 5.23f;
-		
-		Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
-		mousePos.x = mousePos.x - objectPos.x;
-		mousePos.y = mousePos.y - objectPos.y;
-		
-		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-	
-		//Gun image will flip depending on where the mouse is relative to the player
-		if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1,1,1);
-		else transform.localScale = new Vector3(1,-1,1);
+        //GUN / ARM ROTATION
+        if (oldGunLogic) {
+            Vector3 mousePos = Reticle.recPos;
+            mousePos.z = 5.23f;
 
+            Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+            mousePos.x = mousePos.x - objectPos.x;
+            mousePos.y = mousePos.y - objectPos.y;
+
+            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
+            //Gun image will flip depending on where the mouse is relative to the player
+            if (mousePos.x - 15 > player.transform.position.x) transform.localScale = new Vector3(1, 1, 1);
+            else transform.localScale = new Vector3(1, -1, 1);
+        }
+
+        //GUN / ARM DIRECTION
+        //Orient the arm in the appropriate cardinal direction based on vertical input.
+        if (!oldGunLogic) {
+            int verticatInput = (int)Input.GetAxisRaw("Vertical");
+            switch (verticatInput) {
+                case -1:
+                    transform.localEulerAngles = new Vector3(0, 0, -90);
+                    break;
+                case 0:
+                    transform.localEulerAngles = new Vector3(0, transform.rotation.y, 0);
+                    break;
+                case 1:
+                    transform.localEulerAngles = new Vector3(0, 0, 90);
+                    break;
+            }
+        }
+        
+        
 		if (ShootButton() && Firable ()) {
 			
 			if (equippedHype != null && hypeActive) {
@@ -115,8 +144,9 @@ public class Gun : LogController {
 				Shoot ();
 
 		}
-		/////////////////////////////
 
+        //MANUAL RELOAD
+        //If reload is pressed and clip is not full, reload
 		if (Input.GetButtonDown ("Reload") && inMag != magSize) {
 			StartCoroutine (WaitAndReload ());
 		}
@@ -128,7 +158,7 @@ public class Gun : LogController {
 		AudioSource.PlayClipAtPoint(gunshot, Camera.main.transform.position);
 
 		StartCoroutine(WaitAndEnableShoot (interShotDelay));
-		inMag -= 1;
+		inMag--;
 		adjustCounter(inMag);
 		var pos = Reticle.recPos;
 		pos.z = transform.position.z - Camera.main.transform.position.z;
@@ -143,23 +173,32 @@ public class Gun : LogController {
 			gunSprite.sprite = gunRegular;
 			keyLoaded = false;
 		}
-		Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
-		go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
-
+        if (oldGunLogic)
+        {
+            Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, q) as Rigidbody2D;
+            go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
+        }
+        else {
+            Rigidbody2D go = Instantiate(toShoot, shootFrom.transform.position, shootFrom.transform.rotation) as Rigidbody2D;
+            go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * bulletSpeed);
+        }
+		
 		GameObject particles = (GameObject)Instantiate(shotParticles, shootFrom.transform.position, shootFrom.transform.rotation);
 		particles.GetComponent<ParticleSystem>().Play ();
         Destroy(particles, particles.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-        //If out of bullets after shooting, reload
-        if (inMag <= 0){
-			StartCoroutine (WaitAndReload ());
-		}
-
+        //Firing knockback
 		if(!playerScript.IsGrounded()){
 			//Debug.Log(new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce));
-			player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
+			//player.GetComponent<Rigidbody2D>().AddForce (new Vector2(go.transform.up.x * -kickForce, go.transform.up.y * -kickForce ));
 		}
-	}
+
+        //If clip is empty, auto-reload
+        if (inMag <= 0)
+        {
+            StartCoroutine(WaitAndReload());
+        }
+    }
 
 	/*void FixedUpdate() {
 
@@ -198,56 +237,35 @@ public class Gun : LogController {
 	}
 
 	public void adjustCounter(int currBulls){
-		if (currBulls == 4) {
-			bull1.SetActive (true);
-			bull2.SetActive (true);
-			bull3.SetActive (true);
-			bull4.SetActive (true);
-		}
-		if (currBulls == 3) {
-			bull1.SetActive (true);
-			bull2.SetActive (true);
-			bull3.SetActive (true);
-			bull4.SetActive (false);
-		}
-		if (currBulls == 2) {
-			bull1.SetActive (true);
-			bull2.SetActive (true);
-			bull3.SetActive (false);
-			bull4.SetActive (false);
-		}
-		if (currBulls == 1) {
-			bull1.SetActive (true);
-			bull2.SetActive (false);
-			bull3.SetActive (false);
-			bull4.SetActive (false);
-		}
-		if (currBulls == 0) {
-			bull1.SetActive (false);
-			bull2.SetActive (false);
-			bull3.SetActive (false);
-			bull4.SetActive (false);
-		}
+        //If value is equal to the magSize, re-enable all UI bullets
+        if (currBulls == magSize) {
+            for (int i = 0; i < currBulls; i++)
+            {
+                UIBullets[i].SetActive(true);
+            }
+        }
+        //Otherwise, deactivate the bullet that was just expended
+        else
+        {
+            UIBullets[currBulls].SetActive(false);
+        }
 	}
 
 	public void HypeCounter() {
 		//Bullet counter modifications for during and after HYPEmode
 		if (ScoreKeeper.HYPED) {
-			bull1.SetActive (true);
-			bull2.SetActive (true);
-			bull3.SetActive (true);
-			bull4.SetActive (true);
-			bull1.GetComponent<RawImage>().color = Color.red;
-			bull2.GetComponent<RawImage>().color = Color.red;
-			bull3.GetComponent<RawImage>().color = Color.red;
-			bull4.GetComponent<RawImage>().color = Color.red;
+            for (int i = 0; i < magSize; i++)
+            {
+                UIBullets[i].SetActive(true);
+                UIBullets[i].GetComponent<RawImage>().color = Color.red;
+            }
 		}
 		if (!ScoreKeeper.HYPED) {
-			bull1.GetComponent<RawImage>().color = Color.white;
-			bull2.GetComponent<RawImage>().color = Color.white;
-			bull3.GetComponent<RawImage>().color = Color.white;
-			bull4.GetComponent<RawImage>().color = Color.white;
-		}
+            for (int i = 0; i < magSize; i++)
+            {
+                UIBullets[i].GetComponent<RawImage>().color = Color.white;
+            }
+        }
 	}
 
 	bool ShootButton() {
